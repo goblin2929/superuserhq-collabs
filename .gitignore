@@ -1,0 +1,34 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temp files
+*.tmp
+*.log
+
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+
+# Environment
+.env
+.env.local
+.env.*
+
+# Binary media (manage externally)
+*.pptx
+*.ppt
+*.key
+*.mp4
+*.mov
+*.avi
+*.zip
+*.tar.gz
