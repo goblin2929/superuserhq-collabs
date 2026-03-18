@@ -15,6 +15,11 @@ Multi-client collaboration workspace for training content and project plans.
 - Client folders: lowercase-kebab-case (e.g., `tiket`, `acme-corp`)
 - Only commit text-based content. Large binaries are managed externally.
 
+## Git Workflow
+
+- **Before committing:** Always `git pull origin main` first to avoid conflicts.
+- **After committing:** Prompt the user to push (`git push origin main`).
+
 ## Adding a New Client
 
 ```bash
