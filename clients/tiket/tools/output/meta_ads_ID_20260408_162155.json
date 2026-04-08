@@ -1,0 +1,209 @@
+{
+  "scrape_meta": {
+    "country": "ID",
+    "sector": "travel",
+    "lookback_days": 30,
+    "scraped_at": "2026-04-08T16:23:42.838698",
+    "total_ads": 10,
+    "keywords_searched": [
+      "hotel deals",
+      "travel booking",
+      "hotel promo",
+      "liburan",
+      "hotel murah",
+      "tiket pesawat",
+      "staycation",
+      "resort",
+      "Traveloka",
+      "Agoda",
+      "Booking.com",
+      "Klook"
+    ]
+  },
+  "ads": [
+    {
+      "index": 0,
+      "scraped_at": "2026-04-08T16:22:08.929470",
+      "advertiser": "Sponsored",
+      "ad_copy": "Going to Lipany? We can help you find the perfect place for the way you travel",
+      "platforms": [
+        "Instagram"
+      ],
+      "format": "video",
+      "cta": "HYATT.COM\nExclusive Offers & Deals | Hotel Toranomon Hills\nLearn More",
+      "search_keyword": "hotel deals",
+      "virality_score": 3,
+      "hook_type": [
+        "question"
+      ],
+      "hook_first_line": "Going to Lipany? We can help you find the perfect place for the way you travel",
+      "rank": 1
+    },
+    {
+      "index": 0,
+      "scraped_at": "2026-04-08T16:22:19.772432",
+      "advertiser": "Sponsored",
+      "ad_copy": "Discover the Magic of Cappadocia – Book Now & Save 5%!\n\nReady to explore Cappadocia’s stunning landscapes, fairy chimneys, and timeless history? Don’t miss this limited-time opportunity!\n\n🔖 Use discount code: 2025 on the booking page and get 5% OFF your tour instantly.\n\n✅ 100% Refund Guarantee – Cancel up to 24 hours before and get a full refund.\n✅ Best Price Guarantee – No hidden fees, ever.\n✅ 24/7 WhatsApp Support – We’re here whenever you need us.\n\n✨Your satisfaction is our priority – we care about your experience from start to finish.\n\n👉 Book now and secure your place:\n🌐 https://travel-cappadocia.com\n📧 sky@travel-cappadocia.com\n📱 WhatsApp: +90 544 338 27 23",
+      "platforms": [
+        "Instagram"
+      ],
+      "format": "video",
+      "cta": "ANGELAPERSONALTUSCANTOUR.COM\nNothing speaks better of us than the words of our customers\nDon't miss the opportunity! Join the tour of a lifetime\nBook Now",
+      "search_keyword": "travel booking",
+      "virality_score": 3,
+      "hook_type": [
+        "urgency",
+        "discount",
+        "social_proof",
+        "question"
+      ],
+      "hook_first_line": "Discover the Magic of Cappadocia – Book Now & Save 5%!",
+      "rank": 2
+    },
+    {
+      "index": 0,
+      "scraped_at": "2026-04-08T16:22:30.043980",
+      "advertiser": "Sponsored",
+      "ad_copy": "Keliling dunia kini lebih murah!\nPesan sekarang dan nikmati harga terbaik untuk hotel di 180+ negara di seluruh dunia!",
+      "platforms": [
+        "Instagram"
+      ],
+      "format": "video",
+      "cta": "INSTAGRAM.COM\nChat with us\nSend Message",
+      "search_keyword": "hotel promo",
+      "virality_score": 3,
+      "hook_type": [
+        "discount",
+        "social_proof"
+      ],
+      "hook_first_line": "Keliling dunia kini lebih murah!",
+      "rank": 3
+    },
+    {
+      "index": 0,
+      "scraped_at": "2026-04-08T16:22:40.296111",
+      "advertiser": "Sponsored",
+      "ad_copy": "Paling enak liburan di Sea World Ancol, banyak buat cuci mata melihat ikan dan ruangannya dingin!",
+      "platforms": [
+        "Instagram"
+      ],
+      "format": "video",
+      "cta": "SHOPEE.CO.ID\nJual Azarine Kids Holiday Season Favorite Set [3 PCS] Bundle Favorit Anak Whip And Wash Facial Wash 100 ml, Moisture Cream Anak, Parfum Eau de Toilette Cosmic Series 50ml ( bebas pilih 1 varian dari 4 varian parfum cosmic series ) | Shopee Indonesia\nShop Now",
+      "search_keyword": "liburan",
+      "virality_score": 3,
+      "hook_type": [
+        "informational"
+      ],
+      "hook_first_line": "Paling enak liburan di Sea World Ancol, banyak buat cuci mata melihat ikan dan ruangannya dingin!",
+      "rank": 4
+    },
+    {
+      "index": 0,
+      "scraped_at": "2026-04-08T16:23:01.097096",
+      "advertiser": "Sponsored",
+      "ad_copy": "Bebas hambatan dan lebih praktis dengan layanan antar-jemput bandara, khusus untuk Anda\n Lebih hemat dengan cashback tiket pesawat hingga Rp12 juta per tahun\n\nBergabung dengan #PermataBankPriority sekarang, dan temukan pengalaman perbankan yang memberi lebih dari sebatas layanan finansial.\n\nInfo lebih lanjut, hubungi Priority Contact Center 1500-100 atau kunjungi permatabank.com.\n\n#GrowingTogether #PrestigiousJourneyPartner #EveryoneIsPriority",
+      "platforms": [
+        "Instagram"
+      ],
+      "format": "video",
+      "cta": "TIKET.COM\nPromo Tiket Mudik & Libur Lebaran 2026 - THR tiket.com\nLearn More",
+      "search_keyword": "tiket pesawat",
+      "virality_score": 3,
+      "hook_type": [
+        "informational"
+      ],
+      "hook_first_line": "Bebas hambatan dan lebih praktis dengan layanan antar-jemput bandara, khusus untuk Anda",
+      "rank": 5
+    },
+    {
+      "index": 0,
+      "scraped_at": "2026-04-08T16:23:10.858233",
+      "advertiser": "Sponsored",
+      "ad_copy": "Trying something new just got even more exciting 👀🥳 #MarriottBonvoyPartner\n\nComment PASSPORT and I’ll DM you the Iink to join in on the fun! 📥\n\nThink of it like a brand passport, but instead of stamps, you earn 2,500 bonus points and a bonus elite night credit for every different @marriottbonvoy brand you try (over 30 different brands!) - meaning the more you mix it up, the more bonus points AND elite night credits you rack up!!\n\nEven within the same city, the earning potential is kind of wild (and easy to earn) - I went to Miami three ways across three stays and have already earned a bonus at each:\n\n🧖‍♀️ a wellness reset at @jwturnberry, \n💻 a work trip at @miamimarriottbiscaynebay, \n🏖️ and a beach getaway at @theshelborne -\n\nsame city, three different brands, three bonuses earned 🎉\n\nRegister by April 26th and eligible stays count through May 10th!! (Paid stays only!) 🤗\n\n#MarriottBonvoy #travelrewards #traveltips #hotellife Miami hotels",
+      "platforms": [
+        "Instagram"
+      ],
+      "format": "video",
+      "cta": "WWW.MARRIOTTBONVOY.COM\nLAX to Luxury\nLearn more",
+      "search_keyword": "staycation",
+      "virality_score": 3,
+      "hook_type": [
+        "urgency"
+      ],
+      "hook_first_line": "Trying something new just got even more exciting 👀🥳 #MarriottBonvoyPartner",
+      "rank": 6
+    },
+    {
+      "index": 0,
+      "scraped_at": "2026-04-08T16:23:18.851994",
+      "advertiser": "2 ads",
+      "ad_copy": "A new door to Ubud's soul and natural harmony, whispered through the island's living rhythm.",
+      "platforms": [
+        "Instagram"
+      ],
+      "format": "video",
+      "cta": "BEQALAGOONRESORT.COM\nDiving Eye to Eye\nContact Us",
+      "search_keyword": "resort",
+      "virality_score": 3,
+      "hook_type": [
+        "informational"
+      ],
+      "hook_first_line": "A new door to Ubud's soul and natural harmony, whispered through the island's living rhythm.",
+      "rank": 7
+    },
+    {
+      "index": 0,
+      "scraped_at": "2026-04-08T16:23:25.953430",
+      "advertiser": "Sponsored",
+      "ad_copy": "Pesan tiket pesawat lebih murah hanya di Traveloka. Ayo pesan tiket pesawatnya sekarang!",
+      "platforms": [
+        "Instagram"
+      ],
+      "format": "video",
+      "cta": "INSTAGRAM.COM\nVisit Instagram Profile",
+      "search_keyword": "Traveloka",
+      "virality_score": 3,
+      "hook_type": [
+        "discount"
+      ],
+      "hook_first_line": "Pesan tiket pesawat lebih murah hanya di Traveloka. Ayo pesan tiket pesawatnya sekarang!",
+      "rank": 8
+    },
+    {
+      "index": 0,
+      "scraped_at": "2026-04-08T16:23:32.790561",
+      "advertiser": "Sponsored",
+      "ad_copy": "The lowest rates on hotels in over 180 countries worldwide",
+      "platforms": [
+        "Unknown"
+      ],
+      "format": "video",
+      "cta": "AGODA.COM\nNovotel Makassar Grand Shayla Hotel, Makassar\nBook your perfect holiday with Agoda and enjoy our great discounts on hotels, homes, flights and activities. Get the Agoda app!\nBook Now",
+      "search_keyword": "Agoda",
+      "virality_score": 3,
+      "hook_type": [
+        "informational"
+      ],
+      "hook_first_line": "The lowest rates on hotels in over 180 countries worldwide",
+      "rank": 9
+    },
+    {
+      "index": 0,
+      "scraped_at": "2026-04-08T16:23:41.575597",
+      "advertiser": "Sponsored",
+      "ad_copy": "With free cancellation, you can stay flexible. Book the perfect stay with peace of mind.",
+      "platforms": [
+        "Instagram"
+      ],
+      "format": "video",
+      "cta": "HOPINNHOTEL.COM\nLong stay in Bowin?\nSave 5% + extra member discount.\nBook Now",
+      "search_keyword": "Booking.com",
+      "virality_score": 3,
+      "hook_type": [
+        "discount"
+      ],
+      "hook_first_line": "With free cancellation, you can stay flexible. Book the perfect stay with peace of mind.",
+      "rank": 10
+    }
+  ]
+}

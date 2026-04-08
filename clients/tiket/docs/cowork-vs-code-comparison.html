@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { padding: 60px 80px; background: white; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1a1a1a; }
+  h1 { text-align: center; font-size: 36px; margin-bottom: 8px; font-weight: 700; }
+  .subtitle { text-align: center; font-size: 17px; color: #888; margin-bottom: 50px; }
+
+  .comparison { display: flex; gap: 60px; justify-content: center; align-items: flex-start; }
+  .panel { flex: 1; max-width: 620px; }
+  .panel-title { text-align: center; font-size: 22px; font-weight: 700; padding: 14px 20px; border-radius: 10px; margin-bottom: 30px; }
+  .cw-title { color: #bf360c; background: #fff3e0; border: 2px solid #e65100; }
+  .cc-title { color: #0d47a1; background: #e3f2fd; border: 2px solid #1565c0; }
+
+  .divider { width: 2px; background: linear-gradient(to bottom, #ddd, #eee); min-height: 600px; margin-top: 60px; }
+
+  /* Layer system */
+  .layer { position: relative; margin-bottom: 20px; }
+  .layer-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #999; margin-bottom: 8px; padding-left: 4px; }
+  .layer-content { display: flex; gap: 14px; align-items: stretch; }
+  .layer-content.single { display: block; }
+
+  /* Cards */
+  .card { border-radius: 10px; padding: 18px 20px; flex: 1; }
+  .card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .card p { font-size: 13px; line-height: 1.5; color: #555; }
+  .card .tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-top: 8px; }
+
+  /* Cowork colors */
+  .cw-primary { background: #ffcc80; border: 2px solid #e65100; }
+  .cw-secondary { background: #ffe0b2; border: 2px solid #f57c00; }
+  .cw-primary h3 { color: #bf360c; }
+  .cw-secondary h3 { color: #e65100; }
+  .cw-warn { background: #c62828; color: white; }
+  .cw-ok { background: #2e7d32; color: white; }
+
+  /* Code colors */
+  .cc-l1 { background: #90caf9; border: 2px solid #1565c0; }
+  .cc-l2 { background: #bbdefb; border: 2px solid #1976d2; }
+  .cc-l3 { background: #e3f2fd; border: 2px solid #42a5f5; }
+  .cc-l1 h3 { color: #0d47a1; }
+  .cc-l2 h3 { color: #0d47a1; }
+  .cc-l3 h3 { color: #1565c0; }
+  .cc-ok { background: #1565c0; color: white; }
+
+  /* Arrows */
+  .arrow-down { text-align: center; font-size: 28px; color: #bbb; margin: 6px 0; }
+  .arrow-down.cw { color: #e65100; }
+  .arrow-down.cc { color: #1565c0; }
+
+  /* No connection */
+  .no-connect { display: flex; align-items: center; justify-content: center; gap: 8px; margin: -4px 0 -4px 0; }
+  .no-connect .dash { flex: 1; height: 2px; border-top: 2px dashed #e65100; opacity: 0.4; }
+  .no-connect .x { font-size: 13px; color: #c62828; font-weight: 700; background: white; padding: 0 6px; }
+
+  /* Callout */
+  .callout { margin-top: 24px; padding: 16px 20px; border-radius: 10px; font-size: 13px; line-height: 1.6; }
+  .cw-callout { background: #fff8e1; border-left: 4px solid #e65100; }
+  .cc-callout { background: #e8f5e9; border-left: 4px solid #1565c0; }
+  .callout strong { font-size: 14px; }
+
+  /* Governance gaps */
+  .gap-section { margin-top: 60px; padding: 40px; background: #fafafa; border-radius: 14px; border: 1px solid #e0e0e0; }
+  .gap-title { font-size: 26px; font-weight: 700; margin-bottom: 8px; text-align: center; color: #c62828; }
+  .gap-subtitle { font-size: 15px; color: #888; text-align: center; margin-bottom: 28px; }
+  .gaps { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .gap-card { background: white; border: 1px solid #e0e0e0; border-left: 5px solid #c62828; border-radius: 10px; padding: 20px; }
+  .gap-card h3 { margin: 0 0 10px 0; font-size: 15px; color: #c62828; }
+  .gap-card .problem { font-size: 13px; color: #666; margin-bottom: 10px; line-height: 1.5; }
+  .gap-card .solution { font-size: 13px; color: #1565c0; font-weight: 600; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<h1>Configuration Architecture: Cowork vs Claude Code</h1>
+<p class="subtitle">How instructions, skills, and team standards are structured</p>
+
+<div class="comparison">
+
+  <!-- COWORK SIDE -->
+  <div class="panel">
+    <div class="panel-title cw-title">COWORK — 2 Layers, Flat</div>
+
+    <div class="layer">
+      <div class="layer-label">Layer 1 — Global (per-person)</div>
+      <div class="layer-content">
+        <div class="card cw-primary">
+          <h3>Custom Instructions</h3>
+          <p>One text box per person. Applies to all conversations.</p>
+          <span class="tag cw-warn">Not enforceable — 25 people write 25 versions</span>
+        </div>
+        <div class="card cw-primary">
+          <h3>Skills</h3>
+          <p>ZIP uploads via Settings. Auto-triggered when relevant.</p>
+          <span class="tag cw-warn">Per-person — each uploads individually</span>
+        </div>
+      </div>
+      <div style="text-align:center; font-size:12px; color:#999; margin-top:6px;">Skills and Custom Instructions are independent — no connection between them</div>
+    </div>
+
+    <div class="arrow-down cw">↓</div>
+
+    <div class="layer">
+      <div class="layer-label">Layer 2 — Projects (shareable on Team plan)</div>
+      <div class="layer-content">
+        <div class="card cw-secondary">
+          <h3>Project: Sales BD</h3>
+          <p>Instructions + uploaded docs</p>
+          <span class="tag cw-ok">Shareable</span>
+        </div>
+        <div class="card cw-secondary">
+          <h3>Project: TDD Content</h3>
+          <p>Instructions + uploaded docs</p>
+          <span class="tag cw-ok">Shareable</span>
+        </div>
+        <div class="card cw-secondary">
+          <h3>Project: Marketing</h3>
+          <p>Instructions + uploaded docs</p>
+          <span class="tag cw-ok">Shareable</span>
+        </div>
+      </div>
+      <div class="no-connect">
+        <div class="dash"></div>
+        <div class="x">no connection between projects</div>
+        <div class="dash"></div>
+      </div>
+    </div>
+
+    <div class="callout cw-callout">
+      <strong>How it works:</strong> Custom Instructions apply globally but each person writes their own. Projects are shareable but independent — Sales doesn't inherit from a "company" layer. Skills float separately, uploaded per person. No version history.
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- CLAUDE CODE SIDE -->
+  <div class="panel">
+    <div class="panel-title cc-title">CLAUDE CODE — Multi-Layer, Shared Repo</div>
+
+    <div class="layer">
+      <div class="layer-label">Layer 1 — Global (loads every session)</div>
+      <div class="layer-content">
+        <div class="card cc-l1">
+          <h3>~/.claude/CLAUDE.md</h3>
+          <p>Communication style, rules, MCP integrations, memory protocol.</p>
+          <span class="tag cc-ok">One version — everyone gets it</span>
+        </div>
+        <div class="card cc-l1">
+          <h3>~/.claude/skills/</h3>
+          <p>Global skills available in every project. prospect-audit, content-production, aeo-report...</p>
+          <span class="tag cc-ok">In git repo — update once, all synced</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow-down cc">↓ inherits</div>
+
+    <div class="layer">
+      <div class="layer-label">Layer 2 — Company (loads when in this repo)</div>
+      <div class="layer-content single">
+        <div class="card cc-l2">
+          <h3>novastacks/CLAUDE.md</h3>
+          <p>Brand voice, service offerings, methodology, client list, content pillars. Inherited by ALL client folders below.</p>
+          <span class="tag cc-ok">Company standards — always present</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow-down cc">↓ inherits</div>
+
+    <div class="layer">
+      <div class="layer-label">Layer 3 — Client (loads when in this folder)</div>
+      <div class="layer-content">
+        <div class="card cc-l3">
+          <h3>clients/gofreight/</h3>
+          <p>CLAUDE.md: HubSpot portal, blog workflow, keywords, brand.</p>
+          <p style="margin-top:4px;">skills/: blog-publish-hubspot.md</p>
+        </div>
+        <div class="card cc-l3">
+          <h3>clients/tiket/</h3>
+          <p>CLAUDE.md: Internal API endpoints, product feed, brand voice.</p>
+          <p style="margin-top:4px;">skills/: partner-report.md</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout cc-callout">
+      <strong>How it works:</strong> Layers stack automatically. Working on GoFreight loads Global + Company + GoFreight = 3 layers. Company methodology is always present — never copy-pasted, never forgotten. One repo, one truth. git pull to sync 25 people.
+    </div>
+  </div>
+
+</div>
+
+<!-- GOVERNANCE GAPS -->
+<div class="gap-section">
+  <div class="gap-title">The 4 Governance Gaps at Team Scale</div>
+  <div class="gap-subtitle">Why 2 layers breaks down at 25 people</div>
+  <div class="gaps">
+    <div class="gap-card">
+      <h3>1. No Enforcement</h3>
+      <div class="problem">Cowork: Each person writes their own Custom Instructions. Person 1: "be formal." Person 15: blank. Person 22: "be casual." No admin control.</div>
+      <div class="solution">Code: One CLAUDE.md in the repo. Everyone gets it. VP approved it.</div>
+    </div>
+    <div class="gap-card">
+      <h3>2. No Central Skill Management</h3>
+      <div class="problem">Cowork: Each person uploads skills individually. "Everyone use /call-prep v2" — did all 25 update? No way to check.</div>
+      <div class="solution">Code: Update the skill file once. git pull. 25 people have v2. Verified.</div>
+    </div>
+    <div class="gap-card">
+      <h3>3. No Version Control</h3>
+      <div class="problem">Cowork: Someone edits the shared Project instructions. What changed? When? Why? No history. No diff. No rollback.</div>
+      <div class="solution">Code: git log shows every change — who, when, why. git revert if needed.</div>
+    </div>
+    <div class="gap-card">
+      <h3>4. No Audit Trail</h3>
+      <div class="problem">Cowork: VP asks "what skills is my team running? What changed last month?" No answer.</div>
+      <div class="solution">Code: VP opens the repo. Full visibility. Every file, every commit.</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
