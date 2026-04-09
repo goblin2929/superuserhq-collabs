@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Code for B2B Marketing & Sales — Workshop Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   Design System — warm cream, terracotta, serif
+   Reference: madebypan.com/claude-guide
+   ═══════════════════════════════════════════ */
+
+:root {
+  --cream: #FAF8F0;
+  --white: #FFFFFF;
+  --border: #E8E0D8;
+  --text: #2C2520;
+  --text-secondary: #6B5E52;
+  --text-light: #999;
+  --terra: #D97757;
+  --terra-dark: #C0613D;
+  --terra-light-bg: #FFF3EE;
+  --terra-light-border: #F0D5C5;
+  --dark: #2C2520;
+  --dark-soft: #3D3530;
+  --header-bg: #F5F0E8;
+  --analogy-text: #8B7355;
+  --analogy-bg: #F5F0E8;
+  --green-bg: #E6F4EA;
+  --green-text: #1E7F3F;
+  --orange-bg: #FFF3EE;
+  --orange-text: #D97757;
+  --red-bg: #FEECED;
+  --red-text: #C0392B;
+  --gray-bg: #E8E0D8;
+  --gray-text: #555;
+  --blue-bg: #E8F0FE;
+  --blue-text: #1A56DB;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scroll Animations ── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Top Banner ── */
+.top-banner {
+  display: flex;
+  font-size: 13px;
+  font-weight: 500;
+  height: 36px;
+}
+
+.top-banner .left {
+  flex: 1;
+  background: var(--terra);
+  color: white;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.top-banner .left a { color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.2s; }
+.top-banner .left a:hover { color: white; }
+
+.top-banner .right {
+  flex: 1;
+  background: var(--dark);
+  color: rgba(255,255,255,0.7);
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.top-banner .right a { color: rgba(255,255,255,0.85); text-decoration: none; transition: color 0.2s; }
+.top-banner .right a:hover { color: white; }
+
+/* ── Sticky Nav ── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250,248,240,0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+}
+
+.nav-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+
+.nav a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 14px 12px;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.nav a:hover { color: var(--text); }
+.nav a.active { color: var(--terra); border-bottom-color: var(--terra); }
+
+/* ── Layout ── */
+.container { max-width: 960px; margin: 0 auto; padding: 0 40px; }
+
+section { padding: 80px 0; }
+section + section { border-top: 1px solid var(--border); }
+
+/* ── Typography ── */
+.sec-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--terra);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.sec-title {
+  font-family: 'Source Serif 4', 'Lora', serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.sec-desc {
+  font-size: 16px;
+  color: var(--text-secondary);
+  max-width: 640px;
+  margin-bottom: 40px;
+  line-height: 1.7;
+}
+
+/* ── Hero ── */
+.hero {
+  padding: 80px 40px 60px;
+  text-align: center;
+}
+
+.hero-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.hero-logos img { height: 28px; }
+.hero-logos .x { color: var(--text-light); font-size: 14px; }
+
+.hero-badge {
+  display: inline-block;
+  background: var(--terra-light-bg);
+  color: var(--terra);
+  border: 1px solid var(--terra-light-border);
+  border-radius: 100px;
+  padding: 6px 18px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-family: 'Source Serif 4', 'Lora', serif;
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-sub {
+  font-size: 17px;
+  color: var(--text-secondary);
+  max-width: 540px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.hero-meta .dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--terra);
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* ── Card Styles ── */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(44,37,32,0.06);
+}
+
+.card-highlight {
+  background: var(--terra-light-bg);
+  border: 1px solid var(--terra-light-border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.card-dark {
+  background: var(--dark);
+  border: 1px solid var(--dark-soft);
+  border-radius: 12px;
+  padding: 24px;
+  color: white;
+}
+.card-dark .card-desc { color: rgba(255,255,255,0.7); }
+.card-dark h3, .card-dark h4 { color: white; }
+
+/* ── Terracotta Banner ── */
+.terra-banner {
+  background: var(--terra);
+  color: white;
+  border-radius: 12px;
+  padding: 20px 28px;
+  font-size: 17px;
+  font-weight: 600;
+  text-align: center;
+  margin: 24px 0;
+}
+.terra-banner .sub { font-weight: 400; font-size: 14px; opacity: 0.9; margin-top: 4px; }
+
+/* ── Badges/Tags ── */
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 100px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+.tag-cowork { background: var(--orange-bg); color: var(--orange-text); }
+.tag-code { background: var(--gray-bg); color: var(--gray-text); }
+.tag-beta { background: var(--green-bg); color: var(--green-text); }
+.tag-both { background: var(--green-bg); color: var(--green-text); }
+.tag-either { background: var(--green-bg); color: var(--green-text); }
+.tag-blue { background: var(--blue-bg); color: var(--blue-text); }
+
+/* ── Analogy Box ── */
+.analogy {
+  font-family: 'Lora', 'Source Serif 4', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--analogy-text);
+  background: var(--analogy-bg);
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin-top: 12px;
+  line-height: 1.6;
+}
+.analogy::before { content: '"'; }
+.analogy::after { content: '"'; }
+
+/* ── Grid Layouts ── */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.grid-2x3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ── Table Styles ── */
+.table-wrap {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  font-size: 14px;
+}
+
+table th {
+  background: var(--header-bg);
+  font-weight: 600;
+  font-size: 13px;
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+
+table th.highlight {
+  background: var(--terra);
+  color: white;
+}
+
+table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+table tr:last-child td { border-bottom: none; }
+
+.check { color: var(--green-text); font-weight: 700; font-size: 16px; }
+.cross { color: var(--text-light); font-size: 16px; }
+.check-red { color: var(--red-text); font-weight: 700; font-size: 16px; }
+
+/* ── Icon in Card ── */
+.card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+.card-icon-terra { background: var(--terra-light-bg); color: var(--terra); }
+.card-icon-dark { background: rgba(255,255,255,0.1); color: white; }
+.card-icon-green { background: var(--green-bg); color: var(--green-text); }
+
+.card h4 {
+  font-family: 'Source Serif 4', 'Lora', serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.card-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.card-dark .card-desc { color: rgba(255,255,255,0.7); }
+
+.card-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+/* ── Steps (Section 07) ── */
+.steps { display: flex; flex-direction: column; gap: 0; }
+
+.step {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.step-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.step-num {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--terra);
+  color: white;
+  font-family: 'Source Serif 4', serif;
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.step-line {
+  width: 2px;
+  height: 40px;
+  background: var(--border);
+  margin: 4px 0;
+}
+
+.step-content {
+  padding-bottom: 32px;
+  flex: 1;
+}
+
+.step-content h4 {
+  font-family: 'Source Serif 4', 'Lora', serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.step-content p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+/* ── Code Blocks ── */
+.code-block {
+  background: var(--dark);
+  color: #E8E0D8;
+  border-radius: 10px;
+  padding: 16px 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-x: auto;
+  margin-top: 8px;
+}
+.code-block .prompt { color: var(--terra); }
+.code-block .comment { color: #7a7067; }
+
+/* ── Comparison Panels (Section 06) ── */
+.compare-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.panel-warm {
+  background: var(--terra-light-bg);
+  border: 1px solid var(--terra-light-border);
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.panel-cool {
+  background: #F0F4F8;
+  border: 1px solid #D0D8E0;
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.panel-warm h4, .panel-cool h4 {
+  font-family: 'Source Serif 4', 'Lora', serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* ── Governance Gap Cards ── */
+.gap-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--red-text);
+  border-radius: 0 12px 12px 0;
+  padding: 16px 20px;
+}
+.gap-card h5 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--red-text);
+  margin-bottom: 4px;
+}
+.gap-card p {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* ── Layer Diagrams ── */
+.layer-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+.layer {
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+}
+.layer-user { background: #E8E0D8; color: var(--text); }
+.layer-claude { background: var(--terra); color: white; }
+.layer-org { background: var(--dark); color: white; }
+.layer-project { background: var(--terra-light-bg); color: var(--terra); border: 1px solid var(--terra-light-border); }
+.layer-personal { background: #E6F4EA; color: var(--green-text); border: 1px solid #C3E6CB; }
+
+.arrow-down {
+  text-align: center;
+  color: var(--text-light);
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* ── Numbered Principles (Section 10) ── */
+.principle {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+.principle:last-child { border-bottom: none; }
+
+.principle-num {
+  font-family: 'Source Serif 4', 'Lora', serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--terra);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 48px;
+}
+
+.principle h4 {
+  font-family: 'Source Serif 4', 'Lora', serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.principle p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ── Footer ── */
+footer {
+  background: var(--dark);
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  padding: 48px 40px;
+}
+footer strong { color: white; font-weight: 600; }
+footer .footer-sub { font-size: 13px; margin-top: 8px; color: rgba(255,255,255,0.4); }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .top-banner { flex-direction: column; height: auto; }
+  .top-banner .left, .top-banner .right { padding: 8px 20px; }
+  .nav { padding: 0 20px; }
+  .container { padding: 0 20px; }
+  .hero { padding: 48px 20px 40px; }
+  section { padding: 48px 0; }
+  .grid-3, .grid-2x3 { grid-template-columns: 1fr; }
+  .grid-2, .compare-panels { grid-template-columns: 1fr; }
+  .hero-meta { flex-direction: column; gap: 8px; }
+  .sec-title { font-size: 26px; }
+  .table-wrap { margin: 0 -20px; border-radius: 0; border-left: 0; border-right: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ TOP BANNER ═══ -->
+<div class="top-banner">
+  <div class="left">
+    <span>Novastacks AI</span>
+    <a href="https://novastacks-ai.com" target="_blank">novastacks-ai.com</a>
+  </div>
+  <div class="right">
+    <span>Superuser HQ</span>
+    <a href="https://superuserhq.com" target="_blank">superuserhq.com</a>
+  </div>
+</div>
+
+<!-- ═══ STICKY NAV ═══ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#products">01 Products</a>
+    <a href="#when">02 When</a>
+    <a href="#ecosystem">03 Ecosystem</a>
+    <a href="#why-code">04 Why Code</a>
+    <a href="#concepts">05 Concepts</a>
+    <a href="#architecture">06 Architecture</a>
+    <a href="#getting-started">07 Getting Started</a>
+    <a href="#skills">08 Skills</a>
+    <a href="#advanced">09 Advanced</a>
+    <a href="#mindset">10 Mindset</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero fade-in">
+  <div class="hero-logos">
+    <img src="novastacks-logo-color.png" alt="Novastacks AI">
+    <span class="x">&times;</span>
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#2C2520"/><text x="5" y="20" fill="white" font-family="DM Sans" font-size="14" font-weight="700">SH</text></svg>
+  </div>
+  <div class="hero-badge">Workshop Guide</div>
+  <h1>Claude Code for B2B Marketing &amp; Sales</h1>
+  <p class="hero-sub">A practical guide to deploying Claude across your marketing team &mdash; from chat to full autonomous workflows.</p>
+  <div class="hero-meta">
+    <span><span class="dot"></span>Tiket.com Team</span>
+    <span><span class="dot"></span>April 2026</span>
+    <span><span class="dot"></span>60 min workshop</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 01 — THREE WAYS TO USE CLAUDE
+     ═══════════════════════════════════════════ -->
+<section id="products">
+  <div class="container">
+    <div class="fade-in">
+      <div class="sec-num">01 &mdash; Products</div>
+      <h2 class="sec-title">Three Ways to Use Claude</h2>
+      <p class="sec-desc">Claude comes in three product forms, each with a different level of autonomy. Think of it as a spectrum: from conversation to delegation to full independence.</p>
+    </div>
+
+    <div class="grid-3 fade-in">
+      <!-- App -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <div class="card-tags"><span class="tag tag-cowork">App</span></div>
+        <h4>Claude App</h4>
+        <p class="card-desc">The chat interface at claude.ai. You ask, it answers. Good for quick questions, brainstorming, and one-off tasks.</p>
+        <div class="analogy">Talk &mdash; you ask, it answers</div>
+      </div>
+
+      <!-- Cowork -->
+      <div class="card-highlight" style="border-radius:12px; padding:24px;">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div class="card-tags"><span class="tag tag-cowork">Cowork</span></div>
+        <h4>Claude Cowork</h4>
+        <p class="card-desc" style="color:var(--text-secondary);">An agentic assistant that can use tools, browse the web, write files, and execute multi-step tasks in a shared workspace.</p>
+        <div class="analogy">Delegate &mdash; hand off tasks, it executes</div>
+      </div>
+
+      <!-- Code -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <div class="card-tags"><span class="tag tag-code">Code</span></div>
+        <h4>Claude Code</h4>
+        <p class="card-desc">A terminal-based autonomous agent. It reads your codebase, runs commands, builds entire workflows, and operates independently.</p>
+        <div class="analogy">Open a studio &mdash; let go, it works autonomously</div>
+      </div>
+    </div>
+
+    <!-- Callout -->
+    <div class="terra-banner fade-in" style="margin-top:32px;">
+      You're already here &mdash; your team has been using Cowork for 3 weeks.
+      <div class="sub">Today we go further. Let's unlock what Code can do.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 02 — WHEN TO USE WHAT
+     ═══════════════════════════════════════════ -->
+<section id="when">
+  <div class="container">
+    <div class="fade-in">
+      <div class="sec-num">02 &mdash; Comparison</div>
+      <h2 class="sec-title">When to Use What</h2>
+      <p class="sec-desc">Some tasks work great in Cowork. Others need Code. Here's a practical breakdown of where each product shines.</p>
+    </div>
+
+    <div class="table-wrap fade-in">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:40%;">Task</th>
+            <th style="width:20%;">Cowork</th>
+            <th class="highlight" style="width:20%;">Code</th>
+            <th style="width:20%;">Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Draft an email or message</td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="tag tag-either">Either</span></td>
+          </tr>
+          <tr>
+            <td>Research a competitor or topic</td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="tag tag-either">Either</span></td>
+          </tr>
+          <tr>
+            <td>Schedule a meeting or event</td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="tag tag-either">Either</span></td>
+          </tr>
+          <tr>
+            <td>Read & summarize Gmail threads</td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="tag tag-either">Either</span></td>
+          </tr>
+          <tr style="background:var(--terra-light-bg);">
+            <td><strong>Connect to internal APIs</strong></td>
+            <td><span class="cross">&#10005;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="tag tag-blue">Code</span></td>
+          </tr>
+          <tr style="background:var(--terra-light-bg);">
+            <td><strong>Automate product feed updates</strong></td>
+            <td><span class="cross">&#10005;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="tag tag-blue">Code</span></td>
+          </tr>
+          <tr style="background:var(--terra-light-bg);">
+            <td><strong>Generate Higgsfield/CapCut video</strong></td>
+            <td><span class="cross">&#10005;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="tag tag-blue">Code</span></td>
+          </tr>
+          <tr style="background:var(--terra-light-bg);">
+            <td><strong>Share workflows via Git</strong></td>
+            <td><span class="cross">&#10005;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="tag tag-blue">Code</span></td>
+          </tr>
+          <tr style="background:var(--terra-light-bg);">
+            <td><strong>VP-level audit of agent outputs</strong></td>
+            <td><span class="cross">&#10005;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="tag tag-blue">Code</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 03 — THE CLAUDE ECOSYSTEM
+     ═══════════════════════════════════════════ -->
+<section id="ecosystem">
+  <div class="container">
+    <div class="fade-in">
+      <div class="sec-num">03 &mdash; Ecosystem</div>
+      <h2 class="sec-title">The Claude Ecosystem</h2>
+      <p class="sec-desc">Beyond the core products, Claude has a growing ecosystem of capabilities. Each one extends what your team can do.</p>
+    </div>
+
+    <div class="grid-2 fade-in">
+      <!-- Tasks -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-cowork">Cowork</span>
+          <span class="tag tag-code">Code</span>
+        </div>
+        <h4>Tasks</h4>
+        <p class="card-desc">Schedule jobs to run on a cadence &mdash; daily reports, weekly audits, monthly roll-ups. Set it and forget it.</p>
+        <div class="analogy">Hand off work, go do something else, check results later</div>
+      </div>
+
+      <!-- Channels -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l4 16 4-8 8-4L4 4z"/></svg>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-cowork">Cowork</span>
+          <span class="tag tag-code">Code</span>
+        </div>
+        <h4>Channels</h4>
+        <p class="card-desc">Connect Claude to Slack, Telegram, or other messaging platforms. Talk to your assistant from wherever you are.</p>
+        <div class="analogy">Text your assistant from your phone while you're out</div>
+      </div>
+
+      <!-- Dispatch -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-code">Code</span>
+          <span class="tag tag-beta">Beta</span>
+        </div>
+        <h4>Dispatch</h4>
+        <p class="card-desc">Trigger Claude from external events &mdash; webhooks, form submissions, API calls. Event-driven automation.</p>
+        <div class="analogy">A doorbell that makes your assistant start working</div>
+      </div>
+
+      <!-- Claude for Chrome -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-cowork">Cowork</span>
+        </div>
+        <h4>Claude for Chrome</h4>
+        <p class="card-desc">Browse, click, fill forms, extract data from websites. Claude operates your browser directly.</p>
+        <div class="analogy">An assistant sitting next to you operating the browser</div>
+      </div>
+
+      <!-- Interactive Tools -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-cowork">Cowork</span>
+        </div>
+        <h4>Interactive Tools</h4>
+        <p class="card-desc">Generate charts, visualizations, and interactive elements directly in the conversation. No separate app needed.</p>
+        <div class="analogy">Quick whiteboard sketches during a conversation</div>
+      </div>
+
+      <!-- Computer Use -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 8l3 3-3 3"/><line x1="13" y1="14" x2="17" y2="14"/></svg>
+        </div>
+        <div class="card-tags">
+          <span class="tag tag-code">Code</span>
+          <span class="tag tag-beta">Beta</span>
+        </div>
+        <h4>Computer Use</h4>
+        <p class="card-desc">Control mouse and keyboard to operate any desktop application. Full screen control for complex GUI workflows.</p>
+        <div class="analogy">A remote assistant who can see and control your screen</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 04 — WHY CLAUDE CODE
+     ═══════════════════════════════════════════ -->
+<section id="why-code">
+  <div class="container">
+    <div class="fade-in">
+      <div class="sec-num">04 &mdash; Why Code</div>
+      <h2 class="sec-title">Why Claude Code</h2>
+      <p class="sec-desc">Two real differences set Claude Code apart from Cowork. They aren't about speed &mdash; they're about what becomes possible.</p>
+    </div>
+
+    <div class="grid-2 fade-in">
+      <!-- Difference 1 -->
+      <div class="card-highlight" style="border-radius:12px; padding:28px;">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+        </div>
+        <h4 style="font-family:'Source Serif 4','Lora',serif; font-size:20px; font-weight:600; margin-bottom:8px;">Connect to Anything</h4>
+        <p class="card-desc">Internal APIs, databases, third-party services, CLIs, SDKs. If it has an interface, Code can talk to it. Cowork is limited to pre-built integrations.</p>
+      </div>
+
+      <!-- Difference 2 -->
+      <div class="card-dark">
+        <div class="card-icon card-icon-dark">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h4 style="font-family:'Source Serif 4','Lora',serif; font-size:20px; font-weight:600; margin-bottom:8px;">Team Governance</h4>
+        <p class="card-desc">Version-controlled instructions, multi-layer permissions, audit trails, team-wide standards. Enterprise-grade guardrails that Cowork doesn't have.</p>
+      </div>
+    </div>
+
+    <!-- Video Pipeline Table -->
+    <h4 style="font-family:'Source Serif 4','Lora',serif; font-size:18px; margin:32px 0 16px; font-weight:600;" class="fade-in">Example: Video Pipeline for Campaign</h4>
+
+    <div class="table-wrap fade-in">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:8%;">#</th>
+            <th style="width:42%;">Step</th>
+            <th style="width:18%;">Cowork</th>
+            <th class="highlight" style="width:18%;">Code</th>
+            <th style="width:14%;">Why</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1</strong></td>
+            <td>Write video script from brief</td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="tag tag-either">Either</span></td>
+          </tr>
+          <tr style="background:var(--terra-light-bg);">
+            <td><strong>2</strong></td>
+            <td>Generate scenes via Higgsfield API</td>
+            <td><span class="cross">&#10005;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="tag tag-blue">API</span></td>
+          </tr>
+          <tr style="background:var(--terra-light-bg);">
+            <td><strong>3</strong></td>
+            <td>Stitch clips with CapCut CLI</td>
+            <td><span class="cross">&#10005;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="tag tag-blue">CLI</span></td>
+          </tr>
+          <tr>
+            <td><strong>4</strong></td>
+            <td>Write caption &amp; hashtags</td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="tag tag-either">Either</span></td>
+          </tr>
+          <tr style="background:var(--terra-light-bg);">
+            <td><strong>5</strong></td>
+            <td>Upload to platform via API</td>
+            <td><span class="cross">&#10005;</span></td>
+            <td><span class="check">&#10003;</span></td>
+            <td><span class="tag tag-blue">API</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="terra-banner fade-in" style="margin-top:24px;">
+      3 out of 5 steps are Code-only.
+      <div class="sub">Without Code, the pipeline breaks at step 2.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 05 — CORE CONCEPTS
+     ═══════════════════════════════════════════ -->
+<section id="concepts">
+  <div class="container">
+    <div class="fade-in">
+      <div class="sec-num">05 &mdash; Concepts</div>
+      <h2 class="sec-title">Core Concepts</h2>
+      <p class="sec-desc">Four building blocks that make Claude Code powerful. Master these and you can build almost anything.</p>
+    </div>
+
+    <div class="grid-2 fade-in">
+      <!-- MCP -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 1v3"/><path d="M15 1v3"/><path d="M9 20v3"/><path d="M15 20v3"/><path d="M20 9h3"/><path d="M20 14h3"/><path d="M1 9h3"/><path d="M1 14h3"/></svg>
+        </div>
+        <h4>MCP (Model Context Protocol)</h4>
+        <p class="card-desc">Universal connectors that let Claude talk to external tools &mdash; APIs, databases, SaaS products. Think USB ports for AI.</p>
+        <div class="code-block"><span class="comment">// .mcp.json</span>
+{
+  "mcpServers": {
+    "google-sheets": {
+      "command": "npx",
+      "args": ["@anthropic/sheets-mcp"]
+    }
+  }
+}</div>
+        <div class="analogy">USB ports for your AI &mdash; plug in any tool</div>
+      </div>
+
+      <!-- Skills -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+        </div>
+        <h4>Skills</h4>
+        <p class="card-desc">Reusable instruction sets that teach Claude how to do specific tasks &mdash; like SOPs for your AI assistant. Triggered with <code>/skill-name</code>.</p>
+        <div class="code-block"><span class="comment"># ~/.claude/skills/write-blog.md</span>
+# Blog Writer Skill
+
+## Steps
+1. Read brand voice from CLAUDE.md
+2. Research topic using web search
+3. Write draft following template
+4. Apply SEO best practices</div>
+        <div class="analogy">A recipe book &mdash; each skill is a step-by-step recipe</div>
+      </div>
+
+      <!-- CLAUDE.md -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <h4>CLAUDE.md</h4>
+        <p class="card-desc">A configuration file that tells Claude who it is, what standards to follow, and how to behave. Lives at the root of your project.</p>
+        <div class="code-block"><span class="comment"># CLAUDE.md</span>
+# Brand Voice
+- Tone: professional, warm
+- Audience: B2B travel executives
+- Never use: "revolutionary", "synergy"
+- Always include: data + proof points</div>
+        <div class="analogy">An employee handbook &mdash; standards everyone follows</div>
+      </div>
+
+      <!-- MEMORY.md -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 00-6.88 17.23A4 4 0 019 16h6a4 4 0 013.88 3.23A10 10 0 0012 2z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h4>MEMORY.md</h4>
+        <p class="card-desc">Persistent memory across sessions. Claude remembers past decisions, learnings, and context so it doesn't start from scratch every time.</p>
+        <div class="code-block"><span class="comment"># MEMORY.md</span>
+## Learnings
+- Blog posts > 2000 words rank better
+- VP prefers bullet-point summaries
+- Campaign naming: YYYYMM-channel-topic
+
+## Decisions
+- Approved: new content calendar format
+- Rejected: automated social posting</div>
+        <div class="analogy">A journal &mdash; it remembers so you don't have to repeat yourself</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 06 — TEAM ARCHITECTURE
+     ═══════════════════════════════════════════ -->
+<section id="architecture">
+  <div class="container">
+    <div class="fade-in">
+      <div class="sec-num">06 &mdash; Architecture</div>
+      <h2 class="sec-title">Team Architecture</h2>
+      <p class="sec-desc">The difference between Cowork and Code isn't just features &mdash; it's governance. Here's how each structures team instructions.</p>
+    </div>
+
+    <div class="compare-panels fade-in">
+      <!-- Cowork Panel -->
+      <div class="panel-warm">
+        <div class="card-tags" style="margin-bottom:12px;"><span class="tag tag-cowork">Cowork</span></div>
+        <h4>Flat 2-Layer Structure</h4>
+        <p style="font-size:14px; color:var(--text-secondary); margin-bottom:16px;">Each person has their own Projects. No shared layer. No inheritance. No central control.</p>
+        <div class="layer-stack">
+          <div class="layer layer-user">Person A &mdash; their projects</div>
+          <div class="layer layer-user">Person B &mdash; their projects</div>
+          <div class="layer layer-user">Person C &mdash; their projects</div>
+        </div>
+        <p style="font-size:13px; color:var(--text-light); margin-top:12px; font-style:italic;">No connection between team members.</p>
+      </div>
+
+      <!-- Code Panel -->
+      <div class="panel-cool">
+        <div class="card-tags" style="margin-bottom:12px;"><span class="tag tag-code">Code</span></div>
+        <h4>Multi-Layer with Inheritance</h4>
+        <p style="font-size:14px; color:var(--text-secondary); margin-bottom:16px;">Layered system where org standards flow down to every team member automatically via Git.</p>
+        <div class="layer-stack">
+          <div class="layer layer-org">Organization CLAUDE.md</div>
+          <div class="arrow-down">&darr;</div>
+          <div class="layer layer-project">Project CLAUDE.md</div>
+          <div class="arrow-down">&darr;</div>
+          <div class="layer layer-personal">Personal .claude/ overrides</div>
+        </div>
+        <p style="font-size:13px; color:var(--text-light); margin-top:12px; font-style:italic;">Standards cascade. Everyone stays aligned.</p>
+      </div>
+    </div>
+
+    <!-- Governance Gaps -->
+    <h4 style="font-family:'Source Serif 4','Lora',serif; font-size:18px; margin:32px 0 16px; font-weight:600;" class="fade-in">Governance Gaps in Cowork</h4>
+
+    <div class="grid-2 fade-in" style="gap:12px;">
+      <div class="gap-card">
+        <h5>No Version Control</h5>
+        <p>Instructions change without history. No way to audit what changed or roll back mistakes.</p>
+      </div>
+      <div class="gap-card">
+        <h5>No Shared Standards</h5>
+        <p>Each person configures Claude differently. Brand voice, tone, and quality vary across team.</p>
+      </div>
+      <div class="gap-card">
+        <h5>No Permission Layers</h5>
+        <p>No distinction between org-level rules and personal preferences. Everything is flat.</p>
+      </div>
+      <div class="gap-card">
+        <h5>No Audit Trail</h5>
+        <p>VPs and managers can't review what instructions agents are following or verify compliance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 07 — GETTING STARTED
+     ═══════════════════════════════════════════ -->
+<section id="getting-started">
+  <div class="container">
+    <div class="fade-in">
+      <div class="sec-num">07 &mdash; Getting Started</div>
+      <h2 class="sec-title">Getting Started with Claude Code</h2>
+      <p class="sec-desc">Six steps from zero to your first team workflow. Follow along &mdash; this is the hands-on part.</p>
+    </div>
+
+    <div class="steps fade-in">
+      <!-- Step 1 -->
+      <div class="step">
+        <div class="step-left">
+          <div class="step-num">1</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h4>Open Terminal</h4>
+          <p>Press Cmd+Space, type "Terminal", hit Enter. This is your command center.</p>
+          <div class="code-block"><span class="prompt">$</span> <span class="comment"># Cmd+Space &rarr; "Terminal" &rarr; Enter</span></div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step">
+        <div class="step-left">
+          <div class="step-num">2</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h4>Navigate to Your Project Folder</h4>
+          <p>Use <code>cd</code> to move into the directory where your project lives. This is where Claude will operate.</p>
+          <div class="code-block"><span class="prompt">$</span> cd ~/my-project</div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="step">
+        <div class="step-left">
+          <div class="step-num">3</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h4>Launch Claude Code</h4>
+          <p>Type <code>claude</code> and press Enter. Claude boots up and reads your project context automatically.</p>
+          <div class="code-block"><span class="prompt">$</span> claude
+<span class="comment">
+  ╭──────────────────────────────────╮
+  │  Claude Code v1.x                │
+  │  Reading project context...      │
+  │  Ready.                          │
+  ╰──────────────────────────────────╯</span></div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="step">
+        <div class="step-left">
+          <div class="step-num">4</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h4>Create Your CLAUDE.md</h4>
+          <p>Define your team's brand voice, quality standards, and guardrails. This file is the foundation of everything.</p>
+          <div class="code-block"><span class="prompt">$</span> cat > CLAUDE.md << 'EOF'
+<span class="comment"># Team Standards</span>
+<span class="comment">## Brand Voice</span>
+- Professional, data-driven, warm
+- Audience: B2B travel executives
+- Language: English & Bahasa Indonesia
+<span class="comment">## Quality Gates</span>
+- All content reviewed before publishing
+- Include data sources for claims
+EOF</div>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="step">
+        <div class="step-left">
+          <div class="step-num">5</div>
+          <div class="step-line"></div>
+        </div>
+        <div class="step-content">
+          <h4>Build Your First Skill</h4>
+          <p>Create a reusable skill file. This teaches Claude a repeatable workflow your team uses often.</p>
+          <div class="code-block"><span class="prompt">$</span> mkdir -p .claude/skills
+<span class="prompt">$</span> cat > .claude/skills/weekly-report.md << 'EOF'
+<span class="comment"># Weekly Report Skill</span>
+
+## Goal
+Generate a weekly marketing performance summary.
+
+## Steps
+1. Pull data from Google Analytics
+2. Summarize key metrics vs last week
+3. Highlight top-performing content
+4. Flag items needing attention
+5. Format as bullet-point brief for VP
+EOF</div>
+        </div>
+      </div>
+
+      <!-- Step 6 -->
+      <div class="step">
+        <div class="step-left">
+          <div class="step-num">6</div>
+        </div>
+        <div class="step-content">
+          <h4>Share with Your Team</h4>
+          <p>Commit and push. Now every team member who pulls the repo gets the same standards and skills.</p>
+          <div class="code-block"><span class="prompt">$</span> git add CLAUDE.md .claude/
+<span class="prompt">$</span> git commit -m "Add team standards and first skill"
+<span class="prompt">$</span> git push origin main</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 08 — BUILDING GREAT SKILLS
+     ═══════════════════════════════════════════ -->
+<section id="skills">
+  <div class="container">
+    <div class="fade-in">
+      <div class="sec-num">08 &mdash; Skills</div>
+      <h2 class="sec-title">Building Great Skills</h2>
+      <p class="sec-desc">Skills are the building blocks of team AI. A well-written skill turns a vague request into consistent, high-quality output every time.</p>
+    </div>
+
+    <!-- Skill Anatomy -->
+    <div class="card fade-in" style="margin-bottom:24px;">
+      <h4 style="margin-bottom:12px;">Anatomy of a Skill File</h4>
+      <div class="code-block"><span class="comment"># skill-name.md</span>
+
+<span class="comment">## Goal</span>
+One sentence: what this skill produces.
+
+<span class="comment">## Context</span>
+Who uses this, when, and why.
+
+<span class="comment">## Inputs</span>
+- What the user provides (topic, data, brief)
+- What Claude reads from context (CLAUDE.md, files)
+
+<span class="comment">## Steps</span>
+1. First, do this...
+2. Then, do this...
+3. Finally, produce this output.
+
+<span class="comment">## Output Format</span>
+Describe the expected deliverable format.
+
+<span class="comment">## Quality Checks</span>
+- [ ] Matches brand voice
+- [ ] Includes data citations
+- [ ] Under 500 words</div>
+    </div>
+
+    <!-- Tips -->
+    <div class="grid-3 fade-in">
+      <div class="card">
+        <div class="card-icon card-icon-green">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h4>Be Specific</h4>
+        <p class="card-desc">Write clear, concrete instructions. "Write a 300-word summary" beats "write a summary." Specificity reduces variance.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon card-icon-green">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h4>Include Examples</h4>
+        <p class="card-desc">Show Claude what "good" looks like. Include sample outputs, tone examples, or reference docs. One example is worth a hundred instructions.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon card-icon-green">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+        </div>
+        <h4>Iterate Relentlessly</h4>
+        <p class="card-desc">Run the skill, review the output, fix the instructions. Good skills take 3-5 iterations to get right. Don't stop at version one.</p>
+      </div>
+    </div>
+
+    <!-- Reference Link -->
+    <div class="card-highlight fade-in" style="margin-top:24px; border-radius:12px; padding:20px 24px; text-align:center;">
+      <p style="font-size:14px; color:var(--text-secondary);">
+        Read the official best practices &rarr;
+        <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering" target="_blank" style="color:var(--terra); font-weight:600; text-decoration:none;">Anthropic Prompt Engineering Guide</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 09 — ADVANCED FEATURES
+     ═══════════════════════════════════════════ -->
+<section id="advanced">
+  <div class="container">
+    <div class="fade-in">
+      <div class="sec-num">09 &mdash; Advanced</div>
+      <h2 class="sec-title">Advanced Features</h2>
+      <p class="sec-desc">Once you're comfortable with the basics, these features let you build truly powerful agent systems.</p>
+    </div>
+
+    <div class="grid-2x3 fade-in">
+      <!-- Hooks -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.05 5A5 5 0 0119 8.95M15.05 1A9 9 0 0123 8.94M2 16.1A5 5 0 015.95 20M2 12.05A9 9 0 018.95 20"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+        </div>
+        <h4>Hooks</h4>
+        <p class="card-desc">Run scripts before or after Claude actions. Enforce code formatting, linting, or custom validation automatically.</p>
+      </div>
+
+      <!-- Subagents -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 012 2v7"/><path d="M11 18H8a2 2 0 01-2-2V9"/></svg>
+        </div>
+        <h4>Subagents</h4>
+        <p class="card-desc">Spawn child agents for parallel tasks. One agent researches while another writes. Divide and conquer complex workflows.</p>
+      </div>
+
+      <!-- Agent Teams -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h4>Agent Teams</h4>
+        <p class="card-desc">Define named agents with specific roles &mdash; writer, researcher, analyst, reviewer. Orchestrate them from a lead agent.</p>
+      </div>
+
+      <!-- Plan Mode -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+        </div>
+        <h4>Plan Mode</h4>
+        <p class="card-desc">Ask Claude to plan before executing. Review and approve the plan, then let it run. More control for high-stakes tasks.</p>
+      </div>
+
+      <!-- MCP Plugins -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><polyline points="16 3 12 7 8 3"/></svg>
+        </div>
+        <h4>MCP Plugins</h4>
+        <p class="card-desc">Install pre-built connectors from the community. Google Sheets, HubSpot, Airtable, Slack &mdash; hundreds available and growing.</p>
+      </div>
+
+      <!-- Skill Creator -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <h4>Skill Creator</h4>
+        <p class="card-desc">Use <code>/skill-creator</code> to generate new skills interactively. Describe what you need and Claude builds the skill file for you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 10 — THE MINDSET SHIFT
+     ═══════════════════════════════════════════ -->
+<section id="mindset">
+  <div class="container">
+    <div class="fade-in">
+      <div class="sec-num">10 &mdash; Philosophy</div>
+      <h2 class="sec-title">The Mindset Shift</h2>
+      <p class="sec-desc">Using Claude Code well isn't about prompting tricks. It's about thinking differently about how you work with AI.</p>
+    </div>
+
+    <div class="card fade-in" style="padding:0;">
+      <!-- Principle 1 -->
+      <div class="principle" style="padding:24px;">
+        <div class="principle-num">01</div>
+        <div>
+          <h4>Goals, Not Steps</h4>
+          <p>Tell Claude what you want to achieve, not how to do it. "Increase blog traffic 20%" beats "Write 5 blog posts about X." Let the agent figure out the path.</p>
+        </div>
+      </div>
+
+      <!-- Principle 2 -->
+      <div class="principle" style="padding:24px;">
+        <div class="principle-num">02</div>
+        <div>
+          <h4>Chain, Don't Repeat</h4>
+          <p>Build on previous outputs. Use skills that reference other skills. Create pipelines where one step feeds the next, instead of starting from scratch each time.</p>
+        </div>
+      </div>
+
+      <!-- Principle 3 -->
+      <div class="principle" style="padding:24px;">
+        <div class="principle-num">03</div>
+        <div>
+          <h4>Document Your Workflows</h4>
+          <p>If you do something twice, write a skill. If the skill works, share it with the team. The best teams turn tacit knowledge into reusable instructions.</p>
+        </div>
+      </div>
+
+      <!-- Principle 4 -->
+      <div class="principle" style="padding:24px;">
+        <div class="principle-num">04</div>
+        <div>
+          <h4>Collect References</h4>
+          <p>Feed Claude examples of great work &mdash; competitor campaigns, top-performing content, style guides. The more context it has, the better the output.</p>
+        </div>
+      </div>
+
+      <!-- Principle 5 -->
+      <div class="principle" style="padding:24px;">
+        <div class="principle-num">05</div>
+        <div>
+          <h4>Iterate Relentlessly</h4>
+          <p>Version one is never the final version. Review outputs, refine instructions, test again. The teams that iterate fastest win &mdash; and AI makes iteration nearly free.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <p><strong>Novastacks AI</strong> &times; <strong>Superuser HQ</strong></p>
+  <p class="footer-sub">Workshop &mdash; April 2026 &middot; Jakarta</p>
+</footer>
+
+<!-- ═══ SCROLL ANIMATIONS ═══ -->
+<script>
+// Intersection Observer for fade-in animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, {
+  threshold: 0.1,
+  rootMargin: '0px 0px -40px 0px'
+});
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Active nav highlight on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav a');
+
+function updateActiveNav() {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 120;
+    if (window.scrollY >= sectionTop) {
+      current = section.getAttribute('id');
+    }
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', updateActiveNav, { passive: true });
+updateActiveNav();
+</script>
+
+</body>
+</html>
