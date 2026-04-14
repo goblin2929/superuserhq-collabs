@@ -1350,34 +1350,25 @@ Describe the expected deliverable format.
     </div>
 
     <div class="grid-2x3 fade-in">
-      <!-- Hooks -->
+      <!-- 1. Model Routing -->
       <div class="card">
         <div class="card-icon card-icon-terra">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.05 5A5 5 0 0119 8.95M15.05 1A9 9 0 0123 8.94M2 16.1A5 5 0 015.95 20M2 12.05A9 9 0 018.95 20"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
         </div>
-        <h4>Hooks</h4>
-        <p class="card-desc">Run scripts before or after Claude actions. Enforce code formatting, linting, or custom validation automatically.</p>
+        <h4>Model Routing</h4>
+        <p class="card-desc">Pick the right model for each task. Haiku for quick drafts and lookups, Sonnet for daily work, Opus for complex multi-step pipelines. Use <code>/model</code> to switch mid-session. Optimize cost and speed without leaving the conversation.</p>
       </div>
 
-      <!-- Subagents -->
+      <!-- 2. Context Management -->
       <div class="card">
         <div class="card-icon card-icon-terra">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 012 2v7"/><path d="M11 18H8a2 2 0 01-2-2V9"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         </div>
-        <h4>Subagents</h4>
-        <p class="card-desc">Spawn child agents for parallel tasks. One agent researches while another writes. Divide and conquer complex workflows.</p>
+        <h4>Context Management</h4>
+        <p class="card-desc">Use <code>/context</code> to check token usage and <code>/compact</code> with custom instructions to surgically compress at logical breakpoints. System prompts, tools, and MCP schemas consume 30&ndash;40K tokens before you type anything &mdash; performance degrades around 147K, not 200K. Compact after finishing a feature or resolving a bug, not mid-task. The 1M context window (Opus&nbsp;4.6 / Sonnet&nbsp;4.6) gives 5&times; headroom with no pricing premium on Max/Team/Enterprise.</p>
       </div>
 
-      <!-- Agent Teams -->
-      <div class="card">
-        <div class="card-icon card-icon-terra">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-        </div>
-        <h4>Agent Teams</h4>
-        <p class="card-desc">Define named agents with specific roles &mdash; writer, researcher, analyst, reviewer. Orchestrate them from a lead agent.</p>
-      </div>
-
-      <!-- Plan Mode -->
+      <!-- 3. Plan Mode -->
       <div class="card">
         <div class="card-icon card-icon-terra">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
@@ -1386,7 +1377,16 @@ Describe the expected deliverable format.
         <p class="card-desc">Ask Claude to plan before executing. Review and approve the plan, then let it run. More control for high-stakes tasks.</p>
       </div>
 
-      <!-- MCP Plugins -->
+      <!-- 4. Hooks -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.05 5A5 5 0 0119 8.95M15.05 1A9 9 0 0123 8.94M2 16.1A5 5 0 015.95 20M2 12.05A9 9 0 018.95 20"/><line x1="2" y1="2" x2="22" y2="22"/></svg>
+        </div>
+        <h4>Hooks</h4>
+        <p class="card-desc">Run scripts before or after Claude actions. Enforce code formatting, linting, or custom validation automatically.</p>
+      </div>
+
+      <!-- 5. MCP Plugins -->
       <div class="card">
         <div class="card-icon card-icon-terra">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><polyline points="16 3 12 7 8 3"/></svg>
@@ -1395,7 +1395,7 @@ Describe the expected deliverable format.
         <p class="card-desc">Install pre-built connectors from the community. Google Sheets, HubSpot, Airtable, Slack &mdash; hundreds available and growing.</p>
       </div>
 
-      <!-- Skill Creator -->
+      <!-- 6. Skill Creator -->
       <div class="card">
         <div class="card-icon card-icon-terra">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -1404,16 +1404,25 @@ Describe the expected deliverable format.
         <p class="card-desc">Use <code>/skill-creator</code> to generate new skills interactively. Describe what you need and Claude builds the skill file for you.</p>
       </div>
 
-      <!-- Evals -->
+      <!-- 7. Subagents -->
       <div class="card">
         <div class="card-icon card-icon-terra">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 012 2v7"/><path d="M11 18H8a2 2 0 01-2-2V9"/></svg>
         </div>
-        <h4>Evals</h4>
-        <p class="card-desc">Measure how well your skills and prompts actually perform. Run automated test cases, compare outputs across iterations, and catch regressions before they reach your team.</p>
+        <h4>Subagents</h4>
+        <p class="card-desc">Spawn child agents for parallel tasks. One agent researches while another writes. Divide and conquer complex workflows.</p>
       </div>
 
-      <!-- Git Worktrees -->
+      <!-- 8. Agent Teams -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h4>Agent Teams</h4>
+        <p class="card-desc">Define named agents with specific roles &mdash; writer, researcher, analyst, reviewer. Orchestrate them from a lead agent.</p>
+      </div>
+
+      <!-- 9. Git Worktrees -->
       <div class="card">
         <div class="card-icon card-icon-terra">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 01-9 9"/></svg>
@@ -1422,22 +1431,31 @@ Describe the expected deliverable format.
         <p class="card-desc">Work on multiple branches simultaneously without stashing or switching. Each worktree is a separate folder with its own branch &mdash; like having multiple desks for the same project.</p>
       </div>
 
-      <!-- Managed Agents -->
+      <!-- 10. Evals -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h4>Evals</h4>
+        <p class="card-desc">Measure how well your skills and prompts actually perform. Run automated test cases, compare outputs across iterations, and catch regressions before they reach your team.</p>
+      </div>
+
+      <!-- 11. Headless Mode -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+        </div>
+        <h4>Headless Mode</h4>
+        <p class="card-desc">Run Claude non-interactively with <code>claude -p</code>. Pipe prompts in, get results out. Embed in cron jobs, shell scripts, or CI pipelines &mdash; automate recurring reports and workflows without human babysitting.</p>
+      </div>
+
+      <!-- 12. Managed Agents -->
       <div class="card">
         <div class="card-icon card-icon-terra">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><circle cx="12" cy="10" r="3"/></svg>
         </div>
         <h4>Managed Agents</h4>
         <p class="card-desc">Anthropic&rsquo;s hosted agent infrastructure. Define an agent (model, tools, MCP servers), spin up a cloud container, and let Claude run autonomously for minutes or hours &mdash; no custom loop or sandbox needed.</p>
-      </div>
-
-      <!-- Context Management -->
-      <div class="card">
-        <div class="card-icon card-icon-terra">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
-        <h4>Context Management</h4>
-        <p class="card-desc">Use <code>/context</code> to check token usage and <code>/compact</code> with custom instructions to surgically compress at logical breakpoints. System prompts, tools, and MCP schemas consume 30&ndash;40K tokens before you type anything &mdash; performance degrades around 147K, not 200K. Compact after finishing a feature or resolving a bug, not mid-task. The 1M context window (Opus&nbsp;4.6 / Sonnet&nbsp;4.6) gives 5&times; headroom with no pricing premium on Max/Team/Enterprise.</p>
       </div>
     </div>
   </div>
