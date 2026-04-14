@@ -673,6 +673,8 @@ footer .footer-sub { font-size: 13px; margin-top: 8px; color: rgba(255,255,255,0
       <div class="code-block"><span class="prompt">$</span> claude
 <span class="prompt">&gt;</span> /sales-proposal Marriott Indonesia
 
+<span class="comment">Pulling meeting notes from Notion...</span>
+<span class="comment">Found 3 notes for "Marriott Indonesia"</span>
 Generating sales proposal for Marriott Indonesia...</div>
     </div>
 
@@ -682,7 +684,7 @@ Generating sales proposal for Marriott Indonesia...</div>
       <!-- Client Overview -->
       <div style="border-left:3px solid var(--terra); padding-left:16px; margin-bottom:24px;">
         <h4 style="font-family:'Source Serif 4','Lora',serif; font-size:16px; font-weight:600; margin-bottom:6px;">Client Overview</h4>
-        <p class="card-desc">Marriott Indonesia operates 35+ properties across Jakarta, Bali, and Surabaya. Key opportunity: streamlining their OTA channel distribution to increase direct-to-platform bookings.</p>
+        <p class="card-desc">Marriott Indonesia operates 35+ properties across Jakarta, Bali, and Surabaya. Key opportunity: streamlining their OTA channel distribution to increase direct-to-platform bookings. <em style="color:var(--terra);">(From meeting notes: VP of Distribution mentioned 15% booking leakage through third-party OTAs in Q1 call.)</em></p>
       </div>
 
       <!-- Proposed Solution -->
@@ -804,6 +806,11 @@ You are a B2B sales specialist at tiket.com. Generate a professional sales propo
 
 The user will provide: client name and any known context about the prospect.
 
+## Before Generating
+1. Search Notion for meeting notes mentioning the client name
+2. Pull key details: pain points discussed, decision-makers, timeline, budget signals
+3. Use these notes as context when writing the proposal sections below
+
 ## Proposal Sections
 
 ### 1. Client Overview
@@ -895,7 +902,40 @@ Professional but warm. Data-driven. Focus on ROI and partnership value. Use spec
   </div>
 </section>
 
+<!-- ═══ SECTION 04 — SHARE IT ═══ -->
+<section id="share-it">
+  <div class="container">
+
+    <div class="sec-num fade-in">04 &mdash; Team</div>
+    <h2 class="sec-title fade-in">Share It</h2>
+    <p class="sec-desc fade-in">Your skill works locally. Three commands to share it with everyone.</p>
+
+    <div class="code-block fade-in"><span class="prompt">$</span> git add .claude/skills/sales-proposal/SKILL.md
+<span class="prompt">$</span> git commit -m "add sales-proposal skill"
+<span class="prompt">$</span> git push</div>
+
+    <div class="card fade-in" style="margin-top:24px;">
+      <h4>Your teammate's side</h4>
+      <div class="code-block" style="margin-top:12px;"><span class="prompt">$</span> git pull
+<span class="prompt">$</span> claude
+<span class="prompt">&gt;</span> /sales-proposal Hyatt Regency Bali</div>
+      <p class="card-desc" style="margin-top:12px;">Same skill. Same output structure. Same quality. No ZIP files, no manual uploads, no "did you get the latest version?" conversations.</p>
+    </div>
+
+    <div class="terra-banner fade-in" style="margin-top:32px;">
+      One repo. One version. 25 people. No ZIP files.
+      <div class="sub">Update the skill once &mdash; everyone gets the new version on their next <code style="color:rgba(255,255,255,0.9); font-family:'JetBrains Mono',monospace;">git pull</code>.</div>
+    </div>
+
+  </div>
+</section>
+
 </main>
+
+<footer>
+  <strong>Novastacks AI &times; Superuser HQ</strong>
+  <div class="footer-sub">Skills Guide &mdash; April 2026</div>
+</footer>
 
 <script>
 // Scroll animation observer
