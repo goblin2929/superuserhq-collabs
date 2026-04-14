@@ -896,10 +896,10 @@ footer .footer-sub { font-size: 13px; margin-top: 8px; color: rgba(255,255,255,0
     <div class="fade-in">
       <div class="sec-num">04 &mdash; Why Code</div>
       <h2 class="sec-title">Why Claude Code</h2>
-      <p class="sec-desc">Two real differences set Claude Code apart from Cowork. They aren't about speed &mdash; they're about what becomes possible.</p>
+      <p class="sec-desc">Three real differences set Claude Code apart from Cowork. They aren't about speed &mdash; they're about what becomes possible.</p>
     </div>
 
-    <div class="grid-2 fade-in">
+    <div class="grid-3 fade-in">
       <!-- Difference 1 -->
       <div class="card-highlight" style="border-radius:12px; padding:28px;">
         <div class="card-icon card-icon-terra">
@@ -916,6 +916,15 @@ footer .footer-sub { font-size: 13px; margin-top: 8px; color: rgba(255,255,255,0
         </div>
         <h4 style="font-family:'Source Serif 4','Lora',serif; font-size:20px; font-weight:600; margin-bottom:8px;">Team Governance</h4>
         <p class="card-desc">Version-controlled instructions, multi-layer permissions, audit trails, team-wide standards. Enterprise-grade guardrails that Cowork doesn't have.</p>
+      </div>
+
+      <!-- Difference 3 -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h4 style="font-family:'Source Serif 4','Lora',serif; font-size:20px; font-weight:600; margin-bottom:8px;">Context Visibility</h4>
+        <p class="card-desc">Same model, same context window, same degradation curve. But Code makes it legible &mdash; <code>/context</code> to check token usage, <code>/compact</code> to manage it. Cowork hides the problem behind the GUI with no visibility into when quality starts dropping.</p>
       </div>
     </div>
 
@@ -1420,6 +1429,15 @@ Describe the expected deliverable format.
         </div>
         <h4>Managed Agents</h4>
         <p class="card-desc">Anthropic&rsquo;s hosted agent infrastructure. Define an agent (model, tools, MCP servers), spin up a cloud container, and let Claude run autonomously for minutes or hours &mdash; no custom loop or sandbox needed.</p>
+      </div>
+
+      <!-- Context Management -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h4>Context Management</h4>
+        <p class="card-desc">Use <code>/context</code> to check token usage and <code>/compact</code> with custom instructions to surgically compress at logical breakpoints. System prompts, tools, and MCP schemas consume 30&ndash;40K tokens before you type anything &mdash; performance degrades around 147K, not 200K. Compact after finishing a feature or resolving a bug, not mid-task. The 1M context window (Opus&nbsp;4.6 / Sonnet&nbsp;4.6) gives 5&times; headroom with no pricing premium on Max/Team/Enterprise.</p>
       </div>
     </div>
   </div>
