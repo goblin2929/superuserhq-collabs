@@ -614,11 +614,11 @@ footer .footer-sub { font-size: 13px; margin-top: 8px; color: rgba(255,255,255,0
 <div class="top-banner">
   <div class="left">
     <span>Novastacks AI</span>
-    <a href="https://novastacks-ai.com" target="_blank">novastacks-ai.com</a>
+    <a href="https://novastacks-ai.com" target="_blank" rel="noopener noreferrer">novastacks-ai.com</a>
   </div>
   <div class="right">
     <span>Superuser HQ</span>
-    <a href="https://superuserhq.com" target="_blank">superuserhq.com</a>
+    <a href="https://superuserhq.com" target="_blank" rel="noopener noreferrer">superuserhq.com</a>
   </div>
 </div>
 
@@ -631,6 +631,9 @@ footer .footer-sub { font-size: 13px; margin-top: 8px; color: rgba(255,255,255,0
     <a href="#share-it">Share It</a>
   </div>
 </nav>
+
+<!-- ═══ MAIN CONTENT ═══ -->
+<main>
 
 <!-- ═══ HERO ═══ -->
 <div class="hero fade-in">
@@ -656,6 +659,88 @@ footer .footer-sub { font-size: 13px; margin-top: 8px; color: rgba(255,255,255,0
     <div class="sub">We're building in Code because skills live in your shared repo. Build once, everyone gets it.</div>
   </div>
 </div>
+
+<!-- ═══ SECTION 01 — SEE IT IN ACTION ═══ -->
+<section id="see-it">
+  <div class="container">
+
+    <div class="sec-num fade-in">01 &mdash; See It</div>
+    <h2 class="sec-title fade-in">See It In Action</h2>
+    <p class="sec-desc fade-in">Before we build anything, here's what the finished skill looks like when you run it.</p>
+
+    <!-- Terminal mockup -->
+    <div class="card-dark fade-in" style="margin-bottom:24px;">
+      <div class="code-block"><span class="prompt">$</span> claude
+<span class="prompt">&gt;</span> /sales-proposal Marriott Indonesia
+
+Generating sales proposal for Marriott Indonesia...</div>
+    </div>
+
+    <!-- Output card -->
+    <div class="card fade-in">
+
+      <!-- Client Overview -->
+      <div style="border-left:3px solid var(--terra); padding-left:16px; margin-bottom:24px;">
+        <h4 style="font-family:'Source Serif 4','Lora',serif; font-size:16px; font-weight:600; margin-bottom:6px;">Client Overview</h4>
+        <p class="card-desc">Marriott Indonesia operates 35+ properties across Jakarta, Bali, and Surabaya. Key opportunity: streamlining their OTA channel distribution to increase direct-to-platform bookings.</p>
+      </div>
+
+      <!-- Proposed Solution -->
+      <div style="border-left:3px solid var(--terra); padding-left:16px; margin-bottom:24px;">
+        <h4 style="font-family:'Source Serif 4','Lora',serif; font-size:16px; font-weight:600; margin-bottom:6px;">Proposed Solution</h4>
+        <p class="card-desc">Tiket.com Premium Partner Program: dedicated account management, real-time inventory sync via API, priority placement in search results, co-branded marketing campaigns during peak travel seasons.</p>
+      </div>
+
+      <!-- Pricing Structure -->
+      <div style="border-left:3px solid var(--terra); padding-left:16px; margin-bottom:24px;">
+        <h4 style="font-family:'Source Serif 4','Lora',serif; font-size:16px; font-weight:600; margin-bottom:12px;">Pricing Structure</h4>
+        <div class="table-wrap" style="border-radius:8px;">
+          <table style="font-size:13px;">
+            <thead>
+              <tr>
+                <th>Tier</th>
+                <th>Commission</th>
+                <th>Features</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Starter</strong></td>
+                <td>12%</td>
+                <td>Basic listing, standard support, monthly reporting</td>
+              </tr>
+              <tr>
+                <td><strong>Growth</strong></td>
+                <td>10%</td>
+                <td>Priority placement, API sync, dedicated account manager</td>
+              </tr>
+              <tr>
+                <td><strong>Enterprise</strong></td>
+                <td>8%</td>
+                <td>Co-branded campaigns, real-time analytics, SLA guarantee</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Next Steps -->
+      <div style="border-left:3px solid var(--terra); padding-left:16px;">
+        <h4 style="font-family:'Source Serif 4','Lora',serif; font-size:16px; font-weight:600; margin-bottom:6px;">Next Steps</h4>
+        <p class="card-desc">1. Schedule technical integration call (Week 1). 2. Pilot program with 3 Jakarta properties (Weeks 2&ndash;4). 3. Performance review and full rollout decision (Week 6).</p>
+      </div>
+
+    </div><!-- /output card -->
+
+    <!-- Caption banner -->
+    <div class="terra-banner fade-in" style="margin-top:32px;">
+      This is what you'll build in the next 20 minutes.
+    </div>
+
+  </div>
+</section>
+
+</main>
 
 <script>
 // Scroll animation observer
