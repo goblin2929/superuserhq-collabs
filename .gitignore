@@ -32,3 +32,6 @@ __pycache__/
 *.avi
 *.zip
 *.tar.gz
+
+# Git
+.worktrees/
