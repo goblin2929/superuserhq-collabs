@@ -592,14 +592,13 @@
           <tr><th style="width:50%">What you have in Cowork</th><th>What Code adds on top</th></tr>
         </thead>
         <tbody>
-          <tr><td class="old">Skills · reusable workflows</td><td class="new">+ <em>Commands</em> — one-line shortcuts that trigger workflows</td></tr>
-          <tr><td class="old">Memory · claude.md, memory.md</td><td class="new">+ <em>PROGRESS.md</em> — state tracking across multi-session work</td></tr>
-          <tr><td class="old">Connectors · Gmail, Drive, Notion</td><td class="new">+ <em>MCP</em> — open protocol · your own APIs</td></tr>
-          <tr><td class="old">Scheduled tasks</td><td class="new accent">+ <em>Hooks</em> — guaranteed enforcement that <em>cannot</em> be skipped</td></tr>
-          <tr><td class="old">Personal instructions</td><td class="new">+ <em>CLAUDE.md as constitution</em> — team-wide, version-controlled</td></tr>
-          <tr><td class="old">—</td><td class="new">+ <em>Agents</em> · specialists with their own tools + cost tier</td></tr>
-          <tr><td class="old">—</td><td class="new">+ <em>Rules</em> · guardrails that load only when relevant</td></tr>
-          <tr><td class="old">—</td><td class="new">+ <em>Git</em> · version control + team coordination</td></tr>
+          <tr><td class="old">Skills · reusable workflows</td><td class="new">+ <em>Commands</em> — one-line shortcuts (<span class="t-mono-sm">/partner-report</span>)</td></tr>
+          <tr><td class="old">Project + personal memory</td><td class="new">+ <em>CLAUDE.md</em> — versioned, team-wide instructions</td></tr>
+          <tr><td class="old">Connectors · Gmail, Drive, Notion</td><td class="new">+ <em>Local MCP</em> — your own APIs, custom tools</td></tr>
+          <tr><td class="old">Scheduled tasks</td><td class="new accent">+ <em>Hooks</em> — event-triggered, <em>cannot</em> be skipped</td></tr>
+          <tr><td class="old">Personal instructions</td><td class="new">+ <em>Subagents</em> — specialists with their own tools + model tier</td></tr>
+          <tr><td class="old">—</td><td class="new">+ <em>Plugins</em> — bundle and share the whole setup</td></tr>
+          <tr><td class="old">—</td><td class="new">+ <em>.claude/ in Git</em> — team-shared, version-controlled</td></tr>
         </tbody>
       </table>
     </div>
@@ -611,9 +610,9 @@
     <div class="chrome"><div class="left"><span><span class="dot"></span>Section 1.5</span><span>13</span></div><div>Skills · auto-invoke + commands</div></div>
     <div class="body gap-sm">
       <div class="t-title">Skills <em>auto-invoke.</em></div>
-      <div class="t-body" style="margin-top:8px;color:var(--muted);max-width:1700px;font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;">The chef's technique cards — consistency without killing judgment.</div>
+      <div class="t-body" style="margin-top:4px;color:var(--muted);max-width:1700px;font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;">The chef's technique cards — consistency without killing judgment.</div>
 
-      <div class="flex-col" style="margin-top:24px;">
+      <div class="flex-col" style="margin-top:18px;">
         <div class="step"><div class="n">01</div><div class="t-body-lg">Claude scans your <span class="t-mono">skills/</span> folder on session start.</div><div class="o">Automatic</div></div>
         <div class="step"><div class="n">02</div><div class="t-body-lg">Reads the <span class="t-mono">name:</span> and <span class="t-mono">description:</span> from each file.</div><div class="o">Metadata</div></div>
         <div class="step"><div class="n">03</div><div class="t-body-lg">You type: "write a blog post about hotel trends."</div><div class="o">Your prompt</div></div>
@@ -621,14 +620,14 @@
         <div class="step" style="border-bottom:1px solid rgba(20,18,16,.15);"><div class="n" style="color:var(--accent);">05</div><div class="t-body-lg">You never typed a command. <em>It just knew.</em></div><div class="o" style="color:var(--accent);">Invisible</div></div>
       </div>
 
-      <div class="flex-row gap-md" style="margin-top:20px;">
-        <div class="card grow" style="padding:24px 28px;">
+      <div class="flex-row gap-md" style="margin-top:12px;">
+        <div class="card grow" style="padding:20px 28px;">
           <div class="head">Skill description</div>
-          <p style="margin-top:4px;font-size:22px;">"Use when writing blog content for any client." <span style="color:var(--good);">← good.</span> &nbsp; "Content writing tool." <span style="color:var(--bad);">← useless.</span></p>
+          <p style="margin-top:4px;font-size:21px;">"Use when writing blog content for any client." <span style="color:var(--good);">← good.</span> &nbsp; "Content writing tool." <span style="color:var(--bad);">← useless.</span></p>
         </div>
-        <div class="card accent-bg grow" style="padding:24px 28px;">
+        <div class="card accent-bg grow" style="padding:20px 28px;">
           <div class="head">Commands are speed-dial</div>
-          <p style="margin-top:4px;font-size:22px;"><span class="t-mono" style="color:var(--accent-soft);font-size:20px;">/partner-report Marriott</span> → 15 min of work.</p>
+          <p style="margin-top:4px;font-size:21px;"><span class="t-mono" style="color:var(--accent-soft);font-size:19px;">/partner-report Marriott</span> → 15 min of work.</p>
         </div>
       </div>
     </div>
@@ -682,10 +681,10 @@
         </div>
       </div>
 
-      <div class="flex-row gap-md" style="margin-top:40px;">
+      <div class="flex-row gap-md" style="margin-top:32px;">
         <div class="grow">
           <div class="t-eyebrow" style="margin-bottom:10px;">Current ceiling</div>
-          <div class="t-body-lg">1 million tokens. Sounds like a lot. <em>Fills up fast.</em></div>
+          <div class="t-body-lg"><span style="color:var(--accent);">1M tokens on Opus.</span> Sounds like a lot. <em>Fills up fast.</em></div>
         </div>
         <div class="grow">
           <div class="t-eyebrow" style="margin-bottom:10px;color:var(--accent);">Context rot</div>
@@ -696,8 +695,19 @@
           <div class="t-body-lg">First 10 messages, great. By message 40, Claude forgets your voice.</div>
         </div>
       </div>
+
+      <div class="flex-row gap-md" style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(20,18,16,.12);">
+        <div class="grow" style="min-width:0;">
+          <div class="t-eyebrow" style="margin-bottom:6px;">How you know · Claude.ai / Cowork</div>
+          <div class="t-body">No live indicator. You feel it — answers get vague, it forgets earlier instructions. A banner appears near the hard limit.</div>
+        </div>
+        <div class="grow" style="min-width:0;">
+          <div class="t-eyebrow" style="margin-bottom:6px;color:var(--accent);">How you know · Claude Code</div>
+          <div class="t-body">Type <span class="t-mono-sm">/context</span> anytime — see exact usage. Status line shows % used live. Auto-compacts before it rots.</div>
+        </div>
+      </div>
     </div>
-    <div class="foot"><div>Anthropic's term · context rot</div><div>14 / 31</div></div>
+    <div class="foot"><div>Known as context rot.</div><div>14 / 31</div></div>
   </section>
 
   <!-- 15 · POST-MORTEM v2 vs v3 -->
@@ -772,7 +782,22 @@
           <p>Python, not prompts. "Report says 27,659 keywords. Raw file says 15,164. Don't match → exit 1 → retry." <em>The model cannot explain away an exit code.</em></p>
         </div>
       </div>
-      <div class="t-body-lg" style="margin-top:12px;max-width:1750px;">
+      <div class="flex-row gap-md" style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(20,18,16,.12);">
+        <div class="grow" style="min-width:0;">
+          <div class="t-body" style="font-style:italic;color:var(--muted);">Monolith</div>
+          <div class="t-body" style="margin-top:4px;color:var(--accent);">→ Agents gave isolation</div>
+        </div>
+        <div class="grow" style="min-width:0;">
+          <div class="t-body" style="font-style:italic;color:var(--muted);">Drowning rules</div>
+          <div class="t-body" style="margin-top:4px;color:var(--accent);">→ Hooks gave enforcement</div>
+        </div>
+        <div class="grow" style="min-width:0;">
+          <div class="t-body" style="font-style:italic;color:var(--muted);">Fake numbers</div>
+          <div class="t-body" style="margin-top:4px;color:var(--accent);">→ Gates gave validation</div>
+        </div>
+      </div>
+
+      <div class="t-body-lg" style="margin-top:14px;max-width:1750px;">
         Agents give you <em>isolation.</em> Hooks give you <em>enforcement.</em> Gates give you <em>validation.</em> Together: the harness.
       </div>
     </div>
