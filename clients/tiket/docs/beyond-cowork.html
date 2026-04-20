@@ -178,6 +178,29 @@
   .demo .code .result{color:var(--paper);}
   .demo .code .result .m{color:#8CC196;}
 
+  /* "Both tools work" variant — green-light both boxes (slide 8) */
+  .demo.both-ok > .cow,
+  .demo.both-ok > .code{
+    background:var(--paper-2);
+    color:var(--ink);
+    border:2.5px solid var(--good);
+    position:relative;
+  }
+  .demo.both-ok > .cow .hd,
+  .demo.both-ok > .code .hd{color:var(--good);}
+  .demo.both-ok > .code .result{color:var(--ink);}
+  .demo.both-ok > .code .result .m,
+  .demo.both-ok > .cow .result .m{color:var(--good);}
+  .demo.both-ok > .cow::before,
+  .demo.both-ok > .code::before{
+    content:"✓ Works";
+    position:absolute;top:-14px;left:24px;
+    background:var(--good);color:#F3EEE5;
+    font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:500;
+    letter-spacing:.14em;text-transform:uppercase;
+    padding:4px 12px;
+  }
+
   /* Step-reveal for demo comparisons (slides 8–10) */
   .demo[data-stepped] > .cow,
   .demo[data-stepped] > .code{
@@ -468,27 +491,27 @@
 
   <!-- 8 · DEMO 1 · INFLUENCER RESEARCH -->
   <section data-screen-label="08 Demo 1 influencer research" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>Demo 01 · Live</span><span>08</span></div><div>Influencer research</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>Demo 01 · Live</span><span>08</span></div><div>Both tools work</div></div>
     <div class="body gap-sm">
-      <div class="t-eyebrow">Same prompt · both tools</div>
+      <div class="t-eyebrow">When either works · same prompt, same quality output</div>
       <div class="t-title-sm" style="max-width:1700px;">"Find premium travel influencers for the Indonesian market on Instagram. Record profile, metrics, URL, contact — in a Google Sheet."</div>
 
-      <div class="demo" data-stepped style="margin-top:32px;">
+      <div class="demo both-ok" data-stepped style="margin-top:40px;">
         <div class="cow">
           <div class="hd">Cowork</div>
-          <h4>A sheet with thin data. You verify by hand.</h4>
+          <h4>A live Google Sheet. Ready to share.</h4>
           <div class="result">
-            <div><span class="m">✓</span> Web search finds influencer names</div>
-            <div><span class="m">✓</span> Writes to Google Sheet via connector</div>
-            <div><span class="x">✗</span> Sandbox browser can't reliably load Instagram</div>
-            <div style="margin-top:14px;color:var(--muted);font-family:'IBM Plex Mono',monospace;font-size:18px;">→ Names + gaps. You fill the rest manually.</div>
+            <div><span class="m">✓</span> Claude in Chrome extension → real Instagram in your logged-in browser</div>
+            <div><span class="m">✓</span> Google Sheets connector → structured spreadsheet</div>
+            <div><span class="m">✓</span> Columns: handle, followers, engagement, focus, contact</div>
+            <div style="margin-top:14px;color:var(--muted);font-family:'IBM Plex Mono',monospace;font-size:18px;">→ 15+ influencers. Team-ready.</div>
           </div>
         </div>
         <div class="code">
           <div class="hd">Claude Code · MCP</div>
           <h4>A live Google Sheet. Ready to share.</h4>
           <div class="result">
-            <div><span class="m">✓</span> Chrome MCP extension → your logged-in Chrome, real Instagram</div>
+            <div><span class="m">✓</span> Playwright MCP → headless Chrome, real Instagram</div>
             <div><span class="m">✓</span> Google Sheets MCP → structured spreadsheet</div>
             <div><span class="m">✓</span> Columns: handle, followers, engagement, focus, contact</div>
             <div style="margin-top:14px;color:var(--accent-soft);font-family:'IBM Plex Mono',monospace;font-size:18px;">→ 15+ influencers. Team-ready.</div>
