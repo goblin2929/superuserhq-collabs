@@ -286,31 +286,22 @@
   <section data-screen-label="04 Workflows vs agents" class="slide">
     <div class="chrome"><div class="left"><span><span class="dot"></span>Section 0</span><span>04</span></div><div>Two modes</div></div>
     <div class="body gap-sm">
-      <div class="t-title">Recipe <span style="color:var(--muted);">vs.</span> Chef.</div>
-      <div class="t-subtitle" style="margin-top:8px;color:var(--muted);">Deterministic workflows vs. agentic AI.</div>
+      <div class="t-title">Deterministic workflows <span style="color:var(--muted);">vs.</span> agentic AI.</div>
+      <div class="t-subtitle" style="margin-top:8px;color:var(--muted);">Recipe vs. chef. Both belong in a real kitchen.</div>
       <table class="k" style="margin-top:28px;">
         <thead>
-          <tr><th style="width:20%"></th><th>Recipe · n8n, Zapier</th><th>Chef · Claude Code</th></tr>
+          <tr><th style="width:20%"></th><th>Deterministic · n8n, Zapier</th><th>Agentic · Claude Code</th></tr>
         </thead>
         <tbody>
           <tr><td class="label">How it works</td><td class="old">Follows the same steps every time</td><td class="new">Looks, thinks, decides, adjusts</td></tr>
           <tr><td class="label">Best for</td><td class="old">Volume · 500 identical dishes a night</td><td class="new">Judgment · the tricky dish, the new menu</td></tr>
-          <tr><td class="label">Breaks when</td><td class="old">You hand it a weird ingredient</td><td class="new">You ask for 500 of them — or skip tasting</td></tr>
-          <tr><td class="label">At work</td><td class="old">New lead → Slack notification</td><td class="new">"Read this partner's decline, draft re-engagement"</td></tr>
+          <tr><td class="label">Risks</td><td class="old">Brittle — one weird input and the pipe breaks</td><td class="new">Non-deterministic — same prompt, different output. Needs review.</td></tr>
+          <tr><td class="label">Marketing</td><td class="old">Form submit → enrich → route → Slack alert</td><td class="new">"Pull last 30 days of campaigns, find the 3 that outperformed, draft next week's angles"</td></tr>
+          <tr><td class="label">Sales</td><td class="old">Meeting booked → HubSpot deal → sequence → notify AE</td><td class="new">"Read this prospect's last 6 months of emails + 3 calls, draft a brief with likely objections"</td></tr>
         </tbody>
       </table>
 
-      <div class="flex-row gap-md" style="margin-top:28px;align-items:stretch;">
-        <div class="grow" style="padding:24px 28px;background:var(--paper-2);border-left:3px solid var(--muted);">
-          <div class="t-eyebrow" style="margin-bottom:10px;">Same task · n8n</div>
-          <div class="t-body">6–8 nodes wired together + Airtable to view results.<br/><span style="color:var(--muted);">Setup: 2–4 hours.</span></div>
-        </div>
-        <div class="grow" style="padding:24px 28px;background:var(--paper-2);border-left:3px solid var(--accent);">
-          <div class="t-eyebrow" style="margin-bottom:10px;color:var(--accent);">Same task · Claude Code</div>
-          <div class="t-body">One prompt + MCP tools, result in terminal.<br/><span style="color:var(--muted);">Setup: 5 minutes.</span></div>
-        </div>
-      </div>
-      <div class="t-body" style="margin-top:14px;max-width:1700px;font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;color:var(--muted);">
+      <div class="t-body" style="margin-top:24px;max-width:1700px;font-family:'Instrument Serif',serif;font-style:italic;font-size:26px;color:var(--muted);">
         A real kitchen uses both. The chef decides the menu; the recipe runs the volume.
       </div>
     </div>
