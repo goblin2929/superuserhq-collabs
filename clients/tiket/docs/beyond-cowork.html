@@ -178,6 +178,19 @@
   .demo .code .result{color:var(--paper);}
   .demo .code .result .m{color:#8CC196;}
 
+  /* Step-reveal for demo comparisons (slides 8–10) */
+  .demo[data-stepped] > .cow,
+  .demo[data-stepped] > .code{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity 420ms cubic-bezier(.2,.7,.2,1), transform 420ms cubic-bezier(.2,.7,.2,1);
+  }
+  .demo[data-stepped] > .cow.reveal,
+  .demo[data-stepped] > .code.reveal{
+    opacity:1;
+    transform:none;
+  }
+
   /* Agent arch */
   .arch{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
   .arch-col{padding:24px 28px;border:1.5px solid var(--ink);}
@@ -421,7 +434,7 @@
       <div class="t-eyebrow">Same prompt · both tools</div>
       <div class="t-title-sm" style="max-width:1700px;">"Find premium travel influencers for the Indonesian market on Instagram. Record profile, metrics, URL, contact — in a Google Sheet."</div>
 
-      <div class="demo" style="margin-top:32px;">
+      <div class="demo" data-stepped style="margin-top:32px;">
         <div class="cow">
           <div class="hd">Cowork</div>
           <h4>A sheet with thin data. You verify by hand.</h4>
@@ -458,7 +471,7 @@
       <div class="t-eyebrow">Same prompt · both tools</div>
       <div class="t-title-sm" style="max-width:1700px;">"Call GSC. Analyze user queries and page performance period-over-period for Grant SG. First two weeks of April vs. prior two weeks."</div>
 
-      <div class="demo" style="margin-top:32px;">
+      <div class="demo" data-stepped style="margin-top:32px;">
         <div class="cow">
           <div class="hd">Cowork</div>
           <h4 style="color:var(--bad);">Dead end.</h4>
@@ -493,7 +506,7 @@
       <div class="t-eyebrow">Same prompt · both tools</div>
       <div class="t-title-sm" style="max-width:1750px;">"Create a TikTok ad for this Tiket activity page. Local-looking avatar, real photos, VO throughout. Walk me through the plan first."</div>
 
-      <div class="demo" style="margin-top:28px;">
+      <div class="demo" data-stepped style="margin-top:28px;">
         <div class="cow">
           <div class="hd">Cowork · advises</div>
           <h4>A written plan. You execute.</h4>
@@ -1143,5 +1156,54 @@
 </deck-stage>
 
 <script src="deck-stage.js"></script>
+<script>
+  // Step-reveal for demo comparison slides: each ArrowRight / Space / click
+  // reveals the Cowork box, then the Claude Code box, before advancing.
+  (function(){
+    const stage = document.querySelector('deck-stage');
+    if (!stage) return;
+
+    let currentSlide = null;
+
+    function resetAllStepped(){
+      document.querySelectorAll('.demo[data-stepped] > .cow, .demo[data-stepped] > .code')
+        .forEach(el => el.classList.remove('reveal'));
+    }
+
+    function nextHiddenBox(){
+      if (!currentSlide) return null;
+      const demo = currentSlide.querySelector('.demo[data-stepped]');
+      if (!demo) return null;
+      return demo.querySelector(':scope > .cow:not(.reveal), :scope > .code:not(.reveal)');
+    }
+
+    stage.addEventListener('slidechange', (e) => {
+      resetAllStepped();
+      currentSlide = e.detail && e.detail.slide ? e.detail.slide : null;
+    });
+
+    // Capture-phase keydown intercepts forward-nav keys while a box is still hidden.
+    window.addEventListener('keydown', (e) => {
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      const t = e.target;
+      if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+      const forward = e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ' || e.key === 'Spacebar';
+      if (!forward) return;
+      const box = nextHiddenBox();
+      if (box) {
+        box.classList.add('reveal');
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }, true);
+
+    // Click anywhere on a stepped demo also reveals the next box.
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest || !e.target.closest('.demo[data-stepped]')) return;
+      const box = nextHiddenBox();
+      if (box) box.classList.add('reveal');
+    });
+  })();
+</script>
 </body>
 </html>
