@@ -192,13 +192,19 @@
   .demo.both-ok > .code .result .m,
   .demo.both-ok > .cow .result .m{color:var(--good);}
   .demo.both-ok > .cow::before,
-  .demo.both-ok > .code::before{
+  .demo.both-ok > .code::before,
+  .demo.code-wins > .code::before{
     content:"✓ Works";
     position:absolute;top:-14px;left:24px;
     background:var(--good);color:#F3EEE5;
     font-family:'IBM Plex Mono',monospace;font-size:15px;font-weight:500;
     letter-spacing:.14em;text-transform:uppercase;
     padding:4px 12px;
+  }
+  /* "code-wins" variant — green-light only the Claude Code box (slides 9-10) */
+  .demo.code-wins > .code{
+    position:relative;
+    border:2.5px solid var(--good);
   }
 
   /* Step-reveal for demo comparisons (slides 8–10) */
@@ -533,7 +539,7 @@
       <div class="t-eyebrow">Same prompt · both tools</div>
       <div class="t-title-sm" style="max-width:1700px;">"Call GSC. Analyze user queries and page performance period-over-period for Grant SG. First two weeks of April vs. prior two weeks."</div>
 
-      <div class="demo" data-stepped style="margin-top:32px;">
+      <div class="demo code-wins" data-stepped style="margin-top:40px;">
         <div class="cow">
           <div class="hd">Cowork</div>
           <h4 style="color:var(--bad);">Dead end.</h4>
@@ -568,7 +574,7 @@
       <div class="t-eyebrow">Same prompt · both tools</div>
       <div class="t-title-sm" style="max-width:1750px;">"Create a TikTok ad for this Tiket activity page. Local-looking avatar, real photos, VO throughout. Walk me through the plan first."</div>
 
-      <div class="demo" data-stepped style="margin-top:28px;">
+      <div class="demo code-wins" data-stepped style="margin-top:40px;">
         <div class="cow">
           <div class="hd">Cowork · advises</div>
           <h4>A written plan. You execute.</h4>
@@ -646,33 +652,6 @@
       </div>
     </div>
     <div class="foot"><div></div><div>11 / 31</div></div>
-  </section>
-
-  <!-- 12 · PERSONAL CAPABILITIES vs ENTERPRISE SYSTEM -->
-  <section data-screen-label="12 Personal vs enterprise" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 1.5</span><span>12</span></div><div>Personal vs. enterprise</div></div>
-    <div class="body">
-      <div class="t-title-sm">Cowork is <em>personal.</em> &nbsp; Code is <em>systemic.</em></div>
-      <div class="t-subtitle" style="color:var(--muted);margin-top:12px;max-width:1600px;font-size:30px;">
-        Not more features — a different layer.
-      </div>
-
-      <table class="k compact" style="margin-top:20px;">
-        <thead>
-          <tr><th style="width:50%">What you have in Cowork</th><th>What Code adds on top</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="old">Skills · reusable workflows</td><td class="new">+ <em>Commands</em> — one-line shortcuts (<span class="t-mono-sm">/partner-report</span>)</td></tr>
-          <tr><td class="old">Project + personal memory</td><td class="new">+ <em>CLAUDE.md</em> — versioned, team-wide instructions</td></tr>
-          <tr><td class="old">Connectors · Gmail, Drive, Notion</td><td class="new">+ <em>Local MCP</em> — your own APIs, custom tools</td></tr>
-          <tr><td class="old">Scheduled tasks</td><td class="new accent">+ <em>Hooks</em> — event-triggered, <em>cannot</em> be skipped</td></tr>
-          <tr><td class="old">Personal instructions</td><td class="new">+ <em>Subagents</em> — specialists with their own tools + model tier</td></tr>
-          <tr><td class="old">—</td><td class="new">+ <em>Plugins</em> — bundle and share the whole setup</td></tr>
-          <tr><td class="old">—</td><td class="new">+ <em>.claude/ in Git</em> — team-shared, version-controlled</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="foot"><div></div><div>12 / 31</div></div>
   </section>
 
   <!-- 13 · SKILLS IN CODE -->
