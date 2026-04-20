@@ -360,27 +360,26 @@
   <section data-screen-label="06 Connectors vs MCP vs plugins" class="slide">
     <div class="chrome"><div class="left"><span><span class="dot"></span>Section 1 · Features &amp; the gap</span><span>06</span></div><div>Three words people confuse</div></div>
     <div class="body gap-sm">
-      <div class="t-title">Claude Tools: Connectors. MCP. Plugins.</div>
-      <div class="t-subtitle" style="color:var(--muted);max-width:1500px;">Three ways Claude reaches the outside world. Don't mix them up.</div>
+      <div class="t-title">Connectors. MCP. Plugins.</div>
+      <div class="t-subtitle" style="color:var(--muted);max-width:1500px;">Two kinds of integrations — and one way to package them.</div>
 
-      <table class="k" style="margin-top:32px;">
+      <table class="k" style="margin-top:28px;">
         <thead>
-          <tr><th style="width:22%"></th><th>Cowork Connectors</th><th>Claude Code · MCP</th></tr>
+          <tr><th style="width:18%"></th><th>Cowork Connectors</th><th>Claude Code · MCP</th><th style="color:var(--accent);">Plugins</th></tr>
         </thead>
         <tbody>
-          <tr><td class="label">What's available</td><td class="old">Gmail, Drive, Notion, Calendar</td><td class="new accent">Anything with an API</td></tr>
-          <tr><td class="label">Who decides</td><td class="old">Anthropic builds them</td><td class="new">You configure them</td></tr>
-          <tr><td class="label">Your internal tools</td><td class="old">Not possible</td><td class="new">Connect your own APIs</td></tr>
-          <tr><td class="label">Can it think?</td><td class="old">Claude brain</td><td class="new">Claude brain</td></tr>
-          <tr><td class="label">Chain judgment?</td><td class="old">Limited</td><td class="new">Full reasoning chain</td></tr>
+          <tr><td class="label">What it is</td><td class="old">Prebuilt integrations</td><td class="old">Open protocol for tools</td><td class="new">Installable bundle of capabilities</td></tr>
+          <tr><td class="label">Gives Claude</td><td class="old">Gmail, Drive, Notion, Calendar</td><td class="old">Anything with an API</td><td class="new">Skills, commands, agents, hooks, MCP servers</td></tr>
+          <tr><td class="label">Who builds it</td><td class="old">Anthropic</td><td class="old">You, your team, or the community</td><td class="new">Anthropic marketplace / GitHub / your team</td></tr>
+          <tr><td class="label">Best for</td><td class="old">Personal apps, out of the box</td><td class="old">Internal systems, custom tools</td><td class="new">Sharing a working setup with the team</td></tr>
         </tbody>
       </table>
 
-      <div class="t-body-lg" style="margin-top:28px;max-width:1700px;">
-        MCP — Model Context Protocol — is a <em>USB port.</em> Plug in anything. Same brain. Open connections.
+      <div class="t-body-lg" style="margin-top:24px;max-width:1700px;">
+        MCP — Model Context Protocol — is a <em>USB port.</em> Plug in anything. <span style="color:var(--muted);">Plugins are the boxed kit: the port, the cables, and the instructions, shipped together.</span>
       </div>
     </div>
-    <div class="foot"><div>Plugins: one-click skill packs from Anthropic's marketplace or GitHub.</div><div>06 / 31</div></div>
+    <div class="foot"><div>Connectors + MCP = how Claude reaches tools. Plugins = how you package and share.</div><div>06 / 31</div></div>
   </section>
 
   <!-- 7 · WHAT IS AN AGENT? -->
@@ -394,24 +393,27 @@
           <tr><th style="width:22%"></th><th>n8n Workflow</th><th>Claude Conversation</th><th class="accent" style="color:var(--accent);">Agent</th></tr>
         </thead>
         <tbody>
-          <tr><td class="label">What it is</td><td class="old">Fixed sequence of steps</td><td class="old">Single chat session</td><td class="new">Persistent specialist · role, tools, memory</td></tr>
-          <tr><td class="label">Can think?</td><td class="old">Follows rules only</td><td class="new">Thinks, reasons, writes</td><td class="new">Thinks within a defined scope</td></tr>
-          <tr><td class="label">Has memory?</td><td class="old">Stateless between runs</td><td class="old">Forgets between sessions</td><td class="new">Remembers across sessions</td></tr>
-          <tr><td class="label">Specific tools?</td><td class="old">Whatever nodes you wire</td><td class="old">Whatever Claude can access</td><td class="new">Only the tools <em>you</em> assign</td></tr>
-          <tr><td class="label">Has a role?</td><td class="old">Generic automation</td><td class="old">General-purpose assistant</td><td class="new">Defined · writer, analyst, CoS</td></tr>
-          <tr><td class="label">Improves over time?</td><td class="old">Same every run</td><td class="old">No persistent learning</td><td class="new">Learns from past sessions</td></tr>
+          <tr><td class="label">What it is</td><td class="old">Fixed sequence of steps</td><td class="old">General-purpose chat</td><td class="new">Specialist · role, tools, instructions</td></tr>
+          <tr><td class="label">Decides its steps?</td><td class="old">No — follows the wiring</td><td class="new">Yes — within the chat</td><td class="new">Yes — within a narrower scope</td></tr>
+          <tr><td class="label">What tools?</td><td class="old">Whatever nodes you wire</td><td class="old">Whatever the app provides</td><td class="new">Only the tools <em>you</em> hand it</td></tr>
+          <tr><td class="label">Scope</td><td class="old">Generic</td><td class="old">Open-ended</td><td class="new">Defined · writer, analyst, CoS</td></tr>
+          <tr><td class="label">State between runs</td><td class="old">Stateless</td><td class="old">Session + project memory</td><td class="new">Fresh each run — reads shared files</td></tr>
         </tbody>
       </table>
 
-      <div class="flex-row gap-md" style="margin-top:28px;">
+      <div class="flex-row gap-md" style="margin-top:24px;">
         <div class="card grow" style="padding:24px 32px;">
           <div class="head">Local agent · Claude Code</div>
-          <p style="margin-top:6px;">Your laptop. Markdown in <span class="t-mono-sm">.claude/agents/</span>. Stops when terminal closes.</p>
+          <p style="margin-top:6px;">Markdown in <span class="t-mono-sm">.claude/agents/</span>. Runs inside your session.</p>
         </div>
         <div class="card accent-bg grow" style="padding:24px 32px;">
           <div class="head">Managed agent · Console</div>
-          <p style="margin-top:6px;">Anthropic's cloud. Runs for hours/days/weeks. Built-in caching &amp; compaction. <span style="color:var(--accent-soft);">$0.08 / session-hour.</span></p>
+          <p style="margin-top:6px;">Anthropic-hosted. Long-running jobs, built-in caching &amp; compaction. <span style="color:var(--accent-soft);">Pay-per-use.</span></p>
         </div>
+      </div>
+
+      <div class="t-body" style="margin-top:14px;max-width:1700px;font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;color:var(--muted);">
+        An agent is a specialist chef — narrower menu, sharper knives, clear role.
       </div>
     </div>
     <div class="foot"><div>Same concepts. Different infrastructure.</div><div>07 / 31</div></div>
