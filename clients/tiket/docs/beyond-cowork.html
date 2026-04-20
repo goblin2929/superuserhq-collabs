@@ -720,64 +720,383 @@
        ══════════════════════════════════════════════════════ -->
 
   <!-- 14 · CONTEXT WINDOW -->
-  <section data-screen-label="14 Context window" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 2 · The harness</span><span>14</span></div><div>Why Claude "forgets"</div></div>
+  <!-- 14a · CONTEXT WINDOW · WHAT IT IS -->
+  <section data-screen-label="14a Context window — what it is" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 2 · Context window</span><span>14a</span></div><div>What it is</div></div>
     <div class="body gap-sm">
-      <div class="t-title">Why Claude <em>forgets.</em></div>
-      <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">
-        The context window is a whiteboard. Every instruction, every message, every tool output — all of it has to fit.
+      <div class="t-eyebrow">The question it answers</div>
+      <div class="t-title-sm" style="max-width:1700px;color:var(--accent);font-style:italic;">
+        "Why does my AI forget things, produce inconsistent output, or drop steps mid-task?"
+      </div>
+      <div class="t-body-lg" style="margin-top:16px;max-width:1700px;color:var(--muted);">
+        Almost every frustration with Claude Code traces back to one concept: <span style="color:var(--ink);">the context window</span>. Before skills, before agents — you need this mental model.
       </div>
 
-      <div class="flex-col gap-xs" style="margin-top:44px;font-family:'IBM Plex Mono',monospace;font-size:20px;">
-        <div class="flex-row gap-sm" style="align-items:center;">
-          <div style="width:160px;color:var(--muted);">Turn 01</div>
-          <div class="bar grow"><i style="width:2%;"></i></div>
-          <div style="width:180px;text-align:right;">2% · clean</div>
+      <div class="flex-row gap-md" style="margin-top:32px;align-items:stretch;">
+        <div class="grow" style="padding:32px 36px;background:var(--paper-2);border-left:3px solid var(--good);">
+          <div class="t-eyebrow" style="color:var(--good);margin-bottom:14px;">What it IS</div>
+          <div class="t-body-lg" style="line-height:1.35;">
+            The <strong>total text</strong> Claude can reference while generating a response — including its own response.
+            <br/><br/>
+            Think of it as Claude's <em>working memory</em> for this conversation.
+          </div>
+          <div style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(20,18,16,.12);font-family:'IBM Plex Mono',monospace;font-size:15px;color:var(--muted);letter-spacing:.04em;">
+            Source: platform.claude.com/docs/build-with-claude/context-windows
+          </div>
         </div>
-        <div class="flex-row gap-sm" style="align-items:center;">
-          <div style="width:160px;color:var(--muted);">Turn 05</div>
-          <div class="bar grow"><i style="width:15%;"></i></div>
-          <div style="width:180px;text-align:right;">15%</div>
-        </div>
-        <div class="flex-row gap-sm" style="align-items:center;">
-          <div style="width:160px;color:var(--muted);">Turn 15</div>
-          <div class="bar grow"><i style="width:75%;background:#D08A55;"></i></div>
-          <div style="width:180px;text-align:right;">75% ⚠</div>
-        </div>
-        <div class="flex-row gap-sm" style="align-items:center;">
-          <div style="width:160px;color:var(--accent);">Turn 20</div>
-          <div class="bar rot grow"><i style="width:95%;"></i></div>
-          <div style="width:180px;text-align:right;color:var(--bad);">95% · rot</div>
-        </div>
-      </div>
 
-      <div class="flex-row gap-md" style="margin-top:32px;">
-        <div class="grow">
-          <div class="t-eyebrow" style="margin-bottom:10px;">Current ceiling</div>
-          <div class="t-body-lg"><span style="color:var(--accent);">1M tokens on Opus.</span> Sounds like a lot. <em>Fills up fast.</em></div>
-        </div>
-        <div class="grow">
-          <div class="t-eyebrow" style="margin-bottom:10px;color:var(--accent);">Context rot</div>
-          <div class="t-body-lg">Accuracy drops as the whiteboard fills. Your instructions get drowned in noise.</div>
-        </div>
-        <div class="grow">
-          <div class="t-eyebrow" style="margin-bottom:10px;">Why your Cowork gets weird</div>
-          <div class="t-body-lg">First 10 messages, great. By message 40, Claude forgets your voice.</div>
-        </div>
-      </div>
-
-      <div class="flex-row gap-md" style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(20,18,16,.12);">
-        <div class="grow" style="min-width:0;">
-          <div class="t-eyebrow" style="margin-bottom:6px;">How you know · Claude.ai / Cowork</div>
-          <div class="t-body">No live indicator. You feel it — answers get vague, it forgets earlier instructions. A banner appears near the hard limit.</div>
-        </div>
-        <div class="grow" style="min-width:0;">
-          <div class="t-eyebrow" style="margin-bottom:6px;color:var(--accent);">How you know · Claude Code</div>
-          <div class="t-body">Type <span class="t-mono-sm">/context</span> anytime — see exact usage. Status line shows % used live. Auto-compacts before it rots.</div>
+        <div class="grow" style="padding:32px 36px;background:var(--paper-2);border-left:3px solid var(--bad);">
+          <div class="t-eyebrow" style="color:var(--bad);margin-bottom:14px;">What it is NOT</div>
+          <div class="flex-col gap-sm" style="font-size:26px;line-height:1.4;">
+            <div><span style="color:var(--bad);font-family:'IBM Plex Mono',monospace;margin-right:10px;">✗</span>Claude's long-term knowledge</div>
+            <div><span style="color:var(--bad);font-family:'IBM Plex Mono',monospace;margin-right:10px;">✗</span>Unlimited</div>
+            <div><span style="color:var(--bad);font-family:'IBM Plex Mono',monospace;margin-right:10px;">✗</span>Persistent — it resets every new session unless you explicitly save it</div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="foot"><div>Known as context rot.</div><div>14 / 31</div></div>
+    <div class="foot"><div>The mental model: a working memory, not a brain.</div><div>14a / 31</div></div>
+  </section>
+
+  <!-- 14b · WHITEBOARD METAPHOR -->
+  <section data-screen-label="14b Whiteboard metaphor" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 2 · Context window</span><span>14b</span></div><div>The whiteboard</div></div>
+    <div class="body gap-sm">
+      <div class="t-title">Think of it as a whiteboard.</div>
+      <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">Everything you want Claude to use in this conversation has to fit on it.</div>
+
+      <div class="flex-row gap-md" style="margin-top:32px;align-items:stretch;">
+        <div style="flex:1.3;padding:28px;background:#FAFAFA;border:3px solid var(--ink-2);border-radius:6px;position:relative;box-shadow:inset 0 0 0 1px rgba(0,0,0,.05), 0 6px 0 -2px #BFB4A2;">
+          <div style="position:absolute;top:-14px;left:20px;background:var(--paper);padding:2px 14px;font-family:'IBM Plex Mono',monospace;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);">Whiteboard</div>
+          <div class="flex-col gap-xs" style="font-size:20px;line-height:1.4;">
+            <div style="padding:10px 14px;background:#FFF4D6;border-left:3px solid #B8862A;"><strong>Instructions</strong> <span style="color:var(--muted);">· CLAUDE.md rules, trigger phrases</span></div>
+            <div style="padding:10px 14px;background:#EBE4D6;border-left:3px solid var(--muted);"><strong>Conversation so far</strong> <span style="color:var(--muted);">· your msgs + Claude's replies</span></div>
+            <div style="padding:10px 14px;background:#E4EBE3;border-left:3px solid var(--sage);"><strong>Files Claude has read</strong> <span style="color:var(--muted);">· docs, CSVs, PDFs</span></div>
+            <div style="padding:10px 14px;background:#E8DDD0;border-left:3px solid var(--accent);"><strong>Screenshots</strong> <span style="color:var(--muted);">· visual input</span></div>
+            <div style="padding:10px 14px;background:#DEE4E8;border-left:3px solid #4A6A7E;"><strong>Tool results</strong> <span style="color:var(--muted);">· GA4, SERP, HubSpot, emails</span></div>
+            <div style="padding:10px 14px;background:#F0E3E0;border-left:3px solid var(--bad);"><strong>The answer being written</strong> <span style="color:var(--muted);">· Claude's in-progress response</span></div>
+          </div>
+        </div>
+        <div style="flex:1;padding:28px 32px;">
+          <div class="t-body-lg" style="line-height:1.35;">
+            <strong>All of it has to fit.</strong> Nothing else exists for Claude in this conversation.
+          </div>
+          <div class="flex-col gap-xs" style="margin-top:22px;font-size:22px;line-height:1.45;color:var(--ink-2);">
+            <div><span style="color:var(--accent);font-family:'IBM Plex Mono',monospace;margin-right:8px;">→</span>New session = whiteboard wiped clean.</div>
+            <div><span style="color:var(--accent);font-family:'IBM Plex Mono',monospace;margin-right:8px;">→</span>Fills up? Old notes get summarized (compacted) or pushed off.</div>
+            <div><span style="color:var(--accent);font-family:'IBM Plex Mono',monospace;margin-right:8px;">→</span>Once wiped, the detail is gone — unless it was saved to disk first.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><div>~1M tokens on Opus 4.7. Feels huge — fills up fast.</div><div>14b / 31</div></div>
+  </section>
+
+  <!-- 14c · WHAT COUNTS TOWARD YOUR WINDOW -->
+  <section data-screen-label="14c What counts toward window" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 2 · Context window</span><span>14c</span></div><div>What counts toward your window</div></div>
+    <div class="body gap-sm">
+      <div class="t-title">What counts toward your window.</div>
+      <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">Everything Claude sees or generates takes space. Typical token costs per source:</div>
+
+      <div class="flex-col" style="margin-top:32px;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:18px;">
+        <!-- header -->
+        <div class="flex-row" style="gap:20px;padding:0 0 8px;font-size:14px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid rgba(20,18,16,.15);">
+          <div style="flex:0 0 380px;">Source</div>
+          <div style="flex:1;">Relative token cost (scale: 50K)</div>
+          <div style="flex:0 0 160px;text-align:right;">Typical</div>
+        </div>
+
+        <!-- bars: width relative to 50K -->
+        <div class="flex-row" style="gap:20px;align-items:center;">
+          <div style="flex:0 0 380px;">~/.claude/CLAUDE.md</div>
+          <div style="flex:1;"><div style="width:10%;height:22px;background:#C6B590;"></div></div>
+          <div style="flex:0 0 160px;text-align:right;color:var(--muted);">3–5K</div>
+        </div>
+        <div class="flex-row" style="gap:20px;align-items:center;">
+          <div style="flex:0 0 380px;">Project CLAUDE.md</div>
+          <div style="flex:1;"><div style="width:20%;height:22px;background:#C6B590;"></div></div>
+          <div style="flex:0 0 160px;text-align:right;color:var(--muted);">3–10K</div>
+        </div>
+        <div class="flex-row" style="gap:20px;align-items:center;">
+          <div style="flex:0 0 380px;">MEMORY.md (per project)</div>
+          <div style="flex:1;"><div style="width:12%;height:22px;background:#C6B590;"></div></div>
+          <div style="flex:0 0 160px;text-align:right;color:var(--muted);">up to 6K</div>
+        </div>
+        <div class="flex-row" style="gap:20px;align-items:center;">
+          <div style="flex:0 0 380px;">Skill / agent / command descriptions</div>
+          <div style="flex:1;"><div style="width:30%;height:22px;background:#A9B48C;"></div></div>
+          <div style="flex:0 0 160px;text-align:right;color:var(--muted);">5–15K</div>
+        </div>
+        <div class="flex-row" style="gap:20px;align-items:center;">
+          <div style="flex:0 0 380px;">MCP tool lists</div>
+          <div style="flex:1;"><div style="width:60%;height:22px;background:#D08A55;"></div></div>
+          <div style="flex:0 0 160px;text-align:right;color:var(--muted);">10–30K</div>
+        </div>
+        <div class="flex-row" style="gap:20px;align-items:center;">
+          <div style="flex:0 0 380px;">File you Read (small → big)</div>
+          <div style="flex:1;"><div style="width:40%;height:22px;background:linear-gradient(90deg,#C6B590 0%,#D08A55 100%);"></div></div>
+          <div style="flex:0 0 160px;text-align:right;color:var(--muted);">0.5–20K+</div>
+        </div>
+        <div class="flex-row" style="gap:20px;align-items:center;">
+          <div style="flex:0 0 380px;">Web page fetched</div>
+          <div style="flex:1;"><div style="width:40%;height:22px;background:#D08A55;"></div></div>
+          <div style="flex:0 0 160px;text-align:right;color:var(--muted);">5–20K</div>
+        </div>
+        <div class="flex-row" style="gap:20px;align-items:center;">
+          <div style="flex:0 0 380px;">Screenshot read</div>
+          <div style="flex:1;"><div style="width:6%;height:22px;background:#A9B48C;"></div></div>
+          <div style="flex:0 0 160px;text-align:right;color:var(--muted);">1–3K</div>
+        </div>
+        <div class="flex-row" style="gap:20px;align-items:center;">
+          <div style="flex:0 0 380px;">PDF page</div>
+          <div style="flex:1;"><div style="width:4%;height:22px;background:#A9B48C;"></div></div>
+          <div style="flex:0 0 160px;text-align:right;color:var(--muted);">0.5–2K</div>
+        </div>
+        <div class="flex-row" style="gap:20px;align-items:center;">
+          <div style="flex:0 0 380px;"><strong>Tool result (DataForSEO, GSC…)</strong></div>
+          <div style="flex:1;"><div style="width:100%;height:22px;background:var(--bad);"></div></div>
+          <div style="flex:0 0 160px;text-align:right;color:var(--bad);">5–50K+</div>
+        </div>
+      </div>
+
+      <div class="t-body" style="margin-top:22px;max-width:1700px;font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;color:var(--muted);">
+        A single tool call can cost more than your whole CLAUDE.md. This is why MCP tool discipline matters.
+      </div>
+    </div>
+    <div class="foot"><div>Scale shown is relative to a 50K chunk — your ceiling is ~1M.</div><div>14c / 31</div></div>
+  </section>
+
+  <!-- 14d · MECHANISMS: WHITEBOARD / CABINET / DESK / WALL -->
+  <section data-screen-label="14d Mechanisms" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 2 · Context window</span><span>14d</span></div><div>Whiteboard · Cabinet · Desk · Wall</div></div>
+    <div class="body gap-sm">
+      <div class="t-title">Where things live.</div>
+      <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">And what they cost on the whiteboard.</div>
+
+      <table class="k compact" style="margin-top:24px;font-size:22px;">
+        <thead>
+          <tr>
+            <th style="width:22%">Mechanism</th>
+            <th>Whiteboard role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="label"><span class="t-mono">CLAUDE.md</span></td><td>Written in permanent marker at the top of every new whiteboard. Keep it short — costs space every turn.</td></tr>
+          <tr><td class="label"><span class="t-mono">MEMORY.md</span></td><td>A sticky note auto-taped to every whiteboard <em>in this project</em>. Small on purpose.</td></tr>
+          <tr><td class="label"><span class="t-mono">PROGRESS.md</span></td><td>A notebook on your desk. <strong>Not on the whiteboard</strong> — survives every wipe.</td></tr>
+          <tr><td class="label">Skills</td><td>Files in a filing cabinet. Only pulled onto the whiteboard when Claude decides one matches the task.</td></tr>
+          <tr><td class="label">Agents (subagents)</td><td>Assistants with their <em>own whiteboards</em>. They work separately, hand you a summary — saving your whiteboard space.</td></tr>
+          <tr><td class="label">Hooks</td><td>Stamps on the wall outside the whiteboard. <strong>Zero space cost.</strong> Fire automatically on events.</td></tr>
+          <tr><td class="label"><span class="t-mono">/compact</span></td><td>Erase the middle of the whiteboard, replace with a summary line. Saves space — loses detail.</td></tr>
+          <tr><td class="label"><span class="t-mono">/clear</span></td><td>Full whiteboard wipe. Fresh start.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="t-body" style="margin-top:18px;max-width:1750px;font-family:'Instrument Serif',serif;font-style:italic;font-size:26px;line-height:1.3;">
+        Every design choice has an obvious answer: does this go on the <strong>whiteboard</strong>, in the <strong>cabinet</strong>, on the <strong>desk</strong>, or on the <strong>wall</strong>?
+      </div>
+    </div>
+    <div class="foot"><div>Everything Claude "knows" this session is on the whiteboard. Nothing else.</div><div>14d / 31</div></div>
+  </section>
+
+  <!-- 14e · THE REAL PROBLEM: CONTEXT ROT -->
+  <section data-screen-label="14e Context rot" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 2 · Context window</span><span>14e</span></div><div>The real problem · context rot</div></div>
+    <div class="body gap-sm">
+      <div class="t-title">The real problem: <em>context rot.</em></div>
+      <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">Bigger isn't better. Performance <em>degrades</em> as the window fills — even when everything technically fits.</div>
+
+      <div class="flex-row gap-md" style="margin-top:28px;align-items:stretch;">
+        <div class="grow" style="max-width:980px;">
+          <div class="t-eyebrow" style="margin-bottom:14px;">Accuracy drop as the whiteboard fills</div>
+          <div class="flex-col gap-xs" style="font-family:'IBM Plex Mono',monospace;font-size:20px;">
+            <div class="flex-row gap-sm" style="align-items:center;">
+              <div style="width:140px;color:var(--muted);">Turn 01</div>
+              <div class="bar grow"><i style="width:2%;"></i></div>
+              <div style="width:150px;text-align:right;">2% · clean</div>
+            </div>
+            <div class="flex-row gap-sm" style="align-items:center;">
+              <div style="width:140px;color:var(--muted);">Turn 05</div>
+              <div class="bar grow"><i style="width:15%;"></i></div>
+              <div style="width:150px;text-align:right;">15%</div>
+            </div>
+            <div class="flex-row gap-sm" style="align-items:center;">
+              <div style="width:140px;color:var(--muted);">Turn 15</div>
+              <div class="bar grow"><i style="width:75%;background:#D08A55;"></i></div>
+              <div style="width:150px;text-align:right;">75% ⚠</div>
+            </div>
+            <div class="flex-row gap-sm" style="align-items:center;">
+              <div style="width:140px;color:var(--accent);">Turn 20</div>
+              <div class="bar rot grow"><i style="width:95%;"></i></div>
+              <div style="width:150px;text-align:right;color:var(--bad);">95% · rot</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grow" style="padding:22px 28px;background:var(--paper-2);border-left:3px solid var(--accent);">
+          <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:26px;line-height:1.35;color:var(--ink);">
+            "As token count grows, accuracy and recall degrade — a phenomenon known as <strong>context rot</strong>. Curating what's in context is just as important as how much space is available."
+          </div>
+          <div style="margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);">— Claude docs</div>
+        </div>
+      </div>
+
+      <div class="t-body-lg" style="margin-top:22px;max-width:1750px;">
+        Trimming <span class="t-mono">CLAUDE.md</span>, splitting procedures into skills, persisting plans to <span class="t-mono">PROGRESS.md</span> — <em>this is why it matters.</em> It's not about saving space. It's about output quality.
+      </div>
+    </div>
+    <div class="foot"><div>A full context window produces worse output than a clean one.</div><div>14e / 31</div></div>
+  </section>
+
+  <!-- 14f · SIGNS YOUR CONTEXT IS CONGESTED -->
+  <section data-screen-label="14f Congestion signs" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 2 · Context window</span><span>14f</span></div><div>How you know it's rotting</div></div>
+    <div class="body gap-sm">
+      <div class="t-title">Signs your context is <em>congested.</em></div>
+      <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">If you see these — adding <em>more</em> instructions won't fix it. Offload or reset.</div>
+
+      <table class="k compact" style="margin-top:24px;font-size:22px;">
+        <thead>
+          <tr><th style="width:44%">Symptom</th><th>What's happening</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Claude forgets an instruction you gave 20 turns ago</td><td class="old">Earlier content still in window — but attention is diluted</td></tr>
+          <tr><td>Output is shorter, more generic, less specific</td><td class="old">Context rot · accuracy degrading</td></tr>
+          <tr><td>Agents produce inconsistent results across runs</td><td class="old">Each invocation sees slightly different starting context</td></tr>
+          <tr><td>Plan steps get dropped mid-task</td><td class="old">Long turn counts push old instructions out of focus</td></tr>
+          <tr><td>Claude re-asks for info you already provided</td><td class="old">Recall failing despite info being "in context"</td></tr>
+          <tr><td>Inconsistent voice/tone in content work</td><td class="old">Earlier brand rules no longer weighted properly</td></tr>
+        </tbody>
+      </table>
+
+      <div class="t-body" style="margin-top:20px;max-width:1700px;font-family:'Instrument Serif',serif;font-style:italic;font-size:26px;color:var(--ink);">
+        Your instinct is to repeat yourself. <span style="color:var(--accent);">Don't.</span> Reset or offload — then continue.
+      </div>
+    </div>
+    <div class="foot"><div>Symptom ≠ bug. It's context physics.</div><div>14f / 31</div></div>
+  </section>
+
+  <!-- 14g · PLAYBOOK LEVEL 1 · SETUP HYGIENE -->
+  <section data-screen-label="14g Playbook L1" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 2 · Context window</span><span>14g</span></div><div>Playbook · Level 1 — setup hygiene</div></div>
+    <div class="body gap-sm">
+      <div class="t-title">The playbook. <span style="color:var(--muted);">Level 1 — setup hygiene.</span></div>
+      <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">Shrink your baseline <em>before</em> you start a session.</div>
+
+      <div class="flex-row gap-md" style="margin-top:28px;align-items:stretch;">
+        <div class="grow" style="padding:24px 28px;background:var(--paper-2);border-left:3px solid var(--accent);">
+          <div class="t-eyebrow" style="color:var(--accent);margin-bottom:12px;">01 · Slim global CLAUDE.md</div>
+          <div class="t-body" style="line-height:1.4;">
+            Keep <span class="t-mono">~/.claude/CLAUDE.md</span> under 100 lines. Move procedures into <span class="t-mono">~/.claude/skills/</span> with frontmatter. Keep only identity + triggers + always-on rules.
+          </div>
+          <div style="margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--muted);background:rgba(20,18,16,.06);padding:8px 12px;">$ wc -l ~/.claude/CLAUDE.md</div>
+        </div>
+        <div class="grow" style="padding:24px 28px;background:var(--paper-2);border-left:3px solid var(--sage);">
+          <div class="t-eyebrow" style="color:var(--sage);margin-bottom:12px;">02 · Path-scope your rules</div>
+          <div class="t-body" style="line-height:1.4;">
+            Global rules load <em>everywhere, every session</em> — expensive. Push rules down the tree:
+          </div>
+          <div class="flex-col" style="margin-top:10px;gap:4px;font-family:'IBM Plex Mono',monospace;font-size:15px;color:var(--muted);">
+            <div>~/.claude/CLAUDE.md &nbsp;<span style="color:var(--bad);">→ every session</span></div>
+            <div>project/CLAUDE.md &nbsp;<span style="color:var(--ink);">→ this project only</span></div>
+            <div>client/CLAUDE.md &nbsp;<span style="color:var(--good);">→ cheapest</span></div>
+          </div>
+        </div>
+        <div class="grow" style="padding:24px 28px;background:var(--paper-2);border-left:3px solid var(--muted);">
+          <div class="t-eyebrow" style="margin-bottom:12px;">03 · Archive stale skills</div>
+          <div class="t-body" style="line-height:1.4;">
+            Audit <span class="t-mono">~/.claude/skills/</span> quarterly. Move unused ones to <span class="t-mono">_archive/</span> — their descriptions stop burning startup budget.
+          </div>
+          <div style="margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--muted);background:rgba(20,18,16,.06);padding:8px 12px;">$ ls ~/.claude/skills/ | wc -l</div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><div>Every line in global CLAUDE.md costs you every session, everywhere.</div><div>14g / 31</div></div>
+  </section>
+
+  <!-- 14h · PLAYBOOK LEVEL 2 · ACTIVE HYGIENE -->
+  <section data-screen-label="14h Playbook L2" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 2 · Context window</span><span>14h</span></div><div>Playbook · Level 2 — active hygiene</div></div>
+    <div class="body gap-sm">
+      <div class="t-title">The playbook. <span style="color:var(--muted);">Level 2 — active hygiene.</span></div>
+      <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">What to do <em>while</em> working when warning signs show.</div>
+
+      <table class="k compact" style="margin-top:24px;font-size:21px;">
+        <thead>
+          <tr><th style="width:28%">Lever</th><th style="width:28%">When to pull it</th><th>What happens</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="label">Persist plan to <span class="t-mono">PROGRESS.md</span></td>
+            <td class="old">Plan-mode approved, or any multi-step agreement</td>
+            <td class="new">Plan lives on disk, survives compaction &amp; new sessions. Format: Goal / Steps / Status / Next.</td>
+          </tr>
+          <tr>
+            <td class="label">Save learning to <span class="t-mono">MEMORY.md</span></td>
+            <td class="old">"remember this" · after a correction or pattern</td>
+            <td class="new">Appended to project <span class="t-mono">MEMORY.md</span> (200-line cap). Auto-loads every future session.</td>
+          </tr>
+          <tr>
+            <td class="label">Run <span class="t-mono">/compact</span></td>
+            <td class="old">Status-line drops below 50%, or output feels thin</td>
+            <td class="new">Earlier turns summarized by the server → space freed, detail lost. <strong>Save critical state first.</strong></td>
+          </tr>
+          <tr>
+            <td class="label">Run <span class="t-mono">/clear</span></td>
+            <td class="old">Switching between unrelated projects</td>
+            <td class="new">Full whiteboard wipe. Fresh session — cleaner than mixing contexts.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="t-body" style="margin-top:20px;max-width:1750px;font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;color:var(--muted);">
+        Offload to disk before the whiteboard fills. Compact or clear once it has.
+      </div>
+    </div>
+    <div class="foot"><div>Check your context indicator. Don't wait for the banner.</div><div>14h / 31</div></div>
+  </section>
+
+  <!-- 14i · PLAYBOOK LEVEL 3 · ARCHITECTURE -->
+  <section data-screen-label="14i Playbook L3" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 2 · Context window</span><span>14i</span></div><div>Playbook · Level 3 — architecture</div></div>
+    <div class="body gap-sm">
+      <div class="t-title">The playbook. <span style="color:var(--muted);">Level 3 — architecture.</span></div>
+      <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">When the same problem keeps recurring — redesign the system, not the prompt.</div>
+
+      <div class="flex-row gap-md" style="margin-top:28px;align-items:stretch;flex-wrap:wrap;">
+        <div style="flex:1 1 45%;padding:22px 26px;background:var(--paper-2);border-left:3px solid var(--accent);">
+          <div class="t-eyebrow" style="color:var(--accent);margin-bottom:10px;">01 · Delegate to subagents</div>
+          <div class="t-body" style="line-height:1.4;">
+            Task needs 5+ files or 10+ pages? Spawn an <strong>Agent</strong> (Explore / Plan / general-purpose).
+            Subagent has its <em>own whiteboard</em> — returns a summary. Your context stays clean.
+          </div>
+        </div>
+        <div style="flex:1 1 45%;padding:22px 26px;background:var(--paper-2);border-left:3px solid var(--sage);">
+          <div class="t-eyebrow" style="color:var(--sage);margin-bottom:10px;">02 · Skills over inlined procedures</div>
+          <div class="t-body" style="line-height:1.4;">
+            Procedure 20+ lines and not needed every session? Make a <span class="t-mono">skill</span>. The harness loads only the 1-line description at startup. Full body loads <em>only when invoked</em>.
+          </div>
+        </div>
+        <div style="flex:1 1 45%;padding:22px 26px;background:var(--paper-2);border-left:3px solid #4A6A7E;">
+          <div class="t-eyebrow" style="color:#4A6A7E;margin-bottom:10px;">03 · Extract, don't dump</div>
+          <div class="t-body" style="line-height:1.4;">
+            Reading a 200-page PDF = ~400K tokens. <strong>Grep/Glob first</strong>, then Read with <span class="t-mono-sm">offset + limit</span>. For MCP — filter <em>before</em> retrieval (date ranges, specific pages).
+          </div>
+        </div>
+        <div style="flex:1 1 45%;padding:22px 26px;background:var(--paper-2);border-left:3px solid var(--muted);">
+          <div class="t-eyebrow" style="margin-bottom:10px;">04 · Hooks for zero-context enforcement</div>
+          <div class="t-body" style="line-height:1.4;">
+            Rule that <em>must</em> fire — don't rely on Claude's judgment. Add a <span class="t-mono">PostToolUse</span> hook in <span class="t-mono">settings.json</span>. Runs in shell, not model context. Injects a reminder only when the event fires.
+          </div>
+        </div>
+      </div>
+
+      <div class="t-body" style="margin-top:18px;max-width:1750px;font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;color:var(--ink);">
+        Most issues fix with Levels 1–2. Level 3 is when the system itself is the problem.
+      </div>
+    </div>
+    <div class="foot"><div>Whiteboard · Cabinet · Desk · Wall — design against the right surface.</div><div>14i / 31</div></div>
   </section>
 
   <!-- 15 · POST-MORTEM v2 vs v3 -->
