@@ -546,8 +546,10 @@
 <pre class="tree" style="color:var(--paper);font-size:18px;line-height:1.55;"><span class="mt">~/.claude/</span>
 ├── <span class="c">CLAUDE.md</span>             <span class="mt">← constitution · 90 lines</span>
 ├── <span class="c">settings.json</span>         <span class="mt">← permissions, hooks</span>
-├── <span class="c">hooks/</span>
-│   └── memory-extract.sh     <span class="mt">← auto-saves learnings</span>
+├── <span class="c">hooks/</span>                <span class="mt">← auto-runs on events</span>
+│   ├── memory-extract.sh     <span class="mt">← save learnings</span>
+│   ├── pre-commit.sh
+│   └── session-start.sh
 ├── <span class="c">agents/</span>               <span class="mt">← 2 global agents</span>
 ├── <span class="c">commands/</span>             <span class="mt">← 60+ slash commands</span>
 └── <span class="c">skills/</span>               <span class="mt">← 70+ skills</span>
@@ -564,7 +566,7 @@
           <div class="t-body-lg" style="color:var(--paper);">60 commands.</div>
           <div class="t-body-lg" style="color:var(--paper);">70 skills.</div>
           <div class="t-body-lg" style="color:var(--paper);">15 project agents.</div>
-          <div class="t-body-lg" style="color:var(--paper);">5 hook categories.</div>
+          <div class="t-body-lg" style="color:var(--paper);">A handful of hooks.</div>
           <div class="rule-thick" style="background:rgba(255,255,255,.2);margin:12px 0;"></div>
           <div class="t-body" style="color:rgba(255,255,255,.8);">One person. Three months.</div>
           <div class="t-body" style="color:var(--accent-soft);font-family:'Instrument Serif',serif;font-style:italic;margin-top:8px;font-size:32px;line-height:1.25;">
