@@ -284,19 +284,20 @@
   </section>
 
   <!-- 4 · AUTOMATION vs AUGMENTATION -->
-  <section data-screen-label="04 Automation vs augmentation" class="slide">
+  <section data-screen-label="04 Workflows vs agents" class="slide">
     <div class="chrome"><div class="left"><span><span class="dot"></span>Section 0</span><span>04</span></div><div>Two modes</div></div>
     <div class="body gap-sm">
-      <div class="t-title">AI Automation <span style="color:var(--muted);">vs.</span> AI Augmentation.</div>
+      <div class="t-title">Recipe <span style="color:var(--muted);">vs.</span> Chef.</div>
+      <div class="t-subtitle" style="margin-top:8px;color:var(--muted);">Deterministic workflows vs. agentic AI.</div>
       <table class="k" style="margin-top:28px;">
         <thead>
-          <tr><th style="width:20%"></th><th>Automation · n8n, Zapier</th><th>Augmentation · Claude</th></tr>
+          <tr><th style="width:20%"></th><th>Recipe · n8n, Zapier</th><th>Chef · Claude Code</th></tr>
         </thead>
         <tbody>
-          <tr><td class="label">What it does</td><td class="old">Follows rules: if this, then that</td><td class="new">Thinks, reasons, writes, analyzes</td></tr>
-          <tr><td class="label">Strengths</td><td class="old">Reliable, predictable, 24/7</td><td class="new">Creative, adaptive, handles ambiguity</td></tr>
-          <tr><td class="label">Weaknesses</td><td class="old">Can't think, harder to adapt, can't write</td><td class="new">Can drift, can fabricate, needs guardrails</td></tr>
-          <tr><td class="label">Example</td><td class="old">New lead → Slack notification</td><td class="new">"Analyze this partner's decline, draft re-engagement"</td></tr>
+          <tr><td class="label">How it works</td><td class="old">Follows the same steps every time</td><td class="new">Looks, thinks, decides, adjusts</td></tr>
+          <tr><td class="label">Best for</td><td class="old">Volume · 500 identical dishes a night</td><td class="new">Judgment · the tricky dish, the new menu</td></tr>
+          <tr><td class="label">Breaks when</td><td class="old">You hand it a weird ingredient</td><td class="new">You ask for 500 of them — or skip tasting</td></tr>
+          <tr><td class="label">At work</td><td class="old">New lead → Slack notification</td><td class="new">"Read this partner's decline, draft re-engagement"</td></tr>
         </tbody>
       </table>
 
@@ -311,10 +312,10 @@
         </div>
       </div>
       <div class="t-body" style="margin-top:14px;max-width:1700px;font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;color:var(--muted);">
-        Not competing. Complementary.
+        A real kitchen uses both. The chef decides the menu; the recipe runs the volume.
       </div>
     </div>
-    <div class="foot"><div>n8n for predictable parts. Claude for judgment.</div><div>04 / 31</div></div>
+    <div class="foot"><div>Recipe for the predictable parts. Chef for the judgment.</div><div>04 / 31</div></div>
   </section>
 
   <!-- 5 · FOUR WAYS TO USE CLAUDE -->
@@ -603,8 +604,9 @@
     <div class="chrome"><div class="left"><span><span class="dot"></span>Section 1.5</span><span>13</span></div><div>Skills · auto-invoke + commands</div></div>
     <div class="body gap-sm">
       <div class="t-title">Skills <em>auto-invoke.</em></div>
+      <div class="t-body" style="margin-top:8px;color:var(--muted);max-width:1700px;font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;">The chef's technique cards — consistency without killing judgment.</div>
 
-      <div class="flex-col" style="margin-top:40px;">
+      <div class="flex-col" style="margin-top:24px;">
         <div class="step"><div class="n">01</div><div class="t-body-lg">Claude scans your <span class="t-mono">skills/</span> folder on session start.</div><div class="o">Automatic</div></div>
         <div class="step"><div class="n">02</div><div class="t-body-lg">Reads the <span class="t-mono">name:</span> and <span class="t-mono">description:</span> from each file.</div><div class="o">Metadata</div></div>
         <div class="step"><div class="n">03</div><div class="t-body-lg">You type: "write a blog post about hotel trends."</div><div class="o">Your prompt</div></div>
