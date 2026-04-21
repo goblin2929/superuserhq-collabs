@@ -603,40 +603,128 @@
   </section>
 
   <!-- 7 · WHAT IS AN AGENT? -->
-  <section data-screen-label="07 What is an agent" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 1</span><span>07</span></div><div>Most overloaded word in AI</div></div>
+  <!-- 07a · WHAT IS A SKILL -->
+  <section data-screen-label="07a What is a skill" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 1 · The building blocks</span><span>07a</span></div><div>Skill</div></div>
     <div class="body gap-sm">
-      <div class="t-title">What <em>is</em> an agent?</div>
+      <div class="t-title">Skill. <span style="color:var(--muted);">A reusable procedure Claude auto-loads.</span></div>
 
-      <table class="k compact" style="margin-top:28px;">
+      <div class="flex-row gap-md" style="margin-top:30px;align-items:stretch;">
+        <div class="grow" style="padding:26px 30px;background:var(--paper-2);border-left:4px solid var(--accent);">
+          <div class="t-eyebrow" style="color:var(--accent);margin-bottom:12px;">What it is</div>
+          <div class="t-body" style="line-height:1.4;">
+            A markdown file in <span class="t-mono">~/.claude/skills/</span> with a <strong>name</strong>, a <strong>description</strong>, and a <strong>body</strong> of steps.
+          </div>
+          <div class="t-small" style="margin-top:10px;color:var(--muted);line-height:1.4;">
+            On session start, Claude reads only the 1-line description — the body loads <em>only when invoked.</em> Cheap on context.
+          </div>
+        </div>
+
+        <div class="grow" style="padding:26px 30px;background:var(--paper-2);border-left:4px solid var(--sage);">
+          <div class="t-eyebrow" style="color:var(--sage);margin-bottom:12px;">How to use</div>
+          <div class="t-body" style="line-height:1.4;">
+            <strong>Just describe what you want.</strong> If the skill's description matches, Claude loads it automatically.
+          </div>
+          <div class="t-small" style="margin-top:10px;color:var(--muted);line-height:1.4;">
+            Or force-invoke with a slash command: <span class="t-mono">/blog-production</span>. Same skill file, either path.
+          </div>
+        </div>
+
+        <div class="grow" style="padding:26px 30px;background:var(--paper-2);border-left:4px solid var(--good);">
+          <div class="t-eyebrow" style="color:var(--good);margin-bottom:12px;">When to use it</div>
+          <div class="t-body" style="line-height:1.4;">
+            <strong>A procedure you'll repeat</strong> — same steps, different inputs.
+          </div>
+          <div class="t-small" style="margin-top:10px;color:var(--muted);line-height:1.4;">
+            "Audit a site." "Write a blog brief." "Format a monthly report." Codify the SOP once — run it forever.
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:22px;padding:18px 26px;background:var(--ink);color:var(--paper);border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:18px;line-height:1.5;">
+        <span style="color:var(--accent-soft);">skills/blog-production.md</span><br/>
+        <span style="color:rgba(255,255,255,.55);">---<br/>name: blog-production<br/>description: Use when writing blog content — runs the 7-phase production workflow.<br/>---</span><br/>
+        <span style="color:rgba(255,255,255,.9);">## Steps<br/>1. Research · 2. Outline · 3. Draft · …</span>
+      </div>
+    </div>
+    <div class="foot"><div>The description is the most important line. That's how Claude finds it.</div><div>07a / 31</div></div>
+  </section>
+
+  <!-- 07 · WHAT IS AN AGENT -->
+  <section data-screen-label="07 What is an agent" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 1 · The building blocks</span><span>07</span></div><div>Agent</div></div>
+    <div class="body gap-sm">
+      <div class="t-title">Agent. <span style="color:var(--muted);">A specialist with its own whiteboard.</span></div>
+
+      <div class="flex-row gap-md" style="margin-top:30px;align-items:stretch;">
+        <div class="grow" style="padding:26px 30px;background:var(--paper-2);border-left:4px solid var(--accent);">
+          <div class="t-eyebrow" style="color:var(--accent);margin-bottom:12px;">What it is</div>
+          <div class="t-body" style="line-height:1.4;">
+            A markdown spec in <span class="t-mono">.claude/agents/</span> with a <strong>role</strong>, <strong>tools</strong>, and <strong>instructions</strong>.
+          </div>
+          <div class="t-small" style="margin-top:10px;color:var(--muted);line-height:1.4;">
+            Spins up a <strong>subagent</strong> — its own fresh context window. Does the work, returns only a summary to you.
+          </div>
+        </div>
+
+        <div class="grow" style="padding:26px 30px;background:var(--paper-2);border-left:4px solid var(--sage);">
+          <div class="t-eyebrow" style="color:var(--sage);margin-bottom:12px;">How to use</div>
+          <div class="t-body" style="line-height:1.4;">
+            Ask by role: <em>"Have the content-writer draft this blog."</em>
+          </div>
+          <div class="t-small" style="margin-top:10px;color:var(--muted);line-height:1.4;">
+            Or Claude Code picks an agent when the task matches. The subagent runs on its own whiteboard — your context stays clean.
+          </div>
+        </div>
+
+        <div class="grow" style="padding:26px 30px;background:var(--paper-2);border-left:4px solid var(--good);">
+          <div class="t-eyebrow" style="color:var(--good);margin-bottom:12px;">When to use it</div>
+          <div class="t-body" style="line-height:1.4;">
+            <strong>Judgment work, or heavy research</strong> that would burn your context.
+          </div>
+          <div class="t-small" style="margin-top:10px;color:var(--muted);line-height:1.4;">
+            "Investigate why traffic dropped." "Read these 20 files and return a brief." Tasks that need a specialist, not a recipe.
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:22px;padding:18px 26px;background:var(--ink);color:var(--paper);border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:18px;line-height:1.5;">
+        <span style="color:var(--accent-soft);">.claude/agents/marketing-data-analyst.md</span><br/>
+        <span style="color:rgba(255,255,255,.55);">---<br/>name: marketing-data-analyst<br/>description: Investigates traffic drops, diagnoses ranking shifts, writes data-driven briefs.<br/>tools: [ga4, gsc, ahrefs, sheets]<br/>---</span><br/>
+        <span style="color:rgba(255,255,255,.9);">You are a senior marketing analyst. Your job is to …</span>
+      </div>
+    </div>
+    <div class="foot"><div>Agent = specialist with its own context. Delegates, returns, stays clean.</div><div>07 / 31</div></div>
+  </section>
+
+  <!-- 07c · SKILL vs AGENT — WHEN TO REACH FOR WHICH -->
+  <section data-screen-label="07c Skill vs agent" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 1 · The building blocks</span><span>07c</span></div><div>Skill vs. Agent</div></div>
+    <div class="body gap-sm">
+      <div class="t-title">Skill <span style="color:var(--muted);">vs.</span> Agent.</div>
+      <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">Two different tools. Knowing when to reach for which is the whole game.</div>
+
+      <table class="k compact" style="margin-top:26px;font-size:22px;">
         <thead>
-          <tr><th style="width:22%"></th><th>n8n Workflow</th><th>Claude Conversation</th><th class="accent" style="color:var(--accent);">Agent</th></tr>
+          <tr><th style="width:22%"></th><th style="color:var(--good);">Skill</th><th style="color:var(--accent);">Agent</th></tr>
         </thead>
         <tbody>
-          <tr><td class="label">What it is</td><td class="old">Fixed sequence of steps</td><td class="old">General-purpose chat</td><td class="new">Specialist · role, tools, instructions</td></tr>
-          <tr><td class="label">Decides its steps?</td><td class="old">No — follows the wiring</td><td class="new">Yes — within the chat</td><td class="new">Yes — within a narrower scope</td></tr>
-          <tr><td class="label">What tools?</td><td class="old">Whatever nodes you wire</td><td class="old">Whatever the app provides</td><td class="new">Only the tools <em>you</em> hand it</td></tr>
-          <tr><td class="label">Scope</td><td class="old">Generic</td><td class="old">Open-ended</td><td class="new">Defined · writer, analyst, CoS</td></tr>
-          <tr><td class="label">State between runs</td><td class="old">Stateless</td><td class="old">Session + project memory</td><td class="new">Fresh each run — reads shared files</td></tr>
+          <tr><td class="label">Mental model</td><td class="old">A recipe card</td><td class="new">A specialist chef</td></tr>
+          <tr><td class="label">Scope</td><td class="old">One repeatable procedure</td><td class="new">A role with judgment + tools</td></tr>
+          <tr><td class="label">Context cost</td><td class="old">Just the description (cheap)</td><td class="new">Runs on its own whiteboard (free to your context)</td></tr>
+          <tr><td class="label">Invocation</td><td class="old">Auto-loads when description matches, or <span class="t-mono">/name</span></td><td class="new">Delegated by role — "have the analyst…"</td></tr>
+          <tr><td class="label">Best for</td><td class="old">Same steps, different inputs</td><td class="new">Novel work · heavy research · cross-file synthesis</td></tr>
+          <tr><td class="label">Example</td><td class="old">"Audit this site with <span class="t-mono">/aeo-audit</span>"</td><td class="new">"Why did organic traffic drop 15% last week?"</td></tr>
         </tbody>
       </table>
 
-      <div class="flex-row gap-md" style="margin-top:24px;">
-        <div class="card grow" style="padding:24px 32px;">
-          <div class="head">Local agent · Claude Code</div>
-          <p style="margin-top:6px;">Markdown in <span class="t-mono-sm">.claude/agents/</span>. Runs inside your session.</p>
-        </div>
-        <div class="card accent-bg grow" style="padding:24px 32px;">
-          <div class="head">Managed agent · Console</div>
-          <p style="margin-top:6px;">Anthropic-hosted. Long-running jobs, built-in caching &amp; compaction. <span style="color:var(--accent-soft);">Pay-per-use.</span></p>
-        </div>
-      </div>
-
-      <div class="t-body" style="margin-top:14px;max-width:1700px;font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;color:var(--muted);">
-        An agent is a specialist chef — narrower menu, sharper knives, clear role.
+      <div class="t-body-lg" style="margin-top:22px;max-width:1750px;">
+        <span style="font-family:'Instrument Serif',serif;font-style:italic;">Rule of thumb —</span>
+        if you could write the steps out in advance, it's a <strong style="color:var(--good);">skill</strong>.
+        If you need <em>judgment</em> or would dump <em>a lot of files</em> into your window, it's an <strong style="color:var(--accent);">agent</strong>.
       </div>
     </div>
-    <div class="foot"><div>Same concepts. Different infrastructure.</div><div>07 / 31</div></div>
+    <div class="foot"><div>Skills codify procedures. Agents handle judgment and research.</div><div>07c / 31</div></div>
   </section>
 
   <!-- 7b · SECTION DIVIDER — DEMOS -->
