@@ -1134,6 +1134,84 @@
     <div class="foot"><div>The mental model: a working memory, not a brain.</div><div>14a / 31</div></div>
   </section>
 
+  <!-- 14b · CONTEXT WINDOW — INFOGRAPHIC INTO CLAUDE'S BRAIN -->
+  <section data-screen-label="14b Brain infographic" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 2 · Context window</span><span>14b</span></div><div>Everything flows into one brain</div></div>
+    <div class="body gap-sm">
+      <div class="t-title">Everything goes <em>into one brain.</em></div>
+      <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">Each source below lands on Claude's working memory for the session — and it all shares the same 1M ceiling.</div>
+
+      <div style="margin-top:28px;display:grid;grid-template-columns:1fr auto 1fr;gap:48px;align-items:center;">
+        <!-- LEFT COLUMN: Input sources -->
+        <div class="flex-col" style="gap:14px;">
+          <div style="padding:12px 18px;background:var(--paper-2);border-left:4px solid #B8862A;display:flex;justify-content:space-between;align-items:center;gap:12px;">
+            <div><strong>~/.claude/CLAUDE.md</strong> <span style="color:var(--muted);font-size:17px;">· identity &amp; rules</span></div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--ink-2);white-space:nowrap;">3–5K</div>
+          </div>
+          <div style="padding:12px 18px;background:var(--paper-2);border-left:4px solid #B8862A;display:flex;justify-content:space-between;align-items:center;gap:12px;">
+            <div><strong>Project CLAUDE.md</strong> <span style="color:var(--muted);font-size:17px;">· scope-specific</span></div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--ink-2);white-space:nowrap;">3–10K</div>
+          </div>
+          <div style="padding:12px 18px;background:var(--paper-2);border-left:4px solid var(--muted);display:flex;justify-content:space-between;align-items:center;gap:12px;">
+            <div><strong>MEMORY.md</strong> <span style="color:var(--muted);font-size:17px;">· auto-loaded per project</span></div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--ink-2);white-space:nowrap;">up to 6K</div>
+          </div>
+          <div style="padding:12px 18px;background:var(--paper-2);border-left:4px solid var(--sage);display:flex;justify-content:space-between;align-items:center;gap:12px;">
+            <div><strong>Skills / commands / agents</strong> <span style="color:var(--muted);font-size:17px;">· descriptions only</span></div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--ink-2);white-space:nowrap;">5–15K</div>
+          </div>
+          <div style="padding:12px 18px;background:var(--paper-2);border-left:4px solid #4A6A7E;display:flex;justify-content:space-between;align-items:center;gap:12px;">
+            <div><strong>MCP tool lists</strong> <span style="color:var(--muted);font-size:17px;">· each connected server</span></div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--ink-2);white-space:nowrap;">10–30K</div>
+          </div>
+        </div>
+
+        <!-- CENTER: Claude brain -->
+        <div style="position:relative;display:flex;flex-direction:column;align-items:center;">
+          <!-- Arrows from left and right -->
+          <div style="position:absolute;left:-48px;top:50%;transform:translateY(-50%);font-family:'IBM Plex Mono',monospace;font-size:28px;color:var(--accent);letter-spacing:.1em;">→→→</div>
+          <div style="position:absolute;right:-48px;top:50%;transform:translateY(-50%);font-family:'IBM Plex Mono',monospace;font-size:28px;color:var(--accent);letter-spacing:.1em;">←←←</div>
+
+          <div style="width:340px;height:340px;border-radius:50%;background:radial-gradient(circle at 30% 30%, var(--accent) 0%, var(--ink) 75%);color:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 12px 40px rgba(184,80,42,.22), inset 0 0 0 6px rgba(248,242,234,.08);">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.65);">Claude · one session</div>
+            <div style="font-family:'Instrument Serif',serif;font-size:100px;line-height:.95;letter-spacing:-.02em;margin-top:6px;">1M</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);margin-top:4px;">context window</div>
+            <div style="margin-top:14px;font-family:'Instrument Serif',serif;font-style:italic;font-size:20px;color:var(--accent-soft);max-width:240px;line-height:1.25;">One shared working memory. Per session.</div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Runtime sources -->
+        <div class="flex-col" style="gap:14px;">
+          <div style="padding:12px 18px;background:var(--paper-2);border-left:4px solid var(--muted);display:flex;justify-content:space-between;align-items:center;gap:12px;">
+            <div><strong>Conversation so far</strong> <span style="color:var(--muted);font-size:17px;">· turns accumulate</span></div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--ink-2);white-space:nowrap;">~5K / turn</div>
+          </div>
+          <div style="padding:12px 18px;background:var(--paper-2);border-left:4px solid var(--sage);display:flex;justify-content:space-between;align-items:center;gap:12px;">
+            <div><strong>Files Claude reads</strong> <span style="color:var(--muted);font-size:17px;">· docs, CSVs, PDFs</span></div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--ink-2);white-space:nowrap;">0.5–20K</div>
+          </div>
+          <div style="padding:12px 18px;background:var(--paper-2);border-left:4px solid var(--accent);display:flex;justify-content:space-between;align-items:center;gap:12px;">
+            <div><strong>Screenshots</strong> <span style="color:var(--muted);font-size:17px;">· visual input</span></div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--ink-2);white-space:nowrap;">1–3K</div>
+          </div>
+          <div style="padding:12px 18px;background:#F0D6CB;border-left:4px solid var(--bad);display:flex;justify-content:space-between;align-items:center;gap:12px;">
+            <div><strong>Tool results</strong> <span style="color:var(--muted);font-size:17px;">· GA4, SERP, HubSpot</span></div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--bad);white-space:nowrap;"><strong>5–50K+</strong></div>
+          </div>
+          <div style="padding:12px 18px;background:var(--paper-2);border-left:4px solid #4A6A7E;display:flex;justify-content:space-between;align-items:center;gap:12px;">
+            <div><strong>Claude's answer</strong> <span style="color:var(--muted);font-size:17px;">· response being written</span></div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--ink-2);white-space:nowrap;">2–10K</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="t-body" style="margin-top:22px;max-width:1800px;font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;color:var(--muted);text-align:center;">
+        One big MCP call + a long PDF + a 20-turn chat = <strong style="color:var(--bad);">30–40% of your window, gone.</strong> And accuracy drops long before that.
+      </div>
+    </div>
+    <div class="foot"><div>Everything above shares one budget. Curate what enters the brain.</div><div>14b / 31</div></div>
+  </section>
+
   <!-- 14c · WHAT COUNTS TOWARD YOUR WINDOW -->
   <section data-screen-label="14c What counts toward window" class="slide">
     <div class="chrome"><div class="left"><span><span class="dot"></span>Section 2 · Context window</span><span>14c</span></div><div>What counts toward your window</div></div>
