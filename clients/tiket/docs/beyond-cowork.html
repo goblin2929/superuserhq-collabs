@@ -1036,6 +1036,17 @@
        SECTION 1.5 — NAMING THE PIECES
        ══════════════════════════════════════════════════════ -->
 
+  <!-- BREAK -->
+  <section data-screen-label="Break" class="slide sage">
+    <div class="chrome"><div class="left"><span>Coffee</span></div><div>10 min</div></div>
+    <div class="body" style="justify-content:center;align-items:center;">
+      <div class="mark" style="margin-bottom:48px;">Interlude</div>
+      <div class="hero-title" style="color:#F3EEE5;font-size:280px;">Break.</div>
+      <div class="t-subtitle" style="margin-top:48px;color:rgba(255,255,255,.85);">Back in 10. Section 2 is the important one.</div>
+    </div>
+    <div class="foot"><div></div><div>— / 31</div></div>
+  </section>
+
   <!-- 11 · THE .CLAUDE/ FOLDER -->
   <section data-screen-label="11 The claude folder" class="slide dark">
     <div class="chrome"><div class="left"><span><span class="dot"></span>Section 1.5 · Naming the pieces</span><span>11</span></div><div>Business context, persistent</div></div>
@@ -1080,17 +1091,6 @@
     <div class="foot"><div></div><div>11 / 31</div></div>
   </section>
 
-  <!-- BREAK -->
-  <section data-screen-label="14 Break" class="slide sage">
-    <div class="chrome"><div class="left"><span>Coffee</span></div><div>10 min</div></div>
-    <div class="body" style="justify-content:center;align-items:center;">
-      <div class="mark" style="margin-bottom:48px;">Interlude</div>
-      <div class="hero-title" style="color:#F3EEE5;font-size:280px;">Break.</div>
-      <div class="t-subtitle" style="margin-top:48px;color:rgba(255,255,255,.85);">Back in 10. Section 2 is the important one.</div>
-    </div>
-    <div class="foot"><div></div><div>— / 31</div></div>
-  </section>
-
   <!-- ══════════════════════════════════════════════════════
        SECTION 2 — THE HARNESS
        ══════════════════════════════════════════════════════ -->
@@ -1132,6 +1132,34 @@
       </div>
     </div>
     <div class="foot"><div>The mental model: a working memory, not a brain.</div><div>14a / 31</div></div>
+  </section>
+
+  <!-- 14a.5 · SIGNS YOUR CONTEXT IS CONGESTED (moved up) -->
+  <section data-screen-label="14a2 Congestion signs" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 2 · Context window</span><span>14a2</span></div><div>How you know it's rotting</div></div>
+    <div class="body gap-sm">
+      <div class="t-title">Signs your context is <em>congested.</em></div>
+      <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">If you see these — adding <em>more</em> instructions won't fix it. Offload or reset.</div>
+
+      <table class="k compact" style="margin-top:24px;font-size:22px;">
+        <thead>
+          <tr><th style="width:44%">Symptom</th><th>What's happening</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Claude forgets an instruction you gave 20 turns ago</td><td class="old">Earlier content still in window — but attention is diluted</td></tr>
+          <tr><td>Output is shorter, more generic, less specific</td><td class="old">Context rot · accuracy degrading</td></tr>
+          <tr><td>Agents produce inconsistent results across runs</td><td class="old">Each invocation sees slightly different starting context</td></tr>
+          <tr><td>Plan steps get dropped mid-task</td><td class="old">Long turn counts push old instructions out of focus</td></tr>
+          <tr><td>Claude re-asks for info you already provided</td><td class="old">Recall failing despite info being "in context"</td></tr>
+          <tr><td>Inconsistent voice/tone in content work</td><td class="old">Earlier brand rules no longer weighted properly</td></tr>
+        </tbody>
+      </table>
+
+      <div class="t-body" style="margin-top:20px;max-width:1700px;font-family:'Instrument Serif',serif;font-style:italic;font-size:26px;color:var(--ink);">
+        Your instinct is to repeat yourself. <span style="color:var(--accent);">Don't.</span> Reset or offload — then continue.
+      </div>
+    </div>
+    <div class="foot"><div>Symptom ≠ bug. It's context physics.</div><div>14a2 / 31</div></div>
   </section>
 
   <!-- 14b · CONTEXT WINDOW — INFOGRAPHIC INTO CLAUDE'S BRAIN -->
@@ -1287,18 +1315,18 @@
     <div class="foot"><div>Scale shown is relative to a 50K chunk — your ceiling is ~1M.</div><div>14c / 31</div></div>
   </section>
 
-  <!-- 14d · MECHANISMS: WHITEBOARD / CABINET / DESK / WALL -->
-  <section data-screen-label="14d Mechanisms" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 2 · Context window</span><span>14d</span></div><div>Whiteboard · Cabinet · Desk · Wall</div></div>
+  <!-- 14d · WHERE TO PUT BUSINESS CONTEXT -->
+  <section data-screen-label="14d Where to put context" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 2 · Context window</span><span>14d</span></div><div>Where to put your business context</div></div>
     <div class="body gap-sm">
-      <div class="t-title">Where things live.</div>
-      <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">And what they cost on the whiteboard.</div>
+      <div class="t-title">This is where you put <em>business context.</em></div>
+      <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">Six surfaces. Each with a different cost and a different trigger. Pick the right one per piece of context.</div>
 
       <table class="k compact" style="margin-top:24px;font-size:22px;">
         <thead>
           <tr>
             <th style="width:22%">Mechanism</th>
-            <th>Whiteboard role</th>
+            <th>Role on the whiteboard</th>
           </tr>
         </thead>
         <tbody>
@@ -1308,8 +1336,6 @@
           <tr><td class="label">Skills</td><td>Files in a filing cabinet. Only pulled onto the whiteboard when Claude decides one matches the task.</td></tr>
           <tr><td class="label">Agents (subagents)</td><td>Assistants with their <em>own whiteboards</em>. They work separately, hand you a summary — saving your whiteboard space.</td></tr>
           <tr><td class="label">Hooks</td><td>Stamps on the wall outside the whiteboard. <strong>Zero space cost.</strong> Fire automatically on events.</td></tr>
-          <tr><td class="label"><span class="t-mono">/compact</span></td><td>Erase the middle of the whiteboard, replace with a summary line. Saves space — loses detail.</td></tr>
-          <tr><td class="label"><span class="t-mono">/clear</span></td><td>Full whiteboard wipe. Fresh start.</td></tr>
         </tbody>
       </table>
 
@@ -1317,7 +1343,7 @@
         Every design choice has an obvious answer: does this go on the <strong>whiteboard</strong>, in the <strong>cabinet</strong>, on the <strong>desk</strong>, or on the <strong>wall</strong>?
       </div>
     </div>
-    <div class="foot"><div>Everything Claude "knows" this session is on the whiteboard. Nothing else.</div><div>14d / 31</div></div>
+    <div class="foot"><div>These are the surfaces. The next slide is about what to do when the whiteboard rots.</div><div>14d / 31</div></div>
   </section>
 
   <!-- 14e · THE REAL PROBLEM: CONTEXT ROT -->
@@ -1362,39 +1388,22 @@
         </div>
       </div>
 
-      <div class="t-body-lg" style="margin-top:22px;max-width:1750px;">
-        Trimming <span class="t-mono">CLAUDE.md</span>, splitting procedures into skills, persisting plans to <span class="t-mono">PROGRESS.md</span> — <em>this is why it matters.</em> It's not about saving space. It's about output quality.
+      <div style="margin-top:22px;padding:22px 28px;background:var(--paper-2);border-left:3px solid var(--good);max-width:1800px;">
+        <div class="t-eyebrow" style="color:var(--good);margin-bottom:14px;">How to prevent context rot</div>
+        <div class="flex-col gap-xs" style="font-size:22px;line-height:1.4;">
+          <div><span style="color:var(--good);font-family:'IBM Plex Mono',monospace;margin-right:10px;">✓</span><strong>Trim <span class="t-mono">CLAUDE.md</span></strong> — keep it short; every line costs space every turn.</div>
+          <div><span style="color:var(--good);font-family:'IBM Plex Mono',monospace;margin-right:10px;">✓</span><strong>Split procedures into skills</strong> — body loads only when invoked, not at startup.</div>
+          <div><span style="color:var(--good);font-family:'IBM Plex Mono',monospace;margin-right:10px;">✓</span><strong>Persist plans to <span class="t-mono">PROGRESS.md</span></strong> — on disk, survives every wipe.</div>
+          <div><span style="color:var(--good);font-family:'IBM Plex Mono',monospace;margin-right:10px;">✓</span><strong>Run <span class="t-mono">/compact</span></strong> when the session fills — summarises earlier turns; saves space, loses detail.</div>
+          <div><span style="color:var(--good);font-family:'IBM Plex Mono',monospace;margin-right:10px;">✓</span><strong>Run <span class="t-mono">/clear</span></strong> when switching projects — full wipe, fresh whiteboard.</div>
+          <div><span style="color:var(--good);font-family:'IBM Plex Mono',monospace;margin-right:10px;">✓</span><strong>Delegate heavy research to subagents</strong> — their own whiteboard; you get a summary.</div>
+        </div>
+        <div class="t-body" style="margin-top:14px;font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:var(--muted);">
+          It's not about saving space. It's about <strong style="color:var(--ink);">output quality</strong>.
+        </div>
       </div>
     </div>
     <div class="foot"><div>A full context window produces worse output than a clean one.</div><div>14e / 31</div></div>
-  </section>
-
-  <!-- 14f · SIGNS YOUR CONTEXT IS CONGESTED -->
-  <section data-screen-label="14f Congestion signs" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 2 · Context window</span><span>14f</span></div><div>How you know it's rotting</div></div>
-    <div class="body gap-sm">
-      <div class="t-title">Signs your context is <em>congested.</em></div>
-      <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">If you see these — adding <em>more</em> instructions won't fix it. Offload or reset.</div>
-
-      <table class="k compact" style="margin-top:24px;font-size:22px;">
-        <thead>
-          <tr><th style="width:44%">Symptom</th><th>What's happening</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Claude forgets an instruction you gave 20 turns ago</td><td class="old">Earlier content still in window — but attention is diluted</td></tr>
-          <tr><td>Output is shorter, more generic, less specific</td><td class="old">Context rot · accuracy degrading</td></tr>
-          <tr><td>Agents produce inconsistent results across runs</td><td class="old">Each invocation sees slightly different starting context</td></tr>
-          <tr><td>Plan steps get dropped mid-task</td><td class="old">Long turn counts push old instructions out of focus</td></tr>
-          <tr><td>Claude re-asks for info you already provided</td><td class="old">Recall failing despite info being "in context"</td></tr>
-          <tr><td>Inconsistent voice/tone in content work</td><td class="old">Earlier brand rules no longer weighted properly</td></tr>
-        </tbody>
-      </table>
-
-      <div class="t-body" style="margin-top:20px;max-width:1700px;font-family:'Instrument Serif',serif;font-style:italic;font-size:26px;color:var(--ink);">
-        Your instinct is to repeat yourself. <span style="color:var(--accent);">Don't.</span> Reset or offload — then continue.
-      </div>
-    </div>
-    <div class="foot"><div>Symptom ≠ bug. It's context physics.</div><div>14f / 31</div></div>
   </section>
 
   <!-- 14g · PLAYBOOK LEVEL 1 · SETUP HYGIENE -->
@@ -1521,9 +1530,9 @@
 
   <!-- 15 · POST-MORTEM v2 vs v3 -->
   <section data-screen-label="15 Post-mortem v2 v3" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 2</span><span>15</span></div><div>prospect-audit · the rewrite</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 2</span><span>15</span></div><div>Hallucinated report · rebuilt the skill</div></div>
     <div class="body gap-sm">
-      <div class="t-title-sm">We shipped a bad report.<br/>Then we rebuilt it.</div>
+      <div class="t-title-sm">Shipped a hallucinated report.<br/><span style="color:var(--muted);">We didn't patch — we rebuilt the skill.</span></div>
 
       <div class="arch" style="margin-top:20px;">
         <div class="arch-col bad" style="padding:24px 28px;">
@@ -1571,9 +1580,9 @@
 
   <!-- 16 · AGENT / HOOK / GATE -->
   <section data-screen-label="16 Agent hook gate" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 2</span><span>16</span></div><div>Three concepts from that story</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 2</span><span>16</span></div><div>Use agent, hook and gate in your skill</div></div>
     <div class="body gap-md">
-      <div class="t-title">Agent. Hook. Gate.</div>
+      <div class="t-title">Use <em>agent</em>, <em>hook</em>, and <em>gate</em> in your skill.</div>
       <div class="flex-row gap-md" style="margin-top:40px;">
         <div class="card grow">
           <div class="head">Agent</div>
@@ -1611,33 +1620,6 @@
       </div>
     </div>
     <div class="foot"><div></div><div>16 / 31</div></div>
-  </section>
-
-  <!-- 17 · PHILOSOPHY TABLE -->
-  <section data-screen-label="17 Philosophy table" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 2</span><span>17</span></div><div>Eight building blocks</div></div>
-    <div class="body">
-      <div class="t-title">Write this down.</div>
-      <table class="k compact" style="margin-top:20px;">
-        <thead><tr><th style="width:22%">Piece</th><th style="width:24%">Role</th><th>One-liner</th></tr></thead>
-        <tbody>
-          <tr><td colspan="3" style="padding:8px 0 2px;border:0;"><div class="t-eyebrow" style="color:var(--muted);font-size:15px;">Claude Code primitives</div></td></tr>
-          <tr><td class="label">CLAUDE.md</td><td class="new">The Constitution</td><td class="old">What Claude must always do, without exception.</td></tr>
-          <tr><td class="label">Skills</td><td class="new">The Procedures</td><td class="old">How to execute. Step-by-step. Loaded on demand.</td></tr>
-          <tr><td class="label">Commands</td><td class="new">The Shortcuts</td><td class="old">One-liners that trigger entire workflows.</td></tr>
-          <tr><td class="label">Agents</td><td class="new">The Specialists</td><td class="old">Dedicated team members with their own role and tools.</td></tr>
-          <tr><td class="label">Hooks</td><td class="new accent">The Guarantees</td><td class="old">Enforcement that absolutely cannot be skipped.</td></tr>
-          <tr><td colspan="3" style="padding:10px 0 2px;border:0;"><div class="t-eyebrow" style="color:var(--muted);font-size:15px;">Patterns Tina layered on top</div></td></tr>
-          <tr><td class="label">MEMORY.md</td><td class="new">The Learnings</td><td class="old">What was discovered. Mistakes caught. Decisions made.</td></tr>
-          <tr><td class="label">PROGRESS.md</td><td class="new">The State</td><td class="old">Where we are. What's done, next, blocked.</td></tr>
-          <tr><td class="label">Rules</td><td class="new">The Guardrails</td><td class="old">Standards loaded into CLAUDE.md only when relevant.</td></tr>
-        </tbody>
-      </table>
-      <div class="t-body-lg" style="margin-top:14px;font-family:'Instrument Serif',serif;font-style:italic;max-width:1750px;font-size:26px;">
-        Five primitives. Three patterns. One working system.
-      </div>
-    </div>
-    <div class="foot"><div>Personal capabilities → reliable system.</div><div>17 / 31</div></div>
   </section>
 
   <!-- ══════════════════════════════════════════════════════
@@ -1837,12 +1819,12 @@
   </section>
 
   <!-- 27 · GIT IS THE NEW NOTION -->
-  <section data-screen-label="27 Git is the new Notion" class="slide dark">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 5</span><span>27</span></div><div>Coordination layer</div></div>
+  <section data-screen-label="27 Team orchestration — Git is the new Notion" class="slide dark">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 5</span><span>27</span></div><div>Team orchestration · coordination layer</div></div>
     <div class="body" style="justify-content:center;">
-      <div class="t-eyebrow" style="margin-bottom:28px;">Five commands. Smaller than Notion.</div>
-      <div class="hero-title" style="color:var(--paper);font-size:180px;">
-        Git is the new<br/><em style="color:var(--accent-soft);">Notion.</em>
+      <div class="t-eyebrow" style="margin-bottom:28px;">Team orchestration · five commands, smaller than Notion</div>
+      <div class="hero-title" style="color:var(--paper);font-size:150px;line-height:.95;">
+        Team orchestration.<br/><span style="font-family:'Instrument Serif',serif;font-size:120px;">Git is the new <em style="color:var(--accent-soft);">Notion.</em></span>
       </div>
       <table class="k dark" style="margin-top:56px;max-width:1500px;">
         <tbody>
@@ -1854,71 +1836,10 @@
         </tbody>
       </table>
       <div class="t-body" style="margin-top:40px;color:rgba(255,255,255,.7);max-width:1500px;">
-        Without this, "published" is whatever an agent did at 3am. With it, you're always in control.
+        Without this, you end up with 100 versions of the "affiliate performance report" — everyone on your team doing the <em>same same but different</em>.
       </div>
     </div>
     <div class="foot"><div></div><div>27 / 31</div></div>
-  </section>
-
-  <!-- 28 · YAOHONG'S REAL EXPERIENCE -->
-  <section data-screen-label="28 From the field Yaohong" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 5</span><span>28</span></div><div>Yaohong · 5 min · from the field</div></div>
-    <div class="body" style="justify-content:center;">
-      <div class="t-eyebrow" style="margin-bottom:32px;">From the field</div>
-      <div class="t-title">How I actually use agents.</div>
-
-      <div class="flex-row gap-md" style="margin-top:64px;">
-        <div class="grow"><div class="t-section-num">01</div><div class="t-body-lg" style="margin-top:14px;">Day-to-day reality — two real examples.</div></div>
-        <div class="grow"><div class="t-section-num">02</div><div class="t-body-lg" style="margin-top:14px;">The win that surprised me.</div></div>
-        <div class="grow"><div class="t-section-num">03</div><div class="t-body-lg" style="margin-top:14px;">The honest friction.</div></div>
-        <div class="grow"><div class="t-section-num" style="color:var(--accent);">04</div><div class="t-body-lg" style="margin-top:14px;">One recommendation for this room.</div></div>
-      </div>
-
-      <div style="margin-top:64px;padding:32px 40px;border-left:3px solid var(--accent);background:var(--paper-2);">
-        <div class="t-body-lg" style="font-family:'Instrument Serif',serif;font-style:italic;font-size:40px;line-height:1.25;">
-          One habit to start. One trap to avoid.
-        </div>
-      </div>
-    </div>
-    <div class="foot"><div></div><div>28 / 31</div></div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════
-       CLOSE — MONDAY PLAN
-       ══════════════════════════════════════════════════════ -->
-
-  <!-- 29 · RECAP -->
-  <section data-screen-label="29 Recap" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>Close · Monday plan</span><span>29</span></div><div>Recap in 60 seconds</div></div>
-    <div class="body">
-      <div class="t-title">Sixty seconds.<br/>Five takeaways.</div>
-      <div class="flex-col" style="margin-top:56px;">
-        <div class="step"><div class="n">01</div><div class="t-body-lg">Workflows (n8n) vs. Agents (Claude). Code combines both — reliable pipes, reasoning steps.</div><div></div></div>
-        <div class="step"><div class="n">02</div><div class="t-body-lg">Context rot is real. Isolation + gates + hooks = the fix.</div><div></div></div>
-        <div class="step"><div class="n">03</div><div class="t-body-lg">One folder — <span class="t-mono">.claude/</span> — is your team's AI operating system.</div><div></div></div>
-        <div class="step"><div class="n">04</div><div class="t-body-lg">Agents specialize. Skills procedure-ize. Hooks enforce. Permissions wall off.</div><div></div></div>
-        <div class="step" style="border-bottom:1px solid rgba(20,18,16,.15);"><div class="n" style="color:var(--accent);">05</div><div class="t-body-lg">Git is how you coordinate. Main branch = truth. You always decide what lands.</div><div></div></div>
-      </div>
-    </div>
-    <div class="foot"><div></div><div>29 / 31</div></div>
-  </section>
-
-  <!-- 30 · WEEK 1 CHECKLIST -->
-  <section data-screen-label="30 Week 1 checklist" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>Close</span><span>30</span></div><div>Your Week 1</div></div>
-    <div class="body">
-      <div class="t-title">Your Week 1<br/>checklist.</div>
-
-      <div class="checklist" style="margin-top:28px;">
-        <div><div class="box"></div><div class="t-section-num">01</div><div class="t-body">Use the 6-step in Cowork: <em>do manually → feedback → remember → skill → install → schedule.</em></div></div>
-        <div><div class="box"></div><div class="t-section-num">02</div><div class="t-body">Open your terminal. Run <span class="t-mono">git pull</span> in the team repo.</div></div>
-        <div><div class="box"></div><div class="t-section-num">03</div><div class="t-body">Read <span class="t-mono">.claude/CLAUDE.md</span> — your team's handbook.</div></div>
-        <div><div class="box"></div><div class="t-section-num">04</div><div class="t-body">Pick <em>one</em> task you do weekly that takes more than 2 hours.</div></div>
-        <div><div class="box done"></div><div class="t-section-num" style="color:var(--accent);">05</div><div class="t-body">Write the baseline — what task, how long, how often, what quality.</div></div>
-        <div><div class="box"></div><div class="t-section-num">06</div><div class="t-body">Bring that baseline to next session — we'll build the skill together.</div></div>
-      </div>
-    </div>
-    <div class="foot"><div>#5 is the one that matters. 90 minutes on paper.</div><div>30 / 31</div></div>
   </section>
 
   <!-- 31 · RESOURCES -->
