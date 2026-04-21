@@ -281,34 +281,38 @@
 
       <div class="flex-row gap-md" style="margin-top:36px;align-items:stretch;">
         <!-- Tina -->
-        <div class="grow" style="padding:36px 40px;background:var(--paper-2);border-left:4px solid var(--accent);">
-          <div class="t-eyebrow" style="color:var(--accent);margin-bottom:14px;">Tina Chu</div>
-          <div class="t-title-sm" style="font-size:52px;line-height:1.05;margin-bottom:12px;">Marketing leader · AI orchestrator.</div>
-          <div class="t-body" style="line-height:1.45;">
-            20+ years shaping growth at <strong>Expedia · Tencent · Klook · Traveloka · Cabital</strong>. Ex-VP of Marketing.
+        <div class="grow" style="padding:36px 40px;background:var(--paper-2);border-left:4px solid var(--accent);display:flex;gap:32px;align-items:flex-start;">
+          <img src="screenshots/tina-headshot.jpg" alt="Tina Chu"
+               style="width:200px;height:200px;object-fit:cover;border-radius:50%;flex-shrink:0;border:2px solid var(--accent);"/>
+          <div style="flex:1;min-width:0;">
+            <div class="t-eyebrow" style="color:var(--accent);margin-bottom:10px;">Tina Chu</div>
+            <div class="t-title-sm" style="font-size:44px;line-height:1.05;margin-bottom:10px;">Marketing leader · AI orchestrator.</div>
+            <div class="t-body" style="line-height:1.4;font-size:24px;">
+              20+ years shaping growth at <strong>Expedia · Tencent · Klook · Traveloka · Cabital</strong>. Ex-VP of Marketing.
+            </div>
+            <div class="t-body" style="margin-top:12px;line-height:1.4;color:var(--ink-2);font-size:22px;">
+              Now operates <strong>Novastacks</strong> — an AI marketing studio. Orchestrates 12 specialised agents and 10+ skills from a CLI terminal. 1:9 human-to-agent ratio.
+            </div>
+            <div class="t-mono" style="margin-top:14px;color:var(--muted);font-size:15px;letter-spacing:.06em;">novastacks-ai.com · linkedin.com/in/huilanchu</div>
           </div>
-          <div class="t-body" style="margin-top:14px;line-height:1.45;color:var(--ink-2);">
-            Now operates <strong>Novastacks</strong> — an AI marketing studio. Architects and orchestrates 12 specialised agents, 10+ custom skills, and connected data pipelines from a CLI terminal. 1:9 human-to-agent ratio.
-          </div>
-          <div class="t-mono" style="margin-top:18px;color:var(--muted);font-size:16px;letter-spacing:.06em;">novastacks-ai.com · linkedin.com/in/huilanchu</div>
         </div>
 
         <!-- Yaohong -->
-        <div class="grow" style="padding:36px 40px;background:var(--paper-2);border-left:4px solid var(--sage);">
-          <div class="t-eyebrow" style="color:var(--sage);margin-bottom:14px;">Yaohong Chng</div>
-          <div class="t-title-sm" style="font-size:52px;line-height:1.05;margin-bottom:12px;">Founder · tech partner.</div>
-          <div class="t-body" style="line-height:1.45;">
-            <strong>CEO, Superuser HQ</strong> · <strong>Tech Partner, Novastacks</strong>.
+        <div class="grow" style="padding:36px 40px;background:var(--paper-2);border-left:4px solid var(--sage);display:flex;gap:32px;align-items:flex-start;">
+          <img src="screenshots/yaohong-headshot.jpg" alt="Yaohong Chng"
+               style="width:200px;height:200px;object-fit:cover;border-radius:50%;flex-shrink:0;border:2px solid var(--sage);"/>
+          <div style="flex:1;min-width:0;">
+            <div class="t-eyebrow" style="color:var(--sage);margin-bottom:10px;">Yaohong Chng</div>
+            <div class="t-title-sm" style="font-size:44px;line-height:1.05;margin-bottom:10px;">Founder · tech partner.</div>
+            <div class="t-body" style="line-height:1.4;font-size:24px;">
+              <strong>CEO, Superuser HQ</strong> · <strong>Tech Partner, Novastacks</strong>.
+            </div>
+            <div class="t-body" style="margin-top:12px;line-height:1.4;color:var(--ink-2);font-size:22px;">
+              Builds the infrastructure side — MCP servers, plugins, Claude Code workflows, and the automation pipelines that turn judgment into reusable systems.
+            </div>
+            <div class="t-mono" style="margin-top:14px;color:var(--muted);font-size:15px;letter-spacing:.06em;">superuserhq.com</div>
           </div>
-          <div class="t-body" style="margin-top:14px;line-height:1.45;color:var(--ink-2);">
-            Builds the infrastructure side — MCP servers, plugins, Claude Code workflows, and the automation pipelines that turn judgment into reusable systems. Runs the <em>same stack</em> you're about to see.
-          </div>
-          <div class="t-mono" style="margin-top:18px;color:var(--muted);font-size:16px;letter-spacing:.06em;">superuserhq.com</div>
         </div>
-      </div>
-
-      <div class="t-body" style="margin-top:22px;max-width:1750px;font-family:'Instrument Serif',serif;font-style:italic;font-size:26px;color:var(--muted);">
-        Everything we'll demo today we use in our own operations. No fresh slides — real harnesses.
       </div>
     </div>
     <div class="foot"><div>Novastacks AI × Superuser HQ</div><div>01b / 31</div></div>
@@ -345,7 +349,7 @@
   <section data-screen-label="01d The shift is here" class="slide">
     <div class="chrome"><div class="left"><span><span class="dot"></span>Why we're here</span><span>01d</span></div><div>The shift is already happening</div></div>
     <div class="body gap-sm">
-      <div class="t-title">The shift is <em>already happening.</em></div>
+      <div class="t-title">The shift of <em>agentic workflow</em> is happening.</div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">It's not coming — it's here. And the gap between adopters and everyone else is widening every quarter.</div>
 
       <div class="flex-row gap-md" style="margin-top:44px;align-items:stretch;">
@@ -401,15 +405,19 @@
 
   <!-- 2 · THE ROLE HAS CHANGED -->
   <section data-screen-label="02 Role has changed" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 0 · Why we're here</span><span>02</span></div><div>Your job scope will be changed</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 0 · Why we're here</span><span>02</span></div><div>Marketing functions are changing too</div></div>
     <div class="body gap-sm">
-      <div class="t-title">Your job scope will be changed.</div>
+      <div class="t-title">The marketing functions start changing too.</div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">
         A <em>marketing engineer</em> builds the systems, agents, and automations that make every GTM function faster — combining coding, APIs, and system architecture with marketing judgment.
         <br/>The old job was <em>execution</em>. The new job is <em>orchestration</em> — design the system, then supervise it.
       </div>
-      <div style="margin-top:6px;font-family:'IBM Plex Mono',monospace;font-size:16px;letter-spacing:.06em;color:var(--muted);">
-        Source: university.tryprofound.com/courses/marketing-engineering-concepts
+      <div style="margin-top:10px;padding:10px 18px;background:var(--paper-2);border-left:3px solid var(--accent);display:inline-block;max-width:1700px;">
+        <span style="font-family:'Instrument Serif',serif;font-size:28px;color:var(--ink);letter-spacing:-.005em;"><strong>3,000+</strong> "GTM Engineer" roles open on LinkedIn</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:16px;letter-spacing:.06em;color:var(--accent);margin-left:10px;">+205% YoY · doubled in 6 months (Jan 2026)</span>
+      </div>
+      <div style="margin-top:6px;font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:.04em;color:var(--muted);">
+        Sources · LinkedIn Jobs · ZoomInfo hiring data · tryprofound.com/marketing-engineering-concepts
       </div>
 
       <table class="k compact" style="margin-top:24px;">
@@ -432,7 +440,7 @@
         </div>
       </div>
     </div>
-    <div class="foot"><div>3,000+ "GTM Engineer" roles open on LinkedIn, Jan 2026.</div><div>02 / 31</div></div>
+    <div class="foot"><div></div><div>02 / 31</div></div>
   </section>
 
   <!-- 3 · THIS IS / ISN'T -->
