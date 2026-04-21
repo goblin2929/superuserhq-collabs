@@ -807,6 +807,70 @@
     <div class="foot"><div>Agent = specialist with its own context. Delegates, returns, stays clean.</div><div>07 / 31</div></div>
   </section>
 
+  <!-- 07e · NOT ALL AGENTS ARE THE SAME -->
+  <section data-screen-label="07e Agents differ" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 1 · The building blocks</span><span>07e</span></div><div>Not all agents are the same</div></div>
+    <div class="body gap-sm">
+      <div class="t-title">Not all agents are the same.</div>
+      <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">Same base model. Different <em>role</em>, <em>tools</em>, <em>instructions</em> — you decide.</div>
+
+      <div class="flex-row gap-md" style="margin-top:28px;align-items:stretch;">
+        <!-- /linkedin-writer -->
+        <div style="flex:1;padding:0;background:var(--ink);color:var(--paper);border-radius:2px;overflow:hidden;">
+          <div style="padding:20px 28px;background:var(--accent);color:#F8F2EA;font-family:'IBM Plex Mono',monospace;font-size:22px;letter-spacing:.06em;">
+            <span style="opacity:.65;">$</span> /linkedin-writer
+          </div>
+          <div style="padding:24px 28px;">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-soft);margin-bottom:6px;">Description</div>
+            <div style="font-size:20px;line-height:1.4;margin-bottom:16px;">LinkedIn post writer for Novastacks. <strong>Learns from rejections &amp; wins</strong> — improves every session.</div>
+
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-soft);margin-bottom:6px;">Tools</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;margin-bottom:16px;color:#8CC196;">Read · Write · Edit · WebFetch · WebSearch</div>
+
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-soft);margin-bottom:6px;">Instructions</div>
+            <div style="font-size:19px;line-height:1.4;margin-bottom:16px;">
+              → Read memory: <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;">rejections.md · wins.md · preferences.md</span><br/>
+              → Write first-person as Tina Chu<br/>
+              → Pass the 10-criteria eval before delivery
+            </div>
+
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-soft);margin-bottom:6px;">Best for</div>
+            <div style="font-size:19px;line-height:1.4;">A LinkedIn post in <em>Tina's voice</em>, informed by what worked before.</div>
+          </div>
+        </div>
+
+        <!-- /writer -->
+        <div style="flex:1;padding:0;background:var(--ink);color:var(--paper);border-radius:2px;overflow:hidden;">
+          <div style="padding:20px 28px;background:var(--sage);color:#F8F2EA;font-family:'IBM Plex Mono',monospace;font-size:22px;letter-spacing:.06em;">
+            <span style="opacity:.65;">$</span> /writer
+          </div>
+          <div style="padding:24px 28px;">
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#A9D0AC;margin-bottom:6px;">Description</div>
+            <div style="font-size:20px;line-height:1.4;margin-bottom:16px;">Content writer for AEO/SEO. <strong>Client-agnostic</strong> — adapts to the client it's invoked from.</div>
+
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#A9D0AC;margin-bottom:6px;">Tools</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:16px;margin-bottom:16px;color:#8CC196;">Bash · Read · Write · Edit · Glob · Grep · WebSearch · WebFetch</div>
+
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#A9D0AC;margin-bottom:6px;">Instructions</div>
+            <div style="font-size:19px;line-height:1.4;margin-bottom:16px;">
+              → Find nearest client <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;">CLAUDE.md</span><br/>
+              → Load their voice, positioning, audience<br/>
+              → Turn briefs into blog / landing / comparison pages
+            </div>
+
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#A9D0AC;margin-bottom:6px;">Best for</div>
+            <div style="font-size:19px;line-height:1.4;">A blog or landing page in <em>the client's voice</em>, optimized for search.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="t-body" style="margin-top:20px;max-width:1750px;font-family:'Instrument Serif',serif;font-style:italic;font-size:26px;line-height:1.35;">
+        Same base model. Different scope, different tools, different instructions — <strong style="color:var(--accent);">the orchestrator (you)</strong> is what makes the difference.
+      </div>
+    </div>
+    <div class="foot"><div>An agent is the spec YOU write. Your agents won't look like anyone else's.</div><div>07e / 31</div></div>
+  </section>
+
   <!-- 07d · SKILL vs AGENT — WHEN TO REACH FOR WHICH -->
   <section data-screen-label="07d Skill vs agent" class="slide">
     <div class="chrome"><div class="left"><span><span class="dot"></span>Section 1 · The building blocks</span><span>07d</span></div><div>Skill vs. Agent</div></div>
