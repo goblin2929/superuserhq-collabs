@@ -1,0 +1,58 @@
+name: Sync Beyond Cowork → Production
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'clients/tiket/docs/beyond-cowork.html'
+      - 'clients/tiket/docs/deck-stage.js'
+      - 'clients/tiket/docs/screenshots/**'
+      - '.github/workflows/sync-beyond-cowork.yml'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source (superuserhq-collabs)
+        uses: actions/checkout@v4
+        with:
+          path: source
+
+      - name: Checkout target (connect-forge-evolve)
+        uses: actions/checkout@v4
+        with:
+          repository: goblin2929/connect-forge-evolve
+          token: ${{ secrets.DEPLOY_TOKEN }}
+          path: target
+
+      - name: Copy deck + assets
+        run: |
+          set -eu
+          TARGET_DIR=target/static/beyond-cowork
+          SOURCE_DIR=source/clients/tiket/docs
+          mkdir -p "$TARGET_DIR/screenshots"
+
+          cp "$SOURCE_DIR/beyond-cowork.html" "$TARGET_DIR/index.html"
+          cp "$SOURCE_DIR/deck-stage.js" "$TARGET_DIR/deck-stage.js"
+
+          # only the screenshots the deck actually references
+          for f in cowork-connectors.jpg plugins-nav.jpg plugins-directory.jpg tina-headshot.jpg yaohong-headshot.jpg; do
+            if [ -f "$SOURCE_DIR/screenshots/$f" ]; then
+              cp "$SOURCE_DIR/screenshots/$f" "$TARGET_DIR/screenshots/$f"
+            fi
+          done
+
+      - name: Commit + push
+        working-directory: target
+        run: |
+          set -eu
+          git config user.name  "Beyond Cowork Sync"
+          git config user.email "deploy@novastacks-ai.com"
+          git add static/beyond-cowork/
+          if git diff --cached --quiet; then
+            echo "No changes to sync."
+            exit 0
+          fi
+          git commit -m "sync: Beyond Cowork deck from superuserhq-collabs@${GITHUB_SHA::7}"
+          git push
