@@ -650,6 +650,116 @@
     <div class="foot"><div>The description is the most important line. That's how Claude finds it.</div><div>07a / 31</div></div>
   </section>
 
+  <!-- 07b · HOW TO GET SKILLS -->
+  <section data-screen-label="07b How to get skills" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 1 · The building blocks</span><span>07b</span></div><div>How to get skills</div></div>
+    <div class="body gap-sm">
+      <div class="t-title">Where skills come from.</div>
+      <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">Three paths. Most teams use all three.</div>
+
+      <div class="flex-row gap-md" style="margin-top:28px;align-items:stretch;">
+        <!-- Path 1: Build yourself -->
+        <div style="flex:1;padding:26px 28px;background:var(--paper-2);border-left:4px solid var(--accent);display:flex;flex-direction:column;">
+          <div class="t-eyebrow" style="color:var(--accent);margin-bottom:12px;">01 · Build yourself</div>
+          <div class="t-body" style="line-height:1.4;">
+            Right after an <em>aha moment</em> — the monthly dashboard, the report you just nailed — ask Claude to codify it.
+          </div>
+          <div style="margin-top:14px;padding:12px 14px;background:var(--ink);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:15px;line-height:1.5;border-radius:2px;">
+            <span style="color:var(--accent-soft);">you →</span> "Build what we just did into a skill and a slash command."<br/>
+            <span style="color:rgba(255,255,255,.55);">claude →</span> <span style="color:#8CC196;">✓ skills/affiliate-report.md</span><br/>
+            <span style="color:rgba(255,255,255,.55);">claude →</span> <span style="color:#8CC196;">✓ commands/affiliate-report.md</span>
+          </div>
+          <div class="t-small" style="margin-top:12px;color:var(--muted);line-height:1.4;">
+            Next month? <span class="t-mono">/affiliate-report update to this month</span>. Done in seconds.
+          </div>
+        </div>
+
+        <!-- Path 2: Anthropic marketplace -->
+        <div style="flex:1;padding:26px 28px;background:var(--paper-2);border-left:4px solid var(--sage);display:flex;flex-direction:column;">
+          <div class="t-eyebrow" style="color:var(--sage);margin-bottom:12px;">02 · Install from Anthropic</div>
+          <div class="t-body" style="line-height:1.4;">
+            Open the <strong>Plugin Directory</strong> — Anthropic &amp; Partners ship curated plugins, each bundling skills, commands, and agents.
+          </div>
+          <div class="t-mono" style="margin-top:12px;color:var(--muted);font-size:15px;letter-spacing:.04em;line-height:1.7;">
+            Desktop app → Customize → Personal plugins → <span style="color:var(--accent);">+</span>
+          </div>
+          <div class="t-small" style="margin-top:12px;color:var(--muted);line-height:1.4;">
+            <strong>Already in the Directory:</strong> Marketing, Data, Finance, Design, Operations, Brand voice — each ships 6–10 skills.
+          </div>
+        </div>
+
+        <!-- Path 3: Community -->
+        <div style="flex:1;padding:26px 28px;background:var(--paper-2);border-left:4px solid var(--good);display:flex;flex-direction:column;">
+          <div class="t-eyebrow" style="color:var(--good);margin-bottom:12px;">03 · From the community</div>
+          <div class="t-body" style="line-height:1.4;">
+            Developers share skills on <strong>GitHub</strong>. Clone, drop into <span class="t-mono-sm">~/.claude/skills/</span>, done.
+          </div>
+          <div class="flex-col" style="margin-top:12px;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--ink);letter-spacing:.02em;">
+            <div style="color:var(--muted);">github.com/…</div>
+            <div><span style="color:var(--accent);">anthropics/claude-code</span>/plugins</div>
+            <div><span style="color:var(--accent);">hesreallyhim/awesome-claude-skills</span></div>
+            <div><span style="color:var(--accent);">obra/superpowers</span></div>
+          </div>
+          <div class="t-small" style="margin-top:12px;color:var(--muted);line-height:1.4;">
+            Read the skill before installing. Same file format either way — just Markdown with frontmatter.
+          </div>
+        </div>
+      </div>
+
+      <div class="t-body" style="margin-top:20px;max-width:1750px;font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;color:var(--muted);">
+        Your best skills will be ones you build yourself — because they encode <em>your</em> way of working.
+      </div>
+    </div>
+    <div class="foot"><div>Build · Install · Steal — in that order of value to your team.</div><div>07b / 31</div></div>
+  </section>
+
+  <!-- 07c · WHAT MAKES A GOOD SKILL -->
+  <section data-screen-label="07c What makes a good skill" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 1 · The building blocks</span><span>07c</span></div><div>What makes a good skill</div></div>
+    <div class="body gap-sm">
+      <div class="t-title">What makes a <em>good</em> skill.</div>
+      <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">Skills are easy to write. Easy to write <em>badly</em>. Five rules separate the two.</div>
+
+      <table class="k compact" style="margin-top:24px;font-size:22px;">
+        <thead>
+          <tr><th style="width:24%">Trait</th><th style="width:38%;color:var(--good);">Good</th><th style="color:var(--bad);">Bad</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="label">01 · Sharp description</td>
+            <td class="new">"Use when writing a monthly affiliate performance report — runs pull → analysis → deck."</td>
+            <td class="old">"Affiliate tool." <span style="color:var(--muted);">← Claude never finds it.</span></td>
+          </tr>
+          <tr>
+            <td class="label">02 · One job</td>
+            <td class="new">One skill = one procedure. Splits naturally by verb.</td>
+            <td class="old">"Do-everything marketing skill." <span style="color:var(--muted);">← nothing triggers cleanly.</span></td>
+          </tr>
+          <tr>
+            <td class="label">03 · Names its inputs</td>
+            <td class="new">"Requires: GA4 property ID, month, affiliate list."</td>
+            <td class="old">Assumes context. <span style="color:var(--muted);">← fails silently on Day 2.</span></td>
+          </tr>
+          <tr>
+            <td class="label">04 · Short body, linked references</td>
+            <td class="new">Steps + a link to <span class="t-mono-sm">references/report-template.md</span>. Loads the ref only if needed.</td>
+            <td class="old">2,000 lines pasted in the skill body. <span style="color:var(--muted);">← bloats every load.</span></td>
+          </tr>
+          <tr>
+            <td class="label">05 · Testable output</td>
+            <td class="new">"Output: a Google Sheet with columns X / Y / Z + a summary block."</td>
+            <td class="old">"Gives you insights." <span style="color:var(--muted);">← you can't tell if it's wrong.</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="t-body" style="margin-top:20px;max-width:1750px;font-family:'Instrument Serif',serif;font-style:italic;font-size:26px;">
+        The description is the trigger. The body is the recipe. References are the pantry — load only when cooking.
+      </div>
+    </div>
+    <div class="foot"><div>A good skill you wrote once → your team runs forever.</div><div>07c / 31</div></div>
+  </section>
+
   <!-- 07 · WHAT IS AN AGENT -->
   <section data-screen-label="07 What is an agent" class="slide">
     <div class="chrome"><div class="left"><span><span class="dot"></span>Section 1 · The building blocks</span><span>07</span></div><div>Agent</div></div>
@@ -697,9 +807,9 @@
     <div class="foot"><div>Agent = specialist with its own context. Delegates, returns, stays clean.</div><div>07 / 31</div></div>
   </section>
 
-  <!-- 07c · SKILL vs AGENT — WHEN TO REACH FOR WHICH -->
-  <section data-screen-label="07c Skill vs agent" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 1 · The building blocks</span><span>07c</span></div><div>Skill vs. Agent</div></div>
+  <!-- 07d · SKILL vs AGENT — WHEN TO REACH FOR WHICH -->
+  <section data-screen-label="07d Skill vs agent" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>Section 1 · The building blocks</span><span>07d</span></div><div>Skill vs. Agent</div></div>
     <div class="body gap-sm">
       <div class="t-title">Skill <span style="color:var(--muted);">vs.</span> Agent.</div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">Two different tools. Knowing when to reach for which is the whole game.</div>
@@ -724,7 +834,7 @@
         If you need <em>judgment</em> or would dump <em>a lot of files</em> into your window, it's an <strong style="color:var(--accent);">agent</strong>.
       </div>
     </div>
-    <div class="foot"><div>Skills codify procedures. Agents handle judgment and research.</div><div>07c / 31</div></div>
+    <div class="foot"><div>Skills codify procedures. Agents handle judgment and research.</div><div>07d / 31</div></div>
   </section>
 
   <!-- 7b · SECTION DIVIDER — DEMOS -->
