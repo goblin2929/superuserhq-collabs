@@ -464,30 +464,77 @@
     <div class="foot"><div>Tina · lead</div><div>6 / 46</div></div>
   </section>
 
-  <!-- 4 · AUTOMATION vs AUGMENTATION -->
-  <section data-screen-label="04 Workflows vs agents" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>7 / 46</span></div><div>Two modes</div></div>
+  <!-- 4 · AUTOMATION · AUGMENTATION · AGENCY -->
+  <section data-screen-label="04 Automation Augmentation Agency" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>7 / 46</span></div><div>Automation · Augmentation · Agency</div></div>
     <div class="body gap-sm">
-      <div class="t-title">Deterministic workflows <span style="color:var(--muted);">vs.</span> agentic workflows.</div>
-      <div class="t-subtitle" style="margin-top:8px;color:var(--muted);">Recipe vs. chef. Both belong in a real kitchen.</div>
-      <div class="t-mono" style="margin-top:6px;color:var(--muted);letter-spacing:.06em;">
-        Deterministic = <span style="color:var(--ink);">n8n workflows</span> &nbsp;·&nbsp; Agentic = <span style="color:var(--accent);">Skills &amp; Agents</span> (Claude Code)
-      </div>
-      <table class="k" style="margin-top:22px;">
-        <thead>
-          <tr><th style="width:20%"></th><th>n8n workflows · deterministic</th><th>Skills &amp; Agents · agentic</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="label">How it works</td><td class="old">Follows the same steps every time</td><td class="new">Looks, thinks, decides, adjusts</td></tr>
-          <tr><td class="label">Where it wins</td><td class="old">High-volume, repeatable, auditable work — <strong>100% consistency per step</strong>. A 10-step chain of 95%-accurate agents = only ~60% end-to-end.</td><td class="new">Judgment-heavy, messy, novel-input work.</td></tr>
-          <tr><td class="label">Adapts</td><td class="old">Rigid — reshaping the flow means rebuilding it.</td><td class="new">Bends with you — today's one-off becomes tomorrow's reusable skill.</td></tr>
-          <tr><td class="label">Risks</td><td class="old">Technical to build — wiring nodes takes real setup; brittle when inputs drift.</td><td class="new">Non-deterministic — same prompt, different answer. <strong>The craft is keeping it consistent and correct.</strong></td></tr>
-          <tr><td class="label">Sales use case</td><td class="old">New meeting booked in HubSpot → auto-add to nurture sequence → notify the AE in Slack</td><td class="new">"Read this prospect's last 6 months of emails and 3 calls, draft a pre-call brief with their likely objections"</td></tr>
-        </tbody>
-      </table>
+      <div class="t-title">Automation. Augmentation. <em>Agency.</em></div>
+      <div class="t-subtitle" style="margin-top:8px;color:var(--muted);max-width:1800px;">Three modes — one AI. Knowing which to reach for is the whole job.</div>
 
+      <div class="flex-row gap-md" style="margin-top:28px;align-items:stretch;">
+        <!-- AUTOMATION -->
+        <div class="grow" style="padding:24px 28px;background:var(--paper-2);border-top:4px solid var(--muted);">
+          <div class="t-eyebrow" style="color:var(--muted);margin-bottom:8px;">01</div>
+          <div style="font-family:'Instrument Serif',serif;font-size:52px;line-height:1.02;letter-spacing:-.01em;margin-bottom:6px;">Automation.</div>
+          <div class="t-body" style="line-height:1.35;color:var(--ink-2);">Human wires a flow. Machine runs it the same way, every time.</div>
+
+          <div class="t-eyebrow" style="margin-top:18px;margin-bottom:6px;">Tool</div>
+          <div class="t-body"><span class="t-mono-sm">n8n</span> · <span class="t-mono-sm">Zapier</span> · RPA</div>
+
+          <div class="t-eyebrow" style="margin-top:16px;margin-bottom:6px;">How it works</div>
+          <div class="t-body">Same steps, every run. <strong>100% consistent</strong> per step. Deterministic.</div>
+
+          <div class="t-eyebrow" style="margin-top:16px;margin-bottom:6px;">Best for</div>
+          <div class="t-body">High-volume, predictable, auditable work.</div>
+
+          <div class="t-eyebrow" style="margin-top:16px;margin-bottom:6px;">Sales example</div>
+          <div class="t-small" style="color:var(--muted);line-height:1.35;">Meeting booked → HubSpot deal → nurture sequence → Slack ping to the AE.</div>
+        </div>
+
+        <!-- AUGMENTATION -->
+        <div class="grow" style="padding:24px 28px;background:var(--paper-2);border-top:4px solid var(--sage);">
+          <div class="t-eyebrow" style="color:var(--sage);margin-bottom:8px;">02</div>
+          <div style="font-family:'Instrument Serif',serif;font-size:52px;line-height:1.02;letter-spacing:-.01em;margin-bottom:6px;color:var(--sage);">Augmentation.</div>
+          <div class="t-body" style="line-height:1.35;color:var(--ink-2);">Human does the work <em>with</em> AI. You prompt, it helps, you review.</div>
+
+          <div class="t-eyebrow" style="margin-top:18px;margin-bottom:6px;color:var(--sage);">Tool</div>
+          <div class="t-body">Claude.ai · Cowork · Claude in Chrome</div>
+
+          <div class="t-eyebrow" style="margin-top:16px;margin-bottom:6px;color:var(--sage);">How it works</div>
+          <div class="t-body">You ask, it assists. You stay in the loop every turn.</div>
+
+          <div class="t-eyebrow" style="margin-top:16px;margin-bottom:6px;color:var(--sage);">Best for</div>
+          <div class="t-body">Drafting, thinking, research — your brain's co-pilot.</div>
+
+          <div class="t-eyebrow" style="margin-top:16px;margin-bottom:6px;color:var(--sage);">Sales example</div>
+          <div class="t-small" style="color:var(--muted);line-height:1.35;">"Help me redraft this email for a skeptical CFO — tighter, more ROI-forward."</div>
+        </div>
+
+        <!-- AGENCY -->
+        <div class="grow" style="padding:24px 28px;background:var(--paper-2);border-top:4px solid var(--accent);">
+          <div class="t-eyebrow" style="color:var(--accent);margin-bottom:8px;">03</div>
+          <div style="font-family:'Instrument Serif',serif;font-size:52px;line-height:1.02;letter-spacing:-.01em;margin-bottom:6px;color:var(--accent);font-style:italic;">Agency.</div>
+          <div class="t-body" style="line-height:1.35;color:var(--ink-2);"><strong>Human configures the AI to work independently.</strong> Set the rules; it decides the steps.</div>
+
+          <div class="t-eyebrow" style="margin-top:18px;margin-bottom:6px;color:var(--accent);">Tool</div>
+          <div class="t-body"><strong>Skills &amp; Agents</strong> (Claude Code)</div>
+
+          <div class="t-eyebrow" style="margin-top:16px;margin-bottom:6px;color:var(--accent);">How it works</div>
+          <div class="t-body">Looks, thinks, decides, adjusts — within boundaries you set.</div>
+
+          <div class="t-eyebrow" style="margin-top:16px;margin-bottom:6px;color:var(--accent);">Best for</div>
+          <div class="t-body">Judgment-heavy, messy, novel-input work at scale.</div>
+
+          <div class="t-eyebrow" style="margin-top:16px;margin-bottom:6px;color:var(--accent);">Sales example</div>
+          <div class="t-small" style="color:var(--muted);line-height:1.35;">"Before every call, read the prospect's last 6 months of emails + 3 calls and draft a brief with likely objections."</div>
+        </div>
+      </div>
+
+      <div class="t-body" style="margin-top:22px;max-width:1800px;font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;color:var(--muted);">
+        Automation runs the predictable. Augmentation boosts you in the moment. Agency runs while you sleep — because you configured it well.
+      </div>
     </div>
-    <div class="foot"><div>Know when to reach for which — and engineer the consistency on the agentic side.</div><div>7 / 46</div></div>
+    <div class="foot"><div>Know when to reach for which — most of your work will use all three.</div><div>7 / 46</div></div>
   </section>
 
   <!-- 5a · THE CLAUDE PRODUCT MAP (infographic) -->
