@@ -500,7 +500,8 @@
       <div style="margin-top:20px;display:flex;justify-content:center;">
         <img src="screenshots/claude-feature-map.png"
              alt="How to Learn Claude — product map infographic showing Chat, Reasoning, Developer, Build, Visuals, Browser, Coding, Integrations, Instructions, Context surfaces"
-             style="max-height:720px;width:auto;max-width:100%;border:1px solid rgba(20,18,16,.12);box-shadow:0 6px 22px rgba(20,18,16,.12);background:#fff;"/>
+             class="zoomable"
+             style="max-height:720px;width:auto;max-width:100%;border:1px solid rgba(20,18,16,.12);box-shadow:0 6px 22px rgba(20,18,16,.12);background:#fff;cursor:zoom-in;"/>
       </div>
     </div>
     <div class="foot"><div>Same brain. Different doors in. Each surface has its own best-for.</div><div>8 / 43</div></div>
@@ -2147,6 +2148,55 @@
       const box = nextHiddenBox();
       if (box) box.classList.add('reveal');
     });
+  })();
+
+  // Click-to-zoom for images marked .zoomable — opens a full-screen lightbox
+  // so the trainer can enlarge dense visuals (e.g. the product map) live.
+  (function(){
+    const lb = document.createElement('div');
+    lb.id = 'zoom-lightbox';
+    lb.innerHTML = '<img alt="" />';
+    Object.assign(lb.style, {
+      position:'fixed', inset:'0', background:'rgba(10,8,6,.92)',
+      display:'none', alignItems:'center', justifyContent:'center',
+      zIndex:'9999', cursor:'zoom-out', padding:'40px'
+    });
+    const lbImg = lb.querySelector('img');
+    Object.assign(lbImg.style, {
+      maxWidth:'100%', maxHeight:'100%', objectFit:'contain',
+      boxShadow:'0 10px 40px rgba(0,0,0,.5)', background:'#fff'
+    });
+    document.body.appendChild(lb);
+
+    function open(src, alt){
+      lbImg.src = src;
+      lbImg.alt = alt || '';
+      lb.style.display = 'flex';
+    }
+    function close(){
+      lb.style.display = 'none';
+      lbImg.src = '';
+    }
+
+    document.addEventListener('click', (e) => {
+      const img = e.target.closest && e.target.closest('img.zoomable');
+      if (!img) return;
+      e.preventDefault();
+      e.stopPropagation();
+      open(img.src, img.alt);
+    });
+    lb.addEventListener('click', close);
+
+    // While the lightbox is open, swallow deck-nav keys so arrows/space
+    // don't advance the slide underneath.
+    window.addEventListener('keydown', (e) => {
+      if (lb.style.display === 'none') return;
+      if (e.key === 'Escape') { close(); e.preventDefault(); e.stopPropagation(); return; }
+      if (['ArrowRight','ArrowLeft','ArrowUp','ArrowDown','PageUp','PageDown',' ','Spacebar'].includes(e.key)) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }, true);
   })();
 </script>
 </body>
