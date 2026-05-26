@@ -5,7 +5,23 @@
 
 ---
 
-## BLOCK 1: Why This Matters (20 min)
+## REVISED TIMING
+
+| Block | Start | End | Duration | Content |
+|-------|-------|-----|----------|---------|
+| Setup Check | 0:00 | 0:10 | 10 min | Verify setup, troubleshoot stragglers |
+| Block 1: Why This Matters | 0:10 | 0:25 | 15 min | Chat vs Agentic, live demo |
+| Block 2: Terminal Comfort | 0:25 | 0:45 | 20 min | 3 commands, live error, launch Claude Code |
+| Block 3: Core Concepts | 0:45 | 1:15 | 30 min | Prompting, files, web research |
+| Block 4: Power-Ups | 1:15 | 1:30 | 15 min | MCPs + Skills combined, demo-driven |
+| Break | 1:30 | 1:45 | 15 min | Break after high-confidence moment |
+| Block 5: Guided Build | 1:45 | 2:30 | 45 min | Build one workflow with checkpoints |
+| Block 6: Wrap-Up | 2:30 | 2:50 | 20 min | Show & Tell, next steps, resources |
+| Buffer | 2:50 | 3:00 | 10 min | Overflow, Q&A, individual help |
+
+---
+
+## SETUP CHECK (10 min)
 
 ---
 
@@ -16,55 +32,102 @@
 **Footer:** Novastacks AI × Superuser HQ | April 15, 2026
 
 **Speaker Notes:**
-Welcome everyone. Today we're going to change how you work with AI. By the end of these 3 hours, you'll have built something real — a working automation you'll use next week. This isn't a lecture. This is hands-on. You'll be typing, building, and creating alongside us.
+Welcome everyone! While we get started, let's make sure everyone's setup is working. Open your terminal — Mac users search "Terminal" in Spotlight, Windows users open WSL. Type `claude --version` and tell us what you see. [Co-facilitator walks the room troubleshooting.] If you're getting an error, raise your hand — we'll come to you. No one gets left behind today.
 
 ---
 
-### Slide 2: The AI You Know vs The AI That's Coming
+### Slide 2: Quick Setup Verify
 
 **Content:**
-- **Chat AI** (what you know): You ask a question → get an answer. One turn. Copy-paste.
-  - Example: "Write me an email" → copies text → pastes into Gmail
-- **Agentic AI** (what we're learning today): You give a goal → AI executes multi-step workflows autonomously
-  - Example: "Research this company, draft an outreach email, and save it to my Google Drive" → done in 30 seconds
+**Let's make sure you're ready. Type these one at a time:**
 
-**Visual:** Side-by-side comparison — Chat AI (ping pong) vs Agentic AI (autopilot)
+```
+node --version       → You should see: v22.x.x
+claude --version     → You should see: a version number
+```
+
+✅ Both show a version number? You're ready!
+❌ Got an error? Raise your hand — we'll fix it right now.
 
 **Speaker Notes:**
-Most of you have used ChatGPT or Claude.ai. You type something, you get an answer, you copy it somewhere. That's chat AI. It's useful but limited. What we're introducing today is fundamentally different. Agentic AI doesn't just answer — it acts. It can read your files, search the web, write documents, connect to your Google Drive, and do it all in one go. Think of it as the difference between asking someone for directions versus having a driver take you there.
+[CO-FACILITATOR handles setup issues while lead proceeds.] We budgeted time for this because in every workshop, a few people hit snags. That's completely normal. We have backup API keys if anyone needs one. The goal is: by the time we start the real content, 100% of you can launch Claude Code.
 
 ---
 
-### Slide 3: Live Demo — "Watch This"
+## BLOCK 1: Why This Matters (15 min)
+
+---
+
+### Slide 3: The AI You Know vs The AI You're About to Learn
+
+**Content:**
+
+| | Chat AI (what you know) | Agentic AI (today) |
+|---|---|---|
+| **How it works** | You ask → it answers → you copy-paste | You give a goal → it executes the whole workflow |
+| **Example** | "Write me an email" → copy → paste into Gmail | "Research this company, draft outreach, save to Drive" → done |
+| **Analogy** | Asking for directions | Having a driver take you there |
+| **Tools** | ChatGPT, Claude.ai, Gemini | Claude Code, Manus, Devin |
+
+**The real shift:** From AI as a search engine to AI as a teammate.
+
+**Speaker Notes:**
+Most of you have used ChatGPT or Claude.ai — you type something, get an answer, copy it somewhere. That's chat AI. Useful, but limited. Today we're learning something fundamentally different: agentic AI. It doesn't just answer — it acts. It reads your files, searches the web, writes documents, connects to Google Drive — all in one go. Think of it like this: chat AI is like asking someone for directions. Agentic AI is like having a driver who takes you there while you do other things.
+
+---
+
+### Slide 4: The Time Savings Are Real
+
+**Content:**
+**Real results from Anthropic's own marketing team:**
+
+| Task | Manual | With Claude Code | Savings |
+|------|--------|-----------------|---------|
+| Research a prospect before a call | 30 min (Google, 5 tabs, notes) | 60 seconds (one prompt) | 96% |
+| Create ad creative variations | 30 min per batch | 30 seconds | 98% |
+| Draft a case study | 2.5 hours | 30 minutes | 80% |
+| Repurpose blog → LinkedIn post | 20 min (rewrite, trim, format) | 30 seconds | 97% |
+| Competitive analysis (3 companies) | 2-3 hours | 3 minutes | 97% |
+
+*Source: "How Anthropic Uses Claude in Marketing" — Anthropic Blog, 2025*
+
+**Speaker Notes:**
+These aren't hypothetical numbers. This is from Anthropic's own marketing team — the company that makes Claude. Their non-technical marketers use Claude Code daily. One of them said: "You don't need to know how to code." That's you. If they can do it, you can do it. And by the end of today, you will.
+
+---
+
+### Slide 5: Live Demo — "Watch This"
 
 **Content:**
 🎬 **Live Demo: Research 5 competitors in 2 minutes**
-- Input: 5 company URLs
+- Input: 5 company URLs (Traveloka, Booking.com, Agoda, Klook, Trip.com)
 - Output: Structured comparison table with positioning, pricing, recent news
-- Saved directly to a file on the laptop
+- Saved directly to a file
 
 **Speaker Notes:**
-[TINA/YAOHONG PERFORMS LIVE DEMO] Let me show you what this looks like in practice. I'm going to give Claude Code 5 competitor URLs and ask it to research all of them. Watch the terminal — you'll see it thinking, searching, and building a report in real time. This would take you 30-60 minutes manually. [Run the demo. Let silence build as it works. The "wow" moment is watching it happen live.]
+[TINA/YAOHONG PERFORMS LIVE DEMO] Let me show you what this looks like. I'm going to research 5 travel competitors — companies you know — in one prompt. Watch the terminal. [Type the prompt slowly enough to read. Let Claude Code work in silence for 10-15 seconds.] "Watch — it's researching all five simultaneously." [When output appears, scroll slowly.] Company overview... pricing... recent news from this month... strengths and weaknesses. This would take 45 minutes manually. That was 90 seconds. [CRITICAL: Have a pre-recorded backup video in case WiFi is slow. A failed Block 1 demo tanks the whole session.]
 
 ---
 
-### Slide 4: Your New Mental Model
+### Slide 6: Your New Mental Model
 
 **Content:**
-**Think of Claude Code as a smart intern with:**
-- ✅ Perfect memory (remembers everything you've told it)
-- ✅ Access to the internet (can research anything)
-- ✅ Access to your files (can read and write documents)
-- ✅ Access to your tools (Gmail, Google Drive, Sheets — via MCPs)
-- ✅ Never gets tired, never forgets instructions
+**Think of Claude Code as a smart intern who:**
+- Has perfect memory
+- Can access the internet
+- Can read and write your files
+- Connects to your tools (Gmail, Drive, Sheets)
+- Never gets tired, never forgets instructions
 
 **But you're the boss:**
 - You decide what it works on
 - You review its output
-- You approve before it sends/publishes anything
+- You approve before it sends anything
+
+**Like briefing a freelancer:** The more context you give upfront, the less revision later.
 
 **Speaker Notes:**
-Here's the mental model I want you to carry through today. Claude Code is like the best intern you've ever had. It's fast, thorough, never complains, and has perfect memory. But — and this is important — you're the boss. You direct the work. You review the output. It won't send an email unless you say so. It won't delete files unless you approve it. You're always in control.
+Here's your mental model for today. Claude Code is like the best intern you've ever had — fast, thorough, perfect memory. But you're the boss. You direct the work, review the output, approve before anything goes out. It won't send an email or delete a file without your OK. Think of it like briefing a freelancer: the more context you give upfront, the less back-and-forth later. That's the core skill we're building today.
 
 ---
 
@@ -72,81 +135,111 @@ Here's the mental model I want you to carry through today. Claude Code is like t
 
 ---
 
-### Slide 5: Let's Address the Elephant in the Room
+### Slide 7: Let's Address the Elephant in the Room
 
 **Content:**
 **"The terminal looks scary"**
 
 That's normal. Here's the truth:
 - You only need **3 commands** for today
-- It's just a text version of File Explorer / Finder
+- It's just a text version of Finder / File Explorer
 - If you can type a Google search, you can use terminal
 
-**What the terminal actually is:** A way to talk to your computer by typing instead of clicking
+**What terminal actually is:** A way to talk to your computer by typing instead of clicking.
+
+Like Grab: you type the destination instead of tapping a map.
 
 **Speaker Notes:**
-I know what some of you are thinking. "That black screen with the blinking cursor looks terrifying." That's completely normal. Every single person who uses terminal felt that way the first time. Here's the good news: you only need 3 commands. Three. That's it. And they map directly to things you already do every day — you're just typing instead of clicking.
+I know what you're thinking. "That black screen with the blinking cursor looks terrifying." Totally normal. Every person who uses terminal felt that way their first time. Here's the good news: you need exactly 3 commands. And they map to things you already do every day in Finder or File Explorer. Think of terminal like Grab — you type where you want to go instead of tapping on a map. Same destination, different input method.
 
 ---
 
-### Slide 6: The Only 3 Commands You Need
+### Slide 8: The Only 3 Commands You Need
 
 **Content:**
 
-| What You Want to Do | In Finder/Explorer | In Terminal |
+| What You Want to Do | In Finder / Explorer | In Terminal |
 |--------------------|--------------------|-------------|
-| "Where am I?" | Look at the folder path at top | `pwd` |
-| "What's in this folder?" | Look at the files listed | `ls` |
-| "Open this folder" | Double-click the folder | `cd folder-name` |
+| "Where am I?" | Look at folder path at top | `pwd` |
+| "What's in this folder?" | Look at the file list | `ls` |
+| "Go into this folder" | Double-click the folder | `cd folder-name` |
 
-**Bonus:**
-- `cd ..` = Go back one folder (like clicking "Back")
-- Press **Tab** = Auto-complete (the terminal helps you type!)
+**Bonus moves:**
+- `cd ..` = Go back one folder (the "Back" button)
+- Press **Tab** = Auto-complete (terminal helps you type!)
+- **Up Arrow** = Repeat last command
 
 **Speaker Notes:**
-Here are your three commands. That's it. `pwd` tells you where you are — like looking at the address bar in File Explorer. `ls` shows you what's in the current folder — like looking at the files. `cd` moves you into a folder — like double-clicking it. And a bonus: `cd ..` goes back, like hitting the back button. And Tab autocompletes — so you don't even have to type the full name. Let's try it now.
+Three commands. `pwd` — "where am I?" Like the address bar in Explorer. `ls` — "what's here?" Like looking at the file list. `cd` — "go into this folder." Like double-clicking it. And `cd ..` goes back, like the back button. Plus Tab autocompletes names so you don't even have to type the whole thing.
 
 ---
 
-### Slide 7: Hands-On — Your First Terminal Session
+### Slide 9: Watch Me Make a Mistake (On Purpose)
 
 **Content:**
-**Everyone do this now:**
+🎬 **Live demo: Errors are normal and harmless**
+
+```
+$ cd Dekstop
+bash: cd: Dekstop: No such file or directory
+
+$ cd Desktop
+(works!)
+```
+
+**What just happened?**
+- I typed "Dekstop" (typo) → got an error message
+- The error is just the computer saying "I don't understand"
+- Nothing broke. Nothing crashed. I just try again.
+
+**Errors are information, not failure.**
+
+**Speaker Notes:**
+Before you type anything, I want to show you something. Watch this. [Type `cd Dekstop` intentionally.] Look — an error! "No such file or directory." Did my computer break? No. Did I lose any files? No. The terminal is just saying "I don't know what Dekstop is." So I fix the typo: `cd Desktop`. And it works. This is the most important thing I'll teach you today: errors are not failure. They're just the computer asking you to try again. You will see errors today. That's fine. That's learning.
+
+---
+
+### Slide 10: Hands-On — Your First Terminal Session
+
+**Content:**
+**Everyone do this now. Find your terminal buddy — help each other!**
 
 ```
 Step 1: Open Terminal (Mac) or WSL (Windows)
-Step 2: Type: pwd          (Where am I?)
-Step 3: Type: ls           (What's here?)
-Step 4: Type: cd Desktop   (Go to Desktop)
-Step 5: Type: ls           (What's on my Desktop?)
-Step 6: Type: cd ..        (Go back)
+Step 2: Type: pwd            → You should see: /Users/yourname
+Step 3: Type: ls             → You should see: Desktop, Documents, etc.
+Step 4: Type: cd Desktop     → (no output = success!)
+Step 5: Type: pwd            → Should now show: /Users/yourname/Desktop
+Step 6: Type: cd ..          → Back to home
 ```
 
-🖐️ **Raise your hand if you get stuck — we're coming to help**
+✅ **Made it to Step 6? You just used the terminal.**
+🖐️ **Stuck? Raise your hand — we're coming to help.**
 
 **Speaker Notes:**
-OK, everyone open your terminal. Mac users: search for "Terminal" in Spotlight. Windows users: open your WSL Ubuntu window. Now follow along with me. Type pwd. What do you see? [Wait, walk around.] Good. Now type ls. You should see a list of folders and files. Now type cd Desktop — you're going into your Desktop folder. Type ls again to see what's there. And cd .. to go back. That's it. You just used the terminal. [Encourage applause/celebration. This is a confidence-building moment.]
+OK, everyone. Before you start — turn to the person next to you. That's your terminal buddy for today. If one of you gets stuck, help each other first, then raise your hand if you're both stuck. Now open your terminal. Follow along, one step at a time. [Walk the room. Give 2-3 minutes. Celebrate when people finish.] You just used the terminal. Give yourselves a round of applause. Seriously — most professionals never do this.
 
 ---
 
-### Slide 8: Launch Claude Code
+### Slide 11: Launch Claude Code
 
 **Content:**
 **Now the fun part:**
 
 ```
-Step 1: cd ~/claude-workshop     (Go to workshop folder)
-Step 2: claude                   (Launch Claude Code!)
+Step 1: cd ~/claude-workshop     → Go to workshop folder
+Step 2: claude                   → Launch Claude Code!
 ```
 
-You should see Claude Code start up. Type your first message:
+**You should see** Claude Code start up with a welcome message.
 
-> "Hello! What can you help me with?"
+Type your first prompt:
+> "Hello! Tell me 3 fun facts about the travel industry in Southeast Asia."
 
-🎉 **You're in. You're using Claude Code.**
+✅ **Got a response? You're in!**
 
 **Speaker Notes:**
-Now navigate to your workshop folder. Type cd ~/claude-workshop and then just type claude. That's it. Claude Code will start. Type a simple hello. It'll respond. Congratulations — you are now using agentic AI from the command line. This is the thing 99% of people haven't done yet. You're ahead of the curve.
+Navigate to your workshop folder and type `claude`. That's it. Claude Code starts. Now type a fun prompt — something light before we get to real work. [Wait for everyone to get a response.] Congratulations — you're using agentic AI from the command line. This is something 99% of professionals haven't done yet.
 
 ---
 
@@ -154,108 +247,138 @@ Now navigate to your workshop folder. Type cd ~/claude-workshop and then just ty
 
 ---
 
-### Slide 9: The Art of Giving Good Instructions
+### Slide 12: The Art of Giving Good Instructions
 
 **Content:**
-**Bad prompt:** "Write me an email"
-**Good prompt:** "Write a follow-up email to Sarah Chen at Acme Corp. We met yesterday to discuss their Q2 marketing budget. They're interested in our content platform. Keep it warm but professional. Suggest a 30-min call next Tuesday."
 
-**The formula:**
-1. **Context** — Who, what, background
-2. **Specificity** — Exactly what you want
-3. **Format** — How you want the output
-4. **Examples** — Show what "good" looks like (optional but powerful)
+**Bad prompt:**
+> "Write me an email"
+
+**Good prompt:**
+> "Write a follow-up email to Sarah Chen at Acme Corp. We met yesterday about their Q2 marketing budget. They're interested in our content platform. Keep it warm but professional. Suggest a 30-min call next Tuesday."
+
+**The Prompt Formula:**
+
+| Element | What It Means | Example |
+|---------|-------------|---------|
+| **Context** | Who, what, background | "We met yesterday at the conference..." |
+| **Specificity** | Exactly what you want | "Draft a 3-paragraph email..." |
+| **Format** | How the output should look | "Format as a table with columns for..." |
+| **Examples** | What "good" looks like | "Similar to this style: ..." |
 
 **Speaker Notes:**
-The number one skill with AI — any AI — is giving clear instructions. Think about it: if you told a new employee "write me an email," they'd ask a dozen questions. But if you gave them context, specifics, and format, they'd nail it first try. Same with Claude Code. The more context you give, the better the output. You don't need to be technical. You just need to be specific. Like you would with a smart human.
+The #1 skill with any AI — chat or agentic — is giving clear instructions. Think about hiring a freelancer. If you say "write me an email," they'll ask 10 questions. If you give them context, specifics, and format, they nail it first try. Same with Claude Code. You don't need to be technical. You need to be specific. Like you would with a smart human who's new to your company.
+
+*Reference: Amanda Askell (Anthropic's alignment lead) says: "Be honest with the model. Tell it exactly what you need. Iterate like you would with a human."*
 
 ---
 
-### Slide 10: Reading and Writing Files
+### Slide 13: Prompt Formula in Action — Before & After
 
 **Content:**
-**Claude Code can read your files:**
-> "Read the file marketing-plan.md and summarize the key priorities"
 
-**Claude Code can write files:**
-> "Create a file called competitor-brief.md with a research summary of Acme Corp"
+**Scenario: Preparing for a client meeting**
 
-**Claude Code can edit files:**
-> "Open my-draft.md and make the tone more conversational"
+| | Vague Prompt | Specific Prompt |
+|---|---|---|
+| **What you type** | "Tell me about Traveloka" | "Research Traveloka. Give me a 1-page brief: what they do, their 2026 strategic priorities, key executives, recent funding, and 3 smart questions I can ask their VP of Marketing in a meeting tomorrow. Save as traveloka-brief.md" |
+| **What you get** | Generic Wikipedia-style summary | Actionable meeting prep saved as a file |
+| **Time to usable** | 10+ min editing | Ready to use immediately |
+
+**Speaker Notes:**
+Let me show you the difference specificity makes. [Show both prompts side by side. Optionally demo the specific one live.] The vague prompt gives you a Wikipedia summary. The specific prompt gives you meeting prep you can actually use. Same AI, completely different output — the only difference is how you asked.
+
+---
+
+### Slide 14: Reading and Writing Files
+
+**Content:**
+**Claude Code works directly with your files — no copy-paste.**
+
+| What You Want | What You Type |
+|--------------|--------------|
+| Read a file | "Read marketing-plan.md and summarize the key priorities" |
+| Create a file | "Create competitor-brief.md with a research summary of Acme Corp" |
+| Edit a file | "Open my-draft.md and make the tone more conversational" |
 
 **Files AI agents work best with:**
-| ✅ Great | ⚠️ OK | ❌ Avoid |
-|---------|-------|---------|
-| .md (Markdown) | .pdf (can read) | .docx (Word) |
-| .txt (Plain text) | .html (web pages) | .xlsx (Excel) |
-| .csv (Data) | .pptx (limited) | .psd (images) |
+
+| ✅ Great (plain text) | ⚠️ OK (readable) | ❌ Avoid (binary) |
+|----------------------|-------------------|-------------------|
+| `.md` (Markdown) — like a clean Word doc | `.pdf` | `.docx` (Word) |
+| `.txt` (Plain text) — like Notepad | `.html` | `.xlsx` (Excel) |
+| `.csv` (Data) — like a simple spreadsheet | `.pptx` | `.psd` (images) |
+
+**Pro tip:** Think of Markdown as "Google Docs without the formatting toolbar." Simple, clean, and AI reads it instantly.
 
 **Speaker Notes:**
-One of the biggest superpowers of Claude Code versus ChatGPT is that it works directly with files on your computer. You don't copy-paste. You point it at a file and it reads it. You ask it to create a file and it writes it directly. Now — important distinction. AI agents work best with text-based files. Markdown, plain text, CSV. They can handle PDFs. But Word docs and Excel files are harder because they're binary formats. Pro tip: for best results, work with markdown files. They're simple, clean, and AI loves them.
+One of the biggest superpowers of Claude Code versus ChatGPT: it works directly with files on your computer. No uploading, no copy-pasting. You point it at a file and it reads it. You ask it to create a file and it writes it right there. Now — AI agents love plain text files. Markdown, CSV, plain text. They can handle PDFs. But Word and Excel are harder because they're binary — think of it like trying to read a book that's been sealed in plastic wrap. Markdown is the same book, unwrapped. We'll use markdown files throughout today.
 
 ---
 
-### Slide 11: Web Search and Research
+### Slide 15: Web Search and Research
 
 **Content:**
-**Claude Code can search the web:**
+**Claude Code searches the web for you:**
+
 > "Search for recent news about Traveloka's expansion plans in 2026"
 
-> "Find the top 5 trends in B2B SaaS marketing this year"
+> "Research gojek.com — what do they do, who leads their marketing, any recent product launches?"
 
-> "Research [company URL] and tell me what they do, who they serve, and their recent funding"
+> "Find the top 5 B2B marketing trends in Southeast Asia this year"
 
-**This replaces:** Manual Googling → reading 10 tabs → summarizing in a doc
-**With:** One prompt → structured output in seconds
+**What this replaces:**
+
+| Old Way | New Way |
+|---------|---------|
+| Open Google → read 10 tabs → take notes → write summary | One prompt → structured output in seconds |
+| 30 minutes | 60 seconds |
 
 **Speaker Notes:**
-The second superpower is web research. Instead of opening 10 Chrome tabs, reading through articles, and trying to synthesize what you found — you give Claude Code a research task and it does it all. It searches, reads, synthesizes, and gives you a structured output. For sales teams, this is a game changer. Lead research that took 30 minutes now takes 30 seconds.
+The second superpower: web research. Instead of opening 10 Chrome tabs, reading through articles, and trying to synthesize what you found — you give Claude Code a research task and it does everything. Searches, reads, synthesizes, structures the output. For sales teams, this is a game changer. Lead research that took 30 minutes now takes 30 seconds. Let's see it in action.
 
 ---
 
-### Slide 12: Live Demo — Build a Lead Research Brief
+### Slide 16: Live Demo — Build a Lead Research Brief
 
 **Content:**
 🎬 **Live Demo: From URL to Brief in 60 Seconds**
 
-Input:
-> "Research the company gojek.com. Give me a structured lead brief with: what they do, target market, key executives, recent news, and potential pain points we could help with. Save it as gojek-brief.md"
+> "Research gojek.com. Give me a structured lead brief: what they do, target market, key executives, recent news, and potential pain points. Save it as gojek-brief.md"
 
-Output: A ready-to-use sales brief, saved as a file
+**What to watch for:**
+1. Claude Code searches the web (you'll see it working)
+2. It structures the findings (not just raw text)
+3. It saves the file (you can open it later)
 
 **Speaker Notes:**
-[LIVE DEMO] Let me show you this in action. I'll give Claude Code a company URL and ask for a full lead research brief. Watch — it'll search the web, find information, structure it, and save it as a file. All in about 60 seconds. [Run demo. Talk through what's happening on screen as Claude Code works.] Now imagine doing this for every prospect before a meeting. That's the power.
+[LIVE DEMO] Watch — I'll research Gojek from just their URL. [Type prompt. Narrate as Claude Code works.] "It's searching... now it's reading their website... pulling recent news... structuring the brief..." [When done:] That's a ready-to-use sales brief. Saved as a file on my laptop. Imagine doing this for every prospect before every meeting. That's what you'll build in Block 5.
 
 ---
 
-## BLOCK 4: MCPs & Skills — The Power-Ups (20 min)
+## BLOCK 4: Power-Ups — MCPs & Skills (15 min)
 
 ---
 
-### Slide 13: What Are MCPs?
+### Slide 17: Supercharging Claude Code
 
 **Content:**
-**MCP = Model Context Protocol**
-Think of MCPs as **plug-ins** or **connectors** for Claude Code.
+Claude Code out of the box: reads files, searches the web, generates content.
+Claude Code with **Power-Ups**: connects to ALL your tools.
 
-Without MCPs: Claude Code can read files and search the web
-With MCPs: Claude Code can also access Google Drive, Gmail, Sheets, Notion, Slack...
+**Two types of Power-Ups:**
 
-**Analogy:** Your phone out of the box vs your phone with apps installed
-
-| Without MCPs | With MCPs |
-|-------------|-----------|
-| Read/write local files | + Access Google Drive files |
-| Search the web | + Read/send Gmail |
-| Generate text | + Read/update Google Sheets |
-|  | + Post to Slack, Notion, etc. |
+| Power-Up | What It Is | Analogy |
+|----------|-----------|---------|
+| **MCPs** (Connectors) | Plug Claude Code into your tools — Drive, Gmail, Sheets | Apps on your phone — your phone works without them, but way better with WhatsApp, Grab, and banking installed |
+| **Skills** (Saved Recipes) | Reusable instruction templates you call with one command | Saved recipes — write it once, then just say "make the rendang" and it follows every step |
 
 **Speaker Notes:**
-Now let's talk about MCPs — the thing that makes Claude Code truly powerful for business teams. MCP stands for Model Context Protocol, but just think of them as plug-ins. Right now, Claude Code can work with your local files and the web. But with MCPs, it can connect to Google Drive, Gmail, Google Sheets, Notion, Slack — all the tools you already use. It's like the difference between your phone out of the box versus your phone with all your apps installed.
+Now let's talk about the two things that turn Claude Code from "cool demo" into "daily tool." MCPs are connectors — they plug Claude Code into the tools you already use. Think of your phone: it works out of the box, but it's way better with WhatsApp, Grab, and your banking app installed. Same idea. Skills are saved recipes. Instead of explaining your LinkedIn post style every time, you write the recipe once, and just call it. Like telling a chef "make the rendang" — they know every step because you wrote it down once.
 
 ---
 
-### Slide 14: MCP Demo — Google Drive
+### Slide 18: MCP Demo — Your Tools, Connected
 
 **Content:**
 🎬 **Demo: Claude Code + Google Drive**
@@ -264,54 +387,48 @@ Now let's talk about MCPs — the thing that makes Claude Code truly powerful fo
 
 > "Read the Q1 results spreadsheet and tell me which campaign had the highest ROI"
 
-**How MCPs get set up:**
-- One-time configuration (we'll help you after the workshop)
-- Once connected, Claude Code remembers your tools
-- Check status anytime: type `/mcp`
+**Common MCPs for your team:**
+
+| MCP | Connects To | Use Case |
+|-----|------------|----------|
+| Google Drive | Your Drive files | Read docs, sheets, slides |
+| Google Sheets | Spreadsheets | Pull data, update trackers |
+| Gmail | Your inbox | Draft and search emails |
+| Filesystem | Local files | Read/write files on your computer |
+
+**Setup:** One-time configuration. We'll help after the workshop. Check status: `/mcp`
 
 **Speaker Notes:**
-[DEMO] Let me show you MCPs in action. I have Google Drive connected. Watch — I'll ask Claude Code to find a file in my Drive and summarize it. [Run demo.] This is the "aha moment" for most people. Claude Code isn't just a chatbot — it's connected to your actual work environment. Setting up MCPs is a one-time thing, and we provide post-workshop support to help you get your connectors configured.
+[DEMO] I have Google Drive connected to my Claude Code. Watch — I'll ask it to find and summarize a file from my Drive. [Run demo.] This is usually the "aha moment." Claude Code isn't a chatbot trapped in a box — it's connected to your actual work. Setting up MCPs is a one-time thing. We'll send you instructions and provide email support for the next 15 days.
 
 ---
 
-### Slide 15: What Are Skills?
-
-**Content:**
-**Skills = Saved instruction sets you can reuse**
-
-Think of Skills like **email templates** — but for AI tasks.
-
-**Without Skills:** You type the same detailed prompt every time
-**With Skills:** You type `/linkedin-post` and it knows exactly what to do
-
-**Example: "Write LinkedIn Post in My Voice" Skill**
-- Knows your writing style, tone, typical post length
-- Knows to start with a hook
-- Knows to end with a question
-- Formats with line breaks for readability
-
-**Speaker Notes:**
-Skills are the thing that turns Claude Code from "cool demo" into "daily tool." A skill is a saved set of instructions. Instead of typing a detailed prompt every time you want to write a LinkedIn post, you create a skill once with all your preferences — your voice, your style, your format — and then just call it with a slash command. It's like having a template that thinks. We'll see a quick demo, and in Block 5, some of you will actually build one.
-
----
-
-### Slide 16: Skill Demo — LinkedIn Post
+### Slide 19: Skills Demo — Your Saved Recipes
 
 **Content:**
 🎬 **Demo: /linkedin-post Skill**
 
-Input:
-> "Write a LinkedIn post about how AI is changing B2B sales, using my linkedin-post skill"
+> "Write a LinkedIn post about AI transforming B2B sales"
 
-What the Skill does behind the scenes:
-1. Reads your style guide
-2. Creates a hook-first post
+**What the Skill does automatically:**
+1. Reads your style guide (tone, voice, format)
+2. Creates a hook-first opening
 3. Keeps it under 1,300 characters
-4. Adds a closing question
-5. Suggests hashtags
+4. Ends with a question for engagement
+5. Adds relevant hashtags
+
+**Without a Skill:** You explain your voice, style, and format every single time
+**With a Skill:** You type `/linkedin-post` and it just knows
+
+**How to create a Skill:**
+1. Write your instructions in a `.md` file (like a recipe card)
+2. Save it in the right folder
+3. Call it anytime with `/skill-name`
+
+*Details in your cheat sheet.*
 
 **Speaker Notes:**
-[DEMO] Watch this. I have a LinkedIn post skill configured. All I do is tell Claude Code the topic and invoke the skill. It knows my voice, my format, everything. [Run demo.] What took 20 minutes of writing and editing is now a 30-second first draft. And it's in MY voice, not generic AI voice. That's because the skill has detailed instructions about how I write.
+[DEMO] I have a LinkedIn post skill saved. Watch — I just give it a topic and it writes in my voice, my format, my style. [Run demo.] That took 30 seconds. Without the skill, I'd need to explain my voice, my format, everything — every single time. The skill is like a recipe card: write it once, use it forever. Your cheat sheet has the details on how to create one.
 
 ---
 
@@ -319,18 +436,24 @@ What the Skill does behind the scenes:
 
 ---
 
-### Slide 17: Break
+### Slide 20: Break
 
 **Content:**
 ☕ **15-Minute Break**
 
-When you come back:
-- Make sure Claude Code is still running (type `claude` if it's closed)
-- You'll be building your own workflow
-- Pick which one you want to build (next slide)
+**Before you go — pick your build:**
+
+| Option | What You'll Build | Best For |
+|--------|------------------|----------|
+| 🔍 **Lead Research Brief** | Company URL → structured sales brief | Sales |
+| ✍️ **Content Repurposer** | Blog → LinkedIn post in your voice | Marketing |
+| 📊 **Competitor Tracker** | 3-5 competitors → comparison table | Strategy |
+| 🔧 **Freestyle** | Any workflow for YOUR actual work | Anyone |
+
+**Come back ready to build!**
 
 **Speaker Notes:**
-Take 15. Stretch, get coffee. When you come back, we're building. Look at the next slide and start thinking about which workflow you want to create — you'll pick one and build it yourself.
+Take 15 minutes. When you come back, you're building. Look at these four options and pick the one most useful for YOUR job. If none of them fit perfectly, choose "Freestyle" — we'll help you design a workflow for whatever you actually need. Also: make sure Claude Code is still running when you get back. If it closed, just type `claude` to restart.
 
 ---
 
@@ -338,218 +461,339 @@ Take 15. Stretch, get coffee. When you come back, we're building. Look at the ne
 
 ---
 
-### Slide 18: Choose Your Build
+### Slide 21: Let's Build — Rules of Engagement
 
 **Content:**
-**Pick ONE workflow to build. We'll help you through it.**
+**How this works:**
+1. Pick your option (or Freestyle)
+2. Follow the step-by-step guide
+3. Use REAL companies / REAL topics from your work
+4. **Terminal buddy:** Help each other before raising your hand
+5. Both facilitators are roaming — we'll come to you
 
-| Option | What You'll Build | Best For |
-|--------|------------------|----------|
-| 🔍 **Lead Research Brief Generator** | Input a company URL → get a structured sales brief | Sales teams |
-| ✍️ **Content Repurposer** | Blog post → LinkedIn post in your voice | Marketing teams |
-| 📊 **Competitor Tracker** | Automated comparison of 3-5 competitors | Strategy/planning |
-
-Each option has a step-by-step guide. Choose what's most useful for YOUR work.
+**If you get stuck:**
+- Check if Claude Code is still running (type `claude` if not)
+- Check you're in the right folder (`pwd` to see where you are)
+- Re-read the error message — it usually tells you what went wrong
+- Ask your terminal buddy
+- Raise your hand
 
 **Speaker Notes:**
-Here are your three options. Pick the one that's most useful for your actual job. If you're in sales, the lead research brief is gold. If you're in marketing, the content repurposer will change your daily workflow. If you're in strategy or planning, the competitor tracker is your go-to. Raise your hand when you've decided and we'll hand you the exercise guide. Both of us will be walking around helping — no one gets left behind.
+Here's how this works. Pick your option, follow the guide, and use real companies and topics from your actual work. This way you leave with something you'll actually use. Your terminal buddy is your first line of support. Both Yaohong and I will be walking the room. Nobody gets left behind. Let's go.
 
 ---
 
-### Slide 19: Option A — Lead Research Brief Generator
+### Slide 22: Option A — Lead Research Brief Generator
 
 **Content:**
-**Step-by-step guide:**
 
+**Step 1: Navigate to your folder**
 ```
-1. Make sure you're in your workshop folder:
-   cd ~/claude-workshop
-
-2. Start Claude Code:
-   claude
-
-3. Type this prompt (replace with a real company):
-   "Research the company [URL]. Create a structured lead
-   brief with: company overview, target market, key decision
-   makers, recent news, competitive landscape, and potential
-   pain points. Save it as [company]-brief.md"
-
-4. Review the output file:
-   "Read [company]-brief.md and add a section with
-   3 personalized outreach angles"
-
-5. You now have a ready-to-use sales brief!
+cd ~/claude-workshop
+claude
 ```
+✅ **Checkpoint:** You should see the Claude Code welcome prompt.
 
-🖐️ **Stuck? Raise your hand.**
+**Step 2: Research a real company**
+```
+"Research [COMPANY URL]. Create a structured lead brief with:
+company overview, target market, key decision makers, recent
+news, and potential pain points. Save it as [company]-brief.md"
+```
+✅ **Checkpoint:** You should see Claude Code searching the web, then a brief appearing on screen, ending with "File saved."
 
-**Speaker Notes:**
-For those building the lead research brief — here's your guide. Follow it step by step. Start with a real company you'd actually want to research. This makes it more valuable because you'll walk out with something you can actually use. If you get stuck at any step, raise your hand. We're here to help.
+**Step 3: Make it actionable**
+```
+"Read [company]-brief.md and add 3 personalized outreach
+angles I can use in a cold email"
+```
+✅ **Checkpoint:** The file now has an additional section with outreach angles.
+
+**Step 4: Generate the outreach email**
+```
+"Based on this brief, draft a cold outreach email to their
+VP of Marketing. Keep it under 150 words. Save as outreach-email.md"
+```
+✅ **Checkpoint:** You now have TWO files: a brief and an email. Ready to use.
+
+🖐️ **Stuck at any step? Raise your hand.**
 
 ---
 
-### Slide 20: Option B — Content Repurposer
+### Slide 23: Option B — Content Repurposer
 
 **Content:**
-**Step-by-step guide:**
 
+**Step 1: Create source content**
 ```
-1. First, create some source content to repurpose:
-   "Create a file called blog-draft.md with a 300-word blog
-   post about [a topic relevant to your work]"
-
-2. Now repurpose it:
-   "Read blog-draft.md and rewrite it as a LinkedIn post.
-   Make it conversational and hook-first. Keep it under
-   1,300 characters. End with a question. Add hashtags."
-
-3. Want to try another format?
-   "Now turn the same blog post into a 5-tweet thread"
-
-4. Or an email newsletter intro:
-   "Rewrite it as a 100-word email newsletter intro that
-   makes people want to click through to read more"
+cd ~/claude-workshop
+claude
+"Create blog-draft.md with a 300-word blog post about
+[TOPIC RELEVANT TO YOUR WORK]"
 ```
+✅ **Checkpoint:** Type `ls` — you should see `blog-draft.md` in your folder.
 
-🖐️ **Stuck? Raise your hand.**
+**Step 2: Repurpose to LinkedIn**
+```
+"Read blog-draft.md and rewrite as a LinkedIn post.
+Hook-first, under 1300 characters, end with a question.
+Add hashtags. Save as linkedin-post.md"
+```
+✅ **Checkpoint:** You now have a LinkedIn post that sounds like you, not a robot.
 
-**Speaker Notes:**
-Content repurposers — here's your flow. Start by having Claude Code write a short blog post on a topic relevant to your work. Then we'll repurpose it into different formats. The magic is seeing how one piece of content becomes many. If you have an actual blog post you've written, even better — save it as a .md file and use that.
+**Step 3: Repurpose to email newsletter**
+```
+"Rewrite the same blog as a 100-word email newsletter intro
+that makes people want to click through. Save as newsletter-intro.md"
+```
+✅ **Checkpoint:** You now have 3 pieces of content from 1 source.
+
+**Step 4: Bonus — create a tweet thread**
+```
+"Turn the blog post into a 5-tweet thread. Punchy,
+insight-driven. Save as tweet-thread.md"
+```
+✅ **Checkpoint:** 4 formats from 1 blog post. That's content repurposing at scale.
+
+🖐️ **Stuck at any step? Raise your hand.**
 
 ---
 
-### Slide 21: Option C — Competitor Tracker
+### Slide 24: Option C — Competitor Tracker
 
 **Content:**
-**Step-by-step guide:**
 
+**Step 1: Pick 3 real competitors**
 ```
-1. Think of 3 competitors you actually track:
-   Company A, Company B, Company C
-
-2. Start Claude Code and type:
-   "Research these companies: [Company A URL], [Company B URL],
-   [Company C URL]. For each, find: what they do, key products,
-   pricing (if public), recent news, strengths, and weaknesses.
-   Create a comparison table and save it as competitor-analysis.md"
-
-3. Go deeper:
-   "Read competitor-analysis.md. Now add a section analyzing
-   how our company [YOUR COMPANY] compares. What are our
-   advantages? Where are we vulnerable?"
-
-4. Make it actionable:
-   "Add a recommendations section: what should we do based
-   on this competitive analysis?"
+cd ~/claude-workshop
+claude
 ```
+✅ **Checkpoint:** Think of 3 companies you actually compete with or track.
 
-🖐️ **Stuck? Raise your hand.**
+**Step 2: Run the research**
+```
+"Research [Company A URL], [Company B URL], [Company C URL].
+For each: what they do, key products, pricing (if public),
+recent news, strengths and weaknesses.
+Create a comparison table. Save as competitor-analysis.md"
+```
+✅ **Checkpoint:** You should see a structured comparison table. Check: does the data look accurate?
 
-**Speaker Notes:**
-Competitor tracker builders — use real competitors. This makes the exercise immediately valuable. You'll end up with an actual competitive analysis you can share with your team. Claude Code will search the web, find current info, and structure it. Then we layer on strategic analysis.
+**Step 3: Add your own company**
+```
+"Read competitor-analysis.md. Add a row for [YOUR COMPANY].
+What are our advantages? Where are we vulnerable?"
+```
+✅ **Checkpoint:** The table now includes your company with honest positioning.
+
+**Step 4: Make it strategic**
+```
+"Add a recommendations section: 3 things we should do based
+on this competitive landscape. Save the updated file."
+```
+✅ **Checkpoint:** You now have a competitive brief you can share with your team.
+
+🖐️ **Stuck at any step? Raise your hand.**
 
 ---
 
-## BLOCK 6: Show & Tell + Next Steps (30 min)
+### Slide 25: Option D — Freestyle Build
+
+**Content:**
+**Build any workflow for YOUR actual work.**
+
+**Ideas to get you started:**
+
+| Your Job | Workflow Idea |
+|----------|-------------|
+| Sales | "Research my next meeting's company and draft prep notes" |
+| Marketing | "Analyze our last 5 LinkedIn posts and suggest improvements" |
+| Operations | "Create a weekly report template from these data points" |
+| Strategy | "Research [market/trend] and create an executive summary" |
+| HR | "Draft a job description for [role] based on these requirements" |
+
+**How to approach it:**
+1. Think: "What task do I do every week that takes 30+ minutes?"
+2. Write that as a prompt
+3. Ask Claude Code to do it
+4. Iterate if the output isn't quite right
+
+🖐️ **Want help designing your workflow? Raise your hand.**
 
 ---
 
-### Slide 22: Show & Tell
+## BLOCK 6: Wrap-Up (20 min)
+
+---
+
+### Slide 26: Show & Tell
 
 **Content:**
 **Who wants to share what they built?**
 
-1-2 volunteers: show your screen and walk us through:
+1-2 volunteers — show your screen and tell us:
 - What you built
 - What surprised you
-- How you'd use this in your real work
+- How you'll use this in your real work
 
-👏 *Every workflow built today is a real tool you can use tomorrow*
+👏 *Everything built today is a real tool you can use tomorrow*
 
 **Speaker Notes:**
-Who wants to share? Don't be shy — everyone here just did something most people in your industry haven't done yet. [Pick 1-2 volunteers.] Walk us through what you built. What worked? What surprised you? How would you use this next week? [Facilitate discussion. Celebrate the wins. Point out creative uses.]
+Who wants to share? Don't be shy — everyone in this room just did something most professionals haven't done yet. [Pick 1-2 volunteers. Celebrate creative uses. Ask follow-up questions.] Notice how different everyone's outputs are — same tool, different workflows for different jobs. That's the power of agentic AI: it adapts to YOUR work.
 
 ---
 
-### Slide 23: Your Homework (Just One Thing)
+### Slide 27: Your Monday Action Plan
 
 **Content:**
-**This week, try ONE workflow on real work.**
+**This week, use Claude Code on ONE real task.**
 
-Not a test. Not practice. Real work.
+Not a test. Not practice. Actual work.
 
-Ideas:
-- Research your next meeting's company before the call
-- Repurpose a blog post or report into a LinkedIn post
-- Generate a competitive brief for an upcoming pitch
-- Draft a follow-up email from your meeting notes
+| Day | Action |
+|-----|--------|
+| **This week** | Use the workflow you built today on real work |
+| **Next week** | Try a second use case from the cheat sheet |
+| **This month** | Set up 1 MCP (we'll help via email) |
 
-**The habit loop:** Use it once for real → see the value → use it again → it becomes natural
+**Your API key:** Make it permanent so it's there every time you open terminal.
+```
+# Add this to your shell profile (~/.zshrc or ~/.bashrc):
+export ANTHROPIC_API_KEY="your-key-here"
+```
+
+**The habit loop:** Use it once → see the value → use it again → it becomes natural.
 
 **Speaker Notes:**
-Here's your homework. It's just one thing. This week, use Claude Code on one real task. Not a toy example. Real work. The research shows that if you use a new tool on real work within 7 days of learning it, you're 5x more likely to adopt it long-term. The "aha moment" already happened today — now cement it with real use.
+Here's your concrete plan. This week: use the workflow you built today on real work. One real task. Not a toy example. The research shows if you use a new tool on real work within 7 days, you're 5x more likely to adopt it long-term. Next week, try a second use case from your cheat sheet. And this month, email us and we'll help you set up an MCP so Claude Code connects to your Google Drive or Gmail. Also — save your API key permanently by adding that export line to your shell profile. Instructions are in the setup guide.
 
 ---
 
-### Slide 24: Resources and Support
+### Slide 28: What You're Taking Home
 
 **Content:**
-**What you're taking home today:**
 
-📄 **Cheat Sheet** — Terminal commands, prompt templates, MCP guide
-📘 **Setup Guide** — For colleagues who want to get started
-🔗 **Resources:**
-- Claude Code Docs: docs.anthropic.com
-- Anthropic Cookbook: github.com/anthropics/anthropic-cookbook
-- Prompt Engineering Guide: docs.anthropic.com/prompt-engineering
+📄 **Cheat Sheet** — Terminal commands, prompt templates, AI tools comparison, MCP guide
+📘 **Setup Guide** — Share with colleagues who want to get started
+
+**Official Anthropic Resources (free):**
+- Claude Code Docs: docs.anthropic.com/en/docs/claude-code
+- Prompt Engineering Guide: docs.anthropic.com/en/docs/build-with-claude/prompt-engineering
+- MCP Docs: modelcontextprotocol.io
+- Free Course — "Claude Code in Action": anthropic.skilljar.com
+
+**Go deeper:**
+- Andrew Ng's Claude Code Course (free): learn.deeplearning.ai/courses/claude-code
+- Anthropic's MCP Course (free): anthropic.skilljar.com/introduction-to-model-context-protocol
+- "How Anthropic Uses Claude in Marketing": claude.com/blog/how-anthropic-uses-claude-marketing
 
 📧 **15-day post-workshop support:** tchu@novastacks-ai.com
-- Stuck? Email us. We'll help.
+
+**Also explore:** Claude Cowork (claude.com/product/cowork) — same AI capabilities with a visual interface instead of terminal. Great for daily use once you understand the concepts from today.
 
 **Speaker Notes:**
-Here's everything you're taking home. The cheat sheet has all the commands and prompt templates. The setup guide is something you can share with colleagues. And you have 15 days of email support — if you try something and get stuck, reach out. We're here to make sure this sticks.
+Here's everything you're taking home. The cheat sheet has all commands, prompt templates, and the AI tools comparison. The setup guide is something you can share with your team. I've listed the best free resources — the Andrew Ng course and Anthropic's own courses are excellent next steps. And you have 15 days of email support. If you get stuck, email us. We'll respond within 24 hours. Also worth checking out: Claude Cowork. It's the same AI engine we used today but with a visual interface — no terminal needed. Now that you understand how agentic AI works under the hood, Cowork will make a lot more sense. You can self-explore it.
 
 ---
 
-### Slide 25: Thank You
+### Slide 29: Thank You
 
 **Content:**
 **Thank you for building with us today.**
 
-You just did something most professionals haven't done yet.
+You walked in never having opened a terminal.
+You're leaving with a working AI workflow.
 
-Keep going. 🚀
+That gap — between knowing about AI and actually using it — you just crossed it.
 
 **Tina Chu** — tchu@novastacks-ai.com
 **Yaohong Ch'ng** — Superuser HQ
 
 **Speaker Notes:**
-Thank you everyone. You came in today as people who'd never opened a terminal. You're leaving as people who've built working AI workflows from the command line. That's not a small thing. The gap between knowing about AI and actually using AI to do your work — you just crossed it. Keep going. We're here if you need us.
+Thank you everyone. You came in as people who'd never used a terminal. You're leaving as people who've built real AI workflows from the command line. That's not a small thing. The gap between watching YouTube demos and actually doing this yourself — you just crossed it. Keep going. We're here if you need us. Now — who has questions?
+
+---
+
+### Slide 30: Exit Ticket
+
+**Content:**
+**Before you leave — one sticky note:**
+
+✍️ Write down:
+> "The ONE thing I will use Claude Code for this week is: _______________"
+
+Stick it on the board on your way out.
+
+**We'll follow up in 7 days to see how it went.**
+
+**Speaker Notes:**
+Last thing. Take a sticky note and write down the one thing you'll use Claude Code for this week. Be specific. Not "try it out" — something like "research 3 prospects before Thursday's sales calls." Stick it on the board. We're going to follow up by email in 7 days to ask how it went. This isn't accountability for accountability's sake — it's because the people who commit to one specific task are the ones who actually adopt the tool.
 
 ---
 
 ## APPENDIX: Facilitator Notes
 
-### Pre-workshop Checklist
-- [ ] Confirm all participants completed setup guide
-- [ ] Test WiFi with 20+ devices
-- [ ] Prepare demo scripts (Block 1 competitor research, Block 3 lead brief, Block 4 MCP + skill demos)
+### Pre-Workshop Checklist
+- [ ] Confirm all participants received setup guide (send 3+ days before)
+- [ ] Send pre-workshop video: 2-min recording of opening terminal, typing pwd/ls/cd, launching Claude Code
+- [ ] Test WiFi with 20+ concurrent devices
+- [ ] Prepare and rehearse ALL demo scripts until flawless
+- [ ] Record backup videos of every live demo (in case of WiFi/API issues)
 - [ ] Print cheat sheets (one per participant)
-- [ ] Have backup API keys ready for participants with setup issues
+- [ ] Print "My First Prompt" template cards
+- [ ] Print checkpoint guides for Block 5 (one per option)
+- [ ] Have 3-5 backup API keys ready
+- [ ] Prepare sticky notes + markers for exit tickets
+- [ ] Bring 2-3 backup laptops with everything pre-configured
 
-### Timing Guide
-| Block | Start | End | Duration |
-|-------|-------|-----|----------|
-| 1: Why This Matters | 0:00 | 0:20 | 20 min |
-| 2: Terminal Comfort | 0:20 | 0:40 | 20 min |
-| 3: Core Concepts | 0:40 | 1:10 | 30 min |
-| 4: MCPs & Skills | 1:10 | 1:30 | 20 min |
-| Break | 1:30 | 1:45 | 15 min |
-| 5: Guided Build | 1:45 | 2:30 | 45 min |
-| 6: Show & Tell | 2:30 | 3:00 | 30 min |
+### Demo Scripts to Rehearse
+1. **Block 1 — Competitor Research:** 5 travel competitors (Traveloka, Booking.com, Agoda, Klook, Trip.com)
+2. **Block 2 — Intentional Error:** `cd Dekstop` → error → `cd Desktop` → success
+3. **Block 3 — Lead Research Brief:** Research gojek.com, save as file
+4. **Block 4 — MCP Demo:** Search Google Drive for a marketing report
+5. **Block 4 — Skills Demo:** /linkedin-post skill generating a post
+
+### Timing Buffer Strategy
+- Block 1 has 5 min trimmed (from 20 to 15) — goes to buffer
+- Block 4 has 5 min trimmed (from 20 to 15) — goes to buffer
+- Block 6 has 10 min trimmed (from 30 to 20) — goes to buffer
+- Total buffer: 10 min at end + flexibility during blocks
+
+### "My First Prompt" Template Card (Print for Each Participant)
+
+```
+Fill in the blanks and type this into Claude Code:
+
+I want Claude Code to [ACTION: research / write / analyze / compare]
+about [SUBJECT: company name, topic, competitor]
+and give me [FORMAT: a table / a brief / an email / a list]
+that includes [DETAILS: pricing, recent news, key people, pain points]
+and save it as [FILENAME].md
+```
 
 ### Common Issues During Workshop
-- **Participant can't launch Claude Code:** Check API key, check Node.js version
-- **Slow responses:** Too many people on same WiFi. Have mobile hotspot backup.
-- **Someone finishes early:** Challenge them to build a second workflow or create a Skill
-- **Someone is completely lost:** Pair them with a faster participant (pair debugging)
+| Problem | Fix |
+|---------|-----|
+| Participant can't launch Claude Code | Check API key, check Node.js version |
+| "command not found: claude" | `npm install -g @anthropic-ai/claude-code` |
+| Slow responses | Too many people on WiFi. Switch to mobile hotspot. |
+| API rate limiting | Switch to backup API key |
+| Someone finishes early | Challenge: build a second workflow or create a Skill |
+| Someone completely lost | Pair with faster participant (pair debugging) |
+| Live demo fails | Switch to pre-recorded backup video immediately |
+| Setup issues at start | Co-facilitator handles individually while lead proceeds |
+
+### Post-Workshop Follow-Up Plan
+| When | Action |
+|------|--------|
+| Day 0 (after workshop) | Email: cheat sheet PDF + resource links + "make your API key permanent" instructions |
+| Day 7 | Email: "How did your ONE thing go?" + offer MCP setup help |
+| Day 15 | Final email: "Questions? Last day of email support" + link to Anthropic courses |
+
+### Key Sources for Facilitator Prep
+- "How Anthropic Uses Claude in Marketing" — claude.com/blog/how-anthropic-uses-claude-marketing
+- "How Anthropic Teams Use Claude Code" — claude.com/blog/how-anthropic-teams-use-claude-code
+- Andrew Ng's Claude Code course — learn.deeplearning.ai/courses/claude-code
+- Amanda Askell's prompting philosophy — be honest with the model, iterate, ask it to clarify
+- Zack Proser's Cowork GTM Workshop — zackproser.com/blog/claude-cowork-workshop-anthropic
+- Anthropic's "Claude Code in an Hour" webinar — anthropic.com/webinars/claude-code-in-an-hour

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Impact Report — Proving ROI to Leadership</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:#FAF8F0; --white:#FFFFFF; --border:#E8E0D8;
+  --text:#2C2520; --text-secondary:#6B5E52; --text-light:#999;
+  --terra:#D97757; --terra-light-bg:#FFF3EE; --terra-light-border:#F0D5C5;
+  --dark:#2C2520; --header-bg:#F5F0E8;
+  --green-bg:#E6F4EA; --green-text:#1E7F3F;
+  --red-bg:#FEECED; --red-text:#C0392B;
+  --analogy-text:#5C4426; --analogy-bg:#E2D5C3;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--cream); color:var(--text); font-family:'DM Sans',-apple-system,sans-serif; font-size:16px; line-height:1.7; -webkit-font-smoothing:antialiased; }
+.fade-in { opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease; }
+.fade-in.visible { opacity:1; transform:translateY(0); }
+.top-banner { display:flex; font-size:13px; font-weight:500; height:36px; }
+.top-banner .left { flex:1; background:var(--terra); color:white; padding:0 32px; display:flex; align-items:center; gap:24px; }
+.top-banner .right { flex:1; background:var(--dark); color:rgba(255,255,255,0.7); padding:0 32px; display:flex; align-items:center; gap:24px; }
+.top-banner a { color:rgba(255,255,255,0.85); text-decoration:none; }
+.nav { position:sticky; top:0; z-index:100; background:rgba(250,248,240,0.92); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border-bottom:1px solid var(--border); padding:0 40px; }
+.nav-inner { max-width:960px; margin:0 auto; display:flex; overflow-x:auto; scrollbar-width:none; }
+.nav-inner::-webkit-scrollbar { display:none; }
+.nav a { color:var(--text-light); text-decoration:none; font-size:12px; font-weight:500; padding:14px 12px; white-space:nowrap; border-bottom:2px solid transparent; transition:all .2s; }
+.nav a:hover { color:var(--text); }
+.nav a.active { color:var(--terra); border-bottom-color:var(--terra); }
+.container { max-width:960px; margin:0 auto; padding:0 40px; }
+section { padding:72px 0; }
+section + section { border-top:1px solid var(--border); }
+.sec-num { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:var(--terra); letter-spacing:1px; margin-bottom:8px; text-transform:uppercase; }
+.sec-title { font-family:'Source Serif 4','Lora',serif; font-size:32px; font-weight:600; line-height:1.25; margin-bottom:12px; color:var(--text); }
+.sec-desc { font-size:16px; color:var(--text-secondary); max-width:640px; margin-bottom:40px; line-height:1.7; }
+.hero { padding:80px 40px 60px; text-align:center; }
+.hero-badge { display:inline-block; background:var(--terra-light-bg); color:var(--terra); border:1px solid var(--terra-light-border); border-radius:100px; padding:6px 18px; font-size:12px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; margin-bottom:24px; }
+.hero h1 { font-family:'Source Serif 4','Lora',serif; font-size:clamp(36px,5vw,50px); font-weight:600; line-height:1.15; margin-bottom:16px; max-width:780px; margin-left:auto; margin-right:auto; }
+.hero-sub { font-size:17px; color:var(--text-secondary); max-width:620px; margin:0 auto 36px; line-height:1.7; }
+.card { background:var(--white); border:1px solid var(--border); border-radius:12px; padding:24px; transition:transform .2s, box-shadow .2s; }
+.card:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(44,37,32,0.06); }
+.card h4 { font-family:'Source Serif 4','Lora',serif; font-size:18px; font-weight:600; margin-bottom:8px; }
+.card-desc { font-size:14px; color:var(--text-secondary); line-height:1.6; }
+.terra-banner { background:var(--terra); color:white; border-radius:12px; padding:20px 28px; font-size:17px; font-weight:600; text-align:center; margin:24px 0; }
+.terra-banner .sub { font-weight:400; font-size:14px; opacity:0.9; margin-top:4px; }
+.grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+.grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.code-block { background:var(--dark); color:#E8E0D8; border-radius:10px; padding:16px 20px; font-family:'JetBrains Mono',monospace; font-size:13px; line-height:1.6; white-space:pre-wrap; overflow-x:auto; margin-top:8px; }
+.code-block .comment { color:#7a7067; }
+table { width:100%; border-collapse:collapse; background:var(--white); font-size:14px; border-radius:12px; overflow:hidden; border:1px solid var(--border); }
+table th { background:var(--header-bg); font-weight:600; font-size:13px; text-align:left; padding:12px 16px; border-bottom:1px solid var(--border); }
+table td { padding:12px 16px; border-bottom:1px solid var(--border); vertical-align:top; color:var(--text-secondary); }
+table tr:last-child td { border-bottom:none; }
+.kpi { padding:18px; background:var(--white); border:1px solid var(--border); border-radius:12px; text-align:center; }
+.kpi-num { font-family:'Source Serif 4','Lora',serif; font-size:36px; font-weight:600; color:var(--terra); line-height:1; }
+.kpi-label { font-size:12px; color:var(--text-light); text-transform:uppercase; letter-spacing:0.5px; margin-top:6px; }
+.kpi-change { font-size:12px; color:var(--green-text); margin-top:4px; font-weight:600; }
+.analogy { font-family:'Lora','Source Serif 4',serif; font-style:italic; font-size:14px; color:var(--analogy-text); background:var(--analogy-bg); border-radius:8px; padding:10px 16px; margin-top:12px; line-height:1.6; }
+.analogy::before { content:'"'; } .analogy::after { content:'"'; }
+footer { background:var(--dark); color:rgba(255,255,255,0.6); text-align:center; padding:48px 40px; }
+footer strong { color:white; font-weight:600; }
+footer .footer-sub { font-size:13px; margin-top:8px; color:rgba(255,255,255,0.4); }
+@media (max-width:768px) {
+  .top-banner { flex-direction:column; height:auto; }
+  .top-banner .left, .top-banner .right { padding:8px 20px; }
+  .nav { padding:0 20px; }
+  .container { padding:0 20px; }
+  .hero { padding:48px 20px 40px; }
+  section { padding:48px 0; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns:1fr; }
+  .sec-title { font-size:26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-banner">
+  <div class="left"><span>Novastacks AI</span><a href="https://novastacks-ai.com" target="_blank">novastacks-ai.com</a></div>
+  <div class="right"><span>Superuser HQ</span><a href="https://superuserhq.com" target="_blank">superuserhq.com</a></div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#why">Why this matters</a>
+    <a href="#what-to-measure">What to measure</a>
+    <a href="#before-after">Before / After</a>
+    <a href="#template">The Template</a>
+    <a href="#exec-language">Exec Language</a>
+    <a href="#worked-example">Worked Example</a>
+    <a href="#mistakes">Common Mistakes</a>
+    <a href="workshop-guide.html">&larr; Back</a>
+  </div>
+</nav>
+
+<main>
+
+<div class="hero fade-in">
+  <div class="hero-badge">Executive Buy-In Kit</div>
+  <h1>Walk Into Any Leadership Meeting and Prove AI Is Working</h1>
+  <p class="hero-sub">A repeatable way to track before/after KPIs for every AI project, a clean template for presenting results to executives, and the language to get buy-in faster. Stop pitching features. Start proving ROI.</p>
+</div>
+
+<!-- ═══ WHY THIS MATTERS ═══ -->
+<section id="why">
+  <div class="container">
+    <div class="sec-num fade-in">01</div>
+    <h2 class="sec-title fade-in">The Real Reason AI Projects Stall</h2>
+    <p class="sec-desc fade-in">Not because AI doesn't work. Because no one can prove it's working &mdash; and without proof, leadership quietly pulls budget.</p>
+
+    <div class="grid-2 fade-in">
+      <div class="card">
+        <h4>The trap</h4>
+        <p class="card-desc">You spend two months building a partner research skill. It's brilliant. It saves you hours every week. But when the VP asks "how's the AI stuff going?", you say "it's great" and start describing the skill's features.</p>
+        <p class="card-desc" style="margin-top:10px;">The VP hears "features" and tunes out. They wanted "ROI." You didn't give them a number they could act on, so they quietly de-prioritize. The project doesn't die &mdash; it just stops getting oxygen.</p>
+      </div>
+      <div class="card">
+        <h4>The escape</h4>
+        <p class="card-desc">Every AI project gets a <strong>baseline</strong> before you start, a <strong>target</strong> you commit to, and an <strong>outcome</strong> you measure at a fixed interval. You present the delta in the VP's language &mdash; hours saved, dollars saved, quality score, NPS &mdash; not in yours.</p>
+        <p class="card-desc" style="margin-top:10px;">The number is what convinces. Everything else is garnish.</p>
+      </div>
+    </div>
+
+    <div class="terra-banner fade-in">
+      If you can't express the impact of an AI project in one sentence a VP understands, you don't yet have a case for keeping it alive.
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHAT TO MEASURE ═══ -->
+<section id="what-to-measure">
+  <div class="container">
+    <div class="sec-num fade-in">02</div>
+    <h2 class="sec-title fade-in">The Four Dimensions That Matter</h2>
+    <p class="sec-desc fade-in">Every AI project can and should be measured on some combination of these four. Pick the two or three that matter most for this specific project. Don't try to measure all four at once &mdash; that's a report no one reads.</p>
+
+    <div class="grid-4 fade-in">
+      <div class="card">
+        <div style="font-size:11px; font-weight:600; color:var(--terra); text-transform:uppercase;">Dimension 1</div>
+        <h4>Time Saved</h4>
+        <p class="card-desc">Hours per week reclaimed. The easiest to measure, the easiest to communicate. Count the task, count how long it used to take, count how long it takes now. Multiply by people and frequency.</p>
+      </div>
+      <div class="card">
+        <div style="font-size:11px; font-weight:600; color:var(--terra); text-transform:uppercase;">Dimension 2</div>
+        <h4>Quality</h4>
+        <p class="card-desc">Errors caught, rework reduced, consistency improved. Score outputs against a rubric before and after. Quality gains often beat time gains in the long term &mdash; they're harder to measure but they compound.</p>
+      </div>
+      <div class="card">
+        <div style="font-size:11px; font-weight:600; color:var(--terra); text-transform:uppercase;">Dimension 3</div>
+        <h4>Customer Satisfaction</h4>
+        <p class="card-desc">NPS, CSAT, response time to customer asks, partner satisfaction. If the AI project touches anyone outside your team, this is the dimension execs care about most.</p>
+      </div>
+      <div class="card">
+        <div style="font-size:11px; font-weight:600; color:var(--terra); text-transform:uppercase;">Dimension 4</div>
+        <h4>Cost / Revenue</h4>
+        <p class="card-desc">Direct dollars. Either you saved cost (fewer contractors, fewer hours, fewer tools) or you generated revenue (more meetings booked, more partners onboarded, better conversion). Hardest to attribute but most persuasive.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BEFORE / AFTER ═══ -->
+<section id="before-after">
+  <div class="container">
+    <div class="sec-num fade-in">03</div>
+    <h2 class="sec-title fade-in">The Before/After Discipline</h2>
+    <p class="sec-desc fade-in">The one discipline that separates AI projects that get executive buy-in from the ones that quietly die: <strong>you must capture the baseline before you ship.</strong></p>
+
+    <div class="card fade-in" style="padding:28px;">
+      <h4 style="margin-top:0;">The rule</h4>
+      <p style="font-size:15px; color:var(--text-secondary); line-height:1.8;">Before you build anything, write down <em>today's</em> numbers. Not estimates. Not vibes. Real numbers for the specific task you're about to improve. If you don't, you can never prove the change.</p>
+
+      <h4 style="margin-top:28px;">The five questions to answer before you start</h4>
+      <ol style="font-size:14px; color:var(--text-secondary); line-height:1.9; padding-left:24px;">
+        <li><strong>What's the specific task?</strong> Not "marketing." "Writing weekly partner reports for 20 top hotels."</li>
+        <li><strong>How often does it happen?</strong> Weekly? Daily? Per customer?</li>
+        <li><strong>Who does it today?</strong> One person? Three? Outsourced?</li>
+        <li><strong>How long does it take today?</strong> Per instance. Average and p90.</li>
+        <li><strong>What's the current quality bar?</strong> How often is rework needed? How many errors reach the customer?</li>
+      </ol>
+
+      <h4 style="margin-top:28px;">The baseline template</h4>
+      <div class="code-block"><span class="comment"># Baseline &mdash; Partner Report Writing</span>
+
+Task:       Weekly partner reports for top 20 hotels
+Frequency:  Once per week, every week
+Owner:      1 senior BD (Rina) + review by 1 manager
+Time now:   ~4 hours per report &times; 20 reports = 80 hours/week
+            (Rina does 20 reports in ~3 days of focused work)
+Quality:    ~15% need rework after manager review
+Errors:     ~2 partner-facing errors / month slip through
+Cost:       80 hours/week &times; $40/hr fully loaded = $3,200/week
+            = ~$165K/year of BD time on this one task
+
+Target after AI:
+            - 80 hrs/wk &rarr; 12 hrs/wk (-85%)
+            - Rework &le; 5%
+            - Errors &le; 0/month
+            - Cost &le; $500/week on this task</div>
+      <p class="card-desc" style="margin-top:16px; font-style:italic;">The moment you write this document, you've already done 60% of the work of proving impact. The rest is execution.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TEMPLATE ═══ -->
+<section id="template">
+  <div class="container">
+    <div class="sec-num fade-in">04</div>
+    <h2 class="sec-title fade-in">The AI Impact Report Template</h2>
+    <p class="sec-desc fade-in">One page. Seven sections. Built for an executive who has 90 seconds. Copy this and fill it in at a fixed interval &mdash; monthly or quarterly.</p>
+
+    <div class="card fade-in" style="padding:32px;">
+      <div style="font-size:12px; font-weight:600; color:var(--terra); text-transform:uppercase; letter-spacing:0.5px;">AI Impact Report &mdash; [Project Name]</div>
+      <h4 style="margin-top:8px;">Section 1: The Headline (one sentence)</h4>
+      <p class="card-desc">"<em>In Q2, our partner-report AI project saved 68 hours/week of BD time, cut rework from 15% to 4%, and freed Rina to run the top-20-partners expansion &mdash; which closed 3 new strategic deals.</em>" If the VP reads only this sentence, they should have everything they need.</p>
+
+      <h4 style="margin-top:24px;">Section 2: The KPIs (before / after grid)</h4>
+      <p class="card-desc">Visual, not prose. Pre and post numbers side by side. Percent change. Nothing else in this block.</p>
+      <div class="grid-4" style="margin-top:14px;">
+        <div class="kpi">
+          <div class="kpi-num">80&rarr;12</div>
+          <div class="kpi-label">Hours / week</div>
+          <div class="kpi-change">&minus;85%</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-num">15&rarr;4</div>
+          <div class="kpi-label">Rework rate (%)</div>
+          <div class="kpi-change">&minus;73%</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-num">2&rarr;0</div>
+          <div class="kpi-label">Errors / month</div>
+          <div class="kpi-change">&minus;100%</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-num">$165K&rarr;$26K</div>
+          <div class="kpi-label">Annualized cost</div>
+          <div class="kpi-change">&minus;$139K</div>
+        </div>
+      </div>
+
+      <h4 style="margin-top:24px;">Section 3: What Changed (three bullets, max)</h4>
+      <p class="card-desc">What specifically is different now vs. before. Not what tools you used &mdash; what <em>outcomes</em> are different.</p>
+
+      <h4 style="margin-top:24px;">Section 4: What It Unlocked (the follow-on wins)</h4>
+      <p class="card-desc">This is the part that turns savings into <em>growth</em>. "Rina now runs expansion" matters more than "Rina saved 68 hours." Time saved isn't impact &mdash; what you did with that time is impact.</p>
+
+      <h4 style="margin-top:24px;">Section 5: Risks &amp; Watch-outs (honest, short)</h4>
+      <p class="card-desc">What could go wrong. What you're monitoring. What's worked-around vs solved. Executives trust reports that admit risk more than reports that don't.</p>
+
+      <h4 style="margin-top:24px;">Section 6: What We're Asking For</h4>
+      <p class="card-desc">The ask. Budget, headcount, access, a decision. If there's no ask, the VP assumes the project is on autopilot and moves on. <strong>Always end on an ask.</strong></p>
+
+      <h4 style="margin-top:24px;">Section 7: Appendix (optional, linked)</h4>
+      <p class="card-desc">Methodology, raw numbers, screenshots, examples of the AI output. The VP won't read it. The VP's chief of staff might. Leadership meetings are won in the appendix.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EXEC LANGUAGE ═══ -->
+<section id="exec-language">
+  <div class="container">
+    <div class="sec-num fade-in">05</div>
+    <h2 class="sec-title fade-in">Speak the Language of ROI, Not Technology</h2>
+    <p class="sec-desc fade-in">The biggest mistake non-technical AI advocates make: pitching the technology, not the outcome. Here's the translation table.</p>
+
+    <table class="fade-in">
+      <thead>
+        <tr><th style="width:45%;">Instead of saying&hellip;</th><th>Say&hellip;</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>"We built a Claude Code skill with frontmatter, hooks, and MCP integration"</td><td>"We automated the weekly partner report process and saved Rina 3 days a week."</td></tr>
+        <tr><td>"The agent has a prompt cache hit rate of 80%"</td><td>"Operating costs dropped 40% compared to our initial estimate."</td></tr>
+        <tr><td>"We're using sub-agents with custom tools"</td><td>"Different AI specialists handle research, writing, and QA &mdash; we can scale without hiring."</td></tr>
+        <tr><td>"We implemented a PreToolUse hook with a matcher pattern"</td><td>"We added a safety check that prevents the AI from making any destructive change without human approval."</td></tr>
+        <tr><td>"The rules file loads contextually based on path glob patterns"</td><td>"The AI automatically follows brand voice when writing blog posts, and outreach tone when writing sales emails. No reminders needed."</td></tr>
+        <tr><td>"We're evaluating OpenClaw for self-hosted runtime"</td><td>"We're looking at options to keep our partner data inside Tiket's infrastructure for compliance."</td></tr>
+        <tr><td>"We're getting great results"</td><td>"Time to first partner reply dropped from 48 hours to 4 hours &mdash; here's the chart."</td></tr>
+      </tbody>
+    </table>
+
+    <div class="analogy" style="margin-top:24px;">
+      The VP doesn't want to hear how the engine works. The VP wants to know how fast the car is going, and whether it's heading toward the goal.
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WORKED EXAMPLE ═══ -->
+<section id="worked-example">
+  <div class="container">
+    <div class="sec-num fade-in">06</div>
+    <h2 class="sec-title fade-in">A Worked Example: Partner Report Project</h2>
+    <p class="sec-desc fade-in">End-to-end, from baseline to leadership-meeting-ready report. Steal this shape for your own projects.</p>
+
+    <div class="card fade-in" style="padding:28px;">
+      <h4 style="margin-top:0;">Week 0 &mdash; the baseline memo</h4>
+      <p class="card-desc">Before any code, Rina and her manager spent 90 minutes writing the baseline: task, frequency, time, quality, cost (see template in Section 03). They agreed on a target: 85% time reduction, &le;5% rework, zero partner-facing errors. VP signed off on "if we hit target, we expand the program."</p>
+
+      <h4 style="margin-top:24px;">Week 1&ndash;2 &mdash; the build</h4>
+      <p class="card-desc">Built a <code>/partner-report</code> skill in Claude Code. Scoped tools to Read + WebSearch + Write. Used Sonnet. Skill composes two sub-skills: <code>/partner-research</code> (fetches, summarizes) and <code>/draft-report</code> (writes in brand voice). Reviewed against the baseline rubric before ship.</p>
+
+      <h4 style="margin-top:24px;">Week 3&ndash;6 &mdash; parallel run</h4>
+      <p class="card-desc">Four weeks of running AI and human in parallel. Rina writes 10 reports the old way, AI writes 10 the new way, manager blind-scores both. Two goals: validate quality parity and measure true time delta (not Rina's guess &mdash; actual measurements).</p>
+
+      <h4 style="margin-top:24px;">Week 7 &mdash; the report to leadership</h4>
+      <p class="card-desc">The AI Impact Report above is what went into the VP meeting. One page. Headline sentence. Four KPI tiles. Three "what changed" bullets. The follow-on wins (Rina running expansion). The ask (approve rollout to 50 more partners &mdash; additional $0 cost, frees 170 hrs/week team-wide).</p>
+
+      <h4 style="margin-top:24px;">Outcome</h4>
+      <p class="card-desc">Approved in the meeting. The program got expanded in the same session. Why? Because the VP wasn't being asked to believe in AI &mdash; they were being asked to approve a project with documented 85% efficiency gain and a clear next step.</p>
+
+      <div class="terra-banner" style="margin-top:20px;">
+        The difference isn't the AI. It's the discipline around the AI.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COMMON MISTAKES ═══ -->
+<section id="mistakes">
+  <div class="container">
+    <div class="sec-num fade-in">07</div>
+    <h2 class="sec-title fade-in">The Five Mistakes That Kill AI Projects</h2>
+    <p class="sec-desc fade-in">Each one is obvious in hindsight. Each one is also extremely common. Guard against them.</p>
+
+    <div class="grid-2 fade-in">
+      <div class="card">
+        <h4>1. Starting without a baseline</h4>
+        <p class="card-desc">If you don't capture "before," you can never prove "after." This is the single most common failure mode. It turns successful projects into "I think it's helping" anecdotes. Fix: always do the 90-minute baseline memo before Week 1.</p>
+      </div>
+
+      <div class="card">
+        <h4>2. Measuring features, not outcomes</h4>
+        <p class="card-desc">"We now have 12 skills" is a feature. "We handle 3x more partner inquiries" is an outcome. Executives only care about outcomes. Fix: delete every metric that doesn't end in a business term (time, quality, satisfaction, dollars).</p>
+      </div>
+
+      <div class="card">
+        <h4>3. Pitching the tech instead of the work</h4>
+        <p class="card-desc">You spent weeks building something cool. You want to talk about it. The VP doesn't. Fix: write your headline sentence first, before you write anything else. If the headline is about a tool, rewrite it until it's about a job.</p>
+      </div>
+
+      <div class="card">
+        <h4>4. No "what it unlocked"</h4>
+        <p class="card-desc">Time saved is potential, not impact. What did the saved time become? If Rina saved 68 hours but they went into the void, the project's actual ROI is zero. Fix: pair every savings number with what that time bought you.</p>
+      </div>
+
+      <div class="card">
+        <h4>5. Never updating the report</h4>
+        <p class="card-desc">One great report in Q1, then silence. By Q3 leadership assumes the AI project is dead. Fix: commit to a monthly or quarterly report cadence. Even "no new numbers this month, we're focused on X" is better than silence.</p>
+      </div>
+
+      <div class="card">
+        <h4>6. Bonus: blaming the AI when the process breaks</h4>
+        <p class="card-desc">When quality slips, it's rarely the model. It's usually the process around the model &mdash; no review step, no baseline, no hooks. Fix: when something breaks, look at the process first. Blame the model last.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <strong>Novastacks AI &times; Superuser HQ</strong>
+  <div class="footer-sub">AI Impact Report Template &mdash; Intermediate Workshop &middot; April 2026</div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+const navLinks = document.querySelectorAll('.nav a');
+const sections = document.querySelectorAll('section[id]');
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => link.classList.remove('active'));
+      const active = document.querySelector(`.nav a[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-40% 0px -50% 0px' });
+sections.forEach(section => navObserver.observe(section));
+</script>
+</body>
+</html>

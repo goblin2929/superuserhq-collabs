@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenClaw — Self-Hosted Agents for When You Outgrow the Terminal</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #FAF8F0;
+  --white: #FFFFFF;
+  --border: #E8E0D8;
+  --text: #2C2520;
+  --text-secondary: #6B5E52;
+  --text-light: #999;
+  --terra: #D97757;
+  --terra-dark: #C0613D;
+  --terra-light-bg: #FFF3EE;
+  --terra-light-border: #F0D5C5;
+  --dark: #2C2520;
+  --dark-soft: #3D3530;
+  --header-bg: #F5F0E8;
+  --analogy-text: #5C4426;
+  --analogy-bg: #E2D5C3;
+  --green-bg: #E6F4EA;
+  --green-text: #1E7F3F;
+  --red-bg: #FEECED;
+  --red-text: #C0392B;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--cream); color: var(--text); font-family:'DM Sans',-apple-system,sans-serif; font-size:16px; line-height:1.7; -webkit-font-smoothing:antialiased; }
+.fade-in { opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease; }
+.fade-in.visible { opacity:1; transform:translateY(0); }
+.top-banner { display:flex; font-size:13px; font-weight:500; height:36px; }
+.top-banner .left { flex:1; background:var(--terra); color:white; padding:0 32px; display:flex; align-items:center; gap:24px; }
+.top-banner .right { flex:1; background:var(--dark); color:rgba(255,255,255,0.7); padding:0 32px; display:flex; align-items:center; gap:24px; }
+.top-banner a { color:rgba(255,255,255,0.85); text-decoration:none; }
+.nav { position:sticky; top:0; z-index:100; background:rgba(250,248,240,0.92); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border-bottom:1px solid var(--border); padding:0 40px; }
+.nav-inner { max-width:960px; margin:0 auto; display:flex; overflow-x:auto; scrollbar-width:none; }
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav a { color:var(--text-light); text-decoration:none; font-size:12px; font-weight:500; padding:14px 12px; white-space:nowrap; border-bottom:2px solid transparent; transition:all .2s; }
+.nav a:hover { color:var(--text); }
+.nav a.active { color:var(--terra); border-bottom-color:var(--terra); }
+.container { max-width:960px; margin:0 auto; padding:0 40px; }
+section { padding:80px 0; }
+section + section { border-top:1px solid var(--border); }
+.sec-num { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; color:var(--terra); letter-spacing:1px; margin-bottom:8px; text-transform:uppercase; }
+.sec-title { font-family:'Source Serif 4','Lora',serif; font-size:32px; font-weight:600; line-height:1.25; margin-bottom:12px; color:var(--text); }
+.sec-desc { font-size:16px; color:var(--text-secondary); max-width:640px; margin-bottom:40px; line-height:1.7; }
+.hero { padding:80px 40px 60px; text-align:center; }
+.hero-badge { display:inline-block; background:var(--terra-light-bg); color:var(--terra); border:1px solid var(--terra-light-border); border-radius:100px; padding:6px 18px; font-size:12px; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; margin-bottom:24px; }
+.hero h1 { font-family:'Source Serif 4','Lora',serif; font-size:clamp(36px,5vw,52px); font-weight:600; line-height:1.15; margin-bottom:16px; max-width:760px; margin-left:auto; margin-right:auto; }
+.hero-sub { font-size:17px; color:var(--text-secondary); max-width:620px; margin:0 auto 36px; line-height:1.7; }
+.card { background:var(--white); border:1px solid var(--border); border-radius:12px; padding:24px; transition:transform .2s, box-shadow .2s; }
+.card:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(44,37,32,0.06); }
+.card h4 { font-family:'Source Serif 4','Lora',serif; font-size:18px; font-weight:600; margin-bottom:8px; }
+.card-desc { font-size:14px; color:var(--text-secondary); line-height:1.6; }
+.terra-banner { background:var(--terra); color:white; border-radius:12px; padding:20px 28px; font-size:17px; font-weight:600; text-align:center; margin:24px 0; }
+.terra-banner .sub { font-weight:400; font-size:14px; opacity:0.9; margin-top:4px; }
+.grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+.grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.code-block { background:var(--dark); color:#E8E0D8; border-radius:10px; padding:16px 20px; font-family:'JetBrains Mono',monospace; font-size:13px; line-height:1.6; white-space:pre-wrap; overflow-x:auto; margin-top:8px; }
+.code-block .prompt { color:var(--terra); }
+.code-block .comment { color:#7a7067; }
+table { width:100%; border-collapse:collapse; background:var(--white); font-size:14px; border-radius:12px; overflow:hidden; border:1px solid var(--border); }
+table th { background:var(--header-bg); font-weight:600; font-size:13px; text-align:left; padding:12px 16px; border-bottom:1px solid var(--border); }
+table td { padding:12px 16px; border-bottom:1px solid var(--border); vertical-align:top; color:var(--text-secondary); }
+table tr:last-child td { border-bottom:none; }
+.pill { display:inline-block; font-size:11px; font-weight:600; padding:3px 10px; border-radius:100px; text-transform:uppercase; letter-spacing:0.3px; }
+.pill-green { background:var(--green-bg); color:var(--green-text); }
+.pill-red { background:var(--red-bg); color:var(--red-text); }
+.pill-gray { background:#EEE; color:#666; }
+footer { background:var(--dark); color:rgba(255,255,255,0.6); text-align:center; padding:48px 40px; }
+footer strong { color:white; font-weight:600; }
+footer .footer-sub { font-size:13px; margin-top:8px; color:rgba(255,255,255,0.4); }
+@media (max-width: 768px) {
+  .top-banner { flex-direction:column; height:auto; }
+  .top-banner .left, .top-banner .right { padding:8px 20px; }
+  .nav { padding:0 20px; }
+  .container { padding:0 20px; }
+  .hero { padding:48px 20px 40px; }
+  section { padding:48px 0; }
+  .grid-3, .grid-2 { grid-template-columns:1fr; }
+  .sec-title { font-size:26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-banner">
+  <div class="left"><span>Novastacks AI</span><a href="https://novastacks-ai.com" target="_blank">novastacks-ai.com</a></div>
+  <div class="right"><span>Superuser HQ</span><a href="https://superuserhq.com" target="_blank">superuserhq.com</a></div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#what">What it is</a>
+    <a href="#three-models">Three Models</a>
+    <a href="#when">When to use</a>
+    <a href="#247">24/7 Examples</a>
+    <a href="#self-hosted">Why self-host</a>
+    <a href="#when-not">When NOT</a>
+    <a href="#workshop-guide.html">&larr; Back</a>
+  </div>
+</nav>
+
+<main>
+
+<div class="hero fade-in">
+  <div class="hero-badge">Deployment Option 3</div>
+  <h1>OpenClaw: Agents That Run Without You</h1>
+  <p class="hero-sub">When your agentic workflow needs to run 24/7 on your own infrastructure &mdash; overnight research, always-on monitoring, scheduled pipelines &mdash; this is the option most marketing teams don't know exists.</p>
+</div>
+
+<!-- ═══ WHAT IT IS ═══ -->
+<section id="what">
+  <div class="container">
+    <div class="sec-num fade-in">01</div>
+    <h2 class="sec-title fade-in">What OpenClaw Actually Is</h2>
+    <p class="sec-desc fade-in">In plain English: it's software that runs Claude agents on your own servers, for as long as you want, without you sitting there watching.</p>
+
+    <div class="grid-2 fade-in">
+      <div class="card">
+        <h4>The one-sentence version</h4>
+        <p class="card-desc">OpenClaw is an <strong>open-source runtime</strong> for Claude agents that your team self-hosts, so agents can run autonomously for minutes, hours, or days &mdash; on schedules, on triggers, or continuously &mdash; inside your own infrastructure.</p>
+      </div>
+      <div class="card">
+        <h4>The longer version</h4>
+        <p class="card-desc">It wraps Claude's API in a persistent execution loop, supports custom tool schemas, pluggable memory backends (so agents remember across runs), multi-model routing (Claude for hard thinking, cheaper models for bulk work), and integrates with whatever you already run &mdash; databases, queues, cron, CI.</p>
+      </div>
+    </div>
+
+    <div class="terra-banner fade-in">
+      Claude Code is "AI with a human driver." OpenClaw is "AI that keeps driving when you go home."
+    </div>
+  </div>
+</section>
+
+<!-- ═══ THREE MODELS ═══ -->
+<section id="three-models">
+  <div class="container">
+    <div class="sec-num fade-in">02</div>
+    <h2 class="sec-title fade-in">The Three Deployment Models</h2>
+    <p class="sec-desc fade-in">OpenClaw is the third point on a triangle. Here's the full map so you can see where it actually fits.</p>
+
+    <table class="fade-in">
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>You drive</th>
+          <th>Runs where</th>
+          <th>Best for</th>
+          <th>Setup cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Cowork</strong></td>
+          <td>Yes &mdash; chat</td>
+          <td>Anthropic servers</td>
+          <td>Ad-hoc tasks, drafting, research you do yourself</td>
+          <td><span class="pill pill-green">Zero</span></td>
+        </tr>
+        <tr>
+          <td><strong>Claude Code</strong></td>
+          <td>Yes &mdash; terminal</td>
+          <td>Your laptop</td>
+          <td>Structured workflows, skills, team repos, human-in-the-loop automation</td>
+          <td><span class="pill pill-green">Low</span></td>
+        </tr>
+        <tr>
+          <td><strong>Managed Agents</strong> (Anthropic)</td>
+          <td>No</td>
+          <td>Anthropic's cloud</td>
+          <td>Scheduled or triggered agents when you don't want to run infrastructure</td>
+          <td><span class="pill pill-gray">Medium</span></td>
+        </tr>
+        <tr>
+          <td><strong>OpenClaw</strong></td>
+          <td>No</td>
+          <td>Your infrastructure</td>
+          <td>24/7 autonomy, data residency, multi-model routing, full control</td>
+          <td><span class="pill pill-red">Highest</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="font-size:14px; color:var(--text-secondary); margin-top:20px; font-style:italic; text-align:center;">Each row is a trade between "how much do you want to drive" and "how much do you want to own." OpenClaw is the bottom-right corner.</p>
+  </div>
+</section>
+
+<!-- ═══ WHEN TO USE ═══ -->
+<section id="when">
+  <div class="container">
+    <div class="sec-num fade-in">03</div>
+    <h2 class="sec-title fade-in">The Decision Table</h2>
+    <p class="sec-desc fade-in">For a marketing/sales team that already uses Cowork and is starting to use Claude Code, here's how to tell whether OpenClaw is a fit.</p>
+
+    <table class="fade-in">
+      <thead>
+        <tr>
+          <th>If your situation is&hellip;</th>
+          <th>Reach for&hellip;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>"I need to draft something right now"</td>
+          <td><strong>Cowork</strong></td>
+        </tr>
+        <tr>
+          <td>"I want a repeatable workflow my team can run on demand"</td>
+          <td><strong>Claude Code</strong> (skills, commands, hooks)</td>
+        </tr>
+        <tr>
+          <td>"I want a task to run at 6am every Monday without me"</td>
+          <td><strong>Managed Agents</strong> or OpenClaw</td>
+        </tr>
+        <tr>
+          <td>"I need Tiket's data to never leave Tiket's infra"</td>
+          <td><strong>OpenClaw</strong> (self-hosted, data residency)</td>
+        </tr>
+        <tr>
+          <td>"I want to run agents on 10,000 hotel partners overnight and can't afford Opus for all of them"</td>
+          <td><strong>OpenClaw</strong> (multi-model routing, cost control)</td>
+        </tr>
+        <tr>
+          <td>"Compliance says we can't use a third-party hosted agent platform"</td>
+          <td><strong>OpenClaw</strong></td>
+        </tr>
+        <tr>
+          <td>"I want to run 24/7 monitoring on our brand mentions and flag issues in Slack"</td>
+          <td><strong>OpenClaw</strong> or Managed Agents</td>
+        </tr>
+        <tr>
+          <td>"I'm not sure yet"</td>
+          <td><strong>Start with Claude Code.</strong> Upgrade later if you genuinely hit limits.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══ 24/7 EXAMPLES ═══ -->
+<section id="247">
+  <div class="container">
+    <div class="sec-num fade-in">04</div>
+    <h2 class="sec-title fade-in">What "24/7 Autonomous" Actually Looks Like</h2>
+    <p class="sec-desc fade-in">Real marketing/sales use cases &mdash; the kind of work a normal team has never been able to automate because there was never a sensible place to run it.</p>
+
+    <div class="grid-2 fade-in">
+      <div class="card">
+        <h4>Overnight competitor crawl</h4>
+        <p class="card-desc"><strong>What:</strong> Every night at 2am, an agent fetches pricing, promotions, and homepage messaging from your top 10 OTA competitors, diffs against yesterday, summarizes the changes, and drops a morning-brief in Slack by 7am.</p>
+        <p class="card-desc" style="margin-top:10px;"><strong>Why OpenClaw:</strong> it's a long-running scheduled job that touches 10+ sites, needs to run reliably on your timezone, and produces daily output. Cowork can't schedule; Claude Code needs you driving.</p>
+      </div>
+
+      <div class="card">
+        <h4>Continuous brand listening</h4>
+        <p class="card-desc"><strong>What:</strong> An agent watches Reddit, X, and Google Reviews for any mention of your brand, triages sentiment, flags anything negative or viral within minutes, and posts to a Slack channel with full context.</p>
+        <p class="card-desc" style="margin-top:10px;"><strong>Why OpenClaw:</strong> "continuous" is the keyword &mdash; the agent is always on, always watching. You review the Slack feed, not the tool.</p>
+      </div>
+
+      <div class="card">
+        <h4>Scheduled partner research refresh</h4>
+        <p class="card-desc"><strong>What:</strong> Every Sunday night, an agent pulls fresh data for all 500 active hotel partners, re-runs your <code>/partner-report</code> skill against each, and stores the output in the shared drive so sales has fresh briefs Monday morning.</p>
+        <p class="card-desc" style="margin-top:10px;"><strong>Why OpenClaw:</strong> you're running the same skill 500 times on a schedule. That's a batch job, not an interactive one &mdash; and it needs a runtime that doesn't require a human to sit there.</p>
+      </div>
+
+      <div class="card">
+        <h4>Always-on inbox triage</h4>
+        <p class="card-desc"><strong>What:</strong> New partnership inquiry hits your inbox &rarr; agent immediately researches the inquiring company, scores fit against your ICP, drafts a tailored reply in your voice, and sits it in drafts for human approval.</p>
+        <p class="card-desc" style="margin-top:10px;"><strong>Why OpenClaw:</strong> triggered execution (on email arrival), needs to run immediately at any hour, hands off to a human at the end. The full pattern.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY SELF-HOSTED ═══ -->
+<section id="self-hosted">
+  <div class="container">
+    <div class="sec-num fade-in">05</div>
+    <h2 class="sec-title fade-in">Why Self-Hosted Matters (Even for Marketing)</h2>
+    <p class="sec-desc fade-in">Self-hosting sounds like an engineering concern. It's not &mdash; it's a business concern the moment your data has any meaningful value.</p>
+
+    <div class="grid-3 fade-in">
+      <div class="card">
+        <h4>Data residency</h4>
+        <p class="card-desc">Tiket customer data stays in Tiket infrastructure. Indonesia's data protection regulations make this a real concern. Self-hosted agents never send your data to a third-party platform.</p>
+      </div>
+      <div class="card">
+        <h4>Cost at scale</h4>
+        <p class="card-desc">Running 500 partner reports through Opus is expensive. OpenClaw lets you route cheap bulk work to Haiku or other cheap models and save Opus for the hard judgment calls &mdash; often 10x cost reduction.</p>
+      </div>
+      <div class="card">
+        <h4>Model choice flexibility</h4>
+        <p class="card-desc">Not every task needs Claude. Some sub-steps (embedding, classification, formatting) are cheaper on other models. OpenClaw routes each task to the best-fit model, so you're not paying Anthropic rates for non-Anthropic work.</p>
+      </div>
+      <div class="card">
+        <h4>Compliance and audit</h4>
+        <p class="card-desc">Every agent run is logged, every tool call is recorded, every output is stored. Your legal team can actually answer "what did the agent do and when?"</p>
+      </div>
+      <div class="card">
+        <h4>No vendor lock-in</h4>
+        <p class="card-desc">If Anthropic's prices change, if Claude's policies change, if a new model class emerges &mdash; you can re-route without rebuilding your workflows.</p>
+      </div>
+      <div class="card">
+        <h4>Integration depth</h4>
+        <p class="card-desc">Agents can talk to your real internal systems &mdash; PMS, CRM, data warehouse &mdash; because they run inside your network perimeter. No need to expose those APIs to the public internet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHEN NOT TO USE ═══ -->
+<section id="when-not">
+  <div class="container">
+    <div class="sec-num fade-in">06</div>
+    <h2 class="sec-title fade-in">When NOT to Use OpenClaw</h2>
+    <p class="sec-desc fade-in">The honest version. OpenClaw is the most powerful option, which is also the most <em>expensive</em> option in every dimension except raw compute cost. Don't reach for it unless you've earned it.</p>
+
+    <div class="grid-2 fade-in">
+      <div class="card">
+        <h4>You don't have ops capacity</h4>
+        <p class="card-desc">Self-hosting means someone on your team has to keep the service running, patch it, monitor it, page if it breaks at 3am. If you don't have an ops/DevOps person or budget, Managed Agents is the right answer.</p>
+      </div>
+
+      <div class="card">
+        <h4>Claude Code is still solving your problem</h4>
+        <p class="card-desc">If your workflow is "I run it when I want output," Claude Code is simpler, faster, and already in your terminal. Don't build a 24/7 system for a job that only needs to happen 3 times a week.</p>
+      </div>
+
+      <div class="card">
+        <h4>Your bottleneck is ideas, not execution</h4>
+        <p class="card-desc">Most marketing teams are bottlenecked on "what should we do," not "how fast can we do it." OpenClaw makes you faster at execution &mdash; which only helps if you already know what to run.</p>
+      </div>
+
+      <div class="card">
+        <h4>You can't articulate why Claude Code fell short</h4>
+        <p class="card-desc">The clearest signal you're ready for OpenClaw is that you can say, out loud, the specific thing Claude Code couldn't do that OpenClaw would solve. If you can't finish that sentence, you're not ready.</p>
+      </div>
+    </div>
+
+    <div class="terra-banner fade-in" style="margin-top:32px;">
+      The right order for most teams: Cowork &rarr; Claude Code &rarr; Managed Agents &rarr; OpenClaw.
+      <div class="sub">Skip a step and you'll pay for complexity you don't need. Advance a step only when you've got the scar to justify it.</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <strong>Novastacks AI &times; Superuser HQ</strong>
+  <div class="footer-sub">OpenClaw Primer &mdash; Intermediate Workshop &middot; April 2026</div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+const navLinks = document.querySelectorAll('.nav a');
+const sections = document.querySelectorAll('section[id]');
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => link.classList.remove('active'));
+      const active = document.querySelector(`.nav a[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-40% 0px -50% 0px' });
+sections.forEach(section => navObserver.observe(section));
+</script>
+</body>
+</html>

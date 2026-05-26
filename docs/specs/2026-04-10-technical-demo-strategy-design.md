@@ -89,6 +89,7 @@ This is intentional. Demo 1 plants the seed ("Code can talk to our API"). Demo 2
 | Build-Up Pipeline tested end-to-end before workshop | To do | Yaohong |
 | `/partner-report` skill template (Layer 5) | To build | Yaohong |
 | Fallback plan if API is unavailable day-of | To design | Yaohong |
+| Human/agent coordination demo or personal sharing | To decide | Yaohong |
 
 ---
 

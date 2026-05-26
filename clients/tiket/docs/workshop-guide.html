@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Claude Code for B2B Marketing & Sales — Workshop Guide</title>
+<title>Claude Code Intermediate: Beyond Cowork — Workshop Guide</title>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════
@@ -625,6 +625,7 @@ footer .footer-sub { font-size: 13px; margin-top: 8px; color: rgba(255,255,255,0
 <!-- ═══ STICKY NAV ═══ -->
 <nav class="nav">
   <div class="nav-inner">
+    <a href="#read-first">00 Read First</a>
     <a href="#products">01 Products</a>
     <a href="#when">02 When</a>
     <a href="#ecosystem">03 Ecosystem</a>
@@ -634,7 +635,11 @@ footer .footer-sub { font-size: 13px; margin-top: 8px; color: rgba(255,255,255,0
     <a href="#getting-started">07 Getting Started</a>
     <a href="#skills">08 Skills</a>
     <a href="#advanced">09 Advanced</a>
-    <a href="#mindset">10 Mindset</a>
+    <a href="#hooks">10 Hooks</a>
+    <a href="#rules">11 Rules</a>
+    <a href="#permissions">12 Permissions</a>
+    <a href="#mindset">13 Mindset</a>
+    <a href="#human-agent">14 Human + Agent</a>
   </div>
 </nav>
 
@@ -645,15 +650,104 @@ footer .footer-sub { font-size: 13px; margin-top: 8px; color: rgba(255,255,255,0
     <span class="x">&times;</span>
     <img src="superuser-hq-logo.png" alt="Superuser HQ" style="height:28px; border-radius:6px;">
   </div>
-  <div class="hero-badge">Workshop Guide</div>
-  <h1>Claude Code for B2B Marketing &amp; Sales</h1>
-  <p class="hero-sub">A practical guide to deploying Claude across your marketing team &mdash; from chat to full autonomous workflows.</p>
+  <div class="hero-badge">Intermediate Workshop</div>
+  <h1>Claude Code Intermediate: Beyond Cowork</h1>
+  <p class="hero-sub">You've built workflows in Cowork. Now structure them into enterprise-grade agentic systems &mdash; with the features Cowork doesn't have: agents, hooks, rules, commands, and permissions.</p>
   <div class="hero-meta">
     <span><span class="dot"></span>Tiket.com Team</span>
     <span><span class="dot"></span>April 2026</span>
     <span><span class="dot"></span>60 min workshop</span>
   </div>
 </div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 00 — READ FIRST
+     ═══════════════════════════════════════════ -->
+<section id="read-first">
+  <div class="container">
+    <div class="fade-in">
+      <div class="sec-num">00 &mdash; Read First</div>
+      <h2 class="sec-title">Why You're Here</h2>
+      <p class="sec-desc">You've used Cowork for 3 weeks. You've built workflows, run skills, seen what an agent can do for your day. You've also hit the ceiling &mdash; Cowork is a chat surface, and at some point you need a <em>system</em>. That's what this workshop is about.</p>
+    </div>
+
+    <div class="grid-2 fade-in">
+      <div class="card">
+        <h4>What this workshop IS</h4>
+        <ul style="font-size:14px; color:var(--text-secondary); line-height:1.8; padding-left:20px; margin-top:8px;">
+          <li>A vocabulary &mdash; the eight primitives that compose an agentic workflow</li>
+          <li>A mental model for <strong>structuring enterprise-grade agents</strong>: who owns what, how they hand off, how safety envelopes work</li>
+          <li>Real examples you can steal &mdash; hooks, rules, commands, agents, permissions</li>
+          <li>Inspiration on <strong>human + agent coordination</strong>: git as your shared workspace, worktrees as parallel desks, main branch as the source of truth</li>
+          <li>Built for non-engineers who already run Cowork workflows &mdash; the "next step" after you've outgrown chat</li>
+        </ul>
+      </div>
+
+      <div class="card" style="background:var(--terra-light-bg); border-color:var(--terra-light-border);">
+        <h4>What this workshop is NOT</h4>
+        <ul style="font-size:14px; color:var(--text-secondary); line-height:1.8; padding-left:20px; margin-top:8px;">
+          <li><strong>Not a beginner course.</strong> We assume you can open a terminal, run a skill, and read a code block. Cowork's 3-week on-ramp did this job.</li>
+          <li><strong>Not an engineering course.</strong> You will not be asked to write production code. You will be asked to <em>structure</em> workflows &mdash; the thinking, not the syntax.</li>
+          <li><strong>Not a tool tour.</strong> We're not comparing AI products. We're teaching you how to build with the one you already have.</li>
+          <li><strong>Not a sales pitch.</strong> Everything we show is documented and reproducible &mdash; no magic, no vendor lock-in spin.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card fade-in" style="margin-top:20px; padding:28px;">
+      <h4 style="margin-top:0;">What you'll walk out with</h4>
+      <div class="grid-2" style="margin-top:16px; gap:24px;">
+        <div>
+          <div style="font-size:12px; font-weight:600; color:var(--terra); text-transform:uppercase; letter-spacing:0.5px;">Vocabulary</div>
+          <p style="font-size:14px; color:var(--text-secondary); margin-top:6px;">You'll be able to say "let's put that in a hook" or "that belongs in rules, not CLAUDE.md" and have the team understand. Shared language is half the battle.</p>
+        </div>
+        <div>
+          <div style="font-size:12px; font-weight:600; color:var(--terra); text-transform:uppercase; letter-spacing:0.5px;">Mental Model</div>
+          <p style="font-size:14px; color:var(--text-secondary); margin-top:6px;">A clear picture of <em>where</em> each type of instruction lives, <em>when</em> it loads, and <em>who</em> enforces it &mdash; so you stop cramming everything into one prompt.</p>
+        </div>
+        <div>
+          <div style="font-size:12px; font-weight:600; color:var(--terra); text-transform:uppercase; letter-spacing:0.5px;">Real Templates</div>
+          <p style="font-size:14px; color:var(--text-secondary); margin-top:6px;">Copy-pasteable examples &mdash; a sales-proposal skill, a partner-report pipeline, a pre-commit hook, a permissions file &mdash; that you can adapt to your own work before the workshop ends.</p>
+        </div>
+        <div>
+          <div style="font-size:12px; font-weight:600; color:var(--terra); text-transform:uppercase; letter-spacing:0.5px;">Coordination Muscle</div>
+          <p style="font-size:14px; color:var(--text-secondary); margin-top:6px;">How to work alongside agents without stepping on each other &mdash; git as shared workspace, worktrees for parallel work, the main branch as the version of truth. Same muscle engineering teams have used for 20 years, now yours.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="terra-banner fade-in" style="margin-top:24px;">
+      If you've run a Cowork skill, you're ready for this.
+      <div class="sub">The goal isn't to turn you into an engineer &mdash; it's to give you the mental model engineers use, so you can design workflows your team can actually run.</div>
+    </div>
+
+    <!-- Companion Guides -->
+    <h4 style="font-family:'Source Serif 4','Lora',serif; font-size:22px; margin:48px 0 10px; font-weight:600;" class="fade-in">Companion guides (deep dives)</h4>
+    <p style="font-size:15px; color:var(--text-secondary); max-width:720px; margin-bottom:20px;" class="fade-in">Four standalone guides extend this workshop. Each goes deeper than we can cover in 60 minutes &mdash; read before, during, or after.</p>
+    <div class="grid-2 fade-in">
+      <a href="git-for-non-engineers.html" class="card" style="text-decoration:none; color:inherit; display:block;">
+        <div style="font-size:11px; font-weight:600; color:var(--terra); text-transform:uppercase; letter-spacing:0.5px;">Coordination Primer &rarr;</div>
+        <h4 style="margin-top:6px;">Git for Non-Engineers</h4>
+        <p class="card-desc">Git is the new Notion/ClickUp/Trello &mdash; the shared workspace where humans and agents coordinate. Five commands, worktrees, main branch discipline, working alongside agents.</p>
+      </a>
+      <a href="openclaw.html" class="card" style="text-decoration:none; color:inherit; display:block;">
+        <div style="font-size:11px; font-weight:600; color:var(--terra); text-transform:uppercase; letter-spacing:0.5px;">Deployment Option 3 &rarr;</div>
+        <h4 style="margin-top:6px;">OpenClaw: Self-Hosted Agents</h4>
+        <p class="card-desc">When you need 24/7 autonomous execution on your own infrastructure. Three deployment models compared, honest "when not to use," real marketing examples.</p>
+      </a>
+      <a href="agentic-tools-cheatsheet.html" class="card" style="text-decoration:none; color:inherit; display:block;">
+        <div style="font-size:11px; font-weight:600; color:var(--terra); text-transform:uppercase; letter-spacing:0.5px;">Cheatsheet &rarr;</div>
+        <h4 style="margin-top:6px;">Agentic Tools Cheatsheet</h4>
+        <p class="card-desc">Runtimes, scrapers, orchestrators, memory, observability, interface. The tools people will actually mention, grouped by what they do, with a short decision guide.</p>
+      </a>
+      <a href="ai-impact-report.html" class="card" style="text-decoration:none; color:inherit; display:block;">
+        <div style="font-size:11px; font-weight:600; color:var(--terra); text-transform:uppercase; letter-spacing:0.5px;">Executive Buy-In &rarr;</div>
+        <h4 style="margin-top:6px;">AI Impact Report Template</h4>
+        <p class="card-desc">Prove AI is working. Track before/after KPIs, present in the language of ROI, walk into a leadership meeting with a one-page report that gets buy-in.</p>
+      </a>
+    </div>
+  </div>
+</section>
 
 <!-- ═══════════════════════════════════════════
      SECTION 01 — THREE WAYS TO USE CLAUDE
@@ -996,8 +1090,8 @@ footer .footer-sub { font-size: 13px; margin-top: 8px; color: rgba(255,255,255,0
   <div class="container">
     <div class="fade-in">
       <div class="sec-num">05 &mdash; Concepts</div>
-      <h2 class="sec-title">Core Concepts</h2>
-      <p class="sec-desc">Four building blocks that make Claude Code powerful. Master these and you can build almost anything.</p>
+      <h2 class="sec-title">The Eight Building Blocks</h2>
+      <p class="sec-desc">Cowork gives you chat and projects. Claude Code gives you a real configuration system. These are the eight primitives you compose to build enterprise-grade agentic workflows &mdash; each solves a problem Cowork can't.</p>
     </div>
 
     <div class="grid-2 fade-in">
@@ -1072,6 +1166,174 @@ footer .footer-sub { font-size: 13px; margin-top: 8px; color: rgba(255,255,255,0
 - Rejected: automated social posting</div>
         <div class="analogy">A journal &mdash; it remembers so you don't have to repeat yourself</div>
       </div>
+
+      <!-- Agents -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a6 6 0 0112 0v2"/></svg>
+        </div>
+        <h4>Agents (Sub-Agents)</h4>
+        <p class="card-desc">Specialized co-workers with their own role, tools, and model. Delegate to them when a task needs focus or cheaper compute &mdash; your main agent calls them like Slack handoffs.</p>
+        <div class="code-block"><span class="comment"># .claude/agents/feedback-editor.md</span>
+---
+name: feedback-editor
+description: Turn scattered review comments into clean rewrites.
+tools: Read, Grep, Edit, Write
+model: haiku
+---
+You are a senior editor. Read the original doc
+and all reviewer comments, understand the intent
+behind each, and rewrite cleanly — don't just
+append "addressed" notes.</div>
+        <div class="analogy">A specialist consultant &mdash; called in only when you need them, paid only when used</div>
+      </div>
+
+      <!-- Commands -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+        </div>
+        <h4>Commands</h4>
+        <p class="card-desc">Slash-commands you invoke by name &mdash; <code>/explain-change</code>, <code>/partner-report</code>. Turns repetitive workflows into one-liners the whole team can call.</p>
+        <div class="code-block"><span class="comment"># .claude/commands/explain-change.md</span>
+---
+description: Explain a recent code/content change
+argument-hint: [file path]
+---
+Read $ARGUMENTS (or the most recent change) and
+produce:
+1. What was changed
+2. Scope of impact (files / modules / features)
+3. Refactor vs. behavior change
+4. What to test first</div>
+        <div class="analogy">A tool in your toolbar &mdash; always one click away</div>
+      </div>
+
+      <!-- Hooks -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6"/><path d="M12 16v6"/><circle cx="12" cy="12" r="4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/></svg>
+        </div>
+        <h4>Hooks</h4>
+        <p class="card-desc">Event triggers that run *automatically* before or after Claude does something. Use them to enforce checks you don't want to rely on Claude to remember.</p>
+        <div class="code-block"><span class="comment"># settings.json</span>
+{
+  "hooks": {
+    "PreToolUse": [{
+      "matcher": "Bash(git commit *)",
+      "hooks": [{
+        "type": "command",
+        "command": ".claude/hooks/lint-check.sh"
+      }]
+    }]
+  }
+}</div>
+        <div class="analogy">A tripwire &mdash; invisible until it catches something</div>
+      </div>
+
+      <!-- Rules -->
+      <div class="card">
+        <div class="card-icon card-icon-terra">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        </div>
+        <h4>Rules (with <code>paths:</code>)</h4>
+        <p class="card-desc">Domain-specific guardrails that only load when Claude touches matching files. Split brand voice, API conventions, and tone rules into separate files that activate contextually &mdash; keeps context clean.</p>
+        <div class="code-block"><span class="comment"># .claude/rules/blog-voice.md</span>
+---
+paths:
+  - "content/blog/**/*.md"
+---
+# Blog Voice Rules
+- Tone: warm, concrete, specific
+- Never use: "revolutionary", "synergy", "unlock"
+- Open with a question or a scene, not a claim
+- Every post needs one data point + one story</div>
+        <div class="analogy">Context-aware seatbelts &mdash; they only click in when you're in the right seat</div>
+      </div>
+    </div>
+
+    <!-- ─── Agents Deep Dive ─── -->
+    <h4 style="font-family:'Source Serif 4','Lora',serif; font-size:22px; margin:48px 0 10px; font-weight:600;" class="fade-in">Deep dive: Agents &mdash; the three kinds</h4>
+    <p style="font-size:15px; color:var(--text-secondary); max-width:720px; line-height:1.8; margin-bottom:24px;" class="fade-in">The default way most people use Claude Code is "one AI does everything." That works &mdash; until it doesn't. Agents let you set up different specialists, each with their own role, tools, and behavior rules. When Claude hits a task that matches one, it hands off to the specialist &mdash; the way a manager assigns work to the right team member instead of doing it all themselves.</p>
+
+    <div class="grid-3 fade-in" style="margin-bottom:24px;">
+      <!-- Built-in -->
+      <div class="card">
+        <div style="font-size:11px; font-weight:600; color:var(--terra); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:6px;">Type 1 &mdash; Built-in</div>
+        <h4>Pre-built sub-agents</h4>
+        <p class="card-desc">Claude Code ships with a few generalists: <code>Explore</code>, <code>Plan</code>, <code>general-purpose</code>. Claude decides when to call them automatically. Their job: common utility work like codebase exploration and planning &mdash; the stuff every project needs.</p>
+        <p class="card-desc" style="margin-top:10px;"><strong>When you benefit:</strong> automatically &mdash; you don't have to configure anything.</p>
+      </div>
+
+      <!-- Custom -->
+      <div class="card" style="background:var(--terra-light-bg); border-color:var(--terra-light-border);">
+        <div style="font-size:11px; font-weight:600; color:var(--terra); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:6px;">Type 2 &mdash; Custom</div>
+        <h4>Your own sub-agents</h4>
+        <p class="card-desc">Live in <code>.claude/agents/</code>. These are specialists <em>you</em> design for <em>your</em> workflow &mdash; a feedback editor, a partner researcher, a brief writer. Each has its own role, its own allowed tools, and its own model (cheap models for cheap work).</p>
+        <p class="card-desc" style="margin-top:10px;"><strong>When you benefit:</strong> when a task recurs often enough that you'd rather delegate than re-explain every time.</p>
+      </div>
+
+      <!-- Cloud / Managed -->
+      <div class="card">
+        <div style="font-size:11px; font-weight:600; color:var(--terra); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:6px;">Type 3 &mdash; Cloud</div>
+        <h4>Managed Agents (Anthropic-hosted)</h4>
+        <p class="card-desc">Anthropic's recently-released hosted agent infrastructure. You define the agent's tools, MCP servers, and model; Anthropic spins up a cloud container and runs it for you, for minutes or hours, with no laptop involved.</p>
+        <p class="card-desc" style="margin-top:10px;"><strong>When you benefit:</strong> when the work needs to happen without a human driver &mdash; overnight, scheduled, or triggered by external events.</p>
+      </div>
+    </div>
+
+    <!-- Trigger methods -->
+    <div class="card fade-in" style="padding:28px;">
+      <h4 style="margin-top:0;">How sub-agents get triggered</h4>
+      <p class="card-desc">There are three ways a custom agent gets called in the middle of a conversation:</p>
+      <ol style="font-size:14px; color:var(--text-secondary); line-height:1.9; padding-left:24px; margin-top:12px;">
+        <li><strong>Auto-triggered.</strong> Claude reads the agent's <code>description</code> field and decides on its own whether the current task matches. This is why a crisp, specific description is the most important thing you write. Vague descriptions = ignored agent.</li>
+        <li><strong>Directly specified.</strong> You say "please use the <code>feedback-editor</code> agent to clean up this doc." Claude hands off explicitly.</li>
+        <li><strong>@-mentioned.</strong> You type <code>@"feedback-editor (agent)"</code> in the chat. Manual, explicit, and visible in the transcript.</li>
+      </ol>
+      <p class="card-desc" style="margin-top:16px; font-style:italic;">Rule of thumb: design for <em>auto-trigger</em>. If you're always having to manually invoke an agent, your description isn't doing its job.</p>
+    </div>
+
+    <!-- Sample agent -->
+    <div class="card fade-in" style="padding:28px; margin-top:20px;">
+      <h4 style="margin-top:0;">Sample custom agent</h4>
+      <p class="card-desc">A real, copyable example &mdash; a feedback editor that a content team could use to process scattered review notes into clean rewrites.</p>
+      <div style="font-size:12px; font-weight:600; margin-top:16px; color:var(--terra);">.claude/agents/feedback-editor.md</div>
+      <div class="code-block">---
+name: feedback-editor
+description: Use when turning scattered review comments,
+  editor notes, or slack threads into a cleanly rewritten draft.
+tools: Read, Grep, Edit, Write
+model: haiku
+---
+
+You are a senior content editor.
+
+When given an original document plus a set of review
+comments or scattered feedback:
+
+1. Read the original content carefully
+2. Read ALL the feedback first before touching anything
+3. Understand the intent behind each comment &mdash; not just
+   the literal text. What is the reviewer *actually* worried
+   about?
+4. Rewrite the document cleanly. Do not append "addressed"
+   notes or leave tracked-change artefacts.
+5. Preserve voice and structure where possible.
+6. Flag any feedback you chose NOT to apply, and explain why.
+
+You are allowed to disagree with a reviewer if their
+suggestion conflicts with something deeper in the document.
+Surface the conflict, don't silently pick a side.</div>
+      <p class="card-desc" style="margin-top:12px; font-style:italic;">Notice: <code>model: haiku</code> because this is mostly rewriting work, not deep reasoning. Notice: <code>tools:</code> is minimal &mdash; the editor doesn't need shell access, doesn't need to run scripts, doesn't need the internet. Fewer tools = safer, cheaper, more predictable.</p>
+    </div>
+
+    <!-- Screenshot placeholder -->
+    <div class="card fade-in" style="padding:28px; margin-top:20px; border-style:dashed;">
+      <div style="font-size:11px; font-weight:600; color:var(--terra); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:8px;">Placeholder &mdash; Tina to add screenshot</div>
+      <h4 style="margin-top:0;">Real agents in action &mdash; Tina's actual <code>.claude/agents/</code> folder</h4>
+      <p class="card-desc">[Screenshot to be inserted: Tina's live Novastacks agents directory, showing real specialists like <code>writer</code>, <code>strategist</code>, <code>analyst</code>, <code>seo-strategist</code>, <code>content-intelligence</code>, <code>web-developer</code>, etc. &mdash; demonstrating that this isn't theoretical, it's how an actual marketing consultancy runs its day-to-day work.]</p>
+      <p class="card-desc" style="margin-top:12px; font-style:italic;">The goal of this screenshot is to make the concept visceral: "this is what it looks like when a non-engineer team builds a full bench of AI specialists for themselves."</p>
     </div>
   </div>
 </section>
@@ -1136,6 +1398,64 @@ footer .footer-sub { font-size: 13px; margin-top: 8px; color: rgba(255,255,255,0
       <div class="gap-card">
         <h5>No Audit Trail</h5>
         <p>VPs and managers can't review what instructions agents are following or verify compliance.</p>
+      </div>
+    </div>
+
+    <!-- .claude/ Folder Anatomy -->
+    <h4 style="font-family:'Source Serif 4','Lora',serif; font-size:18px; margin:40px 0 16px; font-weight:600;" class="fade-in">What's actually inside <code>.claude/</code></h4>
+    <p style="font-size:14px; color:var(--text-secondary); margin-bottom:20px; max-width:720px;" class="fade-in">The cascade above shows <em>how</em> instructions flow. This is <em>what</em> each layer contains. Every primitive from Section 05 lives in this folder tree &mdash; committed to git, shared across the team.</p>
+
+    <div class="card fade-in" style="padding:28px;">
+      <div class="code-block" style="font-size:13px; line-height:1.7;"><span class="comment"># Personal (applies across all your projects)</span>
+~/.claude/
+├── CLAUDE.md              <span class="comment"># your personal defaults</span>
+└── settings.json          <span class="comment"># permissions, hooks, env</span>
+
+<span class="comment"># Project (committed to git — the whole team gets it)</span>
+./.claude/
+├── CLAUDE.md              <span class="comment"># project overview, stack, conventions</span>
+├── settings.json          <span class="comment"># shared permissions + hooks</span>
+├── settings.local.json    <span class="comment"># personal overrides (gitignored)</span>
+│
+├── agents/                <span class="comment"># specialized sub-agents</span>
+│   ├── feedback-editor.md
+│   ├── partner-researcher.md
+│   └── brief-writer.md
+│
+├── commands/              <span class="comment"># slash-commands</span>
+│   ├── explain-change.md
+│   ├── partner-report.md
+│   └── weekly-recap.md
+│
+├── hooks/                 <span class="comment"># event-triggered shell scripts</span>
+│   ├── before-commit-check.sh
+│   └── after-write-format.sh
+│
+├── rules/                 <span class="comment"># domain rules (lazy-loaded by paths:)</span>
+│   ├── blog-voice.md         <span class="comment"># loads only for content/blog/**</span>
+│   ├── api-conventions.md    <span class="comment"># loads only for src/api/**</span>
+│   └── outreach-tone.md      <span class="comment"># loads only for outreach/**</span>
+│
+└── skills/                <span class="comment"># reusable work manuals</span>
+    ├── partner-report/
+    │   └── SKILL.md
+    └── weekly-deck/
+        ├── SKILL.md
+        └── templates/</div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:16px; margin-top:24px;">
+        <div>
+          <h5 style="font-size:14px; margin:0 0 6px; color:var(--terra);">Agents vs Commands vs Skills</h5>
+          <p style="font-size:13px; color:var(--text-secondary); margin:0;">Agents = specialists you delegate to. Commands = keyboard shortcuts for repeated workflows. Skills = detailed work manuals Claude auto-loads when relevant.</p>
+        </div>
+        <div>
+          <h5 style="font-size:14px; margin:0 0 6px; color:var(--terra);">Hooks vs Rules</h5>
+          <p style="font-size:13px; color:var(--text-secondary); margin:0;">Hooks are <em>enforced</em> by your system (shell scripts, always run). Rules are <em>loaded</em> into Claude's context (guidance, not enforcement).</p>
+        </div>
+        <div>
+          <h5 style="font-size:14px; margin:0 0 6px; color:var(--terra);">CLAUDE.md vs Rules</h5>
+          <p style="font-size:13px; color:var(--text-secondary); margin:0;">CLAUDE.md is the always-loaded project brief &mdash; keep it concise. Rules are heavy, domain-specific details that only load when Claude touches matching files.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1462,12 +1782,260 @@ Describe the expected deliverable format.
 </section>
 
 <!-- ═══════════════════════════════════════════
-     SECTION 10 — THE MINDSET SHIFT
+     SECTION 10 — HOOKS
+     ═══════════════════════════════════════════ -->
+<section id="hooks">
+  <div class="container">
+    <div class="fade-in">
+      <div class="sec-num">10 &mdash; Hooks</div>
+      <h2 class="sec-title">Event-Driven Automation</h2>
+      <p class="sec-desc">Hooks run <em>outside</em> of Claude. They're shell scripts your system executes before or after tool calls &mdash; the place to put checks you refuse to rely on Claude to remember. If it must happen every time, it's a hook, not an instruction.</p>
+    </div>
+
+    <div class="grid-2 fade-in">
+      <div class="card">
+        <h4>Why hooks, not prompts</h4>
+        <p class="card-desc">You can write "always run lint before committing" in CLAUDE.md. Claude will forget. You can write it in a skill. Skills don't always load. A hook is the only place that guarantees execution &mdash; because your shell runs it, not the model.</p>
+        <p class="card-desc" style="margin-top:12px;"><strong>Rule of thumb:</strong> if skipping the step would break production, make it a hook.</p>
+      </div>
+
+      <div class="card">
+        <h4>Common event types</h4>
+        <ul style="font-size:14px; color:var(--text-secondary); padding-left:20px; line-height:1.8;">
+          <li><code>PreToolUse</code> &mdash; before Claude runs a tool (intercept, validate, block)</li>
+          <li><code>PostToolUse</code> &mdash; after a tool succeeds (format, test, log)</li>
+          <li><code>SubagentStart</code> / <code>SubagentStop</code> &mdash; when sub-agents spin up or finish</li>
+          <li><code>FileChanged</code> &mdash; when a watched file is modified</li>
+          <li><code>Stop</code> &mdash; when Claude finishes a turn (notify, summarize)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card fade-in" style="padding:28px; margin-top:20px;">
+      <h4 style="margin-top:0;">Real example: lint-before-commit</h4>
+      <p style="font-size:14px; color:var(--text-secondary);">Before Claude is allowed to run <code>git commit</code>, your system runs a lint check. If lint fails, the commit is blocked &mdash; Claude sees the error and fixes it.</p>
+
+      <div class="grid-2" style="margin-top:16px;">
+        <div>
+          <div style="font-size:12px; font-weight:600; margin-bottom:6px; color:var(--terra);">.claude/hooks/before-commit-check.sh</div>
+          <div class="code-block"><span class="comment">#!/usr/bin/env bash</span>
+set -euo pipefail
+
+echo "Running lint and format..."
+npm run lint
+npm run format -- --check</div>
+        </div>
+        <div>
+          <div style="font-size:12px; font-weight:600; margin-bottom:6px; color:var(--terra);">.claude/settings.json</div>
+          <div class="code-block">{
+  "hooks": {
+    "PreToolUse": [{
+      "matcher": "Bash(git commit *)",
+      "hooks": [{
+        "type": "command",
+        "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/before-commit-check.sh"
+      }]
+    }]
+  }
+}</div>
+        </div>
+      </div>
+
+      <p style="font-size:13px; color:var(--text-light); margin-top:16px; font-style:italic;">The <code>matcher</code> is a glob on tool invocations. <code>$CLAUDE_PROJECT_DIR</code> lets the same hook work across team members.</p>
+    </div>
+
+    <div class="card fade-in" style="padding:24px; margin-top:16px;">
+      <h4 style="margin-top:0;">Marketing / content examples</h4>
+      <ul style="font-size:14px; color:var(--text-secondary); line-height:1.8; padding-left:20px;">
+        <li><strong>PostToolUse on Write(*.md)</strong> &rarr; run a readability checker, reject if grade level too high</li>
+        <li><strong>PreToolUse on Bash(hubspot *)</strong> &rarr; confirm the contact list size before a bulk send</li>
+        <li><strong>Stop hook</strong> &rarr; ping Slack with a 1-line summary of what Claude just did</li>
+        <li><strong>PreToolUse on Bash(rm *)</strong> &rarr; auto-deny destructive commands entirely</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 11 — RULES
+     ═══════════════════════════════════════════ -->
+<section id="rules">
+  <div class="container">
+    <div class="fade-in">
+      <div class="sec-num">11 &mdash; Rules</div>
+      <h2 class="sec-title">Lazy-Loaded Guardrails</h2>
+      <p class="sec-desc">Rules solve a problem you'll hit fast: you can't put everything in CLAUDE.md or Claude drowns in context. Rules let you split guardrails by domain and load them <em>only</em> when Claude touches matching files &mdash; brand voice for blog posts, tone rules for outreach, API conventions for backend work.</p>
+    </div>
+
+    <div class="card fade-in" style="padding:28px;">
+      <h4 style="margin-top:0;">The <code>paths:</code> frontmatter pattern</h4>
+      <p style="font-size:14px; color:var(--text-secondary);">Every rules file has optional frontmatter that declares which files it applies to. No match &rarr; not loaded &rarr; no token cost.</p>
+
+      <div class="grid-2" style="margin-top:16px;">
+        <div>
+          <div style="font-size:12px; font-weight:600; margin-bottom:6px; color:var(--terra);">.claude/rules/blog-voice.md</div>
+          <div class="code-block">---
+paths:
+  - "content/blog/**/*.md"
+---
+# Blog Voice
+
+## Tone
+- Warm, concrete, specific
+- Written like a senior operator
+  talking to a peer
+
+## Never use
+- "revolutionary", "synergy",
+  "unlock", "seamless"
+- Opening with a claim
+  (open with a scene or question)
+
+## Always include
+- One data point with source
+- One first-person story or example</div>
+        </div>
+        <div>
+          <div style="font-size:12px; font-weight:600; margin-bottom:6px; color:var(--terra);">.claude/rules/outreach-tone.md</div>
+          <div class="code-block">---
+paths:
+  - "outreach/**/*.md"
+  - "outreach/**/*.txt"
+---
+# Outreach Tone
+
+## Subject lines
+- Max 7 words
+- No emoji, no "Quick question"
+
+## Opening
+- First line must reference
+  something specific from
+  the prospect's last 30 days
+- Never "Hope this finds you well"
+
+## CTA
+- Always optional ("No reply needed
+  if not a fit")
+- Single ask, never two</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card fade-in" style="padding:24px; margin-top:16px;">
+      <h4 style="margin-top:0;">Rules vs CLAUDE.md vs Skills</h4>
+      <table style="width:100%; font-size:14px; border-collapse:collapse;">
+        <thead>
+          <tr style="text-align:left; border-bottom:1px solid var(--border);">
+            <th style="padding:10px 8px;">Use</th>
+            <th style="padding:10px 8px;">When</th>
+            <th style="padding:10px 8px;">Loads</th>
+          </tr>
+        </thead>
+        <tbody style="color:var(--text-secondary);">
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:10px 8px;"><strong>CLAUDE.md</strong></td>
+            <td style="padding:10px 8px;">Always-true project facts &mdash; stack, conventions, key commands</td>
+            <td style="padding:10px 8px;">Every conversation</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:10px 8px;"><strong>Rules</strong></td>
+            <td style="padding:10px 8px;">Domain guardrails &mdash; brand voice, API patterns, tone by channel</td>
+            <td style="padding:10px 8px;">Only when matching files are touched</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 8px;"><strong>Skills</strong></td>
+            <td style="padding:10px 8px;">Multi-step procedures &mdash; "how to produce a weekly partner report"</td>
+            <td style="padding:10px 8px;">When user invokes or task matches</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 12 — PERMISSIONS & SETTINGS
+     ═══════════════════════════════════════════ -->
+<section id="permissions">
+  <div class="container">
+    <div class="fade-in">
+      <div class="sec-num">12 &mdash; Permissions</div>
+      <h2 class="sec-title"><code>settings.json</code> &amp; Allow/Deny Lists</h2>
+      <p class="sec-desc">The permissions system is what makes Claude Code <em>safe to deploy on a real team</em>. You declare exactly which tools Claude can use, which commands it can run, and which are forbidden &mdash; committed to git, enforced by the harness.</p>
+    </div>
+
+    <div class="card fade-in" style="padding:28px;">
+      <h4 style="margin-top:0;">Three places <code>settings.json</code> lives</h4>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:16px; margin-top:12px;">
+        <div style="padding:14px; background:var(--bg); border-radius:8px;">
+          <div style="font-size:12px; font-weight:600; color:var(--terra);">PERSONAL</div>
+          <div style="font-family:monospace; font-size:12px; margin:6px 0;">~/.claude/settings.json</div>
+          <p style="font-size:13px; color:var(--text-secondary); margin:0;">Your defaults across every project. Never committed.</p>
+        </div>
+        <div style="padding:14px; background:var(--bg); border-radius:8px;">
+          <div style="font-size:12px; font-weight:600; color:var(--terra);">TEAM (SHARED)</div>
+          <div style="font-family:monospace; font-size:12px; margin:6px 0;">./.claude/settings.json</div>
+          <p style="font-size:13px; color:var(--text-secondary); margin:0;">Committed to git. Everyone on the team inherits these rules.</p>
+        </div>
+        <div style="padding:14px; background:var(--bg); border-radius:8px;">
+          <div style="font-size:12px; font-weight:600; color:var(--terra);">LOCAL OVERRIDES</div>
+          <div style="font-family:monospace; font-size:12px; margin:6px 0;">./.claude/settings.local.json</div>
+          <p style="font-size:13px; color:var(--text-secondary); margin:0;">Your personal overrides for this project. Gitignored.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card fade-in" style="padding:28px; margin-top:16px;">
+      <h4 style="margin-top:0;">Real example: a marketing team's shared <code>settings.json</code></h4>
+      <div class="code-block">{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Edit",
+      "Write",
+      "WebFetch",
+      "WebSearch",
+      <span class="comment">// Sheets &amp; Docs for reports</span>
+      "Bash(gws sheets *)",
+      "Bash(gws docs *)",
+      <span class="comment">// Git for version-controlled content</span>
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
+    ],
+    "deny": [
+      <span class="comment">// Never let an agent wipe a repo</span>
+      "Bash(rm -rf *)",
+      "Bash(git push --force *)",
+      <span class="comment">// No bulk sends without human</span>
+      "Bash(gws gmail +send *)",
+      "Bash(hubspot:send-bulk *)",
+      <span class="comment">// No piping untrusted scripts</span>
+      "Bash(curl * | sh)",
+      "Bash(curl * | bash)"
+    ]
+  }
+}</div>
+      <p style="font-size:13px; color:var(--text-light); margin-top:16px; font-style:italic;">Deny always wins over allow. Any tool not listed in <code>allow</code> triggers an interactive prompt &mdash; the user gets asked before Claude acts.</p>
+    </div>
+
+    <div class="card fade-in" style="padding:24px; margin-top:16px;">
+      <h4 style="margin-top:0;">Why this matters for non-technical teams</h4>
+      <p style="font-size:14px; color:var(--text-secondary);">Cowork gives everyone the same blank permissions. Claude Code lets you build a <strong>safety envelope</strong> your team agrees to once, then works inside forever. Sales can use the CRM but not bulk-send. Content can push to staging but not production. Everyone has git read but not force-push. It's the first real answer to "how do we let marketing use AI agents without giving them nuclear launch codes."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 13 — THE MINDSET SHIFT
      ═══════════════════════════════════════════ -->
 <section id="mindset">
   <div class="container">
     <div class="fade-in">
-      <div class="sec-num">10 &mdash; Philosophy</div>
+      <div class="sec-num">13 &mdash; Philosophy</div>
       <h2 class="sec-title">The Mindset Shift</h2>
       <p class="sec-desc">Using Claude Code well isn't about prompting tricks. It's about thinking differently about how you work with AI.</p>
     </div>
@@ -1517,6 +2085,41 @@ Describe the expected deliverable format.
           <p>Version one is never the final version. Review outputs, refine instructions, test again. The teams that iterate fastest win &mdash; and AI makes iteration nearly free.</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HUMAN + AGENT COORDINATION (Yaohong) ═══ -->
+<section id="human-agent">
+  <div class="container">
+    <div class="fade-in">
+      <div class="sec-num">14 &mdash; Yaohong's Take</div>
+      <h2 class="sec-title">Human + Agent Coordination</h2>
+      <p class="sec-desc">A personal segment from Yaohong &mdash; how he actually runs agents day-to-day, drawn from his Slack history and lived experience. The honest pros, the honest cons, and what he'd recommend you try first.</p>
+    </div>
+
+    <div class="card fade-in" style="padding:32px;">
+      <p style="opacity:.7;font-style:italic;margin-bottom:24px;">[PLACEHOLDER &mdash; Yaohong to fill in before workshop]</p>
+
+      <h4 style="margin-top:0;">How I actually use agents</h4>
+      <p style="opacity:.85;">[Pull 2&ndash;3 representative moments from Slack history. What was the task? Which agent? What did the hand-off look like?]</p>
+
+      <h4>What's worked well (pros)</h4>
+      <ul style="opacity:.85;">
+        <li>[Concrete win #1 &mdash; e.g., a pipeline that saved hours]</li>
+        <li>[Concrete win #2 &mdash; e.g., a skill that became reusable]</li>
+        <li>[Concrete win #3 &mdash; e.g., an unexpected use case]</li>
+      </ul>
+
+      <h4>What's been painful (cons)</h4>
+      <ul style="opacity:.85;">
+        <li>[Honest friction #1 &mdash; e.g., context loss between sessions]</li>
+        <li>[Honest friction #2 &mdash; e.g., over-trusting an output]</li>
+        <li>[Honest friction #3 &mdash; e.g., tool / auth / setup pain]</li>
+      </ul>
+
+      <h4>My recommendation for this room</h4>
+      <p style="opacity:.85;">[Given who's here &mdash; B2B Sales, TDD/Content, Marketing &mdash; what's the one habit Yaohong would tell them to adopt this week, and what's the one trap to avoid?]</p>
     </div>
   </div>
 </section>

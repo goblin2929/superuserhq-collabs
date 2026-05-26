@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Building Your First Skill — Skills Guide</title>
+<title>Building Production Skills — Intermediate Skills Guide</title>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════
@@ -629,6 +629,7 @@ footer .footer-sub { font-size: 13px; margin-top: 8px; color: rgba(255,255,255,0
     <a href="#build-it">Build It</a>
     <a href="#make-it-yours">Make It Yours</a>
     <a href="#share-it">Share It</a>
+    <a href="#level-up">Level Up</a>
   </div>
 </nav>
 
@@ -642,9 +643,9 @@ footer .footer-sub { font-size: 13px; margin-top: 8px; color: rgba(255,255,255,0
     <span class="x">&times;</span>
     <img src="superuser-hq-logo.png" alt="Superuser HQ" style="height:28px; border-radius:6px;">
   </div>
-  <div class="hero-badge">Block 3 &mdash; Hands-On</div>
-  <h1>Building Your First Skill</h1>
-  <p class="hero-sub">Sales Proposal Generator &mdash; from zero to a working <code style="font-family:'JetBrains Mono',monospace; background:var(--terra-light-bg); padding:2px 8px; border-radius:4px; font-size:15px; color:var(--terra);">/sales-proposal</code> command.</p>
+  <div class="hero-badge">Intermediate &mdash; Hands-On</div>
+  <h1>Building Production Skills</h1>
+  <p class="hero-sub">Start with <code style="font-family:'JetBrains Mono',monospace; background:var(--terra-light-bg); padding:2px 8px; border-radius:4px; font-size:15px; color:var(--terra);">/sales-proposal</code>, then level up: scoped tools, right-sized models, composition, and promoting a skill into an agent.</p>
   <div class="hero-meta">
     <span><span class="dot"></span>Tiket.com Team</span>
     <span><span class="dot"></span>April 2026</span>
@@ -925,6 +926,119 @@ Professional but warm. Data-driven. Focus on ROI and partnership value. Use spec
     <div class="terra-banner fade-in" style="margin-top:32px;">
       One repo. One version. 25 people. No ZIP files.
       <div class="sub">Update the skill once &mdash; everyone gets the new version on their next <code style="color:rgba(255,255,255,0.9); font-family:'JetBrains Mono',monospace;">git pull</code>.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ SECTION 05 — LEVEL UP (INTERMEDIATE) ═══ -->
+<section id="level-up">
+  <div class="container">
+
+    <div class="sec-num fade-in">05 &mdash; Level Up</div>
+    <h2 class="sec-title fade-in">Production-Grade Skills</h2>
+    <p class="sec-desc fade-in">The skill you just built works. Now make it production-grade &mdash; scoped tools, right-sized models, composition with other skills, and the moment to promote it into an agent.</p>
+
+    <!-- Tool scoping -->
+    <div class="card fade-in" style="padding:28px; margin-bottom:20px;">
+      <h4 style="margin-top:0;">1. Scope the tools</h4>
+      <p class="card-desc">By default a skill inherits every tool Claude has. For anything that touches external systems, that's too much. Declare exactly which tools the skill needs &mdash; nothing more. This is both a safety layer and a cost layer (irrelevant tools waste tokens).</p>
+      <div class="grid-2" style="margin-top:16px;">
+        <div>
+          <div style="font-size:12px; font-weight:600; margin-bottom:6px; color:var(--terra);">BEFORE &mdash; everything allowed</div>
+          <div class="code-block">---
+name: sales-proposal
+description: Use when creating a sales proposal...
+---</div>
+        </div>
+        <div>
+          <div style="font-size:12px; font-weight:600; margin-bottom:6px; color:var(--terra);">AFTER &mdash; scoped</div>
+          <div class="code-block">---
+name: sales-proposal
+description: Use when creating a sales proposal...
+tools: Read, WebSearch, Write, Edit
+---</div>
+        </div>
+      </div>
+      <p class="card-desc" style="margin-top:12px; font-size:13px; font-style:italic;">Now the skill can read files, search the web, and write the proposal &mdash; but it <em>cannot</em> shell out, delete anything, or call arbitrary APIs.</p>
+    </div>
+
+    <!-- Model selection -->
+    <div class="card fade-in" style="padding:28px; margin-bottom:20px;">
+      <h4 style="margin-top:0;">2. Right-size the model</h4>
+      <p class="card-desc">Every skill inherits the current model by default. For simple, repetitive work &mdash; formatting, rewriting, extracting &mdash; you can pin the skill to a cheaper/faster model and keep Opus for the hard thinking.</p>
+      <div class="code-block" style="margin-top:12px;">---
+name: sales-proposal
+description: Use when creating a sales proposal...
+tools: Read, WebSearch, Write, Edit
+model: sonnet    <span class="comment"># or haiku for lighter tasks</span>
+---</div>
+      <table style="width:100%; font-size:14px; border-collapse:collapse; margin-top:16px;">
+        <thead>
+          <tr style="text-align:left; border-bottom:1px solid var(--border);">
+            <th style="padding:10px 8px;">Model</th>
+            <th style="padding:10px 8px;">Good for</th>
+            <th style="padding:10px 8px;">Avoid for</th>
+          </tr>
+        </thead>
+        <tbody style="color:var(--text-secondary);">
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:10px 8px;"><strong>Haiku</strong></td>
+            <td style="padding:10px 8px;">Formatting, classification, one-shot rewrites, tagging</td>
+            <td style="padding:10px 8px;">Strategy, synthesis, ambiguous briefs</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);">
+            <td style="padding:10px 8px;"><strong>Sonnet</strong></td>
+            <td style="padding:10px 8px;">Most writing + research skills, daily workflows</td>
+            <td style="padding:10px 8px;">Very long agentic loops where Opus earns its cost</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 8px;"><strong>Opus</strong></td>
+            <td style="padding:10px 8px;">Planning, multi-step reasoning, anything client-facing high-stakes</td>
+            <td style="padding:10px 8px;">Cheap batch work (you're paying for thinking you don't need)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Composition -->
+    <div class="card fade-in" style="padding:28px; margin-bottom:20px;">
+      <h4 style="margin-top:0;">3. Compose skills into pipelines</h4>
+      <p class="card-desc">Once you have a few skills, the next move is composition. Write one skill that invokes others &mdash; each focused on one job. This is how you go from "a skill" to "a system."</p>
+      <div class="code-block" style="margin-top:12px;">---
+name: partner-report
+description: Use for weekly hotel partner report for a named partner
+tools: Read, WebSearch, Write, Edit
+---
+
+# Weekly Partner Report
+
+1. <span class="comment">Run the research skill to pull the latest on the partner</span>
+   Use the `/partner-research` skill with the partner name.
+
+2. <span class="comment">Pull internal performance numbers</span>
+   Read the latest export from `data/partners/{name}.csv`.
+
+3. <span class="comment">Draft the report using our brand voice</span>
+   Use the `/draft-report` skill &mdash; pass it the combined context
+   from steps 1 and 2.
+
+4. <span class="comment">Save the output</span>
+   Write to `reports/weekly/{date}-{partner}.md`.</div>
+      <p class="card-desc" style="margin-top:12px; font-size:13px; font-style:italic;">Each step is a thin orchestration layer. The actual work lives in smaller, reusable skills &mdash; so when brand voice changes, you fix it in one place.</p>
+    </div>
+
+    <!-- Upgrade to agent -->
+    <div class="card fade-in" style="padding:28px;">
+      <h4 style="margin-top:0;">4. When to promote a skill into an agent</h4>
+      <p class="card-desc">Skills are procedures. Agents are specialists with their own context, tools, and model. Promote a skill to an agent when one of these is true:</p>
+      <ul style="font-size:14px; color:var(--text-secondary); line-height:1.8; padding-left:20px;">
+        <li>The workflow is long enough that you'd want to <strong>delegate</strong> it and keep working on something else</li>
+        <li>It needs its own <strong>model</strong> or its own <strong>persona</strong> that would contaminate your main context</li>
+        <li>It gets called frequently by other skills &mdash; an agent is cheaper because it loads once</li>
+        <li>It's a <strong>specialist role</strong> your team thinks of as a "person" (e.g. "the editor", "the researcher")</li>
+      </ul>
+      <p class="card-desc" style="margin-top:16px; font-size:13px; font-style:italic;">The file layout is the same pattern &mdash; <code>.claude/agents/your-agent.md</code> instead of <code>.claude/skills/your-skill/SKILL.md</code>. The frontmatter gets a <code>model:</code> and a <code>tools:</code> list, and the body is the agent's system prompt.</p>
     </div>
 
   </div>

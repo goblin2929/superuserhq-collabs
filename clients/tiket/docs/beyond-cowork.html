@@ -447,17 +447,12 @@
   <section data-screen-label="03 This is this isn't" class="slide">
     <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 0 · Why we're here</span><span>6 / 51</span></div><div>Framing</div></div>
     <div class="body gap-md" style="justify-content:center;">
-      <div class="t-title">What this 3 hours is about.<br/><span style="color:var(--muted);">And what it isn't.</span></div>
-      <div class="flex-row gap-md" style="margin-top:32px;">
-        <div class="card good grow">
+      <div class="t-title">What this 3 hours is about.</div>
+      <div class="flex-row gap-md" style="margin-top:32px;justify-content:center;">
+        <div class="card good" style="flex:0 1 900px;">
           <div class="head">This is</div>
           <h3>The vocabulary you half-understand.<br/>A mental model of how agents work.<br/>Skills &amp; agents — built together, with real examples.</h3>
           <p>By the end you'll say "that should be a hook, not a rule" — and your team will know what you mean.</p>
-        </div>
-        <div class="card bad grow">
-          <div class="head">This is <em>not</em></div>
-          <h3>A beginner course.<br/>An engineering class.<br/>A tool tour.<br/>A sales pitch.</h3>
-          <p>You won't write code. You <em>will</em> learn to design workflows — the thinking, not the syntax.</p>
         </div>
       </div>
     </div>
@@ -558,9 +553,9 @@
   <section data-screen-label="05 Three harnesses" class="slide">
     <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>9 / 51</span></div><div>Agentic workflow · 3 interfaces</div></div>
     <div class="body">
-      <div class="t-title">For agentic workflow: Claude has 3 interfaces.<br/><span style="color:var(--muted);">Same brain — different harnesses.</span></div>
+      <div class="t-title">For agentic workflow: Claude has 3 interfaces.<br/><span style="color:var(--muted);">Same brain — different doors in.</span></div>
 
-      <table class="k compact" style="margin-top:40px;">
+      <table class="k compact" style="margin-top:32px;">
         <thead>
           <tr>
             <th style="width:14%"></th>
@@ -570,20 +565,23 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td class="label">Metaphor</td><td class="old">Smart colleague on chat</td><td class="old">Delegated assistant in a sandbox</td><td class="new">Agentic coding system to build with</td></tr>
+          <tr><td class="label">Metaphor</td><td class="old">Smart colleague on chat</td><td class="old">Delegated assistant in a sandbox</td><td class="new">Agentic system you build with</td></tr>
           <tr><td class="label">Where it works</td><td class="old">On Anthropic's servers</td><td class="old">On your computer, in a sandbox</td><td class="new">On your computer · full access</td></tr>
           <tr><td class="label">Interface</td><td class="old">Browser / desktop app</td><td class="old">Inside the desktop app</td><td class="new">Terminal / IDE / Desktop app</td></tr>
           <tr><td class="label">Access to your system</td><td class="old">Via uploads / copy-paste only</td><td class="old">Limited sandbox — clicks, typing, screenshots</td><td class="new">Full file edits · <span class="t-mono-sm">git</span>, shell, VMs</td></tr>
           <tr><td class="label">Strengths</td><td class="old">Think, write, analyze, use skills &amp; MCP</td><td class="old">Long-running tasks, browses, files, scheduled</td><td class="new">Code, tools, hooks, agents, team skills</td></tr>
-          <tr><td class="label">Where it lives in your workflow</td><td class="old">"Think and plan" layer</td><td class="old">"Automate routine knowledge work" layer</td><td class="new">"Build and ship" layer</td></tr>
           <tr><td class="label">Best for</td><td class="old">Quick turns, one-off thinking</td><td class="old">Daily knowledge work · 80%</td><td class="new">Reusable systems teams share</td></tr>
         </tbody>
       </table>
 
-      <div class="t-body" style="margin-top:24px;max-width:1700px;color:var(--muted);font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;">
-        Sandbox = a walled-off room on your laptop. Claude can touch what's in the room, nothing outside.
+      <div style="margin-top:20px;padding:18px 22px;background:var(--paper-2);border-left:3px solid var(--accent);">
+        <div class="t-eyebrow" style="color:var(--accent);margin-bottom:8px;">When do you reach for the browser (Cowork) vs. Claude Code?</div>
+        <div class="t-body" style="line-height:1.45;max-width:1700px;">
+          <strong>Rule of thumb:</strong> if a tool has an open API → use Claude Code (it can call the API directly via MCP). If the tool blocks programmatic access — like LinkedIn search, where the public API is heavily restricted and scraping violates their TOS — <strong>use the browser (Cowork or Claude in Chrome).</strong> Claude logs in like a human, clicks like a human, reads what's on screen.
+        </div>
       </div>
-      <div class="t-body" style="margin-top:10px;max-width:1700px;color:var(--muted);">
+
+      <div class="t-body" style="margin-top:14px;max-width:1700px;color:var(--muted);">
         You already have Cowork. <span style="color:var(--ink);">Today is about where it stops and what's next.</span>
       </div>
     </div>
@@ -753,6 +751,60 @@
       </div>
     </div>
     <div class="foot"><div></div><div>13 / 51</div></div>
+  </section>
+
+  <!-- 6b · MCP IN ACTION — MARKETER FLOW -->
+  <section data-screen-label="06aa MCP in action" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>13b / 51</span></div><div>MCP in action — how a marketer actually uses it</div></div>
+    <div class="body gap-sm">
+      <div class="t-title">MCP in action. <span style="color:var(--muted);">A marketer's prompt → MCP tool call → answer.</span></div>
+      <div class="t-subtitle" style="color:var(--muted);max-width:1750px;">
+        Same Cowork window you already use. The MCP connection is invisible to you — but it's what lets Claude pull live data from your tools instead of guessing.
+      </div>
+
+      <div class="flex-row gap-md" style="margin-top:36px;align-items:stretch;">
+        <!-- STEP 1 -->
+        <div class="grow" style="flex:1 1 0;padding:22px 24px;background:var(--paper-2);border-top:4px solid var(--muted);position:relative;">
+          <div class="t-eyebrow" style="color:var(--muted);margin-bottom:10px;">01 · You type</div>
+          <h3 style="font-size:30px;line-height:1.15;margin:0 0 10px 0;">"Pull last week's GA4 traffic and draft a summary for the team."</h3>
+          <p style="color:var(--muted);line-height:1.45;font-size:18px;">A plain English prompt in Cowork. You don't write code. You don't open GA4. You just ask.</p>
+        </div>
+        <div style="display:flex;align-items:center;font-size:36px;color:var(--accent);font-weight:300;padding:0 4px;">→</div>
+
+        <!-- STEP 2 -->
+        <div class="grow" style="flex:1 1 0;padding:22px 24px;background:var(--paper-2);border-top:4px solid var(--sage);position:relative;">
+          <div class="t-eyebrow" style="color:var(--sage);margin-bottom:10px;">02 · Claude reads the prompt</div>
+          <h3 style="font-size:30px;line-height:1.15;margin:0 0 10px 0;">"I need real numbers. I'll call the GA4 tool."</h3>
+          <p style="color:var(--muted);line-height:1.45;font-size:18px;">Claude recognizes the task needs live data. It picks the right MCP tool from what you've connected.</p>
+        </div>
+        <div style="display:flex;align-items:center;font-size:36px;color:var(--accent);font-weight:300;padding:0 4px;">→</div>
+
+        <!-- STEP 3 -->
+        <div class="grow" style="flex:1 1 0;padding:22px 24px;background:var(--paper-2);border-top:4px solid #4A6A7E;position:relative;">
+          <div class="t-eyebrow" style="color:#4A6A7E;margin-bottom:10px;">03 · MCP calls GA4</div>
+          <h3 style="font-size:30px;line-height:1.15;margin:0 0 10px 0;">GA4 MCP server returns the data.</h3>
+          <p style="color:var(--muted);line-height:1.45;font-size:18px;">The MCP server is a small program on your computer that talks to GA4's API on your behalf. Authenticated. Real numbers.</p>
+          <div style="margin-top:8px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--muted);background:rgba(20,18,16,.06);padding:6px 10px;line-height:1.5;">
+            sessions: 47,213<br/>
+            top_pages: [...]<br/>
+            channel_split: {...}
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;font-size:36px;color:var(--accent);font-weight:300;padding:0 4px;">→</div>
+
+        <!-- STEP 4 -->
+        <div class="grow" style="flex:1 1 0;padding:22px 24px;background:var(--paper-2);border-top:4px solid var(--accent);position:relative;">
+          <div class="t-eyebrow" style="color:var(--accent);margin-bottom:10px;">04 · Claude answers</div>
+          <h3 style="font-size:30px;line-height:1.15;margin:0 0 10px 0;">A summary using <em>real</em> numbers — not guesses.</h3>
+          <p style="color:var(--muted);line-height:1.45;font-size:18px;">Claude turns the raw data into a team-ready summary in your voice. You review, edit, send.</p>
+        </div>
+      </div>
+
+      <div class="t-body-lg" style="margin-top:22px;max-width:1750px;font-family:'Instrument Serif',serif;font-style:italic;font-size:26px;color:var(--ink);">
+        Same Cowork chat box you already use. MCP just connects it to your real data — so Claude stops guessing.
+      </div>
+    </div>
+    <div class="foot"><div>Without MCP: Claude can only answer from what you paste. With MCP: it pulls live data on its own.</div><div>13b / 51</div></div>
   </section>
 
   <!-- 6a · WHERE CONNECTORS LIVE -->
@@ -2004,162 +2056,141 @@
       <div class="flex-row gap-md" style="margin-top:40px;">
         <div class="card grow">
           <div class="head">Agent</div>
-          <h3>Isolated specialist.</h3>
-          <p>Fresh context window. Specific tools. The collect agent never sees the report agent's conversation. Each gets a clean whiteboard.</p>
+          <h3>One job per worker.</h3>
+          <p>Each agent gets a fresh start and one clear task. The collect agent never sees the report agent's mess. Like hiring a specialist for each job instead of one generalist doing everything.</p>
         </div>
         <div class="card grow">
           <div class="head">Hook</div>
-          <h3>Harness-level enforcement.</h3>
-          <p><em>Your</em> system runs it, not Claude. A tripwire. PreToolUse blocks writes to <span class="t-mono-sm">.env</span>. PostToolUse re-verifies every edit. Stop extracts lessons.</p>
+          <h3>The system runs without you watching.</h3>
+          <p>Hooks are automatic tripwires <em>your</em> computer runs — not Claude. Before risky moves (blocks writes to <span class="t-mono-sm">.env</span>). After every edit (catches breakage instantly). When Claude stops (captures the lesson). You don't have to be in the room.</p>
         </div>
         <div class="card accent-bg grow">
           <div class="head">Gate</div>
-          <h3>Deterministic validation.</h3>
-          <p>Python, not prompts. "Report says 27,659 keywords. Raw file says 15,164. Don't match → exit 1 → retry." <em>The model cannot explain away an exit code.</em></p>
+          <h3>Claude can't talk its way past.</h3>
+          <p>A real code check, not a prompt. "Report says 27,659 keywords. Raw file says 15,164. Don't match → fail → retry." Numbers don't lie. <em>The model cannot argue with an exit code.</em></p>
         </div>
       </div>
       <div class="flex-row gap-md" style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(20,18,16,.12);">
         <div class="grow" style="min-width:0;">
-          <div class="t-body" style="font-style:italic;color:var(--muted);">Monolith</div>
-          <div class="t-body" style="margin-top:4px;color:var(--accent);">→ Agents gave isolation</div>
+          <div class="t-body" style="font-style:italic;color:var(--muted);">One agent doing everything</div>
+          <div class="t-body" style="margin-top:4px;color:var(--accent);">→ Each worker stays focused</div>
         </div>
         <div class="grow" style="min-width:0;">
-          <div class="t-body" style="font-style:italic;color:var(--muted);">Drowning rules</div>
-          <div class="t-body" style="margin-top:4px;color:var(--accent);">→ Hooks gave enforcement</div>
+          <div class="t-body" style="font-style:italic;color:var(--muted);">You have to be in the room</div>
+          <div class="t-body" style="margin-top:4px;color:var(--accent);">→ The system runs itself</div>
         </div>
         <div class="grow" style="min-width:0;">
-          <div class="t-body" style="font-style:italic;color:var(--muted);">Fake numbers</div>
-          <div class="t-body" style="margin-top:4px;color:var(--accent);">→ Gates gave validation</div>
+          <div class="t-body" style="font-style:italic;color:var(--muted);">Claude makes up numbers</div>
+          <div class="t-body" style="margin-top:4px;color:var(--accent);">→ Code checks every claim</div>
         </div>
       </div>
 
       <div class="t-body-lg" style="margin-top:14px;max-width:1750px;">
-        Agents give you <em>isolation.</em> Hooks give you <em>enforcement.</em> Gates give you <em>validation.</em> Together: the harness.
+        Agents focus the work. <strong>Hooks fire the gates</strong> — the rule runs without you. Gates keep it honest. Together: the harness — <em>the system that runs your operations.</em>
       </div>
     </div>
     <div class="foot"><div></div><div>45 / 51</div></div>
   </section>
 
-  <!-- 14g · PLAYBOOK LEVEL 1 · SETUP HYGIENE -->
-  <section data-screen-label="14g Playbook L1" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>46 / 51</span></div><div>Playbook · Level 1 — setup hygiene</div></div>
-    <div class="body gap-sm">
-      <div class="t-title">The playbook. <span style="color:var(--muted);">Level 1 — setup hygiene.</span></div>
-      <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">Shrink your baseline <em>before</em> you start a session.</div>
+  <!-- 16b · THE LEARNINGS LOOP -->
+  <section data-screen-label="16b Learnings loop" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>45b / 51</span></div><div>The learnings loop — how the agent gets better without retraining</div></div>
+    <div class="body gap-md">
+      <div class="t-title">The agent gets better <em>every run.</em> Without retraining.</div>
+      <div class="t-subtitle" style="color:var(--muted);max-width:1750px;">
+        Remember the hook from the last slide — the tripwire your computer fires when Claude stops. It's not just cleanup. It's how the agent <em>learns</em>.
+      </div>
 
-      <div class="flex-row gap-md" style="margin-top:28px;align-items:stretch;">
-        <div class="grow" style="padding:24px 28px;background:var(--paper-2);border-left:3px solid var(--accent);">
-          <div class="t-eyebrow" style="color:var(--accent);margin-bottom:12px;">01 · Slim global CLAUDE.md</div>
-          <div class="t-body" style="line-height:1.4;">
-            Keep <span class="t-mono">~/.claude/CLAUDE.md</span> under 100 lines. Move procedures into <span class="t-mono">~/.claude/skills/</span> with frontmatter. Keep only identity + triggers + always-on rules.
-          </div>
-          <div style="margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--muted);background:rgba(20,18,16,.06);padding:8px 12px;">$ wc -l ~/.claude/CLAUDE.md</div>
+      <div class="flex-row gap-md" style="margin-top:36px;">
+        <div class="card grow">
+          <div class="head">What happens</div>
+          <h3>The system writes its own notes after each run.</h3>
+          <p>When Claude finishes, a hook fires — a small program <em>your</em> computer runs automatically. It catches what went wrong (or what worked), writes one line to <span class="t-mono-sm">~/.claude/CLAUDE.md</span> or <span class="t-mono-sm">MEMORY.md</span>, and the next session reads it back. The agent walks in <em>already knowing the lesson.</em></p>
         </div>
-        <div class="grow" style="padding:24px 28px;background:var(--paper-2);border-left:3px solid var(--sage);">
-          <div class="t-eyebrow" style="color:var(--sage);margin-bottom:12px;">02 · Path-scope your rules</div>
-          <div class="t-body" style="line-height:1.4;">
-            Global rules load <em>everywhere, every session</em> — expensive. Push rules down the tree:
-          </div>
-          <div class="flex-col" style="margin-top:10px;gap:4px;font-family:'IBM Plex Mono',monospace;font-size:15px;color:var(--muted);">
-            <div>~/.claude/CLAUDE.md &nbsp;<span style="color:var(--bad);">→ every session</span></div>
-            <div>project/CLAUDE.md &nbsp;<span style="color:var(--ink);">→ this project only</span></div>
-            <div>client/CLAUDE.md &nbsp;<span style="color:var(--good);">→ cheapest</span></div>
-          </div>
+        <div class="card grow">
+          <div class="head">Why it isn't fine-tuning</div>
+          <h3>No weights. No GPU. No data team.</h3>
+          <p>Fine-tuning retrains the model. Expensive, slow, ML infra. The learnings loop just changes <em>what the model knows before it starts.</em> A shell script can do this. Marketing teams can do this.</p>
         </div>
-        <div class="grow" style="padding:24px 28px;background:var(--paper-2);border-left:3px solid var(--muted);">
-          <div class="t-eyebrow" style="margin-bottom:12px;">03 · Archive stale skills</div>
-          <div class="t-body" style="line-height:1.4;">
-            Audit <span class="t-mono">~/.claude/skills/</span> quarterly. Move unused ones to <span class="t-mono">_archive/</span> — their descriptions stop burning startup budget.
-          </div>
-          <div style="margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--muted);background:rgba(20,18,16,.06);padding:8px 12px;">$ ls ~/.claude/skills/ | wc -l</div>
+        <div class="card accent-bg grow">
+          <div class="head">What it buys you</div>
+          <h3>The work compounds.</h3>
+          <p>Most agents stay flat — run 10 looks like run 1. This one's measurably sharper at run 10. Every correction logged = one less repeated mistake across every future session. <em>Never let a correction evaporate.</em></p>
         </div>
       </div>
+
+      <div class="flex-row gap-md" style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(20,18,16,.12);">
+        <div class="grow" style="min-width:0;">
+          <div class="t-body" style="font-style:italic;color:var(--muted);">Same mistakes every time</div>
+          <div class="t-body" style="margin-top:4px;color:var(--accent);">→ Mistakes stop repeating</div>
+        </div>
+        <div class="grow" style="min-width:0;">
+          <div class="t-body" style="font-style:italic;color:var(--muted);">Needs a data team to improve</div>
+          <div class="t-body" style="margin-top:4px;color:var(--accent);">→ A text file does the job</div>
+        </div>
+        <div class="grow" style="min-width:0;">
+          <div class="t-body" style="font-style:italic;color:var(--muted);">Run 10 looks like run 1</div>
+          <div class="t-body" style="margin-top:4px;color:var(--accent);">→ Run 10 is sharper than run 1</div>
+        </div>
+      </div>
+
+      <div class="t-body-lg" style="margin-top:14px;max-width:1750px;">
+        The harness catches mistakes. The loop <em>remembers</em> them. That's why the system gets better the more you use it.
+      </div>
     </div>
-    <div class="foot"><div>Every line in global CLAUDE.md costs you every session, everywhere.</div><div>46 / 51</div></div>
+    <div class="foot"><div>Hook + file = the cheapest learning system you'll ever build.</div><div>45b / 51</div></div>
   </section>
 
-  <!-- 14h · PLAYBOOK LEVEL 2 · ACTIVE HYGIENE -->
-  <section data-screen-label="14h Playbook L2" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>47 / 51</span></div><div>Playbook · Level 2 — active hygiene</div></div>
+  <!-- 16c · SLOP-CHECK EXAMPLE · HOOK TRIGGERS GATE -->
+  <section data-screen-label="16c Slop check example" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>46 / 51</span></div><div>Hook triggers gate — live example</div></div>
     <div class="body gap-sm">
-      <div class="t-title">The playbook. <span style="color:var(--muted);">Level 2 — active hygiene.</span></div>
-      <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">What to do <em>while</em> working when warning signs show.</div>
-
-      <table class="k compact" style="margin-top:24px;font-size:21px;">
-        <thead>
-          <tr><th style="width:28%">Lever</th><th style="width:28%">When to pull it</th><th>What happens</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="label">Persist plan to <span class="t-mono">PROGRESS.md</span></td>
-            <td class="old">Plan-mode approved, or any multi-step agreement</td>
-            <td class="new">Plan lives on disk, survives compaction &amp; new sessions. Format: Goal / Steps / Status / Next.</td>
-          </tr>
-          <tr>
-            <td class="label">Save learning to <span class="t-mono">MEMORY.md</span></td>
-            <td class="old">"remember this" · after a correction or pattern</td>
-            <td class="new">Appended to project <span class="t-mono">MEMORY.md</span> (200-line cap). Auto-loads every future session.</td>
-          </tr>
-          <tr>
-            <td class="label">Run <span class="t-mono">/compact</span></td>
-            <td class="old">Status-line drops below 50%, or output feels thin</td>
-            <td class="new">Earlier turns summarized by the server → space freed, detail lost. <strong>Save critical state first.</strong></td>
-          </tr>
-          <tr>
-            <td class="label">Run <span class="t-mono">/clear</span></td>
-            <td class="old">Switching between unrelated projects</td>
-            <td class="new">Full whiteboard wipe. Fresh session — cleaner than mixing contexts.</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="t-body" style="margin-top:20px;max-width:1750px;font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;color:var(--muted);">
-        Offload to disk before the whiteboard fills. Compact or clear once it has.
+      <div class="t-title">Hook triggers gate.<br/><span style="color:var(--muted);">Live example: how I avoid AI slop content in my writing.</span></div>
+      <div class="t-subtitle" style="color:var(--muted);max-width:1800px;line-height:1.45;">
+        Whenever I (or Claude) edit a markdown file in <span class="t-mono-sm">novastacks/company/marketing/</span>, <span class="t-mono-sm">clients/</span>, <span class="t-mono-sm">content/</span>, <span class="t-mono-sm">blog-drafts/</span>, or <span class="t-mono-sm">linkedin/</span> — the <strong>PostToolUse hook</strong> fires automatically. It runs <span class="t-mono-sm">linkedin-slop-check.py</span> against the file, captures the output, and injects the score + flagged phrases back into Claude's context as a system message.
       </div>
+
+      <div class="flex-row gap-md" style="margin-top:24px;align-items:stretch;">
+        <div class="card grow">
+          <div class="head">The rule I set up once</div>
+          <h3>"When I save a draft, run the check — every time."</h3>
+          <p>I told my computer: <em>whenever a content file gets edited, run my Python script.</em> Automatic. I never have to remember to run it. I never have to ask Claude nicely.</p>
+          <div style="margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--muted);background:rgba(20,18,16,.06);padding:10px 14px;line-height:1.55;">
+            # in ~/.claude/settings.json<br/>
+            "PostToolUse": [{<br/>
+            &nbsp;&nbsp;"matcher": "Edit|Write",<br/>
+            &nbsp;&nbsp;"command": "python3<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;linkedin-slop-check.py"<br/>
+            }]
+          </div>
+        </div>
+        <div class="card grow">
+          <div class="head">My slop list</div>
+          <h3>Words and phrases I don't want anywhere near my work.</h3>
+          <p>Corporate-speak AI loves. Trite reframing patterns. Generic openers. The list is <em>mine</em> — built from drafts I rejected. The script just scans every file for them.</p>
+          <div style="margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--muted);background:rgba(20,18,16,.06);padding:10px 14px;line-height:1.5;">
+            BANNED: "isn't X. It's Y"<br/>
+            BANNED: "In today's fast-paced…"<br/>
+            BANNED: "Moreover / Furthermore"<br/>
+            BANNED: game-changer, groundbreaking<br/>
+            RESTRICTED (max 2): leverage,<br/>
+            &nbsp;&nbsp;delve, robust, holistic, pivotal,<br/>
+            &nbsp;&nbsp;significant, dynamic, innovative…
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:20px;background:var(--ink);color:var(--paper);padding:16px 22px;font-family:'IBM Plex Mono',monospace;font-size:14px;line-height:1.6;">
+        <div style="color:var(--accent);font-weight:600;margin-bottom:6px;">▶ What shows up the moment slop sneaks in:</div>
+        <div><strong>FAIL — 7 violation(s) found:</strong></div>
+        <div style="opacity:.85;">&nbsp;&nbsp;[isnt-its]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Line 1: "marketing isn't about leverage. It's about authenticity."</div>
+        <div style="opacity:.85;">&nbsp;&nbsp;[todays-world]&nbsp;&nbsp;&nbsp;Line 1: "In today's fast-paced digital age…"</div>
+        <div style="opacity:.85;">&nbsp;&nbsp;[game-changer]&nbsp;&nbsp;&nbsp;Line 5: "It's a game-changer."</div>
+        <div style="opacity:.85;">&nbsp;&nbsp;[RESTRICTED]&nbsp;&nbsp;&nbsp;&nbsp;leverage(1), pivotal(1), groundbreaking(1), delve(1)</div>
+      </div>
+
     </div>
-    <div class="foot"><div>Check your context indicator. Don't wait for the banner.</div><div>47 / 51</div></div>
-  </section>
-
-  <!-- 14i · PLAYBOOK LEVEL 3 · ARCHITECTURE -->
-  <section data-screen-label="14i Playbook L3" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>48 / 51</span></div><div>Playbook · Level 3 — architecture</div></div>
-    <div class="body gap-sm">
-      <div class="t-title">The playbook. <span style="color:var(--muted);">Level 3 — architecture.</span></div>
-      <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">When the same problem keeps recurring — redesign the system, not the prompt.</div>
-
-      <div class="flex-row gap-md" style="margin-top:28px;align-items:stretch;flex-wrap:wrap;">
-        <div style="flex:1 1 45%;padding:22px 26px;background:var(--paper-2);border-left:3px solid var(--accent);">
-          <div class="t-eyebrow" style="color:var(--accent);margin-bottom:10px;">01 · Delegate to subagents</div>
-          <div class="t-body" style="line-height:1.4;">
-            Task needs 5+ files or 10+ pages? Spawn an <strong>Agent</strong> (Explore / Plan / general-purpose).
-            Subagent has its <em>own whiteboard</em> — returns a summary. Your context stays clean.
-          </div>
-        </div>
-        <div style="flex:1 1 45%;padding:22px 26px;background:var(--paper-2);border-left:3px solid var(--sage);">
-          <div class="t-eyebrow" style="color:var(--sage);margin-bottom:10px;">02 · Skills over inlined procedures</div>
-          <div class="t-body" style="line-height:1.4;">
-            Procedure 20+ lines and not needed every session? Make a <span class="t-mono">skill</span>. The harness loads only the 1-line description at startup. Full body loads <em>only when invoked</em>.
-          </div>
-        </div>
-        <div style="flex:1 1 45%;padding:22px 26px;background:var(--paper-2);border-left:3px solid #4A6A7E;">
-          <div class="t-eyebrow" style="color:#4A6A7E;margin-bottom:10px;">03 · Extract, don't dump</div>
-          <div class="t-body" style="line-height:1.4;">
-            Reading a 200-page PDF = ~400K tokens. <strong>Grep/Glob first</strong>, then Read with <span class="t-mono-sm">offset + limit</span>. For MCP — filter <em>before</em> retrieval (date ranges, specific pages).
-          </div>
-        </div>
-        <div style="flex:1 1 45%;padding:22px 26px;background:var(--paper-2);border-left:3px solid var(--muted);">
-          <div class="t-eyebrow" style="margin-bottom:10px;">04 · Hooks for zero-context enforcement</div>
-          <div class="t-body" style="line-height:1.4;">
-            Rule that <em>must</em> fire — don't rely on Claude's judgment. Add a <span class="t-mono">PostToolUse</span> hook in <span class="t-mono">settings.json</span>. Runs in shell, not model context. Injects a reminder only when the event fires.
-          </div>
-        </div>
-      </div>
-
-      <div class="t-body" style="margin-top:18px;max-width:1750px;font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;color:var(--ink);">
-        Most issues fix with Levels 1–2. Level 3 is when the system itself is the problem.
-      </div>
-    </div>
-    <div class="foot"><div>Whiteboard · Cabinet · Desk · Wall — design against the right surface.</div><div>48 / 51</div></div>
+    <div class="foot"><div>Set up the rule once. Build your list once. The check runs forever — without you.</div><div>46 / 51</div></div>
   </section>
 
   <!-- 27 · GIT IS THE NEW NOTION -->

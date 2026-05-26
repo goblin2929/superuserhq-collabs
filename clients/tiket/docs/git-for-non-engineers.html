@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Git for Non-Engineers — Human + Agent Coordination</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #FAF8F0;
+  --white: #FFFFFF;
+  --border: #E8E0D8;
+  --text: #2C2520;
+  --text-secondary: #6B5E52;
+  --text-light: #999;
+  --terra: #D97757;
+  --terra-dark: #C0613D;
+  --terra-light-bg: #FFF3EE;
+  --terra-light-border: #F0D5C5;
+  --dark: #2C2520;
+  --dark-soft: #3D3530;
+  --header-bg: #F5F0E8;
+  --analogy-text: #5C4426;
+  --analogy-bg: #E2D5C3;
+  --green-bg: #E6F4EA;
+  --green-text: #1E7F3F;
+  --blue-bg: #E8F0FE;
+  --blue-text: #1A56DB;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+.fade-in { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+.top-banner { display:flex; font-size:13px; font-weight:500; height:36px; }
+.top-banner .left { flex:1; background:var(--terra); color:white; padding:0 32px; display:flex; align-items:center; gap:24px; }
+.top-banner .left a { color:rgba(255,255,255,0.85); text-decoration:none; }
+.top-banner .right { flex:1; background:var(--dark); color:rgba(255,255,255,0.7); padding:0 32px; display:flex; align-items:center; gap:24px; }
+.top-banner .right a { color:rgba(255,255,255,0.85); text-decoration:none; }
+
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(250,248,240,0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+}
+.nav-inner { max-width:960px; margin:0 auto; display:flex; gap:0; overflow-x:auto; scrollbar-width:none; }
+.nav-inner::-webkit-scrollbar { display: none; }
+.nav a {
+  color: var(--text-light); text-decoration:none; font-size:12px; font-weight:500;
+  padding:14px 12px; white-space:nowrap; border-bottom:2px solid transparent; transition:all .2s;
+}
+.nav a:hover { color: var(--text); }
+.nav a.active { color: var(--terra); border-bottom-color: var(--terra); }
+
+.container { max-width: 960px; margin: 0 auto; padding: 0 40px; }
+section { padding: 80px 0; }
+section + section { border-top: 1px solid var(--border); }
+
+.sec-num {
+  font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500;
+  color: var(--terra); letter-spacing:1px; margin-bottom:8px; text-transform:uppercase;
+}
+.sec-title {
+  font-family:'Source Serif 4','Lora',serif; font-size:32px; font-weight:600;
+  line-height:1.25; margin-bottom:12px; color: var(--text);
+}
+.sec-desc { font-size:16px; color: var(--text-secondary); max-width:640px; margin-bottom:40px; line-height:1.7; }
+
+.hero { padding: 80px 40px 60px; text-align: center; }
+.hero-logos { display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:32px; }
+.hero-logos img { height: 28px; }
+.hero-logos .x { color: var(--text-light); font-size: 14px; }
+.hero-badge {
+  display:inline-block; background:var(--terra-light-bg); color:var(--terra);
+  border:1px solid var(--terra-light-border); border-radius:100px;
+  padding:6px 18px; font-size:12px; font-weight:600; letter-spacing:0.5px;
+  text-transform:uppercase; margin-bottom:24px;
+}
+.hero h1 {
+  font-family:'Source Serif 4','Lora',serif; font-size:clamp(36px,5vw,52px);
+  font-weight:600; line-height:1.15; margin-bottom:16px; max-width:760px;
+  margin-left:auto; margin-right:auto;
+}
+.hero-sub { font-size:17px; color:var(--text-secondary); max-width:600px; margin:0 auto 36px; line-height:1.7; }
+
+.card {
+  background: var(--white); border:1px solid var(--border);
+  border-radius:12px; padding:24px; transition:transform .2s, box-shadow .2s;
+}
+.card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(44,37,32,0.06); }
+.card h4 { font-family:'Source Serif 4','Lora',serif; font-size:18px; font-weight:600; margin-bottom:8px; }
+.card-desc { font-size:14px; color:var(--text-secondary); line-height:1.6; }
+
+.terra-banner {
+  background: var(--terra); color: white; border-radius:12px; padding:20px 28px;
+  font-size:17px; font-weight:600; text-align:center; margin:24px 0;
+}
+.terra-banner .sub { font-weight:400; font-size:14px; opacity:0.9; margin-top:4px; }
+
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+.code-block {
+  background: var(--dark); color: #E8E0D8; border-radius:10px;
+  padding:16px 20px; font-family:'JetBrains Mono',monospace; font-size:13px;
+  line-height:1.6; white-space:pre-wrap; overflow-x:auto; margin-top:8px;
+}
+.code-block .prompt { color: var(--terra); }
+.code-block .comment { color: #7a7067; }
+
+.analogy {
+  font-family:'Lora','Source Serif 4',serif; font-style:italic; font-size:14px;
+  color:var(--analogy-text); background:var(--analogy-bg);
+  border-radius:8px; padding:10px 16px; margin-top:12px; line-height:1.6;
+}
+.analogy::before { content: '"'; }
+.analogy::after { content: '"'; }
+
+table { width:100%; border-collapse:collapse; background:var(--white); font-size:14px; border-radius:12px; overflow:hidden; }
+table th { background:var(--header-bg); font-weight:600; font-size:13px; text-align:left; padding:12px 16px; border-bottom:1px solid var(--border); }
+table td { padding:12px 16px; border-bottom:1px solid var(--border); vertical-align:top; color:var(--text-secondary); }
+table tr:last-child td { border-bottom: none; }
+
+footer {
+  background: var(--dark); color: rgba(255,255,255,0.6);
+  text-align:center; padding:48px 40px;
+}
+footer strong { color: white; font-weight: 600; }
+footer .footer-sub { font-size:13px; margin-top:8px; color:rgba(255,255,255,0.4); }
+
+@media (max-width: 768px) {
+  .top-banner { flex-direction: column; height: auto; }
+  .top-banner .left, .top-banner .right { padding: 8px 20px; }
+  .nav { padding: 0 20px; }
+  .container { padding: 0 20px; }
+  .hero { padding: 48px 20px 40px; }
+  section { padding: 48px 0; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .sec-title { font-size: 26px; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-banner">
+  <div class="left"><span>Novastacks AI</span><a href="https://novastacks-ai.com" target="_blank">novastacks-ai.com</a></div>
+  <div class="right"><span>Superuser HQ</span><a href="https://superuserhq.com" target="_blank">superuserhq.com</a></div>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#why">Why Git</a>
+    <a href="#metaphor">The Metaphor</a>
+    <a href="#five-moves">Five Moves</a>
+    <a href="#main-branch">Main Branch</a>
+    <a href="#worktrees">Worktrees</a>
+    <a href="#agents">Working w/ Agents</a>
+    <a href="#fears">Common Fears</a>
+    <a href="#workshop-guide.html">&larr; Back</a>
+  </div>
+</nav>
+
+<main>
+
+<div class="hero fade-in">
+  <div class="hero-badge">Coordination Primer</div>
+  <h1>Git is the New Notion</h1>
+  <p class="hero-sub">If you can use Notion, ClickUp, or Trello, you can use git. This is a plain-English guide for non-engineers &mdash; because git is the shared workspace where humans and agents coordinate without stepping on each other.</p>
+</div>
+
+<!-- ═══ WHY GIT ═══ -->
+<section id="why">
+  <div class="container">
+    <div class="sec-num fade-in">01</div>
+    <h2 class="sec-title fade-in">Why non-engineers need git</h2>
+    <p class="sec-desc fade-in">Engineers have used git for 20 years to coordinate with each other. It turns out, those same tools are <em>exactly</em> what you need to coordinate with agents. Not a coincidence &mdash; agents work the same way a distributed team of humans does.</p>
+
+    <div class="grid-2 fade-in">
+      <div class="card">
+        <h4>The coordination problem</h4>
+        <p class="card-desc">You and an agent (or two agents, or a teammate plus an agent) are both editing the same document. Who's version is right? How do you merge changes? What if the agent overwrites your edit? What if you overwrite the agent's?</p>
+        <p class="card-desc" style="margin-top:12px;">Notion and ClickUp give up on this problem &mdash; they just use "last write wins" and cross fingers. Git actually solves it.</p>
+      </div>
+
+      <div class="card">
+        <h4>Git's answer</h4>
+        <p class="card-desc">Every change is tracked. Every version is recoverable. Parallel changes merge cleanly. Conflicts are surfaced, not silently lost. And &mdash; this is the part non-engineers miss &mdash; <strong>the whole system is designed for people who are not in the same room, not in the same timezone, and not doing the same thing at the same time.</strong></p>
+        <p class="card-desc" style="margin-top:12px;">Which is exactly your relationship with an agent.</p>
+      </div>
+    </div>
+
+    <div class="terra-banner fade-in">
+      If you've ever said "did you save the latest version?" at work, you already know why git exists.
+    </div>
+  </div>
+</section>
+
+<!-- ═══ THE METAPHOR ═══ -->
+<section id="metaphor">
+  <div class="container">
+    <div class="sec-num fade-in">02</div>
+    <h2 class="sec-title fade-in">The Notion/ClickUp/Trello Translation</h2>
+    <p class="sec-desc fade-in">Every git concept has a direct analog in tools you already use. Here's the full map.</p>
+
+    <table class="fade-in">
+      <thead>
+        <tr>
+          <th>Git concept</th>
+          <th>If you're used to&hellip;</th>
+          <th>What it actually does</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Repo</strong></td>
+          <td>Notion workspace / ClickUp space</td>
+          <td>The whole project. A single folder everyone shares.</td>
+        </tr>
+        <tr>
+          <td><strong>File</strong></td>
+          <td>Notion page / ClickUp doc</td>
+          <td>An individual document. Lives inside the repo.</td>
+        </tr>
+        <tr>
+          <td><strong>Commit</strong></td>
+          <td>"Save version" in Google Docs</td>
+          <td>A snapshot of a change, with a message describing what and why. Permanent, searchable, revertable.</td>
+        </tr>
+        <tr>
+          <td><strong>Branch</strong></td>
+          <td>A duplicated page you're drafting on</td>
+          <td>A parallel line of work that doesn't affect the main version until you merge it in.</td>
+        </tr>
+        <tr>
+          <td><strong>Main branch</strong></td>
+          <td>The "published" page in Notion</td>
+          <td>The version everyone treats as the source of truth. Only tested, reviewed work lands here.</td>
+        </tr>
+        <tr>
+          <td><strong>git pull</strong></td>
+          <td>Hitting refresh in Google Docs</td>
+          <td>Download everyone else's latest changes into your copy.</td>
+        </tr>
+        <tr>
+          <td><strong>git push</strong></td>
+          <td>"Share page" / "Publish"</td>
+          <td>Upload your committed changes so the rest of the team can pull them.</td>
+        </tr>
+        <tr>
+          <td><strong>Worktree</strong></td>
+          <td>Opening a second tab of the same page to compare</td>
+          <td>A second physical folder on your machine pointing at a different branch of the same repo. Lets you work on two things without swapping.</td>
+        </tr>
+        <tr>
+          <td><strong>Merge</strong></td>
+          <td>Accepting tracked changes in Word</td>
+          <td>Combining two branches into one. If there are conflicts, git asks you which version wins, line by line.</td>
+        </tr>
+        <tr>
+          <td><strong>Conflict</strong></td>
+          <td>Two people editing the same Notion block</td>
+          <td>Two branches changed the same line differently. Git pauses and asks you to pick &mdash; never silently loses your work.</td>
+        </tr>
+        <tr>
+          <td><strong>Revert</strong></td>
+          <td>Google Docs "version history &rarr; restore"</td>
+          <td>Undo a past change cleanly, without losing everything that came after it.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══ FIVE MOVES ═══ -->
+<section id="five-moves">
+  <div class="container">
+    <div class="sec-num fade-in">03</div>
+    <h2 class="sec-title fade-in">The Five Moves You Actually Need</h2>
+    <p class="sec-desc fade-in">95% of git, for a non-engineer, is five commands. Learn these and stop.</p>
+
+    <div class="grid-2 fade-in">
+      <div class="card">
+        <h4>1. git pull</h4>
+        <p class="card-desc"><strong>When:</strong> at the start of any working session.</p>
+        <div class="code-block"><span class="prompt">$</span> git pull</div>
+        <p class="card-desc" style="margin-top:12px;">Downloads whatever your teammates (human or agent) pushed since you last looked. Always do this first. Always.</p>
+        <div class="analogy">Same as hitting refresh before you start editing a shared Google Doc</div>
+      </div>
+
+      <div class="card">
+        <h4>2. git status</h4>
+        <p class="card-desc"><strong>When:</strong> any time you want to see what's changed.</p>
+        <div class="code-block"><span class="prompt">$</span> git status</div>
+        <p class="card-desc" style="margin-top:12px;">Shows you which files are modified, which are new, which are ready to be committed. Your "what have I done since I last saved?" view.</p>
+        <div class="analogy">Same as looking at the "edited" markers next to pages in Notion</div>
+      </div>
+
+      <div class="card">
+        <h4>3. git add + git commit</h4>
+        <p class="card-desc"><strong>When:</strong> you finished a unit of work and want to save it.</p>
+        <div class="code-block"><span class="prompt">$</span> git add partner-report.md
+<span class="prompt">$</span> git commit -m "Draft Q2 Marriott partner report"</div>
+        <p class="card-desc" style="margin-top:12px;">The commit message is the <em>why</em>. Write it like you're texting a future teammate who's asking "what did you do and why?" Future you will thank you.</p>
+        <div class="analogy">Same as naming a version in Google Docs history so you can find it later</div>
+      </div>
+
+      <div class="card">
+        <h4>4. git push</h4>
+        <p class="card-desc"><strong>When:</strong> you want your teammates (or an agent) to see your work.</p>
+        <div class="code-block"><span class="prompt">$</span> git push</div>
+        <p class="card-desc" style="margin-top:12px;">Uploads your committed work to the shared repo. Until you push, your work only exists on your laptop.</p>
+        <div class="analogy">Same as "share" or "publish" in Notion. Before this, you're drafting.</div>
+      </div>
+
+      <div class="card" style="grid-column: 1 / -1;">
+        <h4>5. git log</h4>
+        <p class="card-desc"><strong>When:</strong> you want to know what happened, by whom, and when.</p>
+        <div class="code-block"><span class="prompt">$</span> git log --oneline -20</div>
+        <p class="card-desc" style="margin-top:12px;">Shows the last 20 changes in the repo with one-line messages. This is your audit trail &mdash; who touched what, when, and why. VPs love this. Compliance loves this. Your future self loves this.</p>
+        <div class="analogy">Same as Notion's activity feed &mdash; but trustworthy, forever, and includes agents</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MAIN BRANCH ═══ -->
+<section id="main-branch">
+  <div class="container">
+    <div class="sec-num fade-in">04</div>
+    <h2 class="sec-title fade-in">The Main Branch is the Version of Truth</h2>
+    <p class="sec-desc fade-in">If you take one concept away from this page, take this one. Everything else follows from it.</p>
+
+    <div class="card fade-in" style="padding:32px;">
+      <h4 style="margin-top:0;">The rule</h4>
+      <p style="font-size:15px; color:var(--text-secondary); line-height:1.8;">The <code>main</code> branch is the version of the project that your team treats as <strong>real</strong>. It's the "published" copy. It's the one the dashboard shows, the one the client sees, the one a new teammate would pull. <strong>Nothing broken, nothing half-finished, nothing experimental lives on main.</strong></p>
+
+      <h4 style="margin-top:28px;">Why this matters with agents</h4>
+      <p style="font-size:15px; color:var(--text-secondary); line-height:1.8;">Agents will cheerfully write 500 lines of content, commit it, and push it &mdash; if you let them. Without a main-branch discipline, you will wake up one morning to find the "published" version of your partner reports is whatever an agent did at 3am. With discipline, the agent works on a <em>branch</em>, you review, and <em>you</em> decide when it lands on main.</p>
+
+      <h4 style="margin-top:28px;">The loop</h4>
+      <div class="code-block">main
+ │
+ ├── agent-q2-partner-research    <span class="comment"># agent does its work here</span>
+ │      ↓
+ │   (review by you)
+ │      ↓
+ │   merge into main               <span class="comment"># only after you approve</span>
+ │
+ └── your-draft-q2-recap           <span class="comment"># you draft here</span>
+        ↓
+     (test, polish)
+        ↓
+     merge into main                <span class="comment"># only when it's ready to be real</span></div>
+
+      <p style="font-size:14px; color:var(--text-secondary); margin-top:16px; font-style:italic;">Main is the airlock. Branches are where work happens. Merges are the decision points where <em>you</em> are in charge.</p>
+    </div>
+
+    <div class="terra-banner fade-in">
+      If main always works, you can always ship. That's the whole game.
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WORKTREES ═══ -->
+<section id="worktrees">
+  <div class="container">
+    <div class="sec-num fade-in">05</div>
+    <h2 class="sec-title fade-in">Worktrees: Parallel Desks for Parallel Work</h2>
+    <p class="sec-desc fade-in">Worktrees are git's best-kept secret for non-engineers. They let you work on two things at once without swapping contexts.</p>
+
+    <div class="grid-2 fade-in">
+      <div class="card">
+        <h4>The problem they solve</h4>
+        <p class="card-desc">You're mid-draft on a partner report. A colleague pings: "can you urgently edit the Q1 deck?" Normally you'd stash your partner report work, switch branches, lose your place, come back confused.</p>
+        <p class="card-desc" style="margin-top:12px;">Worktrees solve this: you open a <strong>second folder</strong> for the Q1 deck branch, edit it, commit, go back to your partner report folder. Both folders exist on disk at the same time. No context loss.</p>
+      </div>
+
+      <div class="card">
+        <h4>How you use them</h4>
+        <div class="code-block"><span class="comment"># from your main project folder</span>
+<span class="prompt">$</span> git worktree add ../tiket-q1-deck q1-deck-branch
+
+<span class="comment"># now you have two folders:</span>
+<span class="comment"># ~/projects/tiket/               (main work)</span>
+<span class="comment"># ~/projects/tiket-q1-deck/       (urgent edit)</span>
+
+<span class="comment"># work in either. commit in either. switch freely.</span></div>
+      </div>
+    </div>
+
+    <div class="card fade-in" style="margin-top:20px; padding:28px;">
+      <h4 style="margin-top:0;">Why worktrees are perfect for agent coordination</h4>
+      <p style="font-size:15px; color:var(--text-secondary); line-height:1.8;">Here's the real unlock: <strong>you can have a long-running agent working in one worktree while you work in another.</strong></p>
+      <div class="grid-3" style="margin-top:20px; gap:16px;">
+        <div class="card" style="background:var(--terra-light-bg); border-color:var(--terra-light-border);">
+          <h4 style="font-size:15px;">Desk 1: You</h4>
+          <p class="card-desc">Writing a Q2 partner recap. Your main workspace, main branch.</p>
+        </div>
+        <div class="card" style="background:var(--terra-light-bg); border-color:var(--terra-light-border);">
+          <h4 style="font-size:15px;">Desk 2: Agent A</h4>
+          <p class="card-desc">Researching Marriott's 2026 growth announcements in a separate worktree on <code>research-marriott</code>. Takes 20 min.</p>
+        </div>
+        <div class="card" style="background:var(--terra-light-bg); border-color:var(--terra-light-border);">
+          <h4 style="font-size:15px;">Desk 3: Agent B</h4>
+          <p class="card-desc">Drafting three cold outreach variants in a separate worktree on <code>outreach-drafts</code>. Takes 5 min.</p>
+        </div>
+      </div>
+      <p style="font-size:14px; color:var(--text-secondary); margin-top:20px; font-style:italic;">Three desks, three jobs, zero stepping on each other. When an agent finishes, you review its desk, merge (or don't), and move on. Your main work never gets interrupted.</p>
+    </div>
+
+    <div class="analogy" style="margin-top:20px;">A worktree is a second monitor for your project &mdash; same project, different screen, different work</div>
+  </div>
+</section>
+
+<!-- ═══ WORKING WITH AGENTS ═══ -->
+<section id="agents">
+  <div class="container">
+    <div class="sec-num fade-in">06</div>
+    <h2 class="sec-title fade-in">Working Alongside Agents</h2>
+    <p class="sec-desc fade-in">Once you have git, you have everything you need to coordinate with an agent the way an engineering team coordinates with each other.</p>
+
+    <div class="card fade-in" style="padding:28px;">
+      <h4 style="margin-top:0;">The four-step cycle</h4>
+      <ol style="font-size:15px; color:var(--text-secondary); line-height:1.9; padding-left:24px;">
+        <li><strong>Brief on a branch.</strong> Create a new branch for the task. Tell the agent "work on <code>partner-recap-q2</code>". The agent stays out of main by design.</li>
+        <li><strong>Let it run.</strong> The agent does its work, commits as it goes (commit messages become your audit trail of what it did). You do other things &mdash; maybe in a worktree.</li>
+        <li><strong>Review before merge.</strong> Pull the agent's branch. Read the diff. Check what it touched. Ask questions. This is the step most people skip &mdash; don't.</li>
+        <li><strong>Merge or discard.</strong> If you like it, merge into main &mdash; now it's "real." If not, drop the branch. Nothing was ever at risk. The main version was never touched.</li>
+      </ol>
+    </div>
+
+    <div class="card fade-in" style="margin-top:20px; padding:28px;">
+      <h4 style="margin-top:0;">Real example: a Tuesday morning</h4>
+      <div class="code-block"><span class="comment"># 9:00am — start your day</span>
+<span class="prompt">$</span> cd ~/projects/tiket
+<span class="prompt">$</span> git pull                          <span class="comment"># sync whatever happened overnight</span>
+
+<span class="comment"># 9:05am — brief an agent to research a partner in a worktree</span>
+<span class="prompt">$</span> git worktree add ../tiket-research research-hilton
+<span class="prompt">$</span> claude                              <span class="comment"># open Claude Code in the research worktree</span>
+<span class="prompt">&gt;</span> /partner-research Hilton Jakarta    <span class="comment"># kick it off</span>
+
+<span class="comment"># 9:15am — work on your main thing while the agent runs</span>
+<span class="prompt">$</span> cd ~/projects/tiket
+<span class="prompt">$</span> claude
+<span class="prompt">&gt;</span> Help me outline the Q2 review deck
+
+<span class="comment"># 10:30am — check on the agent</span>
+<span class="prompt">$</span> cd ~/projects/tiket-research
+<span class="prompt">$</span> git log --oneline -5                 <span class="comment"># see what it did</span>
+<span class="prompt">$</span> git diff main..research-hilton       <span class="comment"># read the changes</span>
+
+<span class="comment"># if good, merge; if not, drop</span>
+<span class="prompt">$</span> cd ~/projects/tiket
+<span class="prompt">$</span> git merge research-hilton            <span class="comment"># land the agent's work</span>
+<span class="prompt">$</span> git push                             <span class="comment"># publish to the team</span></div>
+      <p style="font-size:14px; color:var(--text-secondary); margin-top:16px; font-style:italic;">That's a full human+agent coordination loop. The entire trick is: agents work on branches, you review diffs, you own the merge. Nothing else to learn.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COMMON FEARS ═══ -->
+<section id="fears">
+  <div class="container">
+    <div class="sec-num fade-in">07</div>
+    <h2 class="sec-title fade-in">The Three Fears Non-Engineers Have About Git</h2>
+    <p class="sec-desc fade-in">And why each one is overblown once you understand how git actually works.</p>
+
+    <div class="grid-3 fade-in">
+      <div class="card">
+        <h4>"I'll delete something important"</h4>
+        <p class="card-desc"><strong>You can't.</strong> Git is essentially impossible to permanently break through normal use. Every commit is saved, reflog tracks even discarded work for 90 days, and any "destructive" command has a recovery path.</p>
+        <p class="card-desc" style="margin-top:10px;">The only genuine ways to lose work are <code>rm -rf</code> (not a git command) and <code>git push --force</code> &mdash; and both are easy to put behind a permissions deny-list.</p>
+      </div>
+
+      <div class="card">
+        <h4>"It's too technical"</h4>
+        <p class="card-desc"><strong>Five commands</strong>: pull, status, add, commit, push. That's it for 95% of workflows. Everything else is a special case you learn once, ten times a year.</p>
+        <p class="card-desc" style="margin-top:10px;">You learned Cowork. You learned Notion. You learned ClickUp. Git is smaller than any of those &mdash; it just looks intimidating because engineers hoard it.</p>
+      </div>
+
+      <div class="card">
+        <h4>"What if there's a conflict?"</h4>
+        <p class="card-desc"><strong>Conflicts are features.</strong> They mean git caught two people (or an agent and you) editing the same thing differently &mdash; and is <em>asking you to choose</em> instead of silently losing one version.</p>
+        <p class="card-desc" style="margin-top:10px;">Notion and Google Docs don't have conflicts. They just overwrite. Ask yourself which you'd rather.</p>
+      </div>
+    </div>
+
+    <div class="terra-banner fade-in" style="margin-top:32px;">
+      If you can use Notion, you can use git. The only difference is git is honest about when it needs you.
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <strong>Novastacks AI &times; Superuser HQ</strong>
+  <div class="footer-sub">Git for Non-Engineers &mdash; Intermediate Workshop &middot; April 2026</div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+const navLinks = document.querySelectorAll('.nav a');
+const sections = document.querySelectorAll('section[id]');
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => link.classList.remove('active'));
+      const active = document.querySelector(`.nav a[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-40% 0px -50% 0px' });
+sections.forEach(section => navObserver.observe(section));
+</script>
+</body>
+</html>
