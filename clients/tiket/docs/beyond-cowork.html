@@ -264,7 +264,6 @@
   "[Tina · ~2 min]\n• Sharpen the distinction: Artifact = a thing produced; Skill = a process for producing things.\n• Artifact lives in the conversation, per-session. Skill lives on disk, auto-loads forever.\n• They compose: a skill can produce an artifact — /build-dashboard is the skill, the React dashboard it drops in the panel is the output.",
   "[Tina · ~2 min]\n• Claude in Chrome = a browsing agent operating YOUR logged-in browser — reads pages, clicks, fills forms.\n• Because it's your session, Instagram / LinkedIn / portal logins all work.\n• When: research behind logins, pulling structured data off pages, repetitive browser tasks. Note: we used it in Demo 1.",
   "[Tina · ~2-3 min]\n• Tool use = what turns a chatbot into something that can DO things. On its own, an LLM is just text in → text out.\n• The model says 'call this tool' and your computer does it — read a file, hit an API, open a browser, feed the result back.\n• Augmented LLM = Retrieval (look things up) + Tools (take action) + Memory (remember across turns).\n• Two toolboxes: Cowork = pre-packaged (Anthropic wired it — sandbox files, browser, connectors), you pick from the menu. Claude Code = any tool with an API via MCP, you write the menu.\n• Live example: Playwright MCP drives a real Chrome — today every slide edit made Claude open this deck, screenshot it, read it back. Cowork can't add Playwright; Code can.\n• Land it: 'Same brain. Different toolboxes — Cowork's is closed and curated, Code's is open.'",
-  "[Tina · ~2 min]\n• Even before you connect a single MCP server, Claude Code ships with 15 built-in tools — the default toolbox.\n• Grouped for marketers: File access (Read · Write · Edit · Glob · Grep) · Run things (Bash · Agent/subagent) · Reach the web (WebFetch · WebSearch) · Stay organized (TodoWrite · Notebook).\n• Land it: 'These 15 come free. MCP is how you add more — your CRM, GA4, Playwright, anything with an API.'",
   "[Tina · ~3 min]\n• Three words people confuse. Two are integrations, one is packaging.\n• Connectors = Anthropic's prebuilt (Gmail, Drive, Notion, Calendar). MCP = open protocol, ANY tool with an API, you/your team build it. Plugins = an installable bundle (skills + commands + agents + hooks + MCP).\n• Land it: 'Connectors + MCP = how Claude reaches tools. Plugins = how you package and share.' MCP is a USB port; a plugin is the boxed kit.\n• Footnote: team-shared plugins need an Anthropic Team subscription.",
   "[Tina · ~2 min]\n• Make MCP concrete with a marketer flow: you type a prompt → Claude picks the tool → MCP calls GA4 → answer with real numbers.\n• It's the same Cowork box you already use; the MCP connection is invisible to you.\n• Land it: 'Without MCP, Claude answers only from what you paste. With MCP, it pulls live data on its own — and stops guessing.'",
   "[Tina · ~1 min]\n• Quick orientation (screenshot): claude.ai → Settings → Connectors.\n• Anthropic-maintained. One click to install. Move on.",
@@ -842,65 +841,6 @@
       </div>
     </div>
     <div class="foot"><div>If the tool has an API, Code can use it. If it doesn't, you reach for the browser.</div><div>11b / 48</div></div>
-  </section>
-
-  <!-- 5e · BUILT-IN TOOLS WITH CLAUDE CODE -->
-  <section data-screen-label="05e Tools with Claude Code" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>11c / 48</span></div><div>Built-in tools in Claude Code — what you get out of the box</div></div>
-    <div class="body gap-sm">
-      <div class="t-title">Tools with Claude Code. <span style="color:var(--muted);">15 built-in. Before you add anything.</span></div>
-      <div class="t-subtitle" style="color:var(--muted);max-width:1800px;line-height:1.4;">
-        Even before you connect a single MCP server, Claude Code already ships with 15 tools that let it touch your computer — read &amp; edit files, run shell commands, search the web, manage to-dos, launch subagents. <em>This is the default toolbox.</em>
-      </div>
-
-      <div class="flex-row gap-md" style="margin-top:18px;align-items:flex-start;">
-        <!-- LEFT: Anthropic's official table -->
-        <div style="flex:1.4 1 0;padding:14px;background:var(--paper-2);border-left:3px solid var(--muted);display:flex;flex-direction:column;align-items:center;">
-          <div class="t-eyebrow" style="margin-bottom:8px;align-self:flex-start;">From Anthropic · official list</div>
-          <img src="screenshots/anthropic-tools-with-claude-code.jpg"
-               alt="Tools with Claude Code — two tables listing Agent, Bash, Edit, Glob, Grep, LS, MultiEdit, NotebookEdit, NotebookRead, Read, TodoRead, TodoWrite, WebFetch, WebSearch, Write"
-               class="zoomable"
-               style="max-width:100%;max-height:440px;width:auto;background:#fff;cursor:zoom-in;"/>
-        </div>
-
-        <!-- RIGHT: marketer-relevant grouping -->
-        <div style="flex:1 1 0;display:flex;flex-direction:column;gap:10px;">
-          <div style="padding:14px 20px;background:var(--paper-2);border-left:3px solid var(--accent);">
-            <div class="t-eyebrow" style="color:var(--accent);margin-bottom:6px;">File access</div>
-            <div class="t-body" style="line-height:1.4;font-size:18px;">
-              <span class="t-mono-sm">Read</span> · <span class="t-mono-sm">Write</span> · <span class="t-mono-sm">Edit</span> · <span class="t-mono-sm">MultiEdit</span> · <span class="t-mono-sm">LS</span> · <span class="t-mono-sm">Glob</span> · <span class="t-mono-sm">Grep</span>
-              <br/><span style="color:var(--muted);">Claude can read, search, and edit any file on your machine.</span>
-            </div>
-          </div>
-          <div style="padding:14px 20px;background:var(--paper-2);border-left:3px solid var(--sage);">
-            <div class="t-eyebrow" style="color:var(--sage);margin-bottom:6px;">Run things</div>
-            <div class="t-body" style="line-height:1.4;font-size:18px;">
-              <span class="t-mono-sm">Bash</span> · <span class="t-mono-sm">Agent</span>
-              <br/><span style="color:var(--muted);">Run any shell command. Launch a subagent to handle a side task with its own clean context.</span>
-            </div>
-          </div>
-          <div style="padding:14px 20px;background:var(--paper-2);border-left:3px solid #4A6A7E;">
-            <div class="t-eyebrow" style="color:#4A6A7E;margin-bottom:6px;">Reach the web</div>
-            <div class="t-body" style="line-height:1.4;font-size:18px;">
-              <span class="t-mono-sm">WebFetch</span> · <span class="t-mono-sm">WebSearch</span>
-              <br/><span style="color:var(--muted);">Pull content from a URL. Search the live web.</span>
-            </div>
-          </div>
-          <div style="padding:14px 20px;background:var(--paper-2);border-left:3px solid var(--muted);">
-            <div class="t-eyebrow" style="margin-bottom:6px;">Stay organized</div>
-            <div class="t-body" style="line-height:1.4;font-size:18px;">
-              <span class="t-mono-sm">TodoWrite</span> · <span class="t-mono-sm">TodoRead</span> · <span class="t-mono-sm">NotebookRead</span> · <span class="t-mono-sm">NotebookEdit</span>
-              <br/><span style="color:var(--muted);">Manage its own to-do list. Work with Jupyter notebooks.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="t-body-lg" style="margin-top:14px;max-width:1800px;font-size:22px;">
-        These 15 tools come <em>free</em> with Claude Code. <strong>MCP is how you add more</strong> — your CRM, GA4, Playwright, anything with an API.
-      </div>
-    </div>
-    <div class="foot"><div>Source: Anthropic — claude.com/docs (built-in tool list)</div><div>11c / 48</div></div>
   </section>
 
   <!-- 6 · CONNECTORS vs MCP vs PLUGINS -->
