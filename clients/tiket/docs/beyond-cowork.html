@@ -951,9 +951,47 @@
 
   <!-- SKILL SECTION -->
 
+  <!-- 07a4 · WHEN TO USE A SKILL (skills-section intro) -->
+  <section data-screen-label="07a4 When to use" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>18 / 47</span></div><div>When to use a skill</div></div>
+    <div class="body gap-sm" style="justify-content:center;">
+      <div class="t-eyebrow">Rule of thumb</div>
+      <div class="t-title" style="max-width:1800px;margin-top:16px;">
+        If you find yourself explaining the same thing to Claude <em>repeatedly</em> — that's a skill waiting to be written.
+      </div>
+
+      <div class="flex-row gap-md" style="margin-top:48px;align-items:stretch;">
+        <div class="grow" style="padding:22px 28px;background:var(--paper-2);border-left:4px solid var(--accent);">
+          <div class="t-eyebrow" style="color:var(--accent);margin-bottom:10px;">Signals</div>
+          <div class="flex-col gap-xs" style="font-size:22px;line-height:1.45;">
+            <div>→ Every PR review, you re-describe how to structure feedback.</div>
+            <div>→ Every commit, you remind Claude of the message format.</div>
+            <div>→ Every brand content piece, you re-paste your voice rules.</div>
+            <div>→ Every new client, you re-explain your audit methodology.</div>
+          </div>
+        </div>
+
+        <div class="grow" style="padding:22px 28px;background:var(--paper-2);border-left:4px solid var(--good);">
+          <div class="t-eyebrow" style="color:var(--good);margin-bottom:10px;">Fix</div>
+          <div class="t-body-lg" style="line-height:1.35;">
+            Write it <strong>once</strong> as a skill.
+          </div>
+          <div class="t-body" style="margin-top:10px;line-height:1.4;color:var(--ink-2);">
+            Description captures the trigger. Body captures your standard. <em>Every future session that matches gets it for free.</em>
+          </div>
+        </div>
+      </div>
+
+      <div class="t-body" style="margin-top:26px;max-width:1750px;font-family:'Instrument Serif',serif;font-style:italic;font-size:26px;">
+        Second time you say it — make it a skill.
+      </div>
+    </div>
+    <div class="foot"><div>Source: Anthropic Academy · Introduction to Agent Skills</div><div>18 / 47</div></div>
+  </section>
+
   <!-- 07a · WHAT IS A SKILL -->
   <section data-screen-label="07a What is a skill" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>18 / 47</span></div><div>What is a skill</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>19 / 47</span></div><div>What is a skill</div></div>
     <div class="body gap-sm" style="justify-content:center;">
       <div class="t-eyebrow">Anthropic · Agent Skills</div>
       <div class="t-title" style="max-width:1800px;margin-top:14px;">
@@ -987,12 +1025,12 @@
         <span style="color:rgba(255,255,255,.9);">## Steps<br/>1. Research · 2. Outline · 3. Draft · …</span>
       </div>
     </div>
-    <div class="foot"><div>Source: anthropic.skilljar.com/introduction-to-agent-skills</div><div>18 / 47</div></div>
+    <div class="foot"><div>Source: anthropic.skilljar.com/introduction-to-agent-skills</div><div>19 / 47</div></div>
   </section>
 
   <!-- 07a1a · ANATOMY OF A SKILL -->
   <section data-screen-label="07a1a Anatomy" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>19 / 47</span></div><div>Anatomy of a skill</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>20 / 47</span></div><div>Anatomy of a skill</div></div>
     <div class="body gap-sm">
       <div class="t-title">Anatomy of a <em>skill.</em></div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1800px;">One required file. Three optional folders. Each adds leverage <em>only when you need it.</em></div>
@@ -1015,12 +1053,12 @@
         </div>
       </div>
     </div>
-    <div class="foot"><div>Source: thisweb.dev/post/agent-skill · Anthropic docs</div><div>19 / 47</div></div>
+    <div class="foot"><div>Source: thisweb.dev/post/agent-skill · Anthropic docs</div><div>20 / 47</div></div>
   </section>
 
   <!-- 07a1b · SKILL.md — THE OPERATION MANUAL -->
   <section data-screen-label="07a1b SKILL.md" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>20 / 47</span></div><div>SKILL.md — the operation manual</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>21 / 47</span></div><div>SKILL.md — the operation manual</div></div>
     <div class="body gap-sm">
       <div class="t-title"><span class="t-mono" style="font-size:72px;">SKILL.md</span><span style="color:var(--muted);"> — the operation manual.</span></div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1800px;">Three sections answer <em>when</em>, <em>how</em>, and <em>what</em>.</div>
@@ -1050,63 +1088,78 @@
         <span style="color:rgba(255,255,255,.9);">## Trigger<br/>User provides a prospect domain or company name.<br/><br/>## Workflow<br/>1. Fetch domain metrics (scripts/pull-seo.sh)<br/>2. Score against AEO rubric (references/aeo-scoring.md)<br/>3. Draft brief (assets/brief-template.md)<br/><br/>## Output<br/>A one-page markdown brief with recommendations.</span>
       </div>
     </div>
-    <div class="foot"><div>Only SKILL.md is required. Everything else is optional — add when the skill needs it.</div><div>20 / 47</div></div>
+    <div class="foot"><div>Only SKILL.md is required. Everything else is optional — add when the skill needs it.</div><div>21 / 47</div></div>
   </section>
 
   <!-- 07a3 · HOW TO INVOKE A SKILL -->
   <section data-screen-label="07a3 How to invoke" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>21 / 47</span></div><div>How to invoke a skill</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>22 / 47</span></div><div>How to invoke a skill</div></div>
     <div class="body gap-sm">
-      <div class="t-title">How a skill <em>activates.</em></div>
-      <div class="t-subtitle" style="color:var(--muted);max-width:1800px;">Skills load <em>on demand</em> — not on every message, not only when you type a slash.</div>
+      <div class="t-title">Three ways a skill <em>activates.</em></div>
+      <div class="t-subtitle" style="color:var(--muted);max-width:1800px;">From explicit slash command to auto-invoke when Claude sees the right context.</div>
 
-      <div style="margin-top:24px;padding:20px 28px;background:var(--paper-2);border-left:3px solid var(--accent);max-width:1800px;">
-        <div class="t-body-lg" style="line-height:1.4;">
-          You say: <em>"Write the monthly affiliate report."</em><br/>
-          Claude scans descriptions → matches <span class="t-mono-sm">affiliate-report</span> → loads the skill body → runs.
-          <strong style="color:var(--accent);">You never typed a command.</strong>
+      <div class="flex-row gap-md" style="margin-top:28px;align-items:stretch;">
+        <!-- 01 · SLASH COMMAND -->
+        <div class="grow" style="padding:22px 26px;background:var(--paper-2);border-left:4px solid var(--accent);display:flex;flex-direction:column;">
+          <div class="t-eyebrow" style="color:var(--accent);margin-bottom:10px;">01 · Slash command</div>
+          <div class="t-title-sm" style="font-size:28px;line-height:1.1;margin-bottom:10px;">You name the skill directly.</div>
+          <div class="t-body" style="line-height:1.4;font-size:18px;color:var(--ink-2);margin-bottom:12px;">
+            Fastest. Explicit. No ambiguity — you tell Claude exactly which skill to run. Works in Claude Code on your own machine.
+          </div>
+          <div style="margin-top:auto;padding:14px 16px;background:var(--ink);color:var(--paper);border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.6;">
+            <span style="color:rgba(255,255,255,.5);">tinachu@novastacks ~ %</span> claude<br/>
+            <span style="color:var(--accent-soft);">&gt; /prospect-audit acme-corp.com</span><br/>
+            <span style="color:rgba(255,255,255,.55);">[skill: prospect-audit · loaded]</span><br/>
+            <span style="color:rgba(255,255,255,.55);">[references/aeo-scoring.md loaded]</span><br/>
+            <span style="color:rgba(255,255,255,.55);">[running 12-phase audit...]</span>
+          </div>
+          <div class="t-small" style="margin-top:10px;color:var(--muted);font-style:italic;line-height:1.35;">
+            Best when you know the skill name and want it right now.
+          </div>
+        </div>
+
+        <!-- 02 · TELL CLAUDE -->
+        <div class="grow" style="padding:22px 26px;background:var(--paper-2);border-left:4px solid var(--sage);display:flex;flex-direction:column;">
+          <div class="t-eyebrow" style="color:var(--sage);margin-bottom:10px;">02 · Tell Claude</div>
+          <div class="t-title-sm" style="font-size:28px;line-height:1.1;margin-bottom:10px;">Mention the skill in plain English.</div>
+          <div class="t-body" style="line-height:1.4;font-size:18px;color:var(--ink-2);margin-bottom:12px;">
+            You say it. Claude looks up the skill by name, loads the body, runs it. No command syntax.
+          </div>
+          <div style="margin-top:auto;padding:16px 20px;background:var(--paper);border:1px solid var(--ink);font-family:'Instrument Serif',serif;font-size:20px;line-height:1.4;font-style:italic;color:var(--ink);">
+            "Run the prospect-audit skill on acme-corp.com."
+          </div>
+          <div class="t-small" style="margin-top:10px;color:var(--muted);font-style:italic;line-height:1.35;">
+            Best when you remember the name but not the exact trigger phrase.
+          </div>
+        </div>
+
+        <!-- 03 · AUTO-INVOKE -->
+        <div class="grow" style="padding:22px 26px;background:var(--paper-2);border-left:4px solid var(--good);display:flex;flex-direction:column;">
+          <div class="t-eyebrow" style="color:var(--good);margin-bottom:10px;">03 · Auto-invoke</div>
+          <div class="t-title-sm" style="font-size:28px;line-height:1.1;margin-bottom:10px;">Claude picks the skill itself.</div>
+          <div class="t-body" style="line-height:1.4;font-size:18px;color:var(--ink-2);margin-bottom:12px;">
+            You describe the work. Claude scans every skill's description, finds the match, loads it. <strong>You never named a skill.</strong>
+          </div>
+          <div style="margin-top:auto;padding:16px 20px;background:var(--paper);border:1px solid var(--ink);font-family:'Instrument Serif',serif;font-size:20px;line-height:1.4;font-style:italic;color:var(--ink);">
+            "Qualify acme-corp for us — usual checks."
+          </div>
+          <div class="t-small" style="margin-top:10px;color:var(--muted);font-style:italic;line-height:1.35;">
+            Best when the team uses different phrasing every time.
+          </div>
+        </div>
+      </div>
+
+      <!-- Reliability callout for #3 -->
+      <div style="margin-top:20px;padding:18px 26px;background:var(--paper-2);border-left:3px solid var(--good);max-width:1900px;">
+        <div class="t-eyebrow" style="color:var(--good);margin-bottom:8px;">How to make #3 reliable — write the description like a scenario</div>
+        <div class="t-body" style="line-height:1.5;font-size:19px;">
+          <strong>Bad:</strong> <span class="t-mono-sm" style="color:var(--muted);">"Prospect audit tool."</span> &nbsp;→&nbsp; Claude can't tell when to use it.<br/>
+          <strong>Good:</strong> <span class="t-mono-sm">"Use when qualifying a new prospect — runs a 12-phase AEO and SEO audit, drafts a one-page brief. Trigger phrases: 'qualify X,' 'audit X,' 'should we take X on.'"</span><br/>
+          <span style="color:var(--muted);font-style:italic;">Include the phrases your team actually uses. The description IS the matching surface.</span>
         </div>
       </div>
     </div>
-    <div class="foot"><div>The description is the trigger. Write it so Claude can find it.</div><div>21 / 47</div></div>
-  </section>
-
-  <!-- 07a4 · WHEN TO USE A SKILL -->
-  <section data-screen-label="07a4 When to use" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>22 / 47</span></div><div>When to use a skill</div></div>
-    <div class="body gap-sm" style="justify-content:center;">
-      <div class="t-eyebrow">Rule of thumb</div>
-      <div class="t-title" style="max-width:1800px;margin-top:16px;">
-        If you find yourself explaining the same thing to Claude <em>repeatedly</em> — that's a skill waiting to be written.
-      </div>
-
-      <div class="flex-row gap-md" style="margin-top:48px;align-items:stretch;">
-        <div class="grow" style="padding:22px 28px;background:var(--paper-2);border-left:4px solid var(--accent);">
-          <div class="t-eyebrow" style="color:var(--accent);margin-bottom:10px;">Signals</div>
-          <div class="flex-col gap-xs" style="font-size:22px;line-height:1.45;">
-            <div>→ Every PR review, you re-describe how to structure feedback.</div>
-            <div>→ Every commit, you remind Claude of the message format.</div>
-            <div>→ Every brand content piece, you re-paste your voice rules.</div>
-            <div>→ Every new client, you re-explain your audit methodology.</div>
-          </div>
-        </div>
-
-        <div class="grow" style="padding:22px 28px;background:var(--paper-2);border-left:4px solid var(--good);">
-          <div class="t-eyebrow" style="color:var(--good);margin-bottom:10px;">Fix</div>
-          <div class="t-body-lg" style="line-height:1.35;">
-            Write it <strong>once</strong> as a skill.
-          </div>
-          <div class="t-body" style="margin-top:10px;line-height:1.4;color:var(--ink-2);">
-            Description captures the trigger. Body captures your standard. <em>Every future session that matches gets it for free.</em>
-          </div>
-        </div>
-      </div>
-
-      <div class="t-body" style="margin-top:26px;max-width:1750px;font-family:'Instrument Serif',serif;font-style:italic;font-size:26px;">
-        Second time you say it — make it a skill.
-      </div>
-    </div>
-    <div class="foot"><div>Source: Anthropic Academy · Introduction to Agent Skills</div><div>22 / 47</div></div>
+    <div class="foot"><div>The description is the trigger. Write it so Claude can find it.</div><div>22 / 47</div></div>
   </section>
 
   <!-- 07c · WHAT MAKES A GOOD SKILL -->
@@ -1359,14 +1412,14 @@
     <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 2 · Live demos</span><span>29 / 47</span></div><div>Google Search Console · period-over-period</div></div>
     <div class="body gap-sm">
       <div class="t-eyebrow">Same prompt · both tools</div>
-      <div class="t-title-sm" style="max-width:1700px;">"Call GSC. Analyze user queries and page performance period-over-period for Grant SG. First two weeks of April vs. prior two weeks."</div>
+      <div class="t-title-sm" style="max-width:1700px;">"Call Google Search Console. Analyze user queries and page performance period-over-period for Grant SG. First two weeks of April vs. prior two weeks."</div>
 
       <div class="demo code-wins" data-stepped style="margin-top:40px;">
         <div class="cow">
           <div class="hd">Cowork</div>
           <h4 style="color:var(--bad);">Dead end.</h4>
           <div class="result">
-            <div><span class="x">✗</span> No GSC connector available</div>
+            <div><span class="x">✗</span> No Google Search Console connector available</div>
             <div style="margin-top:14px;color:var(--muted);">"I don't have access to Google Search Console."</div>
           </div>
         </div>
@@ -1374,7 +1427,7 @@
           <div class="hd">Claude Code · MCP</div>
           <h4>A formatted report. Actionable.</h4>
           <div class="result">
-            <div><span class="m">✓</span> MCP · GSC → thousands of queries pulled</div>
+            <div><span class="m">✓</span> MCP · Google Search Console → thousands of queries pulled</div>
             <div><span class="m">✓</span> Period-over-period: impressions · clicks · CTR · position</div>
             <div><span class="m">✓</span> Rising queries · declining pages · new opportunities</div>
             <div style="margin-top:14px;color:var(--accent-soft);font-family:'IBM Plex Mono',monospace;font-size:18px;">→ Complete analysis in one run.</div>
