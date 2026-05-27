@@ -588,6 +588,53 @@
     <div class="foot"><div></div><div>9 / 51</div></div>
   </section>
 
+  <!-- 5ab · HOW CODING ASSISTANTS WORK — the inner loop -->
+  <section data-screen-label="05ab Coding assistants work" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>9b / 51</span></div><div>How a coding assistant actually works — the inner loop</div></div>
+    <div class="body gap-sm">
+      <div class="t-title">How a coding assistant works. <span style="color:var(--muted);">The inner loop.</span></div>
+      <div class="t-subtitle" style="color:var(--muted);max-width:1750px;line-height:1.45;">
+        When you give Claude Code (or Cowork) a task, it follows the same pattern a human developer would.
+        The model itself just thinks — it's the <em>harness around it</em> that lets it reach into the real world.
+      </div>
+
+      <div class="flex-row gap-md" style="margin-top:24px;align-items:stretch;">
+        <!-- LEFT: Anthropic diagram -->
+        <div style="flex:1.1 1 0;padding:14px;background:var(--paper-2);border-left:3px solid var(--muted);display:flex;flex-direction:column;align-items:center;justify-content:center;">
+          <img src="screenshots/anthropic-coding-assistant-flow.jpg"
+               alt="Anthropic diagram: Task → Language Model + Set of tools → Assistant: Gather context → Formulate a plan → Take an action → Iterate"
+               class="zoomable"
+               style="max-width:100%;max-height:480px;height:auto;width:auto;background:#fff;cursor:zoom-in;"/>
+          <div class="t-small" style="margin-top:10px;color:var(--muted);font-style:italic;text-align:center;">
+            Source: Anthropic — "How Claude Code works"
+          </div>
+        </div>
+
+        <!-- RIGHT: three steps + insight -->
+        <div style="flex:1 1 0;display:flex;flex-direction:column;gap:10px;">
+          <div style="padding:14px 20px;background:var(--paper-2);border-left:3px solid var(--accent);">
+            <div class="t-eyebrow" style="color:var(--accent);margin-bottom:4px;">01 · Gather context</div>
+            <div class="t-body" style="line-height:1.4;">Read the error. Find the relevant files. Look up the docs. Figure out what's actually going on.</div>
+          </div>
+          <div style="padding:14px 20px;background:var(--paper-2);border-left:3px solid var(--sage);">
+            <div class="t-eyebrow" style="color:var(--sage);margin-bottom:4px;">02 · Formulate a plan</div>
+            <div class="t-body" style="line-height:1.4;">Decide how to fix it. Which code to change. Which tests will prove it's fixed.</div>
+          </div>
+          <div style="padding:14px 20px;background:var(--paper-2);border-left:3px solid #4A6A7E;">
+            <div class="t-eyebrow" style="color:#4A6A7E;margin-bottom:4px;">03 · Take action</div>
+            <div class="t-body" style="line-height:1.4;">Actually do it. Edit files. Run tests. Run a command. Then loop back to step 1 if the result isn't right.</div>
+          </div>
+          <div style="padding:14px 20px;border-top:1px solid rgba(20,18,16,.12);margin-top:4px;">
+            <div class="t-body" style="line-height:1.45;">
+              <strong>The key insight:</strong> steps 1 and 3 require Claude to reach <em>outside the chat</em> — read files, run shell commands, hit APIs. That's <strong>tool use</strong>. That's why Code &amp; Cowork exist instead of just chat.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot"><div>The model thinks. The harness gives it hands.</div><div>9b / 51</div></div>
+  </section>
+
   <!-- ══════════════════════════════════════════════════════
        SECTION 1 — FEATURES & THE GAP
        ══════════════════════════════════════════════════════ -->
@@ -718,6 +765,118 @@
       </div>
     </div>
     <div class="foot"><div>Beta · Anthropic · Chrome only, requires Claude account.</div><div>12 / 51</div></div>
+  </section>
+
+  <!-- 5d · TOOL USE — what makes an agent more than a chatbot -->
+  <section data-screen-label="05d Tool use" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>12b / 51</span></div><div>Tool Use — how Claude does things, not just talks</div></div>
+    <div class="body gap-sm">
+      <div class="t-title">Tool Use. <span style="color:var(--muted);">What turns a chatbot into something that can <em>do</em> things.</span></div>
+      <div class="t-subtitle" style="color:var(--muted);max-width:1800px;line-height:1.4;">
+        On its own, an LLM is text in → text out. <strong>Tool use</strong> = the model says <em>"call this tool"</em> and your computer does it. Read a file. Hit an API. Open a browser. Feed the result back.
+      </div>
+
+      <div class="flex-row gap-md" style="margin-top:18px;align-items:stretch;">
+        <!-- LEFT: augmented LLM diagram -->
+        <div style="flex:1 1 0;padding:14px;background:var(--paper-2);border-left:3px solid var(--muted);display:flex;flex-direction:column;align-items:center;">
+          <div class="t-eyebrow" style="margin-bottom:6px;align-self:flex-start;">From Anthropic</div>
+          <img src="screenshots/anthropic-eab/01-augmented-llm.png"
+               alt="The augmented LLM — LLM with Retrieval, Tools, and Memory"
+               class="zoomable"
+               style="max-height:200px;width:auto;max-width:100%;background:#fff;cursor:zoom-in;"/>
+          <div class="t-small" style="margin-top:6px;color:var(--muted);line-height:1.35;align-self:flex-start;">
+            <strong>Retrieval</strong> = look things up. <strong>Tools</strong> = take action. <strong>Memory</strong> = remember across turns.
+          </div>
+        </div>
+
+        <!-- RIGHT: Cowork vs Code toolbox -->
+        <div style="flex:1.2 1 0;display:flex;flex-direction:column;gap:10px;">
+          <div style="padding:12px 18px;background:var(--paper-2);border-left:3px solid var(--sage);">
+            <div class="t-eyebrow" style="color:var(--sage);margin-bottom:4px;">Cowork · pre-packaged toolset</div>
+            <div class="t-body" style="line-height:1.35;font-size:18px;">
+              You get what <strong>Anthropic wired up</strong>: sandbox files, browser, screenshots, connectors for Gmail, Drive, Calendar, Notion. <em>You pick from the menu.</em>
+            </div>
+          </div>
+          <div style="padding:12px 18px;background:var(--paper-2);border-left:3px solid var(--accent);">
+            <div class="t-eyebrow" style="color:var(--accent);margin-bottom:4px;">Claude Code · any tool with an API</div>
+            <div class="t-body" style="line-height:1.35;font-size:18px;">
+              Tool has an <strong>API</strong>? Plug it in via <span class="t-mono-sm">MCP</span>. GA4, your CRM, Stripe, internal tools only your team uses. <em>You write the menu.</em>
+            </div>
+          </div>
+          <!-- Playwright concrete example -->
+          <div style="padding:12px 18px;background:var(--ink);color:var(--paper);border-left:3px solid var(--accent);">
+            <div class="t-eyebrow" style="color:var(--accent);margin-bottom:4px;">Live example · Playwright (I use it daily)</div>
+            <div class="t-body" style="line-height:1.4;color:var(--paper);font-size:18px;">
+              An MCP that lets Claude drive a real Chrome window — navigate, click, screenshot, run JS. <em>Used it today: every slide edit triggered Claude to open this deck, screenshot it, and read it back.</em> Cowork can't add Playwright. Code can.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="t-body-lg" style="margin-top:14px;max-width:1800px;font-size:24px;">
+        <strong>Same brain. Different toolboxes.</strong> Cowork's is closed and curated. Code's is open — any API is fair game.
+      </div>
+    </div>
+    <div class="foot"><div>If the tool has an API, Code can use it. If it doesn't, you reach for the browser.</div><div>12b / 51</div></div>
+  </section>
+
+  <!-- 5e · BUILT-IN TOOLS WITH CLAUDE CODE -->
+  <section data-screen-label="05e Tools with Claude Code" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>12c / 51</span></div><div>Built-in tools in Claude Code — what you get out of the box</div></div>
+    <div class="body gap-sm">
+      <div class="t-title">Tools with Claude Code. <span style="color:var(--muted);">15 built-in. Before you add anything.</span></div>
+      <div class="t-subtitle" style="color:var(--muted);max-width:1800px;line-height:1.4;">
+        Even before you connect a single MCP server, Claude Code already ships with 15 tools that let it touch your computer — read &amp; edit files, run shell commands, search the web, manage to-dos, launch subagents. <em>This is the default toolbox.</em>
+      </div>
+
+      <div class="flex-row gap-md" style="margin-top:18px;align-items:flex-start;">
+        <!-- LEFT: Anthropic's official table -->
+        <div style="flex:1.4 1 0;padding:14px;background:var(--paper-2);border-left:3px solid var(--muted);display:flex;flex-direction:column;align-items:center;">
+          <div class="t-eyebrow" style="margin-bottom:8px;align-self:flex-start;">From Anthropic · official list</div>
+          <img src="screenshots/anthropic-tools-with-claude-code.jpg"
+               alt="Tools with Claude Code — two tables listing Agent, Bash, Edit, Glob, Grep, LS, MultiEdit, NotebookEdit, NotebookRead, Read, TodoRead, TodoWrite, WebFetch, WebSearch, Write"
+               class="zoomable"
+               style="max-width:100%;max-height:440px;width:auto;background:#fff;cursor:zoom-in;"/>
+        </div>
+
+        <!-- RIGHT: marketer-relevant grouping -->
+        <div style="flex:1 1 0;display:flex;flex-direction:column;gap:10px;">
+          <div style="padding:14px 20px;background:var(--paper-2);border-left:3px solid var(--accent);">
+            <div class="t-eyebrow" style="color:var(--accent);margin-bottom:6px;">File access</div>
+            <div class="t-body" style="line-height:1.4;font-size:18px;">
+              <span class="t-mono-sm">Read</span> · <span class="t-mono-sm">Write</span> · <span class="t-mono-sm">Edit</span> · <span class="t-mono-sm">MultiEdit</span> · <span class="t-mono-sm">LS</span> · <span class="t-mono-sm">Glob</span> · <span class="t-mono-sm">Grep</span>
+              <br/><span style="color:var(--muted);">Claude can read, search, and edit any file on your machine.</span>
+            </div>
+          </div>
+          <div style="padding:14px 20px;background:var(--paper-2);border-left:3px solid var(--sage);">
+            <div class="t-eyebrow" style="color:var(--sage);margin-bottom:6px;">Run things</div>
+            <div class="t-body" style="line-height:1.4;font-size:18px;">
+              <span class="t-mono-sm">Bash</span> · <span class="t-mono-sm">Agent</span>
+              <br/><span style="color:var(--muted);">Run any shell command. Launch a subagent to handle a side task with its own clean context.</span>
+            </div>
+          </div>
+          <div style="padding:14px 20px;background:var(--paper-2);border-left:3px solid #4A6A7E;">
+            <div class="t-eyebrow" style="color:#4A6A7E;margin-bottom:6px;">Reach the web</div>
+            <div class="t-body" style="line-height:1.4;font-size:18px;">
+              <span class="t-mono-sm">WebFetch</span> · <span class="t-mono-sm">WebSearch</span>
+              <br/><span style="color:var(--muted);">Pull content from a URL. Search the live web.</span>
+            </div>
+          </div>
+          <div style="padding:14px 20px;background:var(--paper-2);border-left:3px solid var(--muted);">
+            <div class="t-eyebrow" style="margin-bottom:6px;">Stay organized</div>
+            <div class="t-body" style="line-height:1.4;font-size:18px;">
+              <span class="t-mono-sm">TodoWrite</span> · <span class="t-mono-sm">TodoRead</span> · <span class="t-mono-sm">NotebookRead</span> · <span class="t-mono-sm">NotebookEdit</span>
+              <br/><span style="color:var(--muted);">Manage its own to-do list. Work with Jupyter notebooks.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="t-body-lg" style="margin-top:14px;max-width:1800px;font-size:22px;">
+        These 15 tools come <em>free</em> with Claude Code. <strong>MCP is how you add more</strong> — your CRM, GA4, Playwright, anything with an API.
+      </div>
+    </div>
+    <div class="foot"><div>Source: Anthropic — claude.com/docs (built-in tool list)</div><div>12c / 51</div></div>
   </section>
 
   <!-- 6 · CONNECTORS vs MCP vs PLUGINS -->
