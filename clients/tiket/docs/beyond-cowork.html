@@ -818,38 +818,34 @@
 
   <!-- 6 · CONNECTORS vs MCP vs PLUGINS -->
   <section data-screen-label="06 Connectors vs MCP vs plugins" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>14 / 47</span></div><div>Three words people confuse</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>14 / 47</span></div><div>Two words people confuse</div></div>
     <div class="body gap-sm">
-      <div class="t-title">Connectors. MCP. Plugins.</div>
-      <div class="t-subtitle" style="color:var(--muted);max-width:1500px;">Two kinds of integrations — and one way to package them.</div>
+      <div class="t-title">Connectors. MCP.</div>
+      <div class="t-subtitle" style="color:var(--muted);max-width:1500px;">Two kinds of integrations — how Claude reaches your tools.</div>
 
       <div style="margin-top:18px;padding:14px 22px;background:var(--paper-2);border-left:3px solid var(--accent);max-width:1800px;">
         <div class="t-body" style="line-height:1.4;">
-          <strong>Heads-up on the words.</strong> Anthropic now calls all of these <em>"connectors"</em> in the UI. The 3-column below is what's underneath — what each one actually does.
+          <strong>Heads-up on the words.</strong> Anthropic now calls all of these <em>"connectors"</em> in the UI. The table below is what's underneath — what each one actually does.
         </div>
       </div>
 
       <table class="k" style="margin-top:24px;">
         <thead>
-          <tr><th style="width:18%"></th><th>Cowork Connectors</th><th>Claude Code · MCP</th><th style="color:var(--accent);">Plugins<sup style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--accent);">*</sup></th></tr>
+          <tr><th style="width:22%"></th><th>Cowork Connectors</th><th style="color:var(--accent);">Claude Code · MCP</th></tr>
         </thead>
         <tbody>
-          <tr><td class="label">What it is</td><td class="old">Prebuilt integrations</td><td class="old">Open protocol for tools</td><td class="new">Installable bundle of capabilities</td></tr>
-          <tr><td class="label">What it unlocks</td><td class="old">Gmail, Drive, Notion, Calendar</td><td class="old">Any tool with an API</td><td class="new">Skills, commands, agents, hooks, MCP servers</td></tr>
-          <tr><td class="label">Who builds it</td><td class="old">Anthropic</td><td class="old">You, your team, or the community</td><td class="new">Anthropic marketplace / GitHub / your team<sup style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--accent);">*</sup></td></tr>
-          <tr><td class="label">Best for</td><td class="old">Personal apps, out of the box</td><td class="old">Internal systems, custom tools</td><td class="new">Sharing a working setup with the team<sup style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--accent);">*</sup></td></tr>
+          <tr><td class="label">What it is</td><td class="old">Prebuilt integrations</td><td class="new">Open protocol for tools</td></tr>
+          <tr><td class="label">What it unlocks</td><td class="old">Gmail, Drive, Notion, Calendar</td><td class="new">Any tool with an API</td></tr>
+          <tr><td class="label">Who builds it</td><td class="old">Anthropic</td><td class="new">You, your team, or the community</td></tr>
+          <tr><td class="label">Best for</td><td class="old">Personal apps, out of the box</td><td class="new">Internal systems, custom tools</td></tr>
         </tbody>
       </table>
 
-      <div class="t-title-sm" style="margin-top:24px;max-width:1800px;font-size:44px;line-height:1.15;">
-        Connectors + MCP = <span style="color:var(--muted);">how Claude reaches tools.</span><br/>
-        Plugins = <span style="color:var(--accent);">how you package and share.</span>
+      <div class="t-title-sm" style="margin-top:28px;max-width:1800px;font-size:44px;line-height:1.15;">
+        Connectors + MCP = <span style="color:var(--accent);">how Claude reaches tools.</span>
       </div>
       <div class="t-body" style="margin-top:14px;max-width:1700px;color:var(--muted);font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;">
-        MCP is a <em>USB port.</em> Plugins are the boxed kit: port, cables, and instructions shipped together.
-      </div>
-      <div style="margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--muted);letter-spacing:.04em;">
-        <span style="color:var(--accent);">*</span> Team-shared plugins &amp; private plugin marketplace require an Anthropic Team subscription.
+        MCP is a <em>USB port</em> — any tool with an API can plug in.
       </div>
     </div>
     <div class="foot"><div></div><div>14 / 47</div></div>
@@ -933,8 +929,8 @@
     <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>17 / 47</span></div><div>Where Plugins live</div></div>
     <div class="body gap-sm">
       <div class="t-title">Plugins.</div>
-      <div class="t-subtitle" style="color:var(--muted);max-width:1800px;">
-        <span class="t-mono" style="color:var(--ink);background:var(--paper-2);padding:4px 12px;letter-spacing:.04em;">Claude Desktop app</span> &nbsp;→&nbsp; Customize &nbsp;→&nbsp; Personal plugins &nbsp;→&nbsp; <span style="color:var(--accent);font-family:'IBM Plex Mono',monospace;">+</span>
+      <div class="t-subtitle" style="max-width:1800px;line-height:1.4;font-size:30px;color:var(--ink);margin-top:8px;">
+        How Anthropic packages <strong>skills, agents, and scripts</strong> into one bundle — and shares them through its marketplace. <span style="color:var(--muted);font-style:italic;">Kind of like an app store.</span>
       </div>
 
       <div class="flex-row gap-md" style="margin-top:20px;align-items:stretch;">
