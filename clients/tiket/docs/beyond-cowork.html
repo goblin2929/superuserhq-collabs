@@ -271,13 +271,8 @@
   "[Tina · ~2 min]\n• Skills = folders of instructions Claude can discover and use. Every skill is a SKILL.md with a name + description in frontmatter.\n• The match: Claude compares your request to each skill's description; close enough → it activates automatically.\n• The point: teach Claude once, it applies that knowledge in every future matching session — no repeating yourself.",
   "[Tina · ~2 min]\n• Anatomy: one required file (SKILL.md) + three optional folders — references/ (rules), scripts/ (code), assets/ (templates).\n• Each adds leverage ONLY when needed — on-demand loading keeps context cheap.\n• It's version-controlled and shareable: commit to Git, reuse across projects, teams, clients.",
   "[Tina · ~2 min]\n• SKILL.md = the operation manual. Frontmatter: name + description (the trigger) + optional allowed-tools.\n• Body answers when/how/what: ## Trigger, ## Workflow, ## Output.\n• Only SKILL.md is required — add folders only when the skill actually needs them.",
-  "[Tina · ~1-2 min]\n• references/ = the rulebook: standards, rubrics, brand voice, scoring criteria.\n• Progressive disclosure — loaded only when the workflow asks for it, not every session. Saves a chunk of context.\n• 'SKILL.md says score it. references/ says how.' Put rules in references; keep SKILL.md on the flow.",
-  "[Tina · ~1-2 min]\n• scripts/ = the hands: bash/python that fetches data, runs checks, compiles output.\n• Key point: scripts EXECUTE — Claude sees only the output, not the 400 lines of Python. Zero context cost.\n• 'Deterministic where it should be, reasoning where it needs to be.'",
-  "[Tina · ~1-2 min]\n• assets/ = the reference shelf: templates, sample outputs, fonts, icons — things Claude imitates or drops in.\n• Claude matches a sample instead of inventing → consistent output, less drift. Also loaded only when needed.\n• Recap the three folders: references = rules · scripts = hands · assets = the mirror for output.",
-  "[Tina · ~2 min]\n• Four levels, each with its own scope: Personal (~/.claude/skills — follows you everywhere) · Project (.claude/skills — shared with anyone who clones the repo) · Plugin (marketplace/GitHub) · Enterprise (pushed org-wide by IT).\n• Rule of thumb: only YOU need it → personal. Your TEAM needs it → commit it to the project.",
   "[Tina · ~2 min]\n• Skills load on demand — not on every message, not only when you type a slash.\n• Compare the cost: CLAUDE.md loads every turn (high) · slash command loads full body on call (medium) · skill = only the description is indexed, body loads when matched (low).\n• Example: 'Write the monthly affiliate report' → Claude matches the description → loads the skill → runs. You never typed a command.",
   "[Tina · ~2 min]\n• Rule of thumb: if you explain the same thing to Claude repeatedly — that's a skill waiting to be written.\n• Signals: re-describing PR feedback format, commit format, brand voice, or your audit method every single time.\n• Land it: 'Second time you say it — make it a skill.'",
-  "[Tina · ~2 min]\n• Three paths, most teams use all three: build yourself (right after an aha moment, ask Claude to codify it) · install from the Anthropic Plugin Directory · grab from the community on GitHub.\n• Your best skills will be ones you build — they encode YOUR way of working. 'Build · Install · Steal,' in that order of value.",
   "[Tina · ~2-3 min]\n• Skills are easy to write — easy to write BADLY. Five rules separate the two: sharp description · one job · names its inputs · short body + linked references · testable output.\n• Hammer #1: the description IS the trigger. 'Affiliate tool' → Claude never finds it.\n• Land it: 'The description is the trigger, the body is the recipe, references are the pantry — load only when cooking.'",
   "[Tina · ~2-3 min]\n• Agent = a specialist with its OWN whiteboard (fresh context). A markdown spec in .claude/agents/ with a role, tools, and instructions.\n• It spins up a subagent, does the work, returns only a summary — keeps YOUR context clean.\n• When: judgment work or heavy research that would burn your window ('why did traffic drop?', 'read these 20 files and brief me').",
   "[Tina · ~2 min]\n• Same base model — different role/tools/instructions. You decide.\n• Contrast the two cards: /linkedin-writer (learns from rejections, writes in Tina's voice, passes a 10-criteria eval) vs /writer (client-agnostic, adapts to the nearest CLAUDE.md).\n• Land it: 'Same base model — the orchestrator (you) is what makes the difference. Your agents won't look like anyone else's.'",
@@ -337,12 +332,12 @@
       </div>
       <div class="t-body" style="margin-top:64px;color:rgba(255,255,255,.55);">Tina Chu &nbsp; · &nbsp; Yaohong Chng</div>
     </div>
-    <div class="foot"><div>Tiket.com · B2B · TDD / Content · Marketing</div><div>1 / 48</div></div>
+    <div class="foot"><div>Tiket.com · B2B · TDD / Content · Marketing</div><div>1 / 47</div></div>
   </section>
 
   <!-- 1b · TRAINERS -->
   <section data-screen-label="01b Trainers" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>OPENING</span><span>2 / 48</span></div><div>Who's in the room</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>OPENING</span><span>2 / 47</span></div><div>Who's in the room</div></div>
     <div class="body gap-sm">
       <div class="t-title">Your trainers.</div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">Two operators who build and run agentic systems — daily, not in decks.</div>
@@ -383,12 +378,12 @@
         </div>
       </div>
     </div>
-    <div class="foot"><div>Novastacks AI × Superuser HQ</div><div>2 / 48</div></div>
+    <div class="foot"><div>Novastacks AI × Superuser HQ</div><div>2 / 47</div></div>
   </section>
 
   <!-- 1c · DISCUSSION · OPEN QUESTIONS -->
   <section data-screen-label="01c Discussion" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>OPENING</span><span>3 / 48</span></div><div>Open floor · a few voices</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>OPENING</span><span>3 / 47</span></div><div>Open floor · a few voices</div></div>
     <div class="body" style="justify-content:center;">
       <div class="t-eyebrow" style="margin-bottom:48px;">Before we go further — we want to hear from you</div>
 
@@ -410,12 +405,12 @@
         Take 2 minutes · we'll hear from a few voices
       </div>
     </div>
-    <div class="foot"><div></div><div>3 / 48</div></div>
+    <div class="foot"><div></div><div>3 / 47</div></div>
   </section>
 
   <!-- 1d · THE SHIFT IS ALREADY HAPPENING -->
   <section data-screen-label="01d The shift is here" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>OPENING</span><span>4 / 48</span></div><div>The shift is already happening</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>OPENING</span><span>4 / 47</span></div><div>The shift is already happening</div></div>
     <div class="body gap-sm">
       <div class="t-title">The shift of <em>agentic workflow</em> is happening.</div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">It's not coming — it's here. And the gap between adopters and everyone else is widening every quarter.</div>
@@ -468,12 +463,12 @@
         Sources · HubSpot AI Trends 2026 · McKinsey Global Survey · G2 Enterprise AI Agents Report · Averi State of AI Content Marketing 2026
       </div>
     </div>
-    <div class="foot"><div>Data: Q1–Q2 2026</div><div>4 / 48</div></div>
+    <div class="foot"><div>Data: Q1–Q2 2026</div><div>4 / 47</div></div>
   </section>
 
   <!-- 2 · THE ROLE HAS CHANGED -->
   <section data-screen-label="02 Role has changed" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 0 · Why we're here</span><span>5 / 48</span></div><div>Marketing functions are changing too</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 0 · Why we're here</span><span>5 / 47</span></div><div>Marketing functions are changing too</div></div>
     <div class="body gap-sm">
       <div class="t-title">The marketing functions start changing too.</div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">
@@ -508,12 +503,12 @@
         </div>
       </div>
     </div>
-    <div class="foot"><div></div><div>5 / 48</div></div>
+    <div class="foot"><div></div><div>5 / 47</div></div>
   </section>
 
   <!-- 3 · THIS IS / ISN'T -->
   <section data-screen-label="03 This is this isn't" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 0 · Why we're here</span><span>6 / 48</span></div><div>Framing</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 0 · Why we're here</span><span>6 / 47</span></div><div>Framing</div></div>
     <div class="body gap-md" style="justify-content:center;">
       <div class="t-title">What this 3 hours is about.</div>
       <div class="flex-row gap-md" style="margin-top:32px;justify-content:center;">
@@ -524,12 +519,12 @@
         </div>
       </div>
     </div>
-    <div class="foot"><div>Tina · lead</div><div>6 / 48</div></div>
+    <div class="foot"><div>Tina · lead</div><div>6 / 47</div></div>
   </section>
 
   <!-- 4 · AUTOMATION · AUGMENTATION · AGENCY -->
   <section data-screen-label="04 Automation Augmentation Agency" class="slide triad-cards">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>7 / 48</span></div><div>Automation · Augmentation · Agency</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>7 / 47</span></div><div>Automation · Augmentation · Agency</div></div>
     <div class="body gap-sm">
       <div class="t-title">Automation. Augmentation. <em>Agency.</em></div>
       <div class="t-subtitle" style="margin-top:8px;color:var(--muted);max-width:1800px;">Three modes — one AI. Knowing which to reach for is the whole job.</div>
@@ -597,12 +592,12 @@
         Automation runs the predictable. Augmentation boosts you in the moment. Agency runs while you sleep — because you configured it well.
       </div>
     </div>
-    <div class="foot"><div>Know when to reach for which — most of your work will use all three.</div><div>7 / 48</div></div>
+    <div class="foot"><div>Know when to reach for which — most of your work will use all three.</div><div>7 / 47</div></div>
   </section>
 
   <!-- 5a · THE CLAUDE PRODUCT MAP (infographic) -->
   <section data-screen-label="05a Claude feature map" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>8 / 48</span></div><div>The Claude product map</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>8 / 47</span></div><div>The Claude product map</div></div>
     <div class="body gap-sm">
       <div class="t-title">The Claude <em>product map.</em></div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">Ten surfaces. One shared brain. Today we dig into the ones in orange — but the rest are always one step away.</div>
@@ -614,12 +609,12 @@
              style="max-height:720px;width:auto;max-width:100%;border:1px solid rgba(20,18,16,.12);box-shadow:0 6px 22px rgba(20,18,16,.12);background:#fff;cursor:zoom-in;"/>
       </div>
     </div>
-    <div class="foot"><div></div><div>8 / 48</div></div>
+    <div class="foot"><div></div><div>8 / 47</div></div>
   </section>
 
   <!-- 5 · THREE HARNESSES -->
   <section data-screen-label="05 Three harnesses" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>9 / 48</span></div><div>Agentic workflow · 3 interfaces</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>9 / 47</span></div><div>Agentic workflow · 3 interfaces</div></div>
     <div class="body">
       <div class="t-title">For agentic workflow: Claude has 3 interfaces.<br/><span style="color:var(--muted);">Same brain — different doors in.</span></div>
 
@@ -653,12 +648,12 @@
         You already have Cowork. <span style="color:var(--ink);">Today is about where it stops and what's next.</span>
       </div>
     </div>
-    <div class="foot"><div></div><div>9 / 48</div></div>
+    <div class="foot"><div></div><div>9 / 47</div></div>
   </section>
 
   <!-- 5ab · HOW CODING ASSISTANTS WORK — the inner loop -->
   <section data-screen-label="05ab Coding assistants work" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>9b / 48</span></div><div>How a coding assistant actually works — the inner loop</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>10 / 47</span></div><div>How a coding assistant actually works — the inner loop</div></div>
     <div class="body gap-sm">
       <div class="t-title">How a coding assistant works. <span style="color:var(--muted);">The inner loop.</span></div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1750px;line-height:1.45;">
@@ -700,7 +695,7 @@
         </div>
       </div>
     </div>
-    <div class="foot"><div>The model thinks. The harness gives it hands.</div><div>9b / 48</div></div>
+    <div class="foot"><div>The model thinks. The harness gives it hands.</div><div>10 / 47</div></div>
   </section>
 
   <!-- ══════════════════════════════════════════════════════
@@ -709,7 +704,7 @@
 
   <!-- 5b2 · ARTIFACTS vs SKILLS -->
   <section data-screen-label="05b2 Artifacts vs skills" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>10 / 48</span></div><div>Artifacts vs. Skills · when to reach for which</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>11 / 47</span></div><div>Artifacts vs. Skills · when to reach for which</div></div>
     <div class="body gap-sm">
       <div class="t-title">Artifact <span style="color:var(--muted);">vs.</span> Skill.</div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1750px;">
@@ -742,12 +737,12 @@
         </div>
       </div>
     </div>
-    <div class="foot"><div>Artifact = the deliverable. Skill = the recipe. Pair them.</div><div>10 / 48</div></div>
+    <div class="foot"><div>Artifact = the deliverable. Skill = the recipe. Pair them.</div><div>11 / 47</div></div>
   </section>
 
   <!-- 5c · CLAUDE IN CHROME -->
   <section data-screen-label="05c Claude in Chrome" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>11 / 48</span></div><div>Claude in Chrome · the browser agent</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>12 / 47</span></div><div>Claude in Chrome · the browser agent</div></div>
     <div class="body gap-sm">
       <div class="t-title">Claude in Chrome.<span style="color:var(--muted);"> A browsing agent on your side.</span></div>
 
@@ -787,12 +782,12 @@
         The web was built for humans. Claude in Chrome lets an agent use it the same way you do.
       </div>
     </div>
-    <div class="foot"><div>Beta · Anthropic · Chrome only, requires Claude account.</div><div>11 / 48</div></div>
+    <div class="foot"><div>Beta · Anthropic · Chrome only, requires Claude account.</div><div>12 / 47</div></div>
   </section>
 
   <!-- 5d · TOOL USE — what makes an agent more than a chatbot -->
   <section data-screen-label="05d Tool use" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>11b / 48</span></div><div>Tool Use — how Claude does things, not just talks</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>13 / 47</span></div><div>Tool Use — how Claude does things, not just talks</div></div>
     <div class="body gap-sm">
       <div class="t-title">Tool Use. <span style="color:var(--muted);">What turns a chatbot into something that can <em>do</em> things.</span></div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1800px;line-height:1.4;">
@@ -840,12 +835,12 @@
         <strong>Same brain. Different toolboxes.</strong> Cowork's is closed and curated. Code's is open — any API is fair game.
       </div>
     </div>
-    <div class="foot"><div>If the tool has an API, Code can use it. If it doesn't, you reach for the browser.</div><div>11b / 48</div></div>
+    <div class="foot"><div>If the tool has an API, Code can use it. If it doesn't, you reach for the browser.</div><div>13 / 47</div></div>
   </section>
 
   <!-- 6 · CONNECTORS vs MCP vs PLUGINS -->
   <section data-screen-label="06 Connectors vs MCP vs plugins" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>12 / 48</span></div><div>Three words people confuse</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>14 / 47</span></div><div>Three words people confuse</div></div>
     <div class="body gap-sm">
       <div class="t-title">Connectors. MCP. Plugins.</div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1500px;">Two kinds of integrations — and one way to package them.</div>
@@ -873,12 +868,12 @@
         <span style="color:var(--accent);">*</span> Team-shared plugins &amp; private plugin marketplace require an Anthropic Team subscription.
       </div>
     </div>
-    <div class="foot"><div></div><div>12 / 48</div></div>
+    <div class="foot"><div></div><div>14 / 47</div></div>
   </section>
 
   <!-- 6b · MCP IN ACTION — MARKETER FLOW -->
   <section data-screen-label="06aa MCP in action" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>12b / 48</span></div><div>MCP in action — how a marketer actually uses it</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>15 / 47</span></div><div>MCP in action — how a marketer actually uses it</div></div>
     <div class="body gap-sm">
       <div class="t-title">MCP in action. <span style="color:var(--muted);">A marketer's prompt → MCP tool call → answer.</span></div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1750px;">
@@ -927,12 +922,12 @@
         Same Cowork chat box you already use. MCP just connects it to your real data — so Claude stops guessing.
       </div>
     </div>
-    <div class="foot"><div>Without MCP: Claude can only answer from what you paste. With MCP: it pulls live data on its own.</div><div>12b / 48</div></div>
+    <div class="foot"><div>Without MCP: Claude can only answer from what you paste. With MCP: it pulls live data on its own.</div><div>15 / 47</div></div>
   </section>
 
   <!-- 6a · WHERE CONNECTORS LIVE -->
   <section data-screen-label="06a Where connectors live" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>13 / 48</span></div><div>Where Connectors live</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>16 / 47</span></div><div>Where Connectors live</div></div>
     <div class="body gap-sm">
       <div class="t-title">Connectors.</div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">
@@ -943,12 +938,12 @@
              style="max-width:1500px;max-height:720px;width:auto;height:auto;border:1.5px solid var(--ink);box-shadow:0 8px 24px rgba(20,18,16,.12);"/>
       </div>
     </div>
-    <div class="foot"><div>Anthropic-maintained. One click to install.</div><div>13 / 48</div></div>
+    <div class="foot"><div>Anthropic-maintained. One click to install.</div><div>16 / 47</div></div>
   </section>
 
   <!-- 6b · WHERE PLUGINS LIVE -->
   <section data-screen-label="06b Where plugins live" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>14 / 48</span></div><div>Where Plugins live</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>17 / 47</span></div><div>Where Plugins live</div></div>
     <div class="body gap-sm">
       <div class="t-title">Plugins.</div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1800px;">
@@ -968,14 +963,14 @@
         </div>
       </div>
     </div>
-    <div class="foot"><div>Bundle of skills, commands, agents. Install, organize, share.</div><div>14 / 48</div></div>
+    <div class="foot"><div>Bundle of skills, commands, agents. Install, organize, share.</div><div>17 / 47</div></div>
   </section>
 
   <!-- SKILL SECTION -->
 
   <!-- 07a · WHAT IS A SKILL -->
   <section data-screen-label="07a What is a skill" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>15 / 48</span></div><div>What is a skill</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>18 / 47</span></div><div>What is a skill</div></div>
     <div class="body gap-sm" style="justify-content:center;">
       <div class="t-eyebrow">Anthropic · Agent Skills</div>
       <div class="t-title" style="max-width:1800px;margin-top:14px;">
@@ -1009,12 +1004,12 @@
         <span style="color:rgba(255,255,255,.9);">## Steps<br/>1. Research · 2. Outline · 3. Draft · …</span>
       </div>
     </div>
-    <div class="foot"><div>Source: anthropic.skilljar.com/introduction-to-agent-skills</div><div>15 / 48</div></div>
+    <div class="foot"><div>Source: anthropic.skilljar.com/introduction-to-agent-skills</div><div>18 / 47</div></div>
   </section>
 
   <!-- 07a1a · ANATOMY OF A SKILL -->
   <section data-screen-label="07a1a Anatomy" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>16 / 48</span></div><div>Anatomy of a skill</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>19 / 47</span></div><div>Anatomy of a skill</div></div>
     <div class="body gap-sm">
       <div class="t-title">Anatomy of a <em>skill.</em></div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1800px;">One required file. Three optional folders. Each adds leverage <em>only when you need it.</em></div>
@@ -1037,12 +1032,12 @@
         </div>
       </div>
     </div>
-    <div class="foot"><div>Source: thisweb.dev/post/agent-skill · Anthropic docs</div><div>16 / 48</div></div>
+    <div class="foot"><div>Source: thisweb.dev/post/agent-skill · Anthropic docs</div><div>19 / 47</div></div>
   </section>
 
   <!-- 07a1b · SKILL.md — THE OPERATION MANUAL -->
   <section data-screen-label="07a1b SKILL.md" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>17 / 48</span></div><div>SKILL.md — the operation manual</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>20 / 47</span></div><div>SKILL.md — the operation manual</div></div>
     <div class="body gap-sm">
       <div class="t-title"><span class="t-mono" style="font-size:72px;">SKILL.md</span><span style="color:var(--muted);"> — the operation manual.</span></div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1800px;">Three sections answer <em>when</em>, <em>how</em>, and <em>what</em>.</div>
@@ -1072,175 +1067,15 @@
         <span style="color:rgba(255,255,255,.9);">## Trigger<br/>User provides a prospect domain or company name.<br/><br/>## Workflow<br/>1. Fetch domain metrics (scripts/pull-seo.sh)<br/>2. Score against AEO rubric (references/aeo-scoring.md)<br/>3. Draft brief (assets/brief-template.md)<br/><br/>## Output<br/>A one-page markdown brief with recommendations.</span>
       </div>
     </div>
-    <div class="foot"><div>Only SKILL.md is required. Everything else is optional — add when the skill needs it.</div><div>17 / 48</div></div>
-  </section>
-
-  <!-- 07a1c · references/ FOLDER -->
-  <section data-screen-label="07a1c References folder" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>18 / 48</span></div><div>references/ · progressive disclosure</div></div>
-    <div class="body gap-sm">
-      <div class="t-title"><span class="t-mono" style="font-size:68px;">references/</span><span style="color:var(--muted);">  — the rulebook.</span></div>
-      <div class="t-subtitle" style="color:var(--muted);max-width:1800px;">Standards, guidelines, rubrics. Loaded on demand — not on every session.</div>
-
-      <div class="flex-row gap-md" style="margin-top:30px;align-items:stretch;">
-        <div class="grow" style="padding:26px 30px;background:var(--paper-2);border-left:4px solid var(--accent);">
-          <div class="t-eyebrow" style="color:var(--accent);margin-bottom:12px;">What goes here</div>
-          <div class="t-body" style="line-height:1.4;">
-            Formatting rules, naming conventions, writing style guides, scoring rubrics, compliance standards, brand voice, eval criteria.
-          </div>
-        </div>
-        <div class="grow" style="padding:26px 30px;background:var(--paper-2);border-left:4px solid var(--sage);">
-          <div class="t-eyebrow" style="color:var(--sage);margin-bottom:12px;">Why it helps</div>
-          <div class="t-body" style="line-height:1.4;">
-            <strong>Progressive disclosure.</strong> Claude reads the file <em>only when the workflow references it</em> — not on every session.
-          </div>
-          <div class="t-small" style="margin-top:10px;color:var(--muted);line-height:1.4;">
-            Saves a huge chunk of your context window for the actual work.
-          </div>
-        </div>
-        <div class="grow" style="padding:26px 30px;background:var(--paper-2);border-left:4px solid var(--good);">
-          <div class="t-eyebrow" style="color:var(--good);margin-bottom:12px;">Example</div>
-          <div class="t-body" style="line-height:1.4;">
-            <span class="t-mono-sm">references/aeo-scoring.md</span> — the 2-axis rubric (Site Readiness + LLM Visibility) + weights + score interpretation.
-          </div>
-          <div class="t-small" style="margin-top:10px;color:var(--muted);line-height:1.4;">
-            SKILL.md says "score it." references/ says how.
-          </div>
-        </div>
-      </div>
-
-      <div class="t-body" style="margin-top:22px;max-width:1800px;font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;color:var(--muted);">
-        Put the <em>rules</em> in references/. Keep SKILL.md focused on the <em>flow</em>.
-      </div>
-    </div>
-    <div class="foot"><div>Context-cheap. Rule-rich. Loaded only when the workflow asks for it.</div><div>18 / 48</div></div>
-  </section>
-
-  <!-- 07a1d · scripts/ FOLDER -->
-  <section data-screen-label="07a1d Scripts folder" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>19 / 48</span></div><div>scripts/ · executable automation</div></div>
-    <div class="body gap-sm">
-      <div class="t-title"><span class="t-mono" style="font-size:68px;">scripts/</span><span style="color:var(--muted);">  — the hands.</span></div>
-      <div class="t-subtitle" style="color:var(--muted);max-width:1800px;">Bash, Python, anything runnable. Fetches data, runs checks, compiles output — <em>without burning the context window.</em></div>
-
-      <div class="flex-row gap-md" style="margin-top:30px;align-items:stretch;">
-        <div class="grow" style="padding:26px 30px;background:var(--paper-2);border-left:4px solid var(--accent);">
-          <div class="t-eyebrow" style="color:var(--accent);margin-bottom:12px;">What goes here</div>
-          <div class="t-body" style="line-height:1.4;">
-            Shell scripts, Python utilities, anything that can run on the command line. Data collection, validation, rendering, deployment.
-          </div>
-        </div>
-        <div class="grow" style="padding:26px 30px;background:var(--paper-2);border-left:4px solid var(--sage);">
-          <div class="t-eyebrow" style="color:var(--sage);margin-bottom:12px;">Why it helps</div>
-          <div class="t-body" style="line-height:1.4;">
-            Scripts <strong>execute — not get read into context</strong>. Claude sees only the output, not the 400 lines of Python.
-          </div>
-          <div class="t-small" style="margin-top:10px;color:var(--muted);line-height:1.4;">
-            Deterministic where it should be. Reasoning where it needs to be.
-          </div>
-        </div>
-        <div class="grow" style="padding:26px 30px;background:var(--paper-2);border-left:4px solid var(--good);">
-          <div class="t-eyebrow" style="color:var(--good);margin-bottom:12px;">Example</div>
-          <div class="t-body" style="line-height:1.4;">
-            <span class="t-mono-sm">scripts/pull-seo.sh</span> — queries DataForSEO, fetches domain rating, saves JSON to <span class="t-mono-sm">raw/</span>.
-          </div>
-          <div class="t-small" style="margin-top:10px;color:var(--muted);line-height:1.4;">
-            Claude runs it, reads the summary, proceeds.
-          </div>
-        </div>
-      </div>
-
-      <div class="t-body" style="margin-top:22px;max-width:1800px;font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;color:var(--muted);">
-        Code that <em>runs</em> in bash costs zero context. Prose that Claude has to <em>read</em> costs a lot.
-      </div>
-    </div>
-    <div class="foot"><div>Use scripts for the parts that are deterministic. Save context for judgment.</div><div>19 / 48</div></div>
-  </section>
-
-  <!-- 07a1e · assets/ FOLDER -->
-  <section data-screen-label="07a1e Assets folder" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>20 / 48</span></div><div>assets/ · templates &amp; samples</div></div>
-    <div class="body gap-sm">
-      <div class="t-title"><span class="t-mono" style="font-size:68px;">assets/</span><span style="color:var(--muted);">  — the reference shelf.</span></div>
-      <div class="t-subtitle" style="color:var(--muted);max-width:1800px;">Templates, sample outputs, fonts, icons — anything Claude should <em>imitate</em> or <em>drop in</em>.</div>
-
-      <div class="flex-row gap-md" style="margin-top:30px;align-items:stretch;">
-        <div class="grow" style="padding:26px 30px;background:var(--paper-2);border-left:4px solid var(--accent);">
-          <div class="t-eyebrow" style="color:var(--accent);margin-bottom:12px;">What goes here</div>
-          <div class="t-body" style="line-height:1.4;">
-            Output templates, example deliverables, logo files, fonts, icons, sample reports. "Here's what 'done' looks like."
-          </div>
-        </div>
-        <div class="grow" style="padding:26px 30px;background:var(--paper-2);border-left:4px solid var(--sage);">
-          <div class="t-eyebrow" style="color:var(--sage);margin-bottom:12px;">Why it helps</div>
-          <div class="t-body" style="line-height:1.4;">
-            Claude can <strong>match</strong> a reference sample instead of inventing from scratch. Consistent output, less drift.
-          </div>
-          <div class="t-small" style="margin-top:10px;color:var(--muted);line-height:1.4;">
-            Also loaded only when needed — templates don't cost you on every session.
-          </div>
-        </div>
-        <div class="grow" style="padding:26px 30px;background:var(--paper-2);border-left:4px solid var(--good);">
-          <div class="t-eyebrow" style="color:var(--good);margin-bottom:12px;">Example</div>
-          <div class="t-body" style="line-height:1.4;">
-            <span class="t-mono-sm">assets/brief-template.md</span> — one-page prospect brief template with all sections Claude needs to fill.
-          </div>
-          <div class="t-small" style="margin-top:10px;color:var(--muted);line-height:1.4;">
-            <span class="t-mono-sm">assets/logo.png</span>, <span class="t-mono-sm">assets/brand.ttf</span> — design skills need them too.
-          </div>
-        </div>
-      </div>
-
-      <div class="t-body" style="margin-top:22px;max-width:1800px;font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;color:var(--muted);">
-        Show, don't describe. A template teaches the format in one look.
-      </div>
-    </div>
-    <div class="foot"><div>references/ = rules · scripts/ = hands · assets/ = the mirror for output.</div><div>20 / 48</div></div>
-  </section>
-
-  <!-- 07a2 · WHERE SKILLS LIVE -->
-  <section data-screen-label="07a2 Where skills live" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>21 / 48</span></div><div>Where are your skills?</div></div>
-    <div class="body gap-sm">
-      <div class="t-title">Where are your <em>skills?</em></div>
-      <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">Four levels. Each has its own scope and its own audience.</div>
-
-      <table class="k compact" style="margin-top:28px;font-size:22px;">
-        <thead>
-          <tr><th style="width:28%">Location</th><th style="width:30%">Path</th><th>Scope</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="label" style="color:var(--accent);">Personal</td><td><span class="t-mono">~/.claude/skills/</span></td><td class="new">Follows you across <strong>all projects</strong>. Your private library.</td></tr>
-          <tr><td class="label" style="color:var(--sage);">Project</td><td><span class="t-mono">.claude/skills/</span></td><td class="new">Lives inside a repo. <strong>Shared with anyone who clones it.</strong></td></tr>
-          <tr><td class="label">Plugin</td><td>Marketplace / GitHub</td><td class="old">Bundled distribution. Install once, skill appears in your library.</td></tr>
-          <tr><td class="label">Enterprise</td><td>Managed settings</td><td class="old">Pushed org-wide by IT. Everyone in the company gets the same skill set.</td></tr>
-        </tbody>
-      </table>
-
-      <div class="t-body" style="margin-top:22px;max-width:1750px;font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;color:var(--muted);">
-        Rule of thumb — if <em>only you</em> need it, put it personal. If your <em>team</em> needs it, commit it to the project.
-      </div>
-    </div>
-    <div class="foot"><div>Personal for experiments · Project for standards · Plugin for share · Enterprise for governance.</div><div>21 / 48</div></div>
+    <div class="foot"><div>Only SKILL.md is required. Everything else is optional — add when the skill needs it.</div><div>20 / 47</div></div>
   </section>
 
   <!-- 07a3 · HOW TO INVOKE A SKILL -->
   <section data-screen-label="07a3 How to invoke" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>22 / 48</span></div><div>How to invoke a skill</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>21 / 47</span></div><div>How to invoke a skill</div></div>
     <div class="body gap-sm">
       <div class="t-title">How a skill <em>activates.</em></div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1800px;">Skills load <em>on demand</em> — not on every message, not only when you type a slash.</div>
-
-      <table class="k compact" style="margin-top:28px;font-size:22px;">
-        <thead>
-          <tr><th style="width:26%"></th><th style="color:var(--muted);">Loads when…</th><th style="color:var(--muted);">Cost</th></tr>
-        </thead>
-        <tbody>
-          <tr><td class="label"><span class="t-mono">CLAUDE.md</span></td><td class="old">Every conversation, always</td><td class="old">High — costs context every turn</td></tr>
-          <tr><td class="label">Slash command</td><td class="old">You type <span class="t-mono-sm">/name</span> explicitly</td><td class="old">Medium — full body loads on call</td></tr>
-          <tr><td class="label" style="color:var(--accent);">Skill</td><td class="new"><strong>Automatically</strong>, when Claude recognises the situation from your prompt</td><td class="new">Low — only the description is indexed; body loads <em>only when needed</em></td></tr>
-        </tbody>
-      </table>
 
       <div style="margin-top:24px;padding:20px 28px;background:var(--paper-2);border-left:3px solid var(--accent);max-width:1800px;">
         <div class="t-body-lg" style="line-height:1.4;">
@@ -1250,12 +1085,12 @@
         </div>
       </div>
     </div>
-    <div class="foot"><div>The description is the trigger. Write it so Claude can find it.</div><div>22 / 48</div></div>
+    <div class="foot"><div>The description is the trigger. Write it so Claude can find it.</div><div>21 / 47</div></div>
   </section>
 
   <!-- 07a4 · WHEN TO USE A SKILL -->
   <section data-screen-label="07a4 When to use" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>23 / 48</span></div><div>When to use a skill</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>22 / 47</span></div><div>When to use a skill</div></div>
     <div class="body gap-sm" style="justify-content:center;">
       <div class="t-eyebrow">Rule of thumb</div>
       <div class="t-title" style="max-width:1800px;margin-top:16px;">
@@ -1288,75 +1123,12 @@
         Second time you say it — make it a skill.
       </div>
     </div>
-    <div class="foot"><div>Source: Anthropic Academy · Introduction to Agent Skills</div><div>23 / 48</div></div>
-  </section>
-
-  <!-- 07b · HOW TO GET SKILLS -->
-  <section data-screen-label="07b How to get skills" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>24 / 48</span></div><div>How to get skills</div></div>
-    <div class="body gap-sm">
-      <div class="t-title">Where skills come from.</div>
-      <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">Three paths. Most teams use all three.</div>
-
-      <div class="flex-row gap-md" style="margin-top:28px;align-items:stretch;">
-        <!-- Path 1: Build yourself -->
-        <div style="flex:1;padding:26px 28px;background:var(--paper-2);border-left:4px solid var(--accent);display:flex;flex-direction:column;">
-          <div class="t-eyebrow" style="color:var(--accent);margin-bottom:12px;">01 · Build yourself</div>
-          <div class="t-body" style="line-height:1.4;">
-            Right after an <em>aha moment</em> — the monthly dashboard, the report you just nailed — ask Claude to codify it.
-          </div>
-          <div style="margin-top:14px;padding:12px 14px;background:var(--ink);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:15px;line-height:1.5;border-radius:2px;">
-            <span style="color:var(--accent-soft);">you →</span> "Build what we just did into a skill and a slash command."<br/>
-            <span style="color:rgba(255,255,255,.55);">claude →</span> <span style="color:#8CC196;">✓ skills/affiliate-report.md</span><br/>
-            <span style="color:rgba(255,255,255,.55);">claude →</span> <span style="color:#8CC196;">✓ commands/affiliate-report.md</span>
-          </div>
-          <div class="t-small" style="margin-top:12px;color:var(--muted);line-height:1.4;">
-            Next month? <span class="t-mono">/affiliate-report update to this month</span>. Done in seconds.
-          </div>
-        </div>
-
-        <!-- Path 2: Anthropic marketplace -->
-        <div style="flex:1;padding:26px 28px;background:var(--paper-2);border-left:4px solid var(--sage);display:flex;flex-direction:column;">
-          <div class="t-eyebrow" style="color:var(--sage);margin-bottom:12px;">02 · Install from Anthropic</div>
-          <div class="t-body" style="line-height:1.4;">
-            Open the <strong>Plugin Directory</strong> — Anthropic &amp; Partners ship curated plugins, each bundling skills, commands, and agents.
-          </div>
-          <div class="t-mono" style="margin-top:12px;color:var(--muted);font-size:15px;letter-spacing:.04em;line-height:1.7;">
-            Desktop app → Customize → Personal plugins → <span style="color:var(--accent);">+</span>
-          </div>
-          <div class="t-small" style="margin-top:12px;color:var(--muted);line-height:1.4;">
-            <strong>Already in the Directory:</strong> Marketing, Data, Finance, Design, Operations, Brand voice — each ships 6–10 skills.
-          </div>
-        </div>
-
-        <!-- Path 3: Community -->
-        <div style="flex:1;padding:26px 28px;background:var(--paper-2);border-left:4px solid var(--good);display:flex;flex-direction:column;">
-          <div class="t-eyebrow" style="color:var(--good);margin-bottom:12px;">03 · From the community</div>
-          <div class="t-body" style="line-height:1.4;">
-            Developers share skills on <strong>GitHub</strong>. Clone, drop into <span class="t-mono-sm">~/.claude/skills/</span>, done.
-          </div>
-          <div class="flex-col" style="margin-top:12px;gap:6px;font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--ink);letter-spacing:.02em;">
-            <div style="color:var(--muted);">github.com/…</div>
-            <div><span style="color:var(--accent);">anthropics/claude-code</span>/plugins</div>
-            <div><span style="color:var(--accent);">hesreallyhim/awesome-claude-skills</span></div>
-            <div><span style="color:var(--accent);">obra/superpowers</span></div>
-          </div>
-          <div class="t-small" style="margin-top:12px;color:var(--muted);line-height:1.4;">
-            Read the skill before installing. Same file format either way — just Markdown with frontmatter.
-          </div>
-        </div>
-      </div>
-
-      <div class="t-body" style="margin-top:20px;max-width:1750px;font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;color:var(--muted);">
-        Your best skills will be ones you build yourself — because they encode <em>your</em> way of working.
-      </div>
-    </div>
-    <div class="foot"><div>Build · Install · Steal — in that order of value to your team.</div><div>24 / 48</div></div>
+    <div class="foot"><div>Source: Anthropic Academy · Introduction to Agent Skills</div><div>22 / 47</div></div>
   </section>
 
   <!-- 07c · WHAT MAKES A GOOD SKILL -->
   <section data-screen-label="07c What makes a good skill" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>25 / 48</span></div><div>What makes a good skill</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>23 / 47</span></div><div>What makes a good skill</div></div>
     <div class="body gap-sm">
       <div class="t-title">What makes a <em>good</em> skill.</div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">Skills are easy to write. Easy to write <em>badly</em>. Five rules separate the two.</div>
@@ -1398,12 +1170,12 @@
         The description is the trigger. The body is the recipe. References are the pantry — load only when cooking.
       </div>
     </div>
-    <div class="foot"><div>A good skill you wrote once → your team runs forever.</div><div>25 / 48</div></div>
+    <div class="foot"><div>A good skill you wrote once → your team runs forever.</div><div>23 / 47</div></div>
   </section>
 
   <!-- 07 · WHAT IS AN AGENT -->
   <section data-screen-label="07 What is an agent" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>26 / 48</span></div><div>Agent</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>24 / 47</span></div><div>Agent</div></div>
     <div class="body gap-sm">
       <div class="t-title">Agent. <span style="color:var(--muted);">A specialist with its own whiteboard.</span></div>
 
@@ -1445,12 +1217,12 @@
         <span style="color:rgba(255,255,255,.9);">You are a senior marketing analyst. Your job is to …</span>
       </div>
     </div>
-    <div class="foot"><div>Agent = specialist with its own context. Delegates, returns, stays clean.</div><div>26 / 48</div></div>
+    <div class="foot"><div>Agent = specialist with its own context. Delegates, returns, stays clean.</div><div>24 / 47</div></div>
   </section>
 
   <!-- 07e · NOT ALL AGENTS ARE THE SAME -->
   <section data-screen-label="07e Agents differ" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>27 / 48</span></div><div>Not all agents are the same</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>25 / 47</span></div><div>Not all agents are the same</div></div>
     <div class="body gap-sm">
       <div class="t-title">Not all agents are the same.</div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">Same base model. Different <em>role</em>, <em>tools</em>, <em>instructions</em> — you decide.</div>
@@ -1509,12 +1281,12 @@
         Same base model. Different scope, different tools, different instructions — <strong style="color:var(--accent);">the orchestrator (you)</strong> is what makes the difference.
       </div>
     </div>
-    <div class="foot"><div>An agent is the spec YOU write. Your agents won't look like anyone else's.</div><div>27 / 48</div></div>
+    <div class="foot"><div>An agent is the spec YOU write. Your agents won't look like anyone else's.</div><div>25 / 47</div></div>
   </section>
 
   <!-- 07d · SKILL vs AGENT — WHEN TO REACH FOR WHICH -->
   <section data-screen-label="07d Skill vs agent" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>28 / 48</span></div><div>Skill vs. Agent</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>26 / 47</span></div><div>Skill vs. Agent</div></div>
     <div class="body gap-sm">
       <div class="t-title">Skill <span style="color:var(--muted);">vs.</span> Agent.</div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">Two different tools. Knowing when to reach for which is the whole game.</div>
@@ -1539,12 +1311,12 @@
         If you need <em>judgment</em> or would dump <em>a lot of files</em> into your window, it's an <strong style="color:var(--accent);">agent</strong>.
       </div>
     </div>
-    <div class="foot"><div>Skills codify procedures. Agents handle judgment and research.</div><div>28 / 48</div></div>
+    <div class="foot"><div>Skills codify procedures. Agents handle judgment and research.</div><div>26 / 47</div></div>
   </section>
 
   <!-- 7b · SECTION DIVIDER — DEMOS -->
   <section data-screen-label="07b Demos divider" class="slide accent">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 2 · Live demos</span><span>29 / 48</span></div><div>Agentic workflow · live</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 2 · Live demos</span><span>27 / 47</span></div><div>Agentic workflow · live</div></div>
     <div class="body" style="justify-content:center;align-items:flex-start;">
       <div class="t-eyebrow" style="color:rgba(255,255,255,.7);margin-bottom:28px;">Three live demos · agentic workflow</div>
       <div class="hero-title" style="color:#F8F2EA;font-family:'Instrument Serif',serif;font-size:260px;line-height:.95;letter-spacing:-.02em;">Demos.</div>
@@ -1559,12 +1331,12 @@
         <div>03 · Video ad pipeline</div>
       </div>
     </div>
-    <div class="foot"><div></div><div>29 / 48</div></div>
+    <div class="foot"><div></div><div>27 / 47</div></div>
   </section>
 
   <!-- 8 · DEMO 1 · INFLUENCER RESEARCH -->
   <section data-screen-label="08 Demo 1 influencer research" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 2 · Live demos</span><span>30 / 48</span></div><div>Both tools work</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 2 · Live demos</span><span>28 / 47</span></div><div>Both tools work</div></div>
     <div class="body gap-sm">
       <div class="t-eyebrow">When either works · same prompt, same quality output</div>
       <div class="t-title-sm" style="max-width:1700px;">"Find premium travel influencers for the Indonesian market on Instagram. Record profile, metrics, URL, contact — in a Google Sheet."</div>
@@ -1596,12 +1368,12 @@
         Same brain. Different harness. Different result.
       </div>
     </div>
-    <div class="foot"><div>The difference is MCP.</div><div>30 / 48</div></div>
+    <div class="foot"><div>The difference is MCP.</div><div>28 / 47</div></div>
   </section>
 
   <!-- 9 · DEMO 2 · GSC ANALYSIS -->
   <section data-screen-label="09 Demo 2 GSC" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 2 · Live demos</span><span>31 / 48</span></div><div>Google Search Console · period-over-period</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 2 · Live demos</span><span>29 / 47</span></div><div>Google Search Console · period-over-period</div></div>
     <div class="body gap-sm">
       <div class="t-eyebrow">Same prompt · both tools</div>
       <div class="t-title-sm" style="max-width:1700px;">"Call GSC. Analyze user queries and page performance period-over-period for Grant SG. First two weeks of April vs. prior two weeks."</div>
@@ -1631,12 +1403,12 @@
         You're not limited to what Anthropic pre-builds. <em>You connect what you need.</em>
       </div>
     </div>
-    <div class="foot"><div></div><div>31 / 48</div></div>
+    <div class="foot"><div></div><div>29 / 47</div></div>
   </section>
 
   <!-- 10 · DEMO 3 · VIDEO AD PIPELINE -->
   <section data-screen-label="10 Demo 3 video ad" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 2 · Live demos</span><span>32 / 48</span></div><div>Video ad pipeline · HeyGen / Seedance</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 2 · Live demos</span><span>30 / 47</span></div><div>Video ad pipeline · HeyGen / Seedance</div></div>
     <div class="body gap-sm">
       <div class="t-eyebrow">Same prompt · both tools</div>
       <div class="t-title-sm" style="max-width:1750px;">"Create a TikTok ad for this Tiket activity page. Local-looking avatar, real photos, VO throughout. Walk me through the plan first."</div>
@@ -1670,7 +1442,7 @@
         Advisor → operating system. That is the shift.
       </div>
     </div>
-    <div class="foot"><div></div><div>32 / 48</div></div>
+    <div class="foot"><div></div><div>30 / 47</div></div>
   </section>
 
   <!-- ══════════════════════════════════════════════════════
@@ -1679,7 +1451,7 @@
 
   <!-- BREAKOUT — BUILD YOUR OWN -->
   <section data-screen-label="Breakout build" class="slide accent">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>BREAKOUT · build</span><span>33 / 48</span></div><div>Build a skill or agent</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>BREAKOUT · build</span><span>31 / 47</span></div><div>Build a skill or agent</div></div>
     <div class="body" style="justify-content:center;align-items:flex-start;">
       <div class="t-eyebrow" style="color:rgba(255,255,255,.75);margin-bottom:20px;">Breakout · 30 min · show &amp; sell</div>
       <div class="hero-title" style="color:#F8F2EA;font-family:'Instrument Serif',serif;font-size:200px;line-height:.95;letter-spacing:-.02em;">Build one.</div>
@@ -1711,23 +1483,23 @@
         <div style="color:#F8F2EA;">1 demo per team after</div>
       </div>
     </div>
-    <div class="foot"><div>Breakout rooms · 4 per team</div><div>33 / 48</div></div>
+    <div class="foot"><div>Breakout rooms · 4 per team</div><div>31 / 47</div></div>
   </section>
 
   <!-- BREAK -->
   <section data-screen-label="Break" class="slide sage">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>BREAK</span><span>34 / 48</span></div><div>10 min</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>BREAK</span><span>32 / 47</span></div><div>10 min</div></div>
     <div class="body" style="justify-content:center;align-items:center;">
       <div class="mark" style="margin-bottom:48px;">Interlude</div>
       <div class="hero-title" style="color:#F3EEE5;font-size:280px;">Break.</div>
       <div class="t-subtitle" style="margin-top:48px;color:rgba(255,255,255,.85);">Back in 10. Section 2 is the important one.</div>
     </div>
-    <div class="foot"><div></div><div>34 / 48</div></div>
+    <div class="foot"><div></div><div>32 / 47</div></div>
   </section>
 
   <!-- SHOW & TELL — POST-BREAK DEMOS -->
   <section data-screen-label="Show and tell" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SHOW & TELL</span><span>35 / 48</span></div><div>Show &amp; tell · one team at a time</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SHOW & TELL</span><span>33 / 47</span></div><div>Show &amp; tell · one team at a time</div></div>
     <div class="body" style="justify-content:center;align-items:flex-start;">
       <div class="t-eyebrow" style="margin-bottom:20px;">Show &amp; tell</div>
       <div class="t-title">One team at a time.<br/><span style="color:var(--muted);">Two minutes. One skill or agent.</span></div>
@@ -1759,12 +1531,12 @@
         The best skills and agents get their shape from real feedback — not from the first draft.
       </div>
     </div>
-    <div class="foot"><div>Pick volunteer, ≤ 2 min per team, live critique from Tina &amp; Yaohong.</div><div>35 / 48</div></div>
+    <div class="foot"><div>Pick volunteer, ≤ 2 min per team, live critique from Tina &amp; Yaohong.</div><div>33 / 47</div></div>
   </section>
 
   <!-- 11 · THE .CLAUDE/ FOLDER -->
   <section data-screen-label="11 The claude folder" class="slide dark">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>36 / 48</span></div><div>Business context, persistent</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>34 / 47</span></div><div>Business context, persistent</div></div>
     <div class="body gap-sm">
       <div class="t-title" style="color:var(--paper);">Enabling business context to the LLM brain.<br/><span style="color:rgba(255,255,255,.6);">Persistently.</span></div>
       <div class="t-subtitle" style="color:rgba(255,255,255,.7);max-width:1700px;">A structured folder is how Claude boots into your voice, your rules, your playbooks — every session, no re-briefing.</div>
@@ -1803,7 +1575,7 @@
         </div>
       </div>
     </div>
-    <div class="foot"><div></div><div>36 / 48</div></div>
+    <div class="foot"><div></div><div>34 / 47</div></div>
   </section>
 
   <!-- ══════════════════════════════════════════════════════
@@ -1813,7 +1585,7 @@
   <!-- 14 · CONTEXT WINDOW -->
   <!-- 14a · CONTEXT WINDOW · WHAT IT IS -->
   <section data-screen-label="14a Context window — what it is" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>37 / 48</span></div><div>What it is</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>35 / 47</span></div><div>What it is</div></div>
     <div class="body gap-sm">
       <div class="t-eyebrow">The question it answers</div>
       <div class="t-title-sm" style="max-width:1700px;color:var(--accent);font-style:italic;">
@@ -1846,12 +1618,12 @@
         </div>
       </div>
     </div>
-    <div class="foot"><div>The mental model: a working memory, not a brain.</div><div>37 / 48</div></div>
+    <div class="foot"><div>The mental model: a working memory, not a brain.</div><div>35 / 47</div></div>
   </section>
 
   <!-- 14a.5 · SIGNS YOUR CONTEXT IS CONGESTED (moved up) -->
   <section data-screen-label="14a2 Congestion signs" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>38 / 48</span></div><div>How you know it's rotting</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>36 / 47</span></div><div>How you know it's rotting</div></div>
     <div class="body gap-sm">
       <div class="t-title">Signs your context is <em>congested.</em></div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">If you see these — adding <em>more</em> instructions won't fix it. Offload or reset.</div>
@@ -1874,12 +1646,12 @@
         Your instinct is to repeat yourself. <span style="color:var(--accent);">Don't.</span> Reset or offload — then continue.
       </div>
     </div>
-    <div class="foot"><div>Symptom ≠ bug. It's context physics.</div><div>38 / 48</div></div>
+    <div class="foot"><div>Symptom ≠ bug. It's context physics.</div><div>36 / 47</div></div>
   </section>
 
   <!-- 14b · CONTEXT WINDOW — INFOGRAPHIC INTO CLAUDE'S BRAIN -->
   <section data-screen-label="14b Brain infographic" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>39 / 48</span></div><div>Everything flows into one brain</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>37 / 47</span></div><div>Everything flows into one brain</div></div>
     <div class="body gap-sm">
       <div class="t-title">Everything goes <em>into one brain.</em></div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">Each source below lands on Claude's working memory for the session — and it all shares the same 1M ceiling.</div>
@@ -1952,12 +1724,12 @@
         One big MCP call + a long PDF + a 20-turn chat = <strong style="color:var(--bad);">30–40% of your window, gone.</strong> And accuracy drops long before that.
       </div>
     </div>
-    <div class="foot"><div>Everything above shares one budget. Curate what enters the brain.</div><div>39 / 48</div></div>
+    <div class="foot"><div>Everything above shares one budget. Curate what enters the brain.</div><div>37 / 47</div></div>
   </section>
 
   <!-- 14c · WHAT COUNTS TOWARD YOUR WINDOW -->
   <section data-screen-label="14c What counts toward window" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>40 / 48</span></div><div>What counts toward your window</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>38 / 47</span></div><div>What counts toward your window</div></div>
     <div class="body gap-sm">
       <div class="t-title">What counts toward your window.</div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">Everything Claude sees or generates takes space. Typical token costs per source:</div>
@@ -2027,12 +1799,12 @@
         A single tool call can cost more than your whole CLAUDE.md. This is why MCP tool discipline matters.
       </div>
     </div>
-    <div class="foot"><div>Scale shown is relative to a 50K chunk — your ceiling is ~1M.</div><div>40 / 48</div></div>
+    <div class="foot"><div>Scale shown is relative to a 50K chunk — your ceiling is ~1M.</div><div>38 / 47</div></div>
   </section>
 
   <!-- 14d · WHERE TO PUT BUSINESS CONTEXT -->
   <section data-screen-label="14d Where to put context" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>41 / 48</span></div><div>Where to put your business context</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>39 / 47</span></div><div>Where to put your business context</div></div>
     <div class="body gap-sm">
       <div class="t-title">This is where you put <em>business context.</em></div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">Six surfaces. Each with a different cost and a different trigger. Pick the right one per piece of context.</div>
@@ -2058,12 +1830,12 @@
         Every design choice has an obvious answer: does this go on the <strong>whiteboard</strong>, in the <strong>cabinet</strong>, on the <strong>desk</strong>, or on the <strong>wall</strong>?
       </div>
     </div>
-    <div class="foot"><div>These are the surfaces. The next slide is about what to do when the whiteboard rots.</div><div>41 / 48</div></div>
+    <div class="foot"><div>These are the surfaces. The next slide is about what to do when the whiteboard rots.</div><div>39 / 47</div></div>
   </section>
 
   <!-- 14e · THE REAL PROBLEM: CONTEXT ROT -->
   <section data-screen-label="14e Context rot" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>42 / 48</span></div><div>The real problem · context rot</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>40 / 47</span></div><div>The real problem · context rot</div></div>
     <div class="body gap-sm">
       <div class="t-title">The real problem: <em>context rot.</em></div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1700px;">Bigger isn't better. Performance <em>degrades</em> as the window fills — even when everything technically fits.</div>
@@ -2118,12 +1890,12 @@
         </div>
       </div>
     </div>
-    <div class="foot"><div>A full context window produces worse output than a clean one.</div><div>42 / 48</div></div>
+    <div class="foot"><div>A full context window produces worse output than a clean one.</div><div>40 / 47</div></div>
   </section>
 
   <!-- 15 · POST-MORTEM v2 vs v3 -->
   <section data-screen-label="15 Post-mortem v2 v3" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>43 / 48</span></div><div>Hallucinated report · rebuilt the skill</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>41 / 47</span></div><div>Hallucinated report · rebuilt the skill</div></div>
     <div class="body gap-sm">
       <div class="t-title-sm">Shipped a hallucinated report.<br/><span style="color:var(--muted);">We didn't patch — we rebuilt the skill.</span></div>
 
@@ -2168,12 +1940,12 @@
 
 
     </div>
-    <div class="foot"><div>The skill wasn't the problem. The architecture was.</div><div>43 / 48</div></div>
+    <div class="foot"><div>The skill wasn't the problem. The architecture was.</div><div>41 / 47</div></div>
   </section>
 
   <!-- 16 · AGENT / HOOK / GATE -->
   <section data-screen-label="16 Agent hook gate" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>44 / 48</span></div><div>Use agent, hook and gate in your skill</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>42 / 47</span></div><div>Use agent, hook and gate in your skill</div></div>
     <div class="body gap-md">
       <div class="t-title">Use <em>agent</em>, <em>hook</em>, and <em>gate</em> in your skill.</div>
       <div class="flex-row gap-md" style="margin-top:40px;">
@@ -2212,12 +1984,12 @@
         Agents focus the work. <strong>Hooks fire the gates</strong> — the rule runs without you. Gates keep it honest. Together: the harness — <em>the system that runs your operations.</em>
       </div>
     </div>
-    <div class="foot"><div></div><div>44 / 48</div></div>
+    <div class="foot"><div></div><div>42 / 47</div></div>
   </section>
 
   <!-- 16b · THE LEARNINGS LOOP -->
   <section data-screen-label="16b Learnings loop" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>44b / 48</span></div><div>The learnings loop — how the agent gets better without retraining</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>43 / 47</span></div><div>The learnings loop — how the agent gets better without retraining</div></div>
     <div class="body gap-md">
       <div class="t-title">The agent gets better <em>every run.</em> Without retraining.</div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1750px;">
@@ -2261,12 +2033,12 @@
         The harness catches mistakes. The loop <em>remembers</em> them. That's why the system gets better the more you use it.
       </div>
     </div>
-    <div class="foot"><div>Hook + file = the cheapest learning system you'll ever build.</div><div>44b / 48</div></div>
+    <div class="foot"><div>Hook + file = the cheapest learning system you'll ever build.</div><div>43 / 47</div></div>
   </section>
 
   <!-- 16c · SLOP-CHECK EXAMPLE · HOOK TRIGGERS GATE -->
   <section data-screen-label="16c Slop check example" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>45 / 48</span></div><div>Hook triggers gate — live example</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>44 / 47</span></div><div>Hook triggers gate — live example</div></div>
     <div class="body gap-sm">
       <div class="t-title">Hook triggers gate.<br/><span style="color:var(--muted);">Live example: how I avoid AI slop content in my writing.</span></div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1800px;line-height:1.45;">
@@ -2313,12 +2085,12 @@
       </div>
 
     </div>
-    <div class="foot"><div>Set up the rule once. Build your list once. The check runs forever — without you.</div><div>45 / 48</div></div>
+    <div class="foot"><div>Set up the rule once. Build your list once. The check runs forever — without you.</div><div>44 / 47</div></div>
   </section>
 
   <!-- 27 · GIT IS THE NEW NOTION -->
   <section data-screen-label="27 Team orchestration — Git is the new Notion" class="slide dark">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 4 · Team orchestration</span><span>46 / 48</span></div><div>Team orchestration · coordination layer</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 4 · Team orchestration</span><span>45 / 47</span></div><div>Team orchestration · coordination layer</div></div>
     <div class="body" style="justify-content:center;">
       <div class="t-eyebrow" style="margin-bottom:28px;">Team orchestration · five commands, smaller than Notion</div>
       <div class="hero-title" style="color:var(--paper);font-size:150px;line-height:.95;">
@@ -2337,12 +2109,12 @@
         Without this, you end up with 100 versions of the "affiliate performance report" — everyone on your team doing the <em>same same but different</em>.
       </div>
     </div>
-    <div class="foot"><div></div><div>46 / 48</div></div>
+    <div class="foot"><div></div><div>45 / 47</div></div>
   </section>
 
   <!-- 36 · YAOHONG CONTENT / DEMO PLACEHOLDER -->
   <section data-screen-label="36 Yaohong team orchestration" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 4 · Team orchestration</span><span>47 / 48</span></div><div>Live from Yaohong</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 4 · Team orchestration</span><span>46 / 47</span></div><div>Live from Yaohong</div></div>
     <div class="body gap-sm" style="justify-content:center;">
       <div class="t-eyebrow" style="color:var(--accent);margin-bottom:20px;">Handoff to Yaohong</div>
       <div class="t-title">Team orchestration, <em>in practice.</em></div>
@@ -2360,12 +2132,12 @@
         </div>
       </div>
     </div>
-    <div class="foot"><div>Placeholder — to be filled by Yaohong pre-workshop.</div><div>47 / 48</div></div>
+    <div class="foot"><div>Placeholder — to be filled by Yaohong pre-workshop.</div><div>46 / 47</div></div>
   </section>
 
   <!-- CLOSING -->
   <section data-screen-label="32 Closing" class="slide dark">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>CLOSE</span><span>48 / 48</span></div><div>Jakarta · 2026</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>CLOSE</span><span>47 / 47</span></div><div>Jakarta · 2026</div></div>
     <div class="body" style="justify-content:center;align-items:flex-start;">
       <div class="t-eyebrow" style="margin-bottom:36px;">End of workshop</div>
       <div class="hero-title" style="color:var(--paper);font-size:320px;line-height:.92;letter-spacing:-.025em;">Thank you.</div>
@@ -2374,7 +2146,7 @@
       </div>
       <div class="t-body" style="margin-top:48px;color:rgba(255,255,255,.6);">Tina Chu · Yaohong Chng</div>
     </div>
-    <div class="foot"><div></div><div>48 / 48</div></div>
+    <div class="foot"><div></div><div>47 / 47</div></div>
   </section>
 
 
