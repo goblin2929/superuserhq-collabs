@@ -613,30 +613,24 @@
     <div class="body">
       <div class="t-title">Claude has 3 interfaces to interact with its LLM.</div>
 
-      <div class="flex-row gap-md" style="margin-top:40px;align-items:stretch;">
-        <div class="grow" style="padding:28px 32px;background:var(--paper-2);border-left:4px solid var(--muted);">
-          <div class="t-eyebrow" style="margin-bottom:14px;">01 · Claude.ai</div>
-          <div class="t-title-sm" style="font-size:34px;line-height:1.1;margin-bottom:14px;">Smart colleague on chat.</div>
-          <div class="t-body" style="line-height:1.4;color:var(--muted);">Quick turns. Think, write, analyze. You drive every step.</div>
-        </div>
-        <div class="grow" style="padding:28px 32px;background:var(--paper-2);border-left:4px solid var(--sage);">
-          <div class="t-eyebrow" style="color:var(--sage);margin-bottom:14px;">02 · Cowork</div>
-          <div class="t-title-sm" style="font-size:34px;line-height:1.1;margin-bottom:14px;">Delegated assistant in a sandbox.</div>
-          <div class="t-body" style="line-height:1.4;color:var(--muted);">Daily knowledge work — 80%. Browses, edits files, runs longer tasks.</div>
-        </div>
-        <div class="grow" style="padding:28px 32px;background:var(--paper-2);border-left:4px solid var(--accent);">
-          <div class="t-eyebrow" style="color:var(--accent);margin-bottom:14px;">03 · Claude Code</div>
-          <div class="t-title-sm" style="font-size:34px;line-height:1.1;margin-bottom:14px;">An agentic system you build with.</div>
-          <div class="t-body" style="line-height:1.4;color:var(--muted);">Full file access, <span class="t-mono-sm">git</span>, shell, hooks, agents. Reusable systems your team shares.</div>
-        </div>
-      </div>
-
-      <div style="margin-top:32px;padding:18px 22px;background:var(--paper-2);border-left:3px solid var(--accent);">
-        <div class="t-eyebrow" style="color:var(--accent);margin-bottom:8px;">Rule of thumb — Cowork vs. Code</div>
-        <div class="t-body" style="line-height:1.45;max-width:1700px;">
-          Tool has an open <strong>API</strong>? → Claude Code (calls it directly via MCP). Tool blocks programmatic access (LinkedIn, Instagram)? → <strong>browser (Cowork or Claude in Chrome)</strong>. Claude logs in like a human, clicks like a human, reads what's on screen.
-        </div>
-      </div>
+      <table class="k compact" style="margin-top:32px;">
+        <thead>
+          <tr>
+            <th style="width:14%"></th>
+            <th>Claude.ai</th>
+            <th>Cowork</th>
+            <th style="color:var(--accent);">Claude Code</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="label">Metaphor</td><td class="old">Smart colleague on chat</td><td class="old">Delegated assistant in a sandbox</td><td class="new">Agentic system you build with</td></tr>
+          <tr><td class="label">Where it works</td><td class="old">On Anthropic's servers</td><td class="old">On your computer, in a sandbox</td><td class="new">On your computer · full access</td></tr>
+          <tr><td class="label">Interface</td><td class="old">Browser / desktop app</td><td class="old">Inside the desktop app</td><td class="new">Terminal / IDE / Desktop app</td></tr>
+          <tr><td class="label">Access to your system</td><td class="old">Via uploads / copy-paste only</td><td class="old">Limited sandbox — clicks, typing, screenshots</td><td class="new">Full file edits · <span class="t-mono-sm">git</span>, shell, VMs</td></tr>
+          <tr><td class="label">Strengths</td><td class="old">Think, write, analyze, use skills &amp; MCP</td><td class="old">Long-running tasks, browses, files, scheduled</td><td class="new">Code, tools, hooks, agents, team skills</td></tr>
+          <tr><td class="label">Best for</td><td class="old">Quick turns, one-off thinking</td><td class="old">Daily knowledge work · 80%</td><td class="new">Reusable systems teams share</td></tr>
+        </tbody>
+      </table>
     </div>
     <div class="foot"><div></div><div>9 / 47</div></div>
   </section>
