@@ -301,7 +301,7 @@ In claude.ai, go to Customize, then Connectors. *(point at slide)* Anthropic rec
 
 Anthropic-maintained connectors are one click to install. Most of what you'd want — Gmail, Drive, Calendar, the usual suspects — is already there.
 
-If you want to add a custom connector — say, for an internal tool — that's where you'd add it, but it requires creating an app in Google Cloud Console first. *(Yaohong, brief)* That's a step-two workshop. For today — you can follow Anthropic's instructions in the docs. We won't set one up live.
+If you want to add a custom connector — say, for an internal tool — that's where you'd add it. All you need on the Claude side is a remote MCP server URL. *(Yaohong, brief)* Building the MCP server itself is the harder part — and if the server needs to reach a Google API like Search Console, that's where Google Cloud Console comes in. You'll see that in Demo 2. That's a step-two workshop. We won't set one up live today.
 
 ---
 
