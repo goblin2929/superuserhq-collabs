@@ -961,37 +961,38 @@
   <!-- 07a · WHAT IS A SKILL -->
   <section data-screen-label="07a What is a skill" class="slide">
     <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 1 · The building blocks</span><span>18 / 46</span></div><div>What is a skill</div></div>
-    <div class="body gap-sm" style="justify-content:center;">
+    <div class="body gap-sm">
       <div class="t-eyebrow">Anthropic · Agent Skills</div>
-      <div class="t-title" style="max-width:1800px;margin-top:14px;">
+      <div class="t-title" style="max-width:1800px;margin-top:10px;">
         Skills are <em>folders of instructions</em> that Claude can discover and use to handle tasks more accurately.
       </div>
 
-      <div class="flex-row gap-md" style="margin-top:44px;align-items:stretch;">
-        <div class="grow" style="padding:26px 30px;background:var(--paper-2);border-left:4px solid var(--accent);">
-          <div class="t-eyebrow" style="color:var(--accent);margin-bottom:12px;">The file</div>
+      <div class="flex-row gap-md" style="margin-top:26px;align-items:stretch;">
+        <div class="grow" style="padding:22px 26px;background:var(--paper-2);border-left:4px solid var(--accent);">
+          <div class="t-eyebrow" style="color:var(--accent);margin-bottom:10px;">The file</div>
           <div class="t-body" style="line-height:1.4;">
             Every skill lives in a <span class="t-mono">SKILL.md</span> file with a <strong>name</strong> and a <strong>description</strong> in its frontmatter.
           </div>
         </div>
-        <div class="grow" style="padding:26px 30px;background:var(--paper-2);border-left:4px solid var(--sage);">
-          <div class="t-eyebrow" style="color:var(--sage);margin-bottom:12px;">The match</div>
+        <div class="grow" style="padding:22px 26px;background:var(--paper-2);border-left:4px solid var(--sage);">
+          <div class="t-eyebrow" style="color:var(--sage);margin-bottom:10px;">The match</div>
           <div class="t-body" style="line-height:1.4;">
             Claude compares your request against every skill's description. When the match is close enough, it <strong>activates the skill</strong> — automatically.
           </div>
         </div>
-        <div class="grow" style="padding:26px 30px;background:var(--paper-2);border-left:4px solid var(--good);">
-          <div class="t-eyebrow" style="color:var(--good);margin-bottom:12px;">The point</div>
+        <div class="grow" style="padding:22px 26px;background:var(--paper-2);border-left:4px solid var(--good);">
+          <div class="t-eyebrow" style="color:var(--good);margin-bottom:10px;">The point</div>
           <div class="t-body" style="line-height:1.4;">
             Teach Claude once. It applies that knowledge <em>every future session</em> that matches — no more repeating yourself.
           </div>
         </div>
       </div>
 
-      <div style="margin-top:34px;padding:22px 30px;background:var(--ink);color:var(--paper);border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:19px;line-height:1.6;max-width:1700px;">
-        <span style="color:var(--accent-soft);">skills/blog-production/SKILL.md</span><br/>
-        <span style="color:rgba(255,255,255,.55);">---<br/>name: blog-production<br/>description: Use when writing blog content — runs the 7-phase production workflow.<br/>---</span><br/>
-        <span style="color:rgba(255,255,255,.9);">## Steps<br/>1. Research · 2. Outline · 3. Draft · …</span>
+      <div class="t-eyebrow" style="margin-top:24px;color:var(--muted);">A real one from my own setup</div>
+      <div style="margin-top:8px;padding:20px 28px;background:var(--ink);color:var(--paper);border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:17px;line-height:1.6;max-width:1850px;">
+        <span style="color:var(--accent-soft);">~/.claude/skills/action-tracker.md</span><br/>
+        <span style="color:rgba(255,255,255,.55);">---<br/>name: action-tracker<br/>description: Manage Novastacks action items in Airtable — add, update, complete, view tasks. Triggers on "mark X as done", "add this to my list", "what's on my plate", "what's overdue", or /action-tracker.<br/>---</span><br/>
+        <span style="color:rgba(255,255,255,.9);">› I say <em>"mark the Tiket deck as done"</em> → Claude matches the description → runs action-tracker → updates Airtable. I never opened the file.</span>
       </div>
     </div>
     <div class="foot"><div>Source: anthropic.skilljar.com/introduction-to-agent-skills</div><div>18 / 46</div></div>
