@@ -657,23 +657,27 @@
           </div>
         </div>
 
-        <!-- RIGHT: three steps + insight -->
+        <!-- RIGHT: Tina's landing-page example mapped to the loop -->
         <div style="flex:1 1 0;display:flex;flex-direction:column;gap:10px;">
+          <div style="padding:12px 20px;background:var(--ink);color:var(--paper);border-left:3px solid var(--accent);">
+            <div class="t-eyebrow" style="color:var(--accent-soft);margin-bottom:4px;">My example — a real one from last week</div>
+            <div class="t-body" style="line-height:1.4;color:var(--paper);font-style:italic;">"There's a styling bug on our landing page. Find it and fix it."</div>
+          </div>
           <div style="padding:14px 20px;background:var(--paper-2);border-left:3px solid var(--accent);">
             <div class="t-eyebrow" style="color:var(--accent);margin-bottom:4px;">01 · Gather context</div>
-            <div class="t-body" style="line-height:1.4;">Read the error. Find the relevant files. Look up the docs. Figure out what's actually going on.</div>
+            <div class="t-body" style="line-height:1.4;">Claude opens the page files, reads the CSS, pulls up the broken element. Figures out what's actually breaking — no hand-holding from me.</div>
           </div>
           <div style="padding:14px 20px;background:var(--paper-2);border-left:3px solid var(--sage);">
             <div class="t-eyebrow" style="color:var(--sage);margin-bottom:4px;">02 · Formulate a plan</div>
-            <div class="t-body" style="line-height:1.4;">Decide how to fix it. Which code to change. Which tests will prove it's fixed.</div>
+            <div class="t-body" style="line-height:1.4;">Decides which rule to change, in which file — and how it'll confirm the page renders right afterward.</div>
           </div>
           <div style="padding:14px 20px;background:var(--paper-2);border-left:3px solid #4A6A7E;">
             <div class="t-eyebrow" style="color:#4A6A7E;margin-bottom:4px;">03 · Take action</div>
-            <div class="t-body" style="line-height:1.4;">Actually do it. Edit files. Run tests. Run a command. Then loop back to step 1 if the result isn't right.</div>
+            <div class="t-body" style="line-height:1.4;">Edits the CSS, reloads the page, screenshots it to check. Still off? It loops back to step 1 on its own.</div>
           </div>
           <div style="padding:14px 20px;border-top:1px solid rgba(20,18,16,.12);margin-top:4px;">
             <div class="t-body" style="line-height:1.45;">
-              <strong>The key insight:</strong> steps 1 and 3 require Claude to reach <em>outside the chat</em> — read files, run shell commands, hit APIs. That's <strong>tool use</strong>. That's why Code &amp; Cowork exist instead of just chat.
+              <strong>The key insight:</strong> steps 1 and 3 need Claude to reach <em>outside the chat</em> — open files, run commands, take screenshots. That's <strong>tool use</strong>. Five minutes, zero of my time on the actual editing.
             </div>
           </div>
         </div>
