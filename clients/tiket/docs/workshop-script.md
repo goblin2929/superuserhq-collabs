@@ -3,7 +3,7 @@
 
 **Audience:** 25 non-technical Tiket staff (B2B Sales, TDD/Content, Marketing) — 3 weeks Cowork experience
 **Speakers:** Tina (lead) + Yaohong (demos)
-**Duration:** 120 min + break | **Date:** April 20, 2026 — Jakarta
+**Duration:** 120 min + break | **Date:** May 29, 2026 — Jakarta
 
 ---
 
@@ -16,7 +16,7 @@
 **VISUAL:** Full-bleed title slide
 - "Claude Code Intermediate: Beyond Cowork"
 - Novastacks AI × Superuser HQ logos
-- Tiket.com Team — April 2026 — Jakarta
+- Tiket.com Team — May 2026 — Jakarta
 
 **SPEAK (Tina, 1 min):**
 > Welcome. Quick show of hands — who's used Cowork every day this past week? [pause for hands] Great. Who's built at least one skill? [pause] Good. You're not beginners. You've been using Claude for 3 weeks and you've built things that work.

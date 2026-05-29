@@ -4,7 +4,7 @@
 |---|---|
 | **Workshop** | Claude Code for B2B Marketing & Sales |
 | **Format** | 3-Hour Hands-On Workshop |
-| **Date** | 20 April 2026, afternoon (TBC) |
+| **Date** | 29 May 2026, afternoon (TBC) |
 | **Location** | tiket Singapore office (with Kamal) |
 | **Facilitators** | Novastacks AI x Superuser HQ |
 | **Participants** | 25 people — B2B Sales, TDD (content/trends), Marketing & Content |
@@ -302,7 +302,7 @@ Q&A, individual help, next steps.
 
 | Item | Why |
 |---|---|
-| Confirm 20 April afternoon | Lock the date |
+| Confirm 29 May afternoon | Lock the date |
 | Claude Code plan: Max or Business/Teams? | 25 people running agents = heavy token usage |
 | Internal API documentation or sample endpoints | For demo and breakout exercises |
 | Product feed format/access details | For hero demo |
