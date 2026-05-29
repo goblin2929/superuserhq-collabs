@@ -1862,13 +1862,6 @@
             </div>
           </div>
         </div>
-
-        <div class="grow" style="padding:22px 28px;background:var(--paper-2);border-left:3px solid var(--accent);">
-          <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:26px;line-height:1.35;color:var(--ink);">
-            "As token count grows, accuracy and recall degrade — a phenomenon known as <strong>context rot</strong>. Curating what's in context is just as important as how much space is available."
-          </div>
-          <div style="margin-top:12px;font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);">— Claude docs</div>
-        </div>
       </div>
 
       <div style="margin-top:22px;padding:22px 28px;background:var(--paper-2);border-left:3px solid var(--good);max-width:1800px;">
@@ -1984,57 +1977,8 @@
   </section>
 
   <!-- 16b · THE LEARNINGS LOOP -->
-  <section data-screen-label="16b Learnings loop" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>42 / 46</span></div><div>The learnings loop — how the agent gets better without retraining</div></div>
-    <div class="body gap-md">
-      <div class="t-title">How to get your agent / skill to get better <em>every run?</em></div>
-      <div class="t-subtitle" style="color:var(--muted);max-width:1750px;">
-        Remember the hook from the last slide — the tripwire your computer fires when Claude stops. It's not just cleanup. It's how the agent <em>learns</em>.
-      </div>
-
-      <div class="flex-row gap-md" style="margin-top:36px;">
-        <div class="card grow">
-          <div class="head">What happens</div>
-          <h3>The system writes its own notes after each run.</h3>
-          <p>When Claude finishes, a hook fires — a small program <em>your</em> computer runs automatically. It catches what went wrong (or what worked), writes one line to <span class="t-mono-sm">~/.claude/CLAUDE.md</span> or <span class="t-mono-sm">MEMORY.md</span>, and the next session reads it back. The agent walks in <em>already knowing the lesson.</em></p>
-        </div>
-        <div class="card grow">
-          <div class="head">Why it isn't fine-tuning</div>
-          <h3>No weights. No GPU. No data team.</h3>
-          <p>Fine-tuning retrains the model. Expensive, slow, ML infra. The learnings loop just changes <em>what the model knows before it starts.</em> A shell script can do this. Marketing teams can do this.</p>
-        </div>
-        <div class="card accent-bg grow">
-          <div class="head">What it buys you</div>
-          <h3>The work compounds.</h3>
-          <p>Most agents stay flat — run 10 looks like run 1. This one's measurably sharper at run 10. Every correction logged = one less repeated mistake across every future session. <em>Never let a correction evaporate.</em></p>
-        </div>
-      </div>
-
-      <div class="flex-row gap-md" style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(20,18,16,.12);">
-        <div class="grow" style="min-width:0;">
-          <div class="t-body" style="font-style:italic;color:var(--muted);">Same mistakes every time</div>
-          <div class="t-body" style="margin-top:4px;color:var(--accent);">→ Mistakes stop repeating</div>
-        </div>
-        <div class="grow" style="min-width:0;">
-          <div class="t-body" style="font-style:italic;color:var(--muted);">Needs a data team to improve</div>
-          <div class="t-body" style="margin-top:4px;color:var(--accent);">→ A text file does the job</div>
-        </div>
-        <div class="grow" style="min-width:0;">
-          <div class="t-body" style="font-style:italic;color:var(--muted);">Run 10 looks like run 1</div>
-          <div class="t-body" style="margin-top:4px;color:var(--accent);">→ Run 10 is sharper than run 1</div>
-        </div>
-      </div>
-
-      <div class="t-body-lg" style="margin-top:14px;max-width:1750px;">
-        The harness catches mistakes. The loop <em>remembers</em> them. That's why the system gets better the more you use it.
-      </div>
-    </div>
-    <div class="foot"><div>Hook + file = the cheapest learning system you'll ever build.</div><div>42 / 46</div></div>
-  </section>
-
-  <!-- 16c · SLOP-CHECK EXAMPLE · HOOK TRIGGERS GATE -->
   <section data-screen-label="16c Slop check example" class="slide">
-    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>43 / 46</span></div><div>Hook triggers gate — live example</div></div>
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>42 / 46</span></div><div>Hook triggers gate — live example</div></div>
     <div class="body gap-sm">
       <div class="t-title">Hook triggers gate.<br/><span style="color:var(--muted);">Live example: how I avoid AI slop content in my writing.</span></div>
       <div class="t-subtitle" style="color:var(--muted);max-width:1800px;line-height:1.45;">
@@ -2081,7 +2025,56 @@
       </div>
 
     </div>
-    <div class="foot"><div>Set up the rule once. Build your list once. The check runs forever — without you.</div><div>43 / 46</div></div>
+    <div class="foot"><div>Set up the rule once. Build your list once. The check runs forever — without you.</div><div>42 / 46</div></div>
+  </section>
+
+  <!-- 16c · SLOP-CHECK EXAMPLE · HOOK TRIGGERS GATE -->
+  <section data-screen-label="16b Learnings loop" class="slide">
+    <div class="chrome"><div class="left"><span><span class="dot"></span>SECTION 3 · The harness</span><span>43 / 46</span></div><div>The learnings loop — how the agent gets better without retraining</div></div>
+    <div class="body gap-md">
+      <div class="t-title">How to get your agent / skill to get better <em>every run?</em></div>
+      <div class="t-subtitle" style="color:var(--muted);max-width:1750px;">
+        Remember the hook from the last slide — the tripwire your computer fires when Claude stops. It's not just cleanup. It's how the agent <em>learns</em>.
+      </div>
+
+      <div class="flex-row gap-md" style="margin-top:36px;">
+        <div class="card grow">
+          <div class="head">What happens</div>
+          <h3>The system writes its own notes after each run.</h3>
+          <p>When Claude finishes, a hook fires — a small program <em>your</em> computer runs automatically. It catches what went wrong (or what worked), writes one line to <span class="t-mono-sm">~/.claude/CLAUDE.md</span> or <span class="t-mono-sm">MEMORY.md</span>, and the next session reads it back. The agent walks in <em>already knowing the lesson.</em></p>
+        </div>
+        <div class="card grow">
+          <div class="head">Why it isn't fine-tuning</div>
+          <h3>No weights. No GPU. No data team.</h3>
+          <p>Fine-tuning retrains the model. Expensive, slow, ML infra. The learnings loop just changes <em>what the model knows before it starts.</em> A shell script can do this. Marketing teams can do this.</p>
+        </div>
+        <div class="card accent-bg grow">
+          <div class="head">What it buys you</div>
+          <h3>The work compounds.</h3>
+          <p>Most agents stay flat — run 10 looks like run 1. This one's measurably sharper at run 10. Every correction logged = one less repeated mistake across every future session. <em>Never let a correction evaporate.</em></p>
+        </div>
+      </div>
+
+      <div class="flex-row gap-md" style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(20,18,16,.12);">
+        <div class="grow" style="min-width:0;">
+          <div class="t-body" style="font-style:italic;color:var(--muted);">Same mistakes every time</div>
+          <div class="t-body" style="margin-top:4px;color:var(--accent);">→ Mistakes stop repeating</div>
+        </div>
+        <div class="grow" style="min-width:0;">
+          <div class="t-body" style="font-style:italic;color:var(--muted);">Needs a data team to improve</div>
+          <div class="t-body" style="margin-top:4px;color:var(--accent);">→ A text file does the job</div>
+        </div>
+        <div class="grow" style="min-width:0;">
+          <div class="t-body" style="font-style:italic;color:var(--muted);">Run 10 looks like run 1</div>
+          <div class="t-body" style="margin-top:4px;color:var(--accent);">→ Run 10 is sharper than run 1</div>
+        </div>
+      </div>
+
+      <div class="t-body-lg" style="margin-top:14px;max-width:1750px;">
+        The harness catches mistakes. The loop <em>remembers</em> them. That's why the system gets better the more you use it.
+      </div>
+    </div>
+    <div class="foot"><div>Hook + file = the cheapest learning system you'll ever build.</div><div>43 / 46</div></div>
   </section>
 
   <!-- 27 · GIT IS THE NEW NOTION -->
@@ -2134,222 +2127,33 @@
   <!-- CLOSING -->
   <section data-screen-label="32 Closing" class="slide dark">
     <div class="chrome"><div class="left"><span><span class="dot"></span>CLOSE</span><span>46 / 46</span></div><div>Jakarta · 2026</div></div>
-    <div class="body" style="justify-content:center;align-items:flex-start;">
-      <div class="t-eyebrow" style="margin-bottom:24px;">End of workshop</div>
-      <div class="hero-title" style="color:var(--paper);font-size:160px;line-height:.92;letter-spacing:-.025em;">Thank you.</div>
-      <div class="t-subtitle" style="margin-top:24px;color:var(--accent-soft);font-family:'Instrument Serif',serif;font-style:italic;font-size:48px;line-height:1.05;">
-        Now go build something.
-      </div>
-      <div class="t-eyebrow" style="margin-top:56px;margin-bottom:24px;color:var(--accent-soft);">Follow us</div>
-      <div class="flex-row gap-md" style="align-items:flex-start;">
-        <div style="display:flex;flex-direction:column;align-items:center;gap:18px;">
-          <img src="screenshots/linkedin-qr-tina.jpg" alt="Tina Chu LinkedIn QR" style="width:300px;border-radius:18px;display:block;"/>
-          <div class="t-mono-sm" style="color:rgba(255,255,255,.85);letter-spacing:.04em;">novastacks-ai.com</div>
+    <div class="body" style="justify-content:center;align-items:center;">
+      <div class="flex-row" style="align-items:center;justify-content:space-between;width:100%;gap:72px;">
+        <div style="flex-shrink:0;">
+          <div class="t-eyebrow" style="margin-bottom:20px;">End of workshop</div>
+          <div class="hero-title" style="color:var(--paper);font-size:120px;line-height:.92;letter-spacing:-.025em;">Thank you.</div>
+          <div class="t-subtitle" style="margin-top:24px;color:var(--accent-soft);font-family:'Instrument Serif',serif;font-style:italic;font-size:44px;line-height:1.05;">
+            Now go build<br/>something.
+          </div>
         </div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:18px;">
-          <img src="screenshots/linkedin-qr-yaohong.jpg" alt="Yaohong Chng LinkedIn QR" style="width:300px;border-radius:18px;display:block;"/>
-          <div class="t-mono-sm" style="color:rgba(255,255,255,.85);letter-spacing:.04em;">superuserhq.com</div>
+        <div style="display:flex;flex-direction:column;align-items:flex-start;gap:24px;flex-shrink:0;">
+          <div class="t-eyebrow" style="color:var(--accent-soft);">Follow us · scan to connect</div>
+          <div class="flex-row gap-lg" style="align-items:flex-start;">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:18px;">
+              <img src="screenshots/linkedin-qr-tina.jpg" alt="Tina Chu LinkedIn QR" style="width:520px;border-radius:24px;display:block;"/>
+              <div class="t-mono-sm" style="color:rgba(255,255,255,.85);letter-spacing:.04em;font-size:22px;">novastacks-ai.com</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:18px;">
+              <img src="screenshots/linkedin-qr-yaohong.jpg" alt="Yaohong Chng LinkedIn QR" style="width:520px;border-radius:24px;display:block;"/>
+              <div class="t-mono-sm" style="color:rgba(255,255,255,.85);letter-spacing:.04em;font-size:22px;">superuserhq.com</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div class="foot"><div></div><div>46 / 46</div></div>
   </section>
 
-
-  <!-- ══════════════════════════════════════════════════════
-       APPENDIX — unnumbered reference slides (may be deleted)
-       ══════════════════════════════════════════════════════ -->
-
-  <!-- APPENDIX DIVIDER -->
-  <section data-screen-label="Appendix" class="slide dark">
-    <div class="chrome"><div class="left"><span>APPENDIX</span></div><div>Reference only</div></div>
-    <div class="body" style="justify-content:center;align-items:flex-start;">
-      <div class="t-eyebrow" style="color:rgba(255,255,255,.7);margin-bottom:28px;">Appendix · not in the main flow</div>
-      <div class="hero-title" style="color:#F8F2EA;font-family:'Instrument Serif',serif;font-size:240px;line-height:.95;letter-spacing:-.02em;">Appendix.</div>
-      <div class="t-subtitle" style="margin-top:40px;color:rgba(255,255,255,.75);max-width:1600px;font-size:32px;">
-        A real rebuild case study, the hook/gate pattern, a full live build-along, and the safety envelope — kept for reference or deeper sessions.
-      </div>
-    </div>
-    <div class="foot"><div>Skip in a 3-hour workshop. Open on request.</div><div>—</div></div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════
-       SECTION 3 — BUILD A WORKFLOW LIVE
-       ══════════════════════════════════════════════════════ -->
-
-  <!-- 18 · "NOW LET ME SHOW YOU THE BUILD" -->
-  <section data-screen-label="18 Handoff to Yaohong" class="slide accent">
-    <div class="chrome"><div class="left"><span>APPENDIX</span></div><div>Handoff · Yaohong</div></div>
-    <div class="body" style="justify-content:center;align-items:flex-start;">
-      <div class="mark" style="margin-bottom:48px;">Interlude</div>
-      <div class="big-quote" style="max-width:1700px;">
-        You've seen the gap.<br/>You've heard the concepts.<br/><span style="opacity:.75;">Now watch</span> the build.
-      </div>
-      <div class="t-subtitle" style="margin-top:56px;max-width:1200px;opacity:.85;">
-        Yaohong · live in the terminal.
-      </div>
-    </div>
-    <div class="foot"><div>— Tina</div><div>—</div></div>
-  </section>
-
-  <!-- 19 · LAYER 1 — FETCH -->
-  <section data-screen-label="19 Layer 1 fetch" class="slide">
-    <div class="chrome"><div class="left"><span>APPENDIX</span></div><div>Layer 01 · Fetch</div></div>
-    <div class="body flex-row gap-lg" style="align-items:center;">
-      <div class="layer-num">01</div>
-      <div class="flex-col gap-sm grow">
-        <div class="t-eyebrow">Raw data fetch</div>
-        <div class="t-title" style="font-size:84px;">Pull partner<br/>performance data.</div>
-        <div class="t-body" style="max-width:900px;color:var(--muted);">Simple starting point. Same kind of API call from earlier.</div>
-        <div class="term" style="margin-top:28px;">
-          <div><span class="p">&gt;</span> get partners from /api/partner-performance</div>
-          <div class="m">✓ 247 rows · last 90 days</div>
-        </div>
-      </div>
-    </div>
-    <div class="foot"><div>Yaohong · "I'll start with a simple data pull."</div><div>—</div></div>
-  </section>
-
-  <!-- 20 · LAYER 2 — ENRICH -->
-  <section data-screen-label="20 Layer 2 enrich" class="slide">
-    <div class="chrome"><div class="left"><span>APPENDIX</span></div><div>Layer 02 · Enrich</div></div>
-    <div class="body flex-row gap-lg" style="align-items:center;">
-      <div class="layer-num">02</div>
-      <div class="flex-col gap-sm grow">
-        <div class="t-eyebrow">Add context</div>
-        <div class="t-title" style="font-size:84px;">Enrich with<br/>web research.</div>
-        <div class="t-body" style="max-width:900px;color:var(--muted);">Recent news. Market position. Two data sources combined.</div>
-        <div class="term" style="margin-top:28px;">
-          <div><span class="p">&gt;</span> for each partner: WebSearch &amp; merge</div>
-          <div class="m">✓ enriched with market signals</div>
-        </div>
-      </div>
-    </div>
-    <div class="foot"><div>Yaohong · "Two data sources combined."</div><div>—</div></div>
-  </section>
-
-  <!-- 21 · LAYER 3 — ANALYZE -->
-  <section data-screen-label="21 Layer 3 analyze" class="slide">
-    <div class="chrome"><div class="left"><span>APPENDIX</span></div><div>Layer 03 · Analyze</div></div>
-    <div class="body flex-row gap-lg" style="align-items:center;">
-      <div class="layer-num">03</div>
-      <div class="flex-col gap-sm grow">
-        <div class="t-eyebrow">Thinking, not copying</div>
-        <div class="t-title" style="font-size:84px;">Find trends.<br/>Flag issues.</div>
-        <div class="t-body" style="max-width:900px;color:var(--muted);">Bookings. Sentiment. Tenure. Risk.</div>
-        <div class="term" style="margin-top:28px;">
-          <div><span class="p">&gt;</span> analyze partner health</div>
-          <div class="m">✓ 12 partners flagged · 4 high-risk</div>
-        </div>
-      </div>
-    </div>
-    <div class="foot"><div>Yaohong · "It's thinking, not just copying."</div><div>—</div></div>
-  </section>
-
-  <!-- 22 · LAYER 4 — FORMAT -->
-  <section data-screen-label="22 Layer 4 format" class="slide">
-    <div class="chrome"><div class="left"><span>APPENDIX</span></div><div>Layer 04 · Format</div></div>
-    <div class="body flex-row gap-lg" style="align-items:center;">
-      <div class="layer-num">04</div>
-      <div class="flex-col gap-sm grow">
-        <div class="t-eyebrow">A deliverable</div>
-        <div class="t-title" style="font-size:84px;">Format.<br/>Save to file.</div>
-        <div class="t-body" style="max-width:900px;color:var(--muted);">Clean report. One page. Something you could actually send.</div>
-        <div class="term" style="margin-top:28px;">
-          <div><span class="p">&gt;</span> render → briefs/partners-Q2.md</div>
-          <div class="m">✓ 1-page brief · ready to share</div>
-        </div>
-      </div>
-    </div>
-    <div class="foot"><div>Yaohong · "That's a deliverable."</div><div>—</div></div>
-  </section>
-
-  <!-- 23 · LAYER 5 — WRAP -->
-  <section data-screen-label="23 Layer 5 wrap" class="slide accent">
-    <div class="chrome"><div class="left"><span>APPENDIX</span></div><div>Layer 05 · Wrap</div></div>
-    <div class="body flex-row gap-lg" style="align-items:center;">
-      <div class="layer-num" style="color:rgba(255,255,255,.9);">05</div>
-      <div class="flex-col gap-sm grow">
-        <div class="t-eyebrow" style="color:rgba(255,255,255,.75);">The magic step</div>
-        <div class="t-title" style="font-size:84px;">Wrap into a<br/>skill + command.</div>
-        <div class="t-body" style="max-width:900px;color:rgba(255,255,255,.9);">Four layers, one entrypoint. Anyone on the team runs it.</div>
-        <div class="term" style="margin-top:28px;background:#1A0E08;">
-          <div><span class="p">$</span> /partner-report</div>
-          <div class="d">&nbsp;&nbsp;→ fetch · enrich · analyze · format · save</div>
-          <div class="m">✓ briefs/Q2.md</div>
-        </div>
-      </div>
-    </div>
-    <div class="foot"><div>Yaohong · "Anyone on the team can run it."</div><div>—</div></div>
-  </section>
-
-  <!-- 24 · THE PATTERN -->
-  <section data-screen-label="24 The pattern" class="slide">
-    <div class="chrome"><div class="left"><span>APPENDIX</span></div><div>The pattern</div></div>
-    <div class="body gap-sm">
-      <div class="t-title">Every workflow has the<br/>same <em>shape.</em></div>
-
-      <div class="flex-row gap-sm" style="margin-top:56px;align-items:stretch;">
-        <div class="card grow" style="padding:28px;"><div class="head">01</div><h3 style="font-size:38px;">Fetch</h3><p style="font-size:21px;">APIs, DBs, sheets.</p></div>
-        <div class="card grow" style="padding:28px;"><div class="head">02</div><h3 style="font-size:38px;">Enrich</h3><p style="font-size:21px;">Add context. Cross-reference.</p></div>
-        <div class="card grow" style="padding:28px;"><div class="head">03</div><h3 style="font-size:38px;">Analyze</h3><p style="font-size:21px;">Trends. Judgment. Scoring.</p></div>
-        <div class="card grow" style="padding:28px;"><div class="head">04</div><h3 style="font-size:38px;">Format</h3><p style="font-size:21px;">Clean output. Savable.</p></div>
-        <div class="card accent-bg grow" style="padding:28px;"><div class="head">05</div><h3 style="font-size:38px;">Wrap</h3><p style="font-size:21px;">One command.</p></div>
-      </div>
-
-      <div class="t-body-lg" style="margin-top:36px;font-family:'Instrument Serif',serif;font-style:italic;">Only the data sources and the output format change.</div>
-
-      <table class="k compact" style="margin-top:28px;">
-        <thead><tr><th style="width:14%">Team</th><th>Fetch</th><th>Enrich</th><th>Analyze</th><th>Format</th><th>Wrap</th></tr></thead>
-        <tbody>
-          <tr><td class="label">Sales</td><td class="old">Partner data</td><td class="old">Meeting notes</td><td class="old">Booking trends</td><td class="old">Call prep brief</td><td class="new accent">/call-prep Marriott</td></tr>
-          <tr><td class="label">Content</td><td class="old">Keyword rankings</td><td class="old">Competitor content</td><td class="old">Gap analysis</td><td class="old">Content calendar</td><td class="new accent">/content-plan Q3</td></tr>
-          <tr><td class="label">Marketing</td><td class="old">Campaign perf</td><td class="old">CRM data</td><td class="old">ROI by channel</td><td class="old">Weekly brief</td><td class="new accent">/weekly-brief</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="foot"><div></div><div>—</div></div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════
-       SECTION 4 — WORKSHOP DISCUSSION
-       ══════════════════════════════════════════════════════ -->
-
-
-  <!-- ══════════════════════════════════════════════════════
-       SECTION 5 — TEAM–AGENT COLLABORATION
-       ══════════════════════════════════════════════════════ -->
-
-  <!-- 26 · SAFETY ENVELOPE -->
-  <section data-screen-label="26 Safety envelope" class="slide">
-    <div class="chrome"><div class="left"><span>APPENDIX</span></div><div>The safety envelope</div></div>
-    <div class="body flex-row gap-lg" style="align-items:center;">
-      <div class="grow flex-col gap-sm">
-        <div class="t-title">Three concentric layers.<br/>No surprises.</div>
-        <table class="k" style="margin-top:32px;">
-          <tbody>
-            <tr><td class="label" style="width:30%;">Permissions</td><td class="new">What Claude <em>can't</em> do. Hard block.</td></tr>
-            <tr><td class="label">Hooks</td><td class="new accent">What the system <em>enforces.</em> Tripwire.</td></tr>
-            <tr><td class="label">Instructions</td><td class="new">What Claude <em>should</em> do. CLAUDE.md + skills.</td></tr>
-          </tbody>
-        </table>
-        <div class="t-body" style="margin-top:40px;max-width:900px;color:var(--muted);">
-          Blocked by permissions. Checked by hooks. Guided by rules. All version-controlled. All auditable.
-        </div>
-      </div>
-
-      <div style="flex-shrink:0;margin-right:20px;">
-        <div class="rings">
-          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:18px;letter-spacing:.14em;text-transform:uppercase;text-align:center;pointer-events:none;">
-            <div style="position:absolute;top:30px;left:50%;transform:translateX(-50%);">Permissions</div>
-            <div style="color:var(--accent);font-weight:600;">Hooks</div>
-            <div style="position:absolute;bottom:30px;left:50%;transform:translateX(-50%);color:var(--muted);">Instructions</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="foot"><div></div><div>—</div></div>
-  </section>
 
 </deck-stage>
 
