@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Presenter — Beyond Cowork</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<!--
+  Presenter view for beyond-cowork.html.
+
+  Open THIS file first (on your laptop), then click "Open slides" — that launches
+  the deck in a second window you can drag to the projector. The two windows talk
+  via postMessage (see deck-stage.js, "Presenter view"): the deck ships its notes
+  + slide labels here, streams its active slide, and accepts nav back, so arrow
+  keys in EITHER window drive both. Notes live only in the deck HTML; this page
+  holds nothing hardcoded. Works from file:// or a local server.
+-->
+<style>
+  :root{
+    --bg:#141210;
+    --bg-2:#1F1B17;
+    --panel:#26211C;
+    --rule:#3A332B;
+    --paper:#F3EEE5;
+    --muted:#9A9082;
+    --muted-2:#6E6659;
+    --accent:#D2693E;
+    --accent-soft:#E8B49A;
+    --good:#6FA277;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;height:100%;}
+  body{
+    background:var(--bg);
+    color:var(--paper);
+    font-family:'IBM Plex Sans',-apple-system,Helvetica,sans-serif;
+    display:flex;
+    flex-direction:column;
+    height:100vh;
+    overflow:hidden;
+  }
+
+  /* ---- top bar ---- */
+  .bar{
+    display:flex;align-items:center;gap:20px;
+    padding:14px 26px;
+    border-bottom:1px solid var(--rule);
+    background:var(--bg-2);
+    flex:0 0 auto;
+  }
+  .bar .brand{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--muted);
+  }
+  .bar .spacer{flex:1;}
+  .counter{
+    font-family:'Instrument Serif',serif;font-size:30px;line-height:1;color:var(--paper);
+  }
+  .counter .total{color:var(--muted);font-size:22px;}
+  .timer{
+    font-family:'IBM Plex Mono',monospace;font-size:30px;letter-spacing:.04em;
+    color:var(--accent-soft);cursor:pointer;user-select:none;min-width:104px;text-align:center;
+  }
+  .timer.paused{color:var(--muted-2);}
+  button{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--paper);background:transparent;
+    border:1px solid var(--rule);border-radius:7px;padding:9px 14px;cursor:pointer;
+    transition:border-color .15s, color .15s;
+  }
+  button:hover{border-color:var(--accent);color:var(--accent-soft);}
+  button.primary{border-color:var(--accent);color:var(--accent-soft);}
+
+  /* ---- main ---- */
+  main{flex:1;display:flex;flex-direction:column;min-height:0;padding:26px;gap:18px;}
+
+  .now{
+    flex:1;min-height:0;display:flex;flex-direction:column;
+    background:var(--panel);border:1px solid var(--rule);border-radius:14px;
+    padding:30px 36px;overflow:hidden;
+  }
+  .now .kicker{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:6px;
+  }
+  .cue{
+    font-family:'IBM Plex Mono',monospace;font-size:18px;color:var(--accent);
+    margin:2px 0 18px;letter-spacing:.02em;
+  }
+  .notes{overflow-y:auto;padding-right:10px;}
+  .notes ul{margin:0;padding:0;list-style:none;}
+  .notes li{
+    font-size:27px;line-height:1.42;margin:0 0 16px;padding-left:30px;position:relative;
+    color:#EDE6DA;
+  }
+  .notes li::before{
+    content:"";position:absolute;left:2px;top:15px;width:9px;height:9px;
+    background:var(--accent);border-radius:50%;
+  }
+  .notes p{font-size:27px;line-height:1.42;margin:0 0 16px;color:#EDE6DA;}
+  .notes em,.notes .italic{font-family:'Instrument Serif',serif;font-style:italic;}
+  .notes .empty{color:var(--muted-2);font-style:italic;font-family:'Instrument Serif',serif;font-size:26px;}
+
+  .next{
+    flex:0 0 auto;display:flex;align-items:baseline;gap:18px;
+    background:var(--bg-2);border:1px solid var(--rule);border-radius:12px;
+    padding:16px 22px;
+  }
+  .next .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--muted);flex:0 0 auto;
+  }
+  .next .label{font-family:'Instrument Serif',serif;font-size:26px;color:var(--paper);flex:0 0 auto;}
+  .next .peek{color:var(--muted);font-size:18px;line-height:1.3;overflow:hidden;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+
+  /* ---- disconnected overlay ---- */
+  .veil{
+    position:fixed;inset:0;background:rgba(20,18,16,.94);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;
+    text-align:center;padding:40px;z-index:10;
+  }
+  .veil.hidden{display:none;}
+  .veil h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:58px;margin:0;}
+  .veil p{color:var(--muted);font-size:20px;max-width:520px;line-height:1.5;margin:0;}
+  .veil .hint{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--muted-2);letter-spacing:.08em;}
+  .veil button{font-size:14px;padding:14px 26px;}
+</style>
+</head>
+<body>
+  <div class="bar">
+    <span class="brand">Presenter · Beyond Cowork</span>
+    <span class="spacer"></span>
+    <button id="btnPrev">◀ Prev</button>
+    <button id="btnNext">Next ▶</button>
+    <span class="counter"><span id="cur">–</span><span class="total"> / <span id="tot">–</span></span></span>
+    <span class="timer paused" id="timer" title="Click to start / pause · double-click to reset">00:00</span>
+    <button id="btnDeck" class="primary">Open slides ↗</button>
+  </div>
+
+  <main>
+    <section class="now">
+      <div class="kicker">Now speaking</div>
+      <div class="cue" id="cue"></div>
+      <div class="notes" id="notes"></div>
+    </section>
+    <section class="next">
+      <span class="tag">Next</span>
+      <span class="label" id="nextLabel">—</span>
+      <span class="peek" id="nextPeek"></span>
+    </section>
+  </main>
+
+  <div class="veil" id="veil">
+    <h1>Open the slides</h1>
+    <p>Launches the deck in a second window. Drag that window to the projector and
+       full-screen it — these notes stay here on your laptop and follow along.</p>
+    <button id="btnDeckBig" class="primary">Open slides ↗</button>
+    <span class="hint">arrow keys / space drive both windows</span>
+  </div>
+
+<script>
+(() => {
+  'use strict';
+  const DECK_URL = 'beyond-cowork.html';
+
+  // --- state (everything comes from the deck; nothing hardcoded) ----------
+  let deckWin = null;
+  let notes = [];
+  let labels = [];
+  let total = 0;
+  let index = 0;
+  let connected = false;
+
+  const $ = (id) => document.getElementById(id);
+  const els = {
+    cur: $('cur'), tot: $('tot'), cue: $('cue'), notes: $('notes'),
+    nextLabel: $('nextLabel'), nextPeek: $('nextPeek'),
+    timer: $('timer'), veil: $('veil'),
+  };
+
+  // --- talk to the deck ---------------------------------------------------
+  function sendNav(action, idx) {
+    if (!deckWin || deckWin.closed) return;
+    try { deckWin.postMessage({ type: 'deck-nav', action, index: idx }, '*'); } catch (e) {}
+  }
+  function hello() {
+    if (!deckWin || deckWin.closed) return;
+    try { deckWin.postMessage({ type: 'presenter-hello' }, '*'); } catch (e) {}
+  }
+
+  function openDeck() {
+    if (deckWin && !deckWin.closed) { deckWin.focus(); return; }
+    deckWin = window.open(DECK_URL, 'beyond-cowork-deck');
+    // The deck sends its payload on load; hello() covers the race where this
+    // window was already open. Poll briefly until the handshake lands.
+    let tries = 0;
+    const ping = setInterval(() => {
+      if (connected || !deckWin || deckWin.closed || tries++ > 40) { clearInterval(ping); return; }
+      hello();
+    }, 300);
+  }
+
+  window.addEventListener('message', (e) => {
+    const d = e && e.data;
+    if (!d || typeof d !== 'object') return;
+    if (d.type === 'deck-payload') {
+      notes = Array.isArray(d.notes) ? d.notes : [];
+      labels = Array.isArray(d.labels) ? d.labels : [];
+      total = d.total || notes.length || 0;
+      index = d.index || 0;
+      if (e.source) deckWin = e.source;   // adopt sender as our deck handle
+      setConnected(true);
+      render();
+    } else if (d.type === 'deck-slide') {
+      index = d.index || 0;
+      if (d.total) total = d.total;
+      maybeStartTimer();
+      render();
+    }
+  });
+
+  function setConnected(on) {
+    connected = on;
+    els.veil.classList.toggle('hidden', on);
+  }
+
+  // --- rendering ----------------------------------------------------------
+  // Note strings look like: "[Both · ~1 min]\n• line\n• line".
+  // First [..] line -> cue header; "• " lines -> bullets; anything else -> paragraph.
+  function renderNote(container, str) {
+    container.innerHTML = '';
+    if (!str) {
+      container.innerHTML = '<div class="empty">No notes for this slide.</div>';
+      return null;
+    }
+    const lines = String(str).split('\n');
+    let cue = null;
+    const blocks = [];
+    let ul = null;
+    for (const raw of lines) {
+      const line = raw.trim();
+      if (!line) { ul = null; continue; }
+      if (cue === null && /^\[.*\]$/.test(line)) { cue = line.replace(/^\[|\]$/g, ''); continue; }
+      if (/^[•▪◦-]\s+/.test(line)) {
+        if (!ul) { ul = document.createElement('ul'); blocks.push(ul); }
+        const li = document.createElement('li');
+        li.textContent = line.replace(/^[•▪◦-]\s+/, '');
+        ul.appendChild(li);
+      } else {
+        ul = null;
+        const p = document.createElement('p');
+        p.textContent = line;
+        blocks.push(p);
+      }
+    }
+    blocks.forEach((b) => container.appendChild(b));
+    return cue;
+  }
+
+  function firstNoteLine(str) {
+    if (!str) return '';
+    const lines = String(str).split('\n').map((l) => l.trim()).filter(Boolean);
+    for (const l of lines) {
+      if (/^\[.*\]$/.test(l)) continue;
+      return l.replace(/^[•▪◦-]\s+/, '');
+    }
+    return '';
+  }
+
+  function render() {
+    els.cur.textContent = total ? String(index + 1) : '–';
+    els.tot.textContent = total ? String(total) : '–';
+    const cue = renderNote(els.notes, notes[index]);
+    els.cue.textContent = cue || '';
+    els.cue.style.display = cue ? '' : 'none';
+    els.notes.scrollTop = 0;
+
+    const hasNext = index + 1 < total;
+    els.nextLabel.textContent = hasNext ? (labels[index + 1] || `Slide ${index + 2}`) : 'End';
+    els.nextPeek.textContent = hasNext ? firstNoteLine(notes[index + 1]) : '';
+  }
+
+  // --- timer (presenter-side, counts up) ----------------------------------
+  let timerRunning = false, elapsed = 0, startedAt = 0, ticker = null, autoStarted = false;
+  function fmt(ms) {
+    const s = Math.floor(ms / 1000);
+    const m = Math.floor(s / 60);
+    return String(m).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0');
+  }
+  function paintTimer() {
+    const ms = elapsed + (timerRunning ? (Date.now() - startedAt) : 0);
+    els.timer.textContent = fmt(ms);
+  }
+  function startTimer() {
+    if (timerRunning) return;
+    timerRunning = true; startedAt = Date.now();
+    els.timer.classList.remove('paused');
+    ticker = setInterval(paintTimer, 500);
+    paintTimer();
+  }
+  function pauseTimer() {
+    if (!timerRunning) return;
+    elapsed += Date.now() - startedAt; timerRunning = false;
+    els.timer.classList.add('paused');
+    clearInterval(ticker); paintTimer();
+  }
+  function resetTimer() {
+    timerRunning = false; elapsed = 0; autoStarted = false;
+    els.timer.classList.add('paused');
+    clearInterval(ticker); paintTimer();
+  }
+  function maybeStartTimer() {
+    if (!autoStarted) { autoStarted = true; startTimer(); }
+  }
+  els.timer.addEventListener('click', () => { timerRunning ? pauseTimer() : startTimer(); });
+  els.timer.addEventListener('dblclick', resetTimer);
+
+  // --- controls -----------------------------------------------------------
+  $('btnNext').addEventListener('click', () => sendNav('next'));
+  $('btnPrev').addEventListener('click', () => sendNav('prev'));
+  $('btnDeck').addEventListener('click', openDeck);
+  $('btnDeckBig').addEventListener('click', openDeck);
+
+  window.addEventListener('keydown', (e) => {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    const k = e.key;
+    if (k === 'ArrowRight' || k === 'PageDown' || k === ' ' || k === 'Spacebar') { sendNav('next'); }
+    else if (k === 'ArrowLeft' || k === 'PageUp') { sendNav('prev'); }
+    else if (k === 'Home') { sendNav('reset'); }
+    else if (k === 'End') { if (total) sendNav('goto', total - 1); }
+    else if (/^[0-9]$/.test(k)) { const n = k === '0' ? 9 : parseInt(k, 10) - 1; if (n < total) sendNav('goto', n); }
+    else { return; }
+    e.preventDefault();
+  });
+
+  // If the deck window goes away, drop back to the veil so we can relaunch.
+  setInterval(() => {
+    if (connected && (!deckWin || deckWin.closed)) { setConnected(false); }
+  }, 1000);
+
+  render();
+})();
+</script>
+</body>
+</html>

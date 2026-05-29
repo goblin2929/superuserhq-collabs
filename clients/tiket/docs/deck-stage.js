@@ -284,6 +284,7 @@
       this._onMouseMove = this._onMouseMove.bind(this);
       this._onTapBack = this._onTapBack.bind(this);
       this._onTapForward = this._onTapForward.bind(this);
+      this._onPresenterMessage = this._onPresenterMessage.bind(this);
     }
 
     get designWidth() {
@@ -300,6 +301,7 @@
       window.addEventListener('keydown', this._onKey);
       window.addEventListener('resize', this._onResize);
       window.addEventListener('mousemove', this._onMouseMove, { passive: true });
+      window.addEventListener('message', this._onPresenterMessage);
       // Initial collection + layout happens via slotchange, which fires on mount.
     }
 
@@ -307,6 +309,7 @@
       window.removeEventListener('keydown', this._onKey);
       window.removeEventListener('resize', this._onResize);
       window.removeEventListener('mousemove', this._onMouseMove);
+      window.removeEventListener('message', this._onPresenterMessage);
       if (this._hideTimer) clearTimeout(this._hideTimer);
       if (this._mouseIdleTimer) clearTimeout(this._mouseIdleTimer);
     }
@@ -408,6 +411,9 @@
       this._restoreIndex();
       this._applyIndex({ showOverlay: false, broadcast: true, reason: 'init' });
       this._fit();
+      // If a presenter window opened us, hand it the notes + labels now. It may
+      // also (re)request via 'presenter-hello' if it loads after us.
+      this._sendToPresenter(this._presenterPayload());
     }
 
     _collectSlides() {
@@ -461,6 +467,56 @@
       }
     }
 
+    // --- Presenter view (presenter.html) ---------------------------------
+    // A presenter window opens this deck via window.open and becomes our
+    // window.opener. We ship it the full notes + slide labels on a handshake,
+    // stream the active index on every nav, and accept nav commands back so
+    // either window can drive. All guarded on window.opener — a deck opened
+    // normally never touches this path.
+
+    _sendToPresenter(msg) {
+      const opener = window.opener;
+      if (!opener || opener === window || opener.closed) return;
+      try { opener.postMessage(msg, '*'); } catch (e) { /* ignore */ }
+    }
+
+    _presenterPayload() {
+      const labels = this._slides.map((s) =>
+        (s.getAttribute('data-screen-label') || '').trim());
+      return {
+        type: 'deck-payload',
+        notes: this._notes,
+        labels,
+        total: this._slides.length,
+        index: this._index,
+      };
+    }
+
+    _onPresenterMessage(e) {
+      const data = e && e.data;
+      if (!data || typeof data !== 'object') return;
+      if (data.type === 'presenter-hello') {
+        // Reply on the channel the message arrived from (the presenter window),
+        // which is also our opener. Idempotent — safe to receive repeatedly.
+        if (e.source && e.source.postMessage) {
+          try { e.source.postMessage(this._presenterPayload(), '*'); } catch (err) { /* ignore */ }
+        } else {
+          this._sendToPresenter(this._presenterPayload());
+        }
+        return;
+      }
+      if (data.type === 'deck-nav') {
+        switch (data.action) {
+          case 'next': this.next(); break;
+          case 'prev': this.prev(); break;
+          case 'reset': this.reset(); break;
+          case 'goto':
+            if (Number.isFinite(data.index)) this.goTo(data.index);
+            break;
+        }
+      }
+    }
+
     _restoreIndex() {
       try {
         const raw = localStorage.getItem(this._storageKey);
@@ -492,6 +548,9 @@
       if (broadcast) {
         // (1) Legacy: host-window postMessage for speaker-notes renderers.
         try { window.postMessage({ slideIndexChanged: curr }, '*'); } catch (e) {}
+
+        // (1b) Presenter view (presenter.html) opened this window via window.open.
+        this._sendToPresenter({ type: 'deck-slide', index: curr, total: this._slides.length });
 
         // (2) In-page CustomEvent on the <deck-stage> element itself.
         //     Bubbles and composes out of shadow DOM so slide code can listen:
