@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beyond Cowork — One-Page Field Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3EEE5; --paper-2:#EBE4D6; --ink:#141210; --ink-2:#2A2622;
+    --muted:#6E6659; --rule:#1C1915; --accent:#B8502A; --sage:#5C7A5E;
+    --good:#3E6A48; --bad:#9E2A1E;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{background:var(--paper-2); color:var(--ink);
+    font-family:'IBM Plex Sans',-apple-system,Helvetica,sans-serif;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;}
+
+  .page{
+    width:210mm; min-height:297mm; margin:10px auto; background:var(--paper);
+    padding:6mm 8mm 4mm; box-shadow:0 2px 18px rgba(0,0,0,.18);
+    display:flex; flex-direction:column;
+  }
+
+  /* ---- masthead ---- */
+  header{display:flex; align-items:flex-end; justify-content:space-between;
+    border-bottom:2.5px solid var(--rule); padding-bottom:4px; margin-bottom:5px;}
+  header .lede{display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;}
+  header h1{font-family:'Instrument Serif',serif; font-size:30px; line-height:1; font-weight:400;}
+  header .kicker{font-family:'IBM Plex Mono',monospace; font-size:8.5px; letter-spacing:1.8px;
+    text-transform:uppercase; color:var(--accent); font-weight:600; margin-bottom:2px;}
+  header .sub{font-size:9px; color:var(--muted); line-height:1.38; text-align:right; max-width:72mm;}
+  header .sub b{color:var(--ink-2);}
+
+  /* ---- columns ---- */
+  .grid{column-count:3; column-gap:5mm; column-fill:balance; flex:1;}
+  .card{break-inside:avoid; border:1px solid var(--rule); border-radius:4px;
+    padding:3px 8px 3px; margin-bottom:3px; background:var(--paper);}
+  .card.accent{background:#faf2ea; border-color:var(--accent);}
+  .card.sage{background:#eef2ec; border-color:var(--sage);}
+  .card.dark{background:var(--ink); color:var(--paper);}
+  .card.dark .h, .card.dark b{color:#fff;}
+  .card.dark .m{color:#bdb3a3;}
+
+  .h{font-family:'IBM Plex Mono',monospace; font-size:8.8px; font-weight:600;
+    letter-spacing:.7px; text-transform:uppercase; color:var(--accent);
+    display:flex; align-items:center; gap:6px; margin-bottom:3px;}
+  .h .n{font-size:8px; color:var(--muted); font-weight:500;}
+  .card.dark .h{color:#e8a27f;}
+
+  p, li, td, th, dd, dt{font-size:9.1px; line-height:1.3;}
+  b{font-weight:600; color:var(--ink-2);}
+  .m{color:var(--muted);}
+  .lead{margin-bottom:3px;}
+  code, .mono{font-family:'IBM Plex Mono',monospace; font-size:8.4px;
+    background:var(--paper-2); padding:.5px 3px; border-radius:2px;}
+  .card.dark code{background:rgba(255,255,255,.12); color:#f3eee5;}
+  pre{font-family:'IBM Plex Mono',monospace; font-size:8px; line-height:1.4;
+    background:var(--ink); color:#e9e2d5; padding:5px 6px; border-radius:3px;
+    white-space:pre; overflow:hidden; margin:3px 0;}
+  pre .ac{color:#e8a27f;} pre .gr{color:#8fae8f;} pre .mu{color:#9b9484;}
+
+  ul{list-style:none;} li{padding-left:10px; position:relative; margin-bottom:2px;}
+  li:before{content:"›"; position:absolute; left:0; color:var(--accent); font-weight:700;}
+  .card.dark li:before{color:#e8a27f;}
+
+  table{width:100%; border-collapse:collapse; margin-top:2px;}
+  td,th{text-align:left; vertical-align:top; padding:2px 5px 2px 0; border-bottom:1px solid var(--paper-2);}
+  th{font-size:7.6px; text-transform:uppercase; letter-spacing:.4px; color:var(--muted); font-weight:600;}
+  tr:last-child td{border-bottom:none;}
+  td:first-child{white-space:nowrap;}
+
+  .flow{display:flex; align-items:center; gap:4px; flex-wrap:wrap; margin-top:3px;}
+  .step{background:var(--paper-2); border-radius:3px; padding:2px 6px;
+    font-family:'IBM Plex Mono',monospace; font-size:8px; font-weight:600; color:var(--ink-2);}
+  .card.dark .step{background:rgba(255,255,255,.1); color:#f3eee5;}
+  .arr{color:var(--accent); font-weight:700; font-size:9.5px;}
+
+  .stat{display:flex; gap:8px; align-items:baseline; margin-bottom:2.5px;}
+  .stat .big{font-family:'Instrument Serif',serif; font-size:19px; line-height:.9; color:var(--accent); font-weight:400; min-width:42px;}
+  .stat .lbl{font-size:8.6px; line-height:1.28;}
+
+  .good{color:var(--good); font-weight:600;} .bad{color:var(--bad); font-weight:600;}
+  .pill{display:inline-block; background:var(--sage); color:#fff; border-radius:8px;
+    padding:1px 6px; font-size:8px; font-weight:600; letter-spacing:.3px;}
+
+  footer{margin-top:4px; border-top:1px solid var(--rule); padding-top:3px;
+    display:flex; justify-content:space-between; font-size:8px; color:var(--muted);
+    font-family:'IBM Plex Mono',monospace; letter-spacing:.3px;}
+
+  @page{size:A4; margin:9mm 8mm;}
+  @media print{
+    html,body{background:#fff;}
+    /* @page owns the physical margin; the page box carries no extra padding,
+       so content can never spill past the printable area onto a 2nd page. */
+    .page{margin:0; box-shadow:none; width:auto; min-height:0;
+      padding:0; display:block;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="lede">
+      <div>
+        <div class="kicker">Novastacks AI × Superuser HQ · Field Guide</div>
+        <h1>Beyond Cowork — the one-page reference</h1>
+      </div>
+    </div>
+    <div class="sub">From a personal assistant to <b>the system that runs your operations.</b><br>
+      Tiket.com · Jakarta · 29 May 2026 · Tina Chu &amp; Yaohong Ch'ng</div>
+  </header>
+
+  <div class="grid">
+
+    <!-- 0a -->
+    <div class="card sage">
+      <div class="h"><span class="n">00</span>The shift is already happening</div>
+      <div class="stat"><span class="big">87%</span><span class="lbl">of marketers use gen&nbsp;AI in a recurring workflow <span class="m">— up from 51% two years ago.</span></span></div>
+      <div class="stat"><span class="big">6.1h</span><span class="lbl">recovered per marketer, per week. <span class="m">Seniors save 8–10h.</span></span></div>
+      <div class="stat"><span class="big">44%</span><span class="lbl">productivity gain for teams using AI strategically.</span></div>
+      <div class="stat"><span class="big">80%</span><span class="lbl">shorter content-production timelines.</span></div>
+    </div>
+
+    <!-- 0b -->
+    <div class="card">
+      <div class="h"><span class="n">00</span>Operator → Manager</div>
+      <p class="lead m">The marketing function is changing too.</p>
+      <table>
+        <tr><td><b>Traditional marketer</b></td><td>Strategises, executes &amp; reports by hand with off-the-shelf tools. <span class="m">Execution.</span></td></tr>
+        <tr><td><b>Marketing engineer</b></td><td>Builds the systems, agents &amp; automations that make every GTM function faster. <span class="m">Orchestration.</span></td></tr>
+      </table>
+      <p class="m" style="margin-top:3px">“With tools you’re the operator. With agents you’re the <b>manager</b>.”</p>
+    </div>
+
+    <!-- 1 -->
+    <div class="card">
+      <div class="h"><span class="n">01</span>Three modes · one AI</div>
+      <p class="lead m">Knowing which to reach for is the whole job.</p>
+      <table>
+        <tr><td><b>Automation</b></td><td>Human wires a flow; machine runs it the same way every time. <span class="m">n8n, Zapier, RPA.</span></td></tr>
+        <tr><td><b>Augmentation</b></td><td>You do the work <i>with</i> AI — prompt, it helps, you review. <span class="m">Claude.ai, Cowork.</span></td></tr>
+        <tr><td><b>Agency</b></td><td>You set a goal; the agent plans &amp; executes end-to-end. <span class="m">Claude Code, agents.</span></td></tr>
+      </table>
+      <p class="m" style="margin-top:3px">“With tools you’re the <b>operator</b>. With agents you’re the <b>manager</b>.”</p>
+    </div>
+
+    <!-- 2 -->
+    <div class="card">
+      <div class="h"><span class="n">02</span>3 interfaces to the same brain</div>
+      <table>
+        <tr><th>Surface</th><th>Is</th><th>Reach</th></tr>
+        <tr><td><b>Claude.ai</b></td><td>Smart colleague on chat</td><td>Uploads / paste</td></tr>
+        <tr><td><b>Cowork</b></td><td>Delegated assistant in a sandbox</td><td>Limited sandbox</td></tr>
+        <tr><td><b>Claude&nbsp;Code</b></td><td>Agentic system you build with</td><td>Full files · git · shell</td></tr>
+      </table>
+    </div>
+
+    <!-- 3 -->
+    <div class="card">
+      <div class="h"><span class="n">03</span>The inner loop</div>
+      <p class="lead m">How a coding assistant actually works. The model just <i>thinks</i> — the harness lets it reach the real world.</p>
+      <div class="flow">
+        <span class="step">Gather context</span><span class="arr">→</span>
+        <span class="step">Act / edit</span><span class="arr">→</span>
+        <span class="step">Verify</span><span class="arr">↺</span>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="card">
+      <div class="h"><span class="n">04</span>Tool Use · what makes it <i>do</i> things</div>
+      <p class="lead m">On its own an LLM is text in → text out. Tool use = it says “call this” and your computer does it.</p>
+      <ul>
+        <li><b>Retrieval</b> — look things up. <span class="m">“Pull last week’s GA4.”</span></li>
+        <li><b>Tools</b> — take action. <span class="m">“Edit README, <code>git commit</code>.”</span></li>
+        <li><b>Memory</b> — carry across turns. <span class="m">Voice, banned words.</span></li>
+      </ul>
+    </div>
+
+    <!-- 5 -->
+    <div class="card accent">
+      <div class="h"><span class="n">05</span>Connectors (MCP)</div>
+      <p class="lead">= <b>how Claude reaches your tools.</b> Live data instead of guessing — the connection is invisible to you.</p>
+      <p class="m">Install in <code>claude.ai → Customize → Connectors</code>. Anthropic-maintained, one click. Check with <code>/mcp</code>.</p>
+      <p class="m" style="margin-top:2px">A tool result can cost more tokens than your whole CLAUDE.md — <b>be selective.</b></p>
+    </div>
+
+    <!-- 5b -->
+    <div class="card">
+      <div class="h"><span class="n">05</span>Claude in Chrome · browser agent</div>
+      <p class="lead m">A Chrome extension that drives your <b>logged-in</b> browser — read pages, click, fill forms.</p>
+      <p>Runs in your session, so portals, LinkedIn, Instagram are all reachable. <span class="m">Best for research behind logins &amp; pulling structured data off live sites.</span></p>
+    </div>
+
+    <!-- 5c -->
+    <div class="card">
+      <div class="h"><span class="n">05</span>Artifact vs Skill</div>
+      <p class="lead"><b>Artifact</b> = a thing produced. <b>Skill</b> = a process for producing things.</p>
+      <table>
+        <tr><th></th><th>Artifact</th><th>Skill</th></tr>
+        <tr><td class="m">is</td><td>Rendered output (app, HTML, SVG)</td><td>A markdown procedure</td></tr>
+        <tr><td class="m">lives</td><td>In the conversation</td><td>On disk · <code>~/.claude/skills/</code></td></tr>
+        <tr><td class="m">lasts</td><td>Per-conversation</td><td>Forever · auto-loads</td></tr>
+      </table>
+    </div>
+
+    <!-- 6 -->
+    <div class="card dark">
+      <div class="h"><span class="n">06</span>Skill vs Agent — the whole game</div>
+      <table>
+        <tr><th></th><th>Skill</th><th>Agent</th></tr>
+        <tr><td class="m">model</td><td>Recipe card</td><td>Specialist chef</td></tr>
+        <tr><td class="m">scope</td><td>One procedure</td><td>Role + judgment</td></tr>
+        <tr><td class="m">context</td><td>Just description</td><td>Own whiteboard</td></tr>
+        <tr><td class="m">fires</td><td>Match / <code>/name</code></td><td>Delegated by role</td></tr>
+        <tr><td class="m">best</td><td>Same steps, new inputs</td><td>Novel / heavy research</td></tr>
+      </table>
+    </div>
+
+    <!-- 7 -->
+    <div class="card">
+      <div class="h"><span class="n">07</span>When to write a skill</div>
+      <p class="lead"><b>Second time you explain the same thing to Claude — that’s a skill waiting to be written.</b></p>
+      <ul>
+        <li>Re-describing your PR-feedback structure</li>
+        <li>Re-pasting your brand voice rules</li>
+        <li>Re-explaining your audit methodology</li>
+      </ul>
+      <p class="m" style="margin-top:2px">Write it once. Description = the trigger. Body = your standard. Every matching session gets it free.</p>
+    </div>
+
+    <!-- 8 -->
+    <div class="card">
+      <div class="h"><span class="n">08</span>Anatomy of a skill</div>
+      <pre>~/.claude/skills/<span class="ac">prospect-audit/</span>
+├── <span class="ac">SKILL.md</span>      <span class="mu"># required · the manual</span>
+├── references/   <span class="mu"># rules · on demand</span>
+├── scripts/      <span class="mu"># fetch · checks</span>
+└── assets/       <span class="mu"># templates</span></pre>
+      <p class="m"><b>On-demand loading:</b> the description is always indexed; folders load only when the task needs them.</p>
+    </div>
+
+    <!-- 9 -->
+    <div class="card">
+      <div class="h"><span class="n">09</span>SKILL.md — the manual</div>
+      <pre><span class="mu">---</span>
+<span class="ac">name:</span> prospect-audit
+<span class="ac">description:</span> Use when qualifying
+  a new prospect — runs the audit.
+<span class="ac">allowed-tools:</span> Read, WebSearch
+<span class="mu">---</span>
+## Trigger   <span class="mu"># when it fires</span>
+## Workflow  <span class="mu"># step by step</span>
+## Output    <span class="mu"># expected format</span></pre>
+      <p class="m"><b>description</b> is the trigger — Claude matches your prompt against it.</p>
+    </div>
+
+    <!-- 10 -->
+    <div class="card">
+      <div class="h"><span class="n">10</span>What makes a good skill</div>
+      <ul>
+        <li><b>Sharp description</b> — names the trigger, not “affiliate tool”</li>
+        <li><b>One job</b> — one skill = one procedure</li>
+        <li><b>Names its inputs</b> — “requires GA4 ID, month”</li>
+        <li><b>Short body</b> — push detail to <code>references/</code></li>
+        <li><b>Earns its place</b> — written from a real repeat</li>
+      </ul>
+    </div>
+
+    <!-- 11 -->
+    <div class="card">
+      <div class="h"><span class="n">11</span>Three ways to invoke</div>
+      <ul>
+        <li><b>Slash</b> — <code>/prospect-audit acme.com</code>. Explicit, fastest.</li>
+        <li><b>Tell Claude</b> — mention it in plain language.</li>
+        <li><b>Auto</b> — Claude matches your request to the description and fires it.</li>
+      </ul>
+    </div>
+
+    <!-- 11b -->
+    <div class="card">
+      <div class="h"><span class="n">11</span>Plugins · the app store</div>
+      <p class="lead m">How Anthropic packages skills, agents &amp; scripts into one installable bundle — shared through its marketplace.</p>
+      <p>In Claude Code: <code>/plugin</code> → Directory → install. <span class="m">Organize and share whole toolkits in one click.</span></p>
+    </div>
+
+    <!-- 12 -->
+    <div class="card dark">
+      <div class="h"><span class="n">12</span>The harness · where context lives</div>
+      <pre>~/.claude/
+├── <span class="ac">CLAUDE.md</span>     <span class="mu"># constitution</span>
+├── settings.json <span class="mu"># perms · hooks</span>
+├── hooks/        <span class="mu"># auto-run</span>
+├── agents/  commands/  skills/
+project/.claude/  <span class="mu"># scope rules</span>
+MEMORY.md         <span class="mu"># auto-loaded</span></pre>
+      <p class="m">Structured folders boot Claude into your voice &amp; rules <b>every session — no re-briefing.</b></p>
+    </div>
+
+    <!-- 13 -->
+    <div class="card">
+      <div class="h"><span class="n">13</span>Context window &amp; rot</div>
+      <p class="lead m">One shared working memory per session (1M ceiling). Bigger isn’t better — accuracy drops as it fills.</p>
+      <p><b>Signs of rot:</b> <span class="m">forgets early instructions · output goes generic · inconsistent across runs · drops plan steps.</span></p>
+      <p style="margin-top:2px"><b>Fixes:</b> <span class="m">trim CLAUDE.md · split procedures into skills · delegate to agents (fresh ctx) · <code>/clear</code> &amp; reset.</span></p>
+    </div>
+
+    <!-- 14 -->
+    <div class="card">
+      <div class="h"><span class="n">14</span>Hooks · gates · the learning loop</div>
+      <ul>
+        <li><b>Hook</b> — a tripwire <i>your computer</i> runs (not Claude): before risky moves, after every edit, when Claude stops.</li>
+        <li><b>Gate</b> — a hook that blocks/flags work that fails a check.</li>
+        <li><b>Learns without retraining</b> — a stop-hook writes one line to <code>MEMORY.md</code>; next session reads it back.</li>
+      </ul>
+    </div>
+
+    <!-- 15 -->
+    <div class="card accent">
+      <div class="h"><span class="n">15</span>The safety envelope</div>
+      <p class="lead">Three concentric layers. No surprises.</p>
+      <ul>
+        <li><b>Permissions</b> — what Claude <i>can’t</i> do. Hard block.</li>
+        <li><b>Hooks</b> — what the system <i>enforces</i>. Tripwire.</li>
+        <li><b>Instructions</b> — what Claude <i>should</i> do. CLAUDE.md + skills.</li>
+      </ul>
+      <p class="m" style="margin-top:2px">All version-controlled. All auditable.</p>
+    </div>
+
+    <!-- 16 -->
+    <div class="card">
+      <div class="h"><span class="n">16</span>Git = the new Notion</div>
+      <p class="lead m">Five commands, the coordination layer.</p>
+      <table>
+        <tr><td><code>git pull</code></td><td>Refresh — get the latest</td></tr>
+        <tr><td><code>git status</code></td><td>What’s changed since last save</td></tr>
+        <tr><td><code>git commit</code></td><td>Save a version, with a note</td></tr>
+        <tr><td><code>git push</code></td><td>Share / publish</td></tr>
+        <tr><td><code>git log</code></td><td>Version history — who, what, when</td></tr>
+      </table>
+    </div>
+
+    <!-- 17 -->
+    <div class="card dark">
+      <div class="h"><span class="n">17</span>Every workflow has one shape</div>
+      <div class="flow" style="margin-bottom:3px">
+        <span class="step">Fetch</span><span class="arr">→</span>
+        <span class="step">Enrich</span><span class="arr">→</span>
+        <span class="step">Analyze</span><span class="arr">→</span>
+        <span class="step">Format</span><span class="arr">→</span>
+        <span class="step">Wrap</span>
+      </div>
+      <p class="m">APIs/sheets → add context → trends &amp; judgment → clean output → <b>one command anyone runs.</b> Only the data sources and output format change.</p>
+      <p class="m" style="margin-top:2px"><code>/call-prep</code> · <code>/content-plan</code> · <code>/weekly-brief</code></p>
+    </div>
+
+  </div>
+
+  <footer>
+    <span>BEYOND COWORK · BUILDING AGENTIC WORKFLOWS ON CLAUDE</span>
+    <span>NOVASTACKS AI × SUPERUSER HQ · 2026</span>
+  </footer>
+
+</div>
+</body>
+</html>
